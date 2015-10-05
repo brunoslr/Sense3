@@ -8,9 +8,15 @@ public class LaneMovement : MonoBehaviour
     public float sideDisp;
     public float forwardspeed;
 
-    public GameObject vibrate;
+   // public GameObject vibrate;
 
     private float horizontalAxis;
+    private bool getInput;
+
+    void Start()
+    {
+        getInput = true;
+    }
 
 	// Update is called once per frame
     void Update()
@@ -18,26 +24,29 @@ public class LaneMovement : MonoBehaviour
         transform.Translate(transform.forward * forwardspeed * Time.deltaTime);
 
         horizontalAxis = Input.GetAxis("Horizontal");
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+       
+        if (horizontalAxis < 0 && getInput) 
         {
+            getInput = false;
             StartCoroutine(ShiftLane(-1));
+
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (horizontalAxis > 0 && getInput)
         {
+            getInput = false;
             StartCoroutine(ShiftLane(1));
         }
 
-        if (vibrate.transform.position.z - transform.position.z < 0.0f)
-        {
-            StopVibration();
-        }
+        //if (vibrate.transform.position.z - transform.position.z < 0.0f)
+        //{
+        //    StopVibration();
+        //}
 
-        else if(vibrate.transform.position.z - transform.position.z < 10.0f)
-        {
-            StartCoroutine(StartVibration());
-        }
+        //else if(vibrate.transform.position.z - transform.position.z < 10.0f)
+        //{
+        //    StartCoroutine(StartVibration());
+        //}
     }
 
     IEnumerator ShiftLane(int moveDirection)
@@ -50,21 +59,23 @@ public class LaneMovement : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target , step);
             yield return null;
         }
+
+        getInput = true;
     }
 
-    IEnumerator StartVibration()
-    {
-        float increment = 0.0f;
-        while (increment <= 1.0f)
-        {
-            GamePad.SetVibration(0, increment, increment);
-            increment += 0.01f;
-            yield return null;
-        }
-    }
+    //IEnumerator StartVibration()
+    //{
+    //    float increment = 0.0f;
+    //    while (increment <= 1.0f)
+    //    {
+    //        GamePad.SetVibration(0, increment, increment);
+    //        increment += 0.01f;
+    //        yield return null;
+    //    }
+    //}
 
-    void StopVibration()
-    {
-        GamePad.SetVibration(0, 0.0f, 0.0f);
-    }
+    //void StopVibration()
+    //{
+    //    GamePad.SetVibration(0, 0.0f, 0.0f);
+    //}
 }
