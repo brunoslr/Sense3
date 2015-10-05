@@ -5,10 +5,12 @@ public class LaneMovement : MonoBehaviour
 {
     public float sideSpeed;
     public float sideDisp;
+    public float forwardspeed;
 	
 	// Update is called once per frame
 	void Update () 
     {
+        transform.Translate(transform.forward * forwardspeed * Time.deltaTime);
            
         if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
