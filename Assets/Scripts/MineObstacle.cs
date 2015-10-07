@@ -7,8 +7,12 @@ using XInputDotNetPure;
 
 public class MineObstacle : MonoBehaviour {
 
+    private IEnumerator stopVibration;
+    private bool breaknow;
 	// Use this for initialization
 	void Start () {
+        stopVibration = StartVibration();
+        breaknow = false;
         this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 	}
 	
@@ -27,6 +31,7 @@ public class MineObstacle : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
+        //StopCoroutine(stopVibration);
         StopVibration();
     }
 
@@ -37,13 +42,20 @@ public class MineObstacle : MonoBehaviour {
         {
             GamePad.SetVibration(0, increment, increment);
             increment += 0.01f;
+            if(breaknow)
+            {
+                break;
+            }
             yield return null;
         }
         StopVibration();
+        breaknow = false;
     }
 
     void StopVibration()
     {
+        breaknow = true;
+        StopCoroutine(stopVibration);
         GamePad.SetVibration(0, 0.0f, 0.0f);
     }
 }
