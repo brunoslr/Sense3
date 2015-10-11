@@ -20,7 +20,7 @@ public class soundObstacle : MonoBehaviour {
 	
 	}
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
@@ -50,10 +50,11 @@ public class soundObstacle : MonoBehaviour {
             }
 
             other.gameObject.GetComponentInChildren<AudioController>().playTemp((int) pan);
-
   
         }
     }
+    
+    
 
     void OnTriggerExit(Collider other)
     {
