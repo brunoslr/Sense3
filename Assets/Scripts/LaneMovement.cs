@@ -7,15 +7,20 @@ public class LaneMovement : MonoBehaviour
     public float sideSpeed;
     public float sideDisp;
     public float forwardspeed;
+    public float tilt;
+    public float jumpDisp;
+    public float jumpSpeed;
 
    // public GameObject vibrate;
 
     private float horizontalAxis;
-    private bool getInput;
+    private bool getSideInput;
+    private bool getJumpInput;
 
     void Start()
     {
-        getInput = true;
+        getSideInput = true;
+        getJumpInput = true;
     }
 
 	// Update is called once per frame
@@ -24,29 +29,24 @@ public class LaneMovement : MonoBehaviour
         transform.Translate(transform.forward * forwardspeed * Time.deltaTime);
 
         horizontalAxis = Input.GetAxis("Horizontal");
-       
-        if (horizontalAxis < 0 && getInput) 
-        {
-            getInput = false;
-            StartCoroutine(ShiftLane(-1));
 
+        if (horizontalAxis < 0 && getSideInput) 
+        {
+            getSideInput = false;
+            StartCoroutine(ShiftLane(-1));
         }
 
-        if (horizontalAxis > 0 && getInput)
+        if (horizontalAxis > 0 && getSideInput)
         {
-            getInput = false;
+            getSideInput = false;
             StartCoroutine(ShiftLane(1));
         }
 
-        //if (vibrate.transform.position.z - transform.position.z < 0.0f)
-        //{
-        //    StopVibration();
-        //}
-
-        //else if(vibrate.transform.position.z - transform.position.z < 10.0f)
-        //{
-        //    StartCoroutine(StartVibration());
-        //}
+        if(Input.GetButtonDown("Jump") && getJumpInput)
+        {
+            getJumpInput = false;
+            StartCoroutine(JumpShip());
+        }
     }
 
     IEnumerator ShiftLane(int moveDirection)
@@ -57,25 +57,30 @@ public class LaneMovement : MonoBehaviour
             float step = sideSpeed * Time.deltaTime;
             Vector3 target = new Vector3(displacement, transform.position.y, transform.position.z);
             transform.position = Vector3.MoveTowards(transform.position, target , step);
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, -moveDirection * tilt);
             yield return null;
         }
 
-        getInput = true;
+        getSideInput = true;
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
     }
 
-    //IEnumerator StartVibration()
-    //{
-    //    float increment = 0.0f;
-    //    while (increment <= 1.0f)
-    //    {
-    //        GamePad.SetVibration(0, increment, increment);
-    //        increment += 0.01f;
-    //        yield return null;
-    //    }
-    //}
+    IEnumerator JumpShip()
+    {
+        while(transform.position.y < jumpDisp)
+        {
+            float step = jumpSpeed * Time.deltaTime;
+            transform.Translate(0.0f, step, 0.0f);
+            yield return null;
+        }
 
-    //void StopVibration()
-    //{
-    //    GamePad.SetVibration(0, 0.0f, 0.0f);
-    //}
+        while(transform.position.y > 1.0f)
+        {
+            float step = -jumpSpeed * Time.deltaTime;
+            transform.Translate(0.0f, step, 0.0f);
+            yield return null;
+        }
+
+        getJumpInput = true;
+    }
 }
