@@ -80,7 +80,8 @@ public class soundObstacle : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponentInChildren<AudioController>().stopCurrent();
+            if(this.gameObject.GetComponentInChildren<PickUpScript>().pickedUp == false)
+                other.gameObject.GetComponentInChildren<AudioController>().stopCurrent();
         }
        // audioSource[0].loop = false;
        // audioSource[1].loop = false;
