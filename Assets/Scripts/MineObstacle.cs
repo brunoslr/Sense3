@@ -43,7 +43,8 @@ public class MineObstacle : MonoBehaviour {
     }
     void LetsBounce()
     {
-        for(int i =0; i<15; i++){
+        for (int i = 0; i < 15; i++)
+        {
             Vector3 prevScale = Spikes.transform.GetChild(i).localScale;
             prevScale.y = Mathf.Lerp(prevScale.y, _spectrum.spectrum[Random.Range(0, 10)] * 50, Time.deltaTime * 10);
             Spikes.transform.GetChild(i).localScale = prevScale;
