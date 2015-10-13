@@ -7,7 +7,6 @@ public class PickUpScript : MonoBehaviour {
 	void OnTriggerExit(Collider other){
 		if(other.gameObject.name == "Player"){
             other.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
-            Debug.Log("HI");
 		}
 		
 	}
