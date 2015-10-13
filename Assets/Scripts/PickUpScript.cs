@@ -4,9 +4,9 @@ using System.Collections;
 public class PickUpScript : MonoBehaviour {
 
 	// Use this for initialization
-	void OnTriggerExit(Collider other){
+	void OnTriggerEnter(Collider other){
 		if(other.gameObject.name == "Player"){
-            other.gameObject.GetComponentInChildren<AudioController>().playPermanent();
+            other.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
 		}
 		
 	}

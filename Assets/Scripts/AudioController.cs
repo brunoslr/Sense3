@@ -5,14 +5,14 @@ using System.Collections.Generic;
 public class AudioController : MonoBehaviour {
 
     public AudioClip[] soundtracks;
-    private int counter,maxLevel;
+    private int counter, maxLevel;
     private AudioSource[] audioSources;
 
 	// Use this for initialization
 	void Start () {
         maxLevel = soundtracks.Length;
         counter = 0;
-
+        Debug.Log(maxLevel);
         for(int i=0; i< maxLevel; i++)
         {
             this.gameObject.AddComponent<AudioSource>();
@@ -34,29 +34,52 @@ public class AudioController : MonoBehaviour {
 	
 	}
 
-    public void playPermanent()
+    public void incrementCounter()
     {
         //if(other.name.Contains("Sound"))
         if(counter < maxLevel)
         {
-            audioSources[counter].panStereo = 0;
-            audioSources[counter].mute = false;
-            audioSources[counter].timeSamples = audioSources[0].timeSamples;
-            audioSources[counter].Play();
             counter++;
         }
     }
 
-    public void playTemp(int pan)
+    public void playCurrent(float pan)
     {
-        audioSources[counter].panStereo = pan;
-        audioSources[counter].mute = false;
-        audioSources[counter].timeSamples = audioSources[0].timeSamples;
-        audioSources[counter].Play();
+        if (counter < maxLevel)
+        {
+            audioSources[counter].panStereo = pan;
+            audioSources[counter].mute = false;
+            audioSources[counter].timeSamples = audioSources[0].timeSamples;
+            audioSources[counter].Play();
+        }
     }
 
-    public void stopTemp()
+    public void setCurrentPan(float pan)
     {
-        audioSources[counter].mute = true ;
+        if(counter<maxLevel)
+            audioSources[counter].panStereo = pan;
+    }
+
+    public void stopCurrent()
+    {
+        if (counter < maxLevel)
+            audioSources[counter].mute = true ;
+    }
+
+    public void stopTrackAt(int i)
+    {
+        i = i - 1;
+        if (i < maxLevel)
+            audioSources[i].mute = true;
+    }
+    public void playTrackAt(int i)
+    {
+        i = i - 1;
+        if (i < maxLevel)
+        {
+            audioSources[i].mute = false;
+            audioSources[i].timeSamples = audioSources[0].timeSamples;
+            audioSources[i].Play();
+        }
     }
 }
