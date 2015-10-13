@@ -11,6 +11,7 @@ GameObject:
   - 33: {fileID: 3300418}
   - 65: {fileID: 6507768}
   - 23: {fileID: 2372138}
+  - 114: {fileID: 11458266}
   m_Layer: 0
   m_Name: Obstacles
   m_TagString: Untagged
@@ -73,6 +74,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11458266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ac372971707db408aa2229dbaff56d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sideSpeed: 10
+  sideDisp: 4.5
+  forwardspeed: 5
+  probabilityOfMovingAgain: 6
+  checkIfCanMoveAfterUpdates: 60
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
