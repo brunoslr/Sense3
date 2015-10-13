@@ -12,7 +12,7 @@ public class AudioController : MonoBehaviour {
 	void Start () {
         maxLevel = soundtracks.Length;
         counter = 0;
-        Debug.Log(maxLevel);
+
         for(int i=0; i< maxLevel; i++)
         {
             this.gameObject.AddComponent<AudioSource>();
