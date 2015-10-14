@@ -4,14 +4,17 @@ using System.Collections;
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Rigidbody))]
 
-public class soundObstacle : MonoBehaviour {
-
+public class soundObstacle : MonoBehaviour 
+{
     //private AudioSource[] audioSource;
     //private AudioSource CenteraudioSource;
-	
+    
+    private AudioVisualizer audioVisualizer;
+    public GameObject shock;
     // Use this for initialization
 	void Start () {
         //audioSource = this.gameObject.GetComponents<AudioSource>();
+        audioVisualizer = shock.GetComponent<AudioVisualizer>();
 	}
 	
 	// Update is called once per frame
@@ -49,7 +52,6 @@ public class soundObstacle : MonoBehaviour {
             }
 
             other.gameObject.GetComponentInChildren<AudioController>().playCurrent((int)pan);
-  
         }
     }
 
@@ -57,20 +59,21 @@ public class soundObstacle : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-
             Vector3 playerPosition = other.gameObject.transform.position;
             float pan = this.transform.position.x - playerPosition.x;
 
-             if (Mathf.Abs(pan) >= 2.0f)
+            if (Mathf.Abs(pan) >= 2.0f)
             {
                 pan = pan / Mathf.Abs(pan);
             }
+
             else
             {
                 pan = 0;
             }
-             other.gameObject.GetComponentInChildren<AudioController>().setCurrentPan(pan);
-
+            
+            other.gameObject.GetComponentInChildren<AudioController>().setCurrentPan(pan);
+            audioVisualizer.PlayerVisualizer(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z);
         }
     }
     
@@ -81,6 +84,7 @@ public class soundObstacle : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponentInChildren<AudioController>().stopCurrent();
+            audioVisualizer.StopVisualizer();
         }
        // audioSource[0].loop = false;
        // audioSource[1].loop = false;
