@@ -5,39 +5,29 @@ using XInputDotNetPure;
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Rigidbody))]
 
-public class MineObstacle : MonoBehaviour {
-
-    private IEnumerator stopVibration;
-    private bool breaknow;
+public class MineObstacle : MonoBehaviour
+{
     public GameObject Spikes;
     Spectrum _spectrum;
 	// Use this for initialization
 	void Start () {
-        _spectrum = GameObject.Find("BGCamera").GetComponent<Spectrum>();
-        stopVibration = StartVibration();
-        breaknow = false;
+        _spectrum = GameObject.Find("BackgroundCamera").GetComponent<Spectrum>();
         this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
         if (this.gameObject.transform.childCount > 2)
             Spikes = this.gameObject.transform.GetChild(1).gameObject;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            StartCoroutine(StartVibration());
-        }
-       
-    }
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
+            StartVibration();
             LetsBounce();
         }
     }
@@ -54,31 +44,16 @@ public class MineObstacle : MonoBehaviour {
     }
     void OnTriggerExit(Collider other)
     {
-        //StopCoroutine(stopVibration);
         StopVibration();
     }
 
-    IEnumerator StartVibration()
+    void StartVibration()
     {
-        float increment = 0.0f;
-        while (increment <= 1.0f)
-        {
-            GamePad.SetVibration(0, increment, increment);
-            increment += 0.01f;
-            if(breaknow)
-            {
-                break;
-            }
-            yield return null;
-        }
-        StopVibration();
-        breaknow = false;
+        GamePad.SetVibration(0, 1.0f, 1.0f);
     }
 
     void StopVibration()
     {
-        breaknow = true;
-        StopCoroutine(stopVibration);
         GamePad.SetVibration(0, 0.0f, 0.0f);
     }
 }
