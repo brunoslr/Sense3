@@ -215,6 +215,7 @@ GameObject:
   - 33: {fileID: 3398342}
   - 65: {fileID: 6590616}
   - 23: {fileID: 2350318}
+  - 54: {fileID: 5436416}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged
@@ -285,7 +286,7 @@ GameObject:
   - 54: {fileID: 5425260}
   - 114: {fileID: 11469466}
   m_Layer: 0
-  m_Name: GroundObstacle10
+  m_Name: Rumble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -603,7 +604,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .600000024, z: 0}
+  m_LocalPosition: {x: -.0776897445, y: .600000024, z: -45.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 429202}
@@ -1660,6 +1661,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!54 &5436416
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161258}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &6565866
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1679,7 +1695,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161258}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
