@@ -13,6 +13,8 @@ public class Spectrum : MonoBehaviour
     public FFTWindow window;
     public List<Material> cubeMat;
     public float[] spectrum;
+    int counter = 0;
+    Vector3 pos;
     void Start()
     {
         //  Instantiate(parent);
@@ -20,7 +22,7 @@ public class Spectrum : MonoBehaviour
         {
             //float angle = i * Mathf.PI * 2 / numberOfObjects;
             //   Vector3 pos = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
-            Vector3 pos = new Vector3(i + 2, 0, 0);
+            pos = new Vector3(i, 0, 0);
             GameObject temp = Instantiate(prefab, pos, Quaternion.identity) as GameObject;
             temp.transform.SetParent(parent.transform);
             temp.gameObject.layer = 8;
@@ -37,10 +39,10 @@ public class Spectrum : MonoBehaviour
         for (int i = 0; i < numberOfObjects; i++)
         {
             Vector3 previousScale = cubes[i].transform.localScale;
-            previousScale.y = Mathf.Lerp(previousScale.y, spectrum[Random.Range(0, 10)] * 50, Time.deltaTime * 10);
+           // previousScale.y = Mathf.Lerp(previousScale.y, spectrum[Random.Range(0, 10)] * 50, Time.deltaTime * 10);
+            previousScale.y = Mathf.Lerp(previousScale.y, Mathf.Clamp(spectrum[i] * (30 + i * i), 0, 10), Time.deltaTime * 15);
             cubes[i].transform.localScale = previousScale;
             cubes[i].transform.position = new Vector3(cubes[i].transform.position.x, previousScale.y/2 + 1, cubes[i].transform.position.z);
-            
         }
     }
 
