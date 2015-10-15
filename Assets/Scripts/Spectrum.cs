@@ -60,8 +60,5 @@ public class Spectrum : MonoBehaviour
 
             cubeMat[i].color = new Color(rCol2, rCol, rCol3, 0.5f);
         }
-
-
     }
-
 }

@@ -62,8 +62,8 @@ public class AudioVisualizer : MonoBehaviour
             angle += (360f / segment);
 
         }
+
         LineColor = new Color(Random.value, Random.value, Random.value);
         lRenderer.SetColors(LineColor, LineColor);
     }
-    
 }
