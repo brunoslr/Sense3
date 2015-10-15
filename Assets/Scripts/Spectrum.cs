@@ -22,7 +22,7 @@ public class Spectrum : MonoBehaviour
         {
             //float angle = i * Mathf.PI * 2 / numberOfObjects;
             //   Vector3 pos = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
-            pos = new Vector3(i, 0, 0);
+            pos = new Vector3(i+8, 0, 0);
             GameObject temp = Instantiate(prefab, pos, Quaternion.identity) as GameObject;
             temp.transform.SetParent(parent.transform);
             temp.gameObject.layer = 8;
