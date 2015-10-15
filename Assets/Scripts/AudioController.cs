@@ -64,6 +64,8 @@ public class AudioController : MonoBehaviour {
         //Increment the coutner and the track values 
         counter = (counter +1) % maxLevel;
         trackCounter = (trackCounter + 1) % (maxLevel * 2);
+
+        stopCurrent();
         //Update the tempSource with the next track to be played when entering a sound region
         tempSource.clip = soundtracks[trackCounter];
 
