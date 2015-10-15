@@ -186,7 +186,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 34948260}
   - 33: {fileID: 34948259}
-  - 64: {fileID: 34948258}
   - 23: {fileID: 34948257}
   m_Layer: 0
   m_Name: Plane (3)
@@ -219,18 +218,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &34948258
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 34948256}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &34948259
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1090,7 +1077,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 532939886}
   - 33: {fileID: 532939885}
-  - 64: {fileID: 532939884}
   - 23: {fileID: 532939883}
   m_Layer: 0
   m_Name: Plane (1)
@@ -1123,18 +1109,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &532939884
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 532939882}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &532939885
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1167,7 +1141,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 568544134}
   - 33: {fileID: 568544133}
-  - 64: {fileID: 568544132}
   - 23: {fileID: 568544131}
   m_Layer: 0
   m_Name: Plane
@@ -1200,18 +1173,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &568544132
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 568544130}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &568544133
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2280,7 +2241,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1248335477}
   - 33: {fileID: 1248335476}
-  - 64: {fileID: 1248335475}
   - 23: {fileID: 1248335474}
   m_Layer: 0
   m_Name: Plane (4)
@@ -2313,18 +2273,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &1248335475
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1248335473}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1248335476
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3503,7 +3451,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 2042163620}
   - 33: {fileID: 2042163619}
-  - 64: {fileID: 2042163618}
   - 23: {fileID: 2042163617}
   m_Layer: 0
   m_Name: Plane (2)
@@ -3536,18 +3483,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &2042163618
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2042163616}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &2042163619
 MeshFilter:
   m_ObjectHideFlags: 0
