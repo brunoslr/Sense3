@@ -13,7 +13,7 @@ public class PickUpScript : MonoBehaviour {
     void OnTriggerEnter(Collider other){
 		if(other.gameObject.name == "Player"){
             pickedUp = true;
-            other.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
+            other.gameObject.GetComponent<LaneMovement>().pickUp() ;
 		}
 		
 	}

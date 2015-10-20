@@ -11,6 +11,8 @@ public class LaneMovement : MonoBehaviour
     public float jumpDisp;
     public float jumpSpeed;
 
+    private uint hitCounter;
+    private float baseSpeed;
    // public GameObject vibrate;
 
     private float horizontalAxis;
@@ -19,8 +21,33 @@ public class LaneMovement : MonoBehaviour
 
     void Start()
     {
+        hitCounter = 0;
+        baseSpeed = forwardspeed;
         getSideInput = true;
         getJumpInput = true;
+    }
+
+    public void pickUp()
+    {
+        if (hitCounter < 4)
+        {
+            hitCounter += 1;
+            Debug.Log(hitCounter);
+            forwardspeed = (1.0f + (0.75f * hitCounter)) * baseSpeed;
+            Debug.Log(baseSpeed);
+            this.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
+        }
+    }
+
+    public void hit()
+    {
+        if (hitCounter > 0)
+        {
+            hitCounter -= 1;
+            Debug.Log(hitCounter);
+            forwardspeed = (1.0f + (0.75f * hitCounter)) * baseSpeed;
+            this.gameObject.GetComponentInChildren<AudioController>().decrementCounter();
+        }
     }
 
 	// Update is called once per frame

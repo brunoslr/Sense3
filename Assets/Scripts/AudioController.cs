@@ -55,7 +55,7 @@ public class AudioController : MonoBehaviour {
         a.loop = b.loop;
     }
 
-    //Whe n incrementing the coutner
+    //incrementing the counter
     public void incrementCounter()
     {
         //stopCurrent();
@@ -73,6 +73,16 @@ public class AudioController : MonoBehaviour {
         //This plays the track along with the track about to be substituted
     }
 
+    //Does the exact opposite of the above
+    public void decrementCounter()
+    {
+        counter = (counter - 1 + maxLevel) % maxLevel;
+        trackCounter = (trackCounter - 1 + (maxLevel * 2)) % (maxLevel * 2);
+
+        stopTrackAt(counter);
+        tempSource.clip = soundtracks[trackCounter];
+    }
+
     //These functions only change the values ofthe temp audio source
     public void playCurrent(float pan)
     {
@@ -85,6 +95,7 @@ public class AudioController : MonoBehaviour {
 
     public void setCurrentPan(float pan)
     {
+        tempSource.mute = false;
         tempSource.panStereo = pan;
     }
 
@@ -97,7 +108,7 @@ public class AudioController : MonoBehaviour {
     //A handle to play or stop a track.
     public void stopTrackAt(int i)
     {
-        if (i < maxLevel && i > 0)
+        if (i < maxLevel && i >= 0)
             audioSources[i].mute = true;
     }
 
