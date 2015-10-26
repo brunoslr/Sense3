@@ -31,7 +31,8 @@ public class soundObstacle : MonoBehaviour
             if (ColliderEnterCount == false)
             {
                 Vector3 playerPosition = other.gameObject.transform.position;
-                float pan = this.transform.position.x - playerPosition.x;
+           
+                 float pan = this.transform.GetChild(0).position.x - playerPosition.x;
 
                 //audioSource[0].timeSamples = other.gameObject.GetComponent<AudioSource>().timeSamples;
                 //audioSource[1].timeSamples = other.gameObject.GetComponent<AudioSource>().timeSamples;
@@ -64,9 +65,9 @@ public class soundObstacle : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Vector3 playerPosition = other.gameObject.transform.position;
-            float pan = this.transform.position.x - playerPosition.x;
+            float pan = this.transform.GetChild(0).position.x - playerPosition.x;
 
-            if (Mathf.Abs(pan) >= 2.0f)
+            if (Mathf.Abs(pan) >= 10.0f)
             {
                 pan = pan / Mathf.Abs(pan);
             }

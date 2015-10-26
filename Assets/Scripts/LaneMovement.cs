@@ -34,9 +34,7 @@ public class LaneMovement : MonoBehaviour
         if (hitCounter < 4)
         {
             hitCounter += 1;
-            Debug.Log(hitCounter);
             forwardspeed = (1.0f + (0.75f * hitCounter)) * baseSpeed;
-            Debug.Log(baseSpeed);
             this.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
         }
     }
@@ -46,7 +44,6 @@ public class LaneMovement : MonoBehaviour
         if (hitCounter > 0)
         {
             hitCounter -= 1;
-            Debug.Log(hitCounter);
             forwardspeed = (1.0f + (0.75f * hitCounter)) * baseSpeed;
             this.gameObject.GetComponentInChildren<AudioController>().decrementCounter();
         }
