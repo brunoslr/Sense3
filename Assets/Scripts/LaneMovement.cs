@@ -16,7 +16,9 @@ public class LaneMovement : MonoBehaviour
     private float horizontalAxis;
     private bool getSideInput;
     private bool getJumpInput;
-
+    float horizontalStep;
+    Vector3 tempTrans;
+    Quaternion temprot;
     void Start()
     {
         getSideInput = true;
@@ -30,39 +32,16 @@ public class LaneMovement : MonoBehaviour
 
         horizontalAxis = Input.GetAxis("Horizontal");
 
-        if (horizontalAxis < 0 && getSideInput) 
-        {
-            getSideInput = false;
-            StartCoroutine(ShiftLane(-1));
-        }
-
-        if (horizontalAxis > 0 && getSideInput)
-        {
-            getSideInput = false;
-            StartCoroutine(ShiftLane(1));
-        }
-
+        horizontalStep = horizontalAxis * sideSpeed * Time.deltaTime;
+        tempTrans = new Vector3(horizontalStep, 0, 0);
+        transform.Translate(tempTrans,Space.World);
+        temprot = Quaternion.Euler(0, 0, -horizontalAxis * tilt);
+        transform.rotation = temprot;
         if(Input.GetButtonDown("Jump") && getJumpInput)
         {
             getJumpInput = false;
             StartCoroutine(JumpShip());
         }
-    }
-
-    IEnumerator ShiftLane(int moveDirection)
-    {
-        float displacement = Mathf.Clamp(transform.position.x + (moveDirection * sideDisp), -sideDisp, +sideDisp);
-        while (Mathf.Abs(Mathf.Abs(transform.position.x) - Mathf.Abs(displacement)) > 0.0f)
-        {
-            float step = sideSpeed * Time.deltaTime;
-            Vector3 target = new Vector3(displacement, transform.position.y, transform.position.z);
-            transform.position = Vector3.MoveTowards(transform.position, target , step);
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, -moveDirection * tilt);
-            yield return null;
-        }
-
-        getSideInput = true;
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
     }
 
     IEnumerator JumpShip()
