@@ -34,6 +34,7 @@ public class AudioController : MonoBehaviour {
             audioSources[i].panStereo = 0;
             audioSources[i].volume = 1;
             audioSources[i].loop = true;
+            audioSources[i].Play();
         }
 
         //Set the values the same as other source for temp too
@@ -42,7 +43,14 @@ public class AudioController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+        int baseSample = audioSources[0].timeSamples;
+        tempSource.timeSamples = baseSample;
+        for(int i =1; i < maxLevel; i++)
+        {
+            audioSources[i].timeSamples = baseSample;
+        }
+
 	}
 
     //a = b
@@ -86,11 +94,10 @@ public class AudioController : MonoBehaviour {
     //These functions only change the values ofthe temp audio source
     public void playCurrent(float pan)
     {
+        int tempCounter = (counter-1 + maxLevel)% maxLevel;
         tempSource.panStereo = pan;
         tempSource.mute = false;
-        tempSource.timeSamples = audioSources[0].timeSamples;
         tempSource.Play();
-        
     }
 
     public void setCurrentPan(float pan)
