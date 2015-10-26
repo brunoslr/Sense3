@@ -13,7 +13,6 @@ public class Spectrum : MonoBehaviour
     public FFTWindow window;
     public List<Material> cubeMat;
     public float[] spectrum;
-    int counter = 0;
     Vector3 pos;
     void Start()
     {

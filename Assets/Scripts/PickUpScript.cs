@@ -3,10 +3,17 @@ using System.Collections;
 
 public class PickUpScript : MonoBehaviour {
 
+    public bool pickedUp;
+
 	// Use this for initialization
-	void OnTriggerExit(Collider other){
+    void Start()
+    {
+        pickedUp = false;
+    }
+    void OnTriggerEnter(Collider other){
 		if(other.gameObject.name == "Player"){
-            other.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
+            pickedUp = true;
+            other.gameObject.GetComponent<LaneMovement>().pickUp() ;
 		}
 		
 	}
