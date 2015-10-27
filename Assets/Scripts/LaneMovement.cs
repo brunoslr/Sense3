@@ -7,9 +7,12 @@ public class LaneMovement : MonoBehaviour
     public float sideSpeed;
     public float sideDisp;
     public float forwardspeed;
+    public float speedMultiplier = 0.75f;
     public float tilt;
     public float jumpDisp;
     public float jumpSpeed;
+    public float trailTime = 2.0f;
+
 
     private uint hitCounter;
     private float baseSpeed;
@@ -35,6 +38,8 @@ public class LaneMovement : MonoBehaviour
         {
             hitCounter += 1;
             forwardspeed = (1.0f + (0.75f * hitCounter)) * baseSpeed;
+            this.gameObject.GetComponent<TrailRenderer>().enabled = true;
+            StartCoroutine(endTrail());
             this.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
         }
     }
@@ -85,5 +90,11 @@ public class LaneMovement : MonoBehaviour
         }
 
         getJumpInput = true;
+    }
+
+    IEnumerator endTrail()
+    {
+        yield return new WaitForSeconds(trailTime);
+        this.gameObject.GetComponent<TrailRenderer>().enabled = false;
     }
 }
