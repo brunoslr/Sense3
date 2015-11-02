@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(Rigidbody))]
+//[RequireComponent(typeof(Rigidbody))]
 
 public class ObstacleHitScript : MonoBehaviour {
 

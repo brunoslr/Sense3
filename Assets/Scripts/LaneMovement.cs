@@ -12,8 +12,6 @@ public class LaneMovement : MonoBehaviour
     public float jumpDisp;
     public float jumpSpeed;
     public float trailTime = 2.0f;
-
-
     private uint hitCounter;
     private float baseSpeed;
    // public GameObject vibrate;
@@ -24,12 +22,16 @@ public class LaneMovement : MonoBehaviour
     float horizontalStep;
     Vector3 tempTrans;
     Quaternion temprot;
+    RaycastHit rHit;
+    Rigidbody rgbody;
+    float distanceToGround = 0;
     void Start()
     {
         hitCounter = 0;
         baseSpeed = forwardspeed;
         getSideInput = true;
         getJumpInput = true;
+        rgbody = this.gameObject.GetComponent<Rigidbody>();
     }
 
     public void pickUp()
@@ -63,6 +65,7 @@ public class LaneMovement : MonoBehaviour
 
         horizontalStep = horizontalAxis * sideSpeed * Time.deltaTime;
         tempTrans = new Vector3(horizontalStep, 0, 0);
+         if(rgbody.useGravity==false)
         transform.Translate(tempTrans,Space.World);
         temprot = Quaternion.Euler(0, 0, -horizontalAxis * tilt);
         transform.rotation = temprot;
@@ -70,7 +73,21 @@ public class LaneMovement : MonoBehaviour
         {
             getJumpInput = false;
             StartCoroutine(JumpShip());
+  
         }
+
+
+
+        if (Physics.Raycast(transform.position, -Vector3.up, out rHit, 5.0F))
+        {
+            distanceToGround = rHit.distance;
+       
+        }
+        else
+            if ((getJumpInput == true))
+                rgbody.useGravity = true;
+  
+      
     }
 
     IEnumerator JumpShip()
@@ -90,6 +107,7 @@ public class LaneMovement : MonoBehaviour
         }
 
         getJumpInput = true;
+ 
     }
 
     IEnumerator endTrail()

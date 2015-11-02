@@ -28,7 +28,7 @@ public class MineObstacle : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             StartVibration();
-            if (Mathf.Abs(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z) < 1f)
+            if (Mathf.Abs(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z) < 8f)
             {
                 LetsBounce();
                 //other.gameObject.GetComponent<LaneMovement>().hit();
