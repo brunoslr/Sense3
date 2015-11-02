@@ -7,7 +7,7 @@ public class LaneMovement : MonoBehaviour
     public float sideSpeed;
     public float sideDisp;
     public float forwardspeed;
-    public float speedMultiplier = 0.75f;
+    public float speedMultiplier;
     public float tilt;
     public float jumpDisp;
     public float jumpSpeed;
@@ -39,7 +39,8 @@ public class LaneMovement : MonoBehaviour
         if (hitCounter < 4)
         {
             hitCounter += 1;
-            forwardspeed = (1.0f + (0.75f * hitCounter)) * baseSpeed;
+            forwardspeed = (1.0f + (speedMultiplier * hitCounter)) * baseSpeed;
+            sideDisp = forwardspeed * 2.0f;
             this.gameObject.GetComponent<TrailRenderer>().enabled = true;
             StartCoroutine(endTrail());
             this.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
@@ -51,7 +52,8 @@ public class LaneMovement : MonoBehaviour
         if (hitCounter > 0)
         {
             hitCounter -= 1;
-            forwardspeed = (1.0f + (0.75f * hitCounter)) * baseSpeed;
+            forwardspeed = (1.0f + (speedMultiplier * hitCounter)) * baseSpeed;
+            sideDisp = forwardspeed * 2.0f;
             this.gameObject.GetComponentInChildren<AudioController>().decrementCounter();
         }
     }
