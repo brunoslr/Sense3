@@ -41,10 +41,10 @@ public class LaneMovement : MonoBehaviour
             hitCounter += 1;
             forwardspeed = (1.0f + (speedMultiplier * hitCounter)) * baseSpeed;
             sideDisp = forwardspeed * 2.0f;
+        }
             this.gameObject.GetComponent<TrailRenderer>().enabled = true;
             StartCoroutine(endTrail());
             this.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
-        }
     }
 
     public void hit()
