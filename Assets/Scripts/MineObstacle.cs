@@ -30,6 +30,7 @@ public class MineObstacle : MonoBehaviour
             StartVibration();
             if (Mathf.Abs(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z) < 8f)
             {
+                Spikes.SetActive(true);
                 LetsBounce();
                 //other.gameObject.GetComponent<LaneMovement>().hit();
             }

@@ -37,10 +37,11 @@ public class Spectrum : MonoBehaviour
        spectrum = AudioListener.GetSpectrumData(1024, 0, window);
         for (int i = 0; i < numberOfObjects; i++)
         {
-            Vector3 previousScale = cubes[i].transform.localScale;
-            previousScale.y = Mathf.Lerp(previousScale.y, Mathf.Clamp(spectrum[i] * (30 + i * i), 0, 10), Time.deltaTime * 15);
-            cubes[i].transform.localScale = previousScale;
-            cubes[i].transform.position = new Vector3(cubes[i].transform.position.x, previousScale.y/2 + 1, cubes[i].transform.position.z);
+                Vector3 previousScale = cubes[i].transform.localScale;
+                previousScale.y = Mathf.Lerp(previousScale.y, Mathf.Clamp(spectrum[i] * (30 + i * i), 0, 10), Time.deltaTime * 15);
+                cubes[i].transform.localScale = previousScale;
+                cubes[i].transform.position = new Vector3(cubes[i].transform.position.x, previousScale.y / 2 + 1, cubes[i].transform.position.z);
+
         }
     }
 
