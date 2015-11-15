@@ -30,7 +30,7 @@ public class Player : MonoBehaviour {
 
         if (systemRotation >= currentPipe.CurveAngle)
         {
-            delta = (systemRotation = currentPipe.CurveAngle) / deltaToRotation;
+            delta = (systemRotation - currentPipe.CurveAngle) / deltaToRotation;
             currentPipe = pipeWorld.SetupNextPipe();
             SetupCurrentPipe();
             deltaToRotation = 360f / (2f * Mathf.PI * currentPipe.CurveRadius);

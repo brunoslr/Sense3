@@ -25,7 +25,7 @@ public class PipeWorld : MonoBehaviour {
 
     public PipeInstance SetupFirstPipe()
     {
-        transform.localPosition = new Vector3(0f, -pipes[1].CurveRadius);
+        transform.localPosition = new Vector3(0f, -pipes[1].CurveRadius, 0f);
         return pipes[1];
     }
 
@@ -35,7 +35,7 @@ public class PipeWorld : MonoBehaviour {
         AlignNextPipeWithOrigin();
         pipes[pipes.Length - 1].Generate();
         pipes[pipes.Length - 1].AlignWidth(pipes[pipes.Length - 2]);
-        transform.localPosition = new Vector3(0f, -pipes[1].CurveRadius);
+        transform.localPosition = new Vector3(0f, -pipes[1].CurveRadius, 0f);
         return pipes[1];
     }
 
