@@ -12,14 +12,14 @@ public class InfiniteTerrain : MonoBehaviour
 		Terrain linkedTerrain = gameObject.GetComponent<Terrain>();
 		
 		_terrainGrid[0,0] = Terrain.CreateTerrainGameObject(linkedTerrain.terrainData).GetComponent<Terrain>();
-		_terrainGrid[0,1] = Terrain.CreateTerrainGameObject(linkedTerrain.terrainData).GetComponent<Terrain>();
+		_terrainGrid[0,1] = linkedTerrain; 
 		_terrainGrid[0,2] = Terrain.CreateTerrainGameObject(linkedTerrain.terrainData).GetComponent<Terrain>();
 		_terrainGrid[1,0] = Terrain.CreateTerrainGameObject(linkedTerrain.terrainData).GetComponent<Terrain>();
-		_terrainGrid[1,1] = linkedTerrain;
-		_terrainGrid[1,2] = Terrain.CreateTerrainGameObject(linkedTerrain.terrainData).GetComponent<Terrain>();
+		_terrainGrid[1,1] = Terrain.CreateTerrainGameObject(linkedTerrain.terrainData).GetComponent<Terrain>();
+        _terrainGrid[1,2] = Terrain.CreateTerrainGameObject(linkedTerrain.terrainData).GetComponent<Terrain>();
 		_terrainGrid[2,0] = Terrain.CreateTerrainGameObject(linkedTerrain.terrainData).GetComponent<Terrain>();
 		_terrainGrid[2,1] = Terrain.CreateTerrainGameObject(linkedTerrain.terrainData).GetComponent<Terrain>();
-		_terrainGrid[2,2] = Terrain.CreateTerrainGameObject(linkedTerrain.terrainData).GetComponent<Terrain>();
+        _terrainGrid[2,2] = Terrain.CreateTerrainGameObject(linkedTerrain.terrainData).GetComponent<Terrain>();
 
 		UpdateTerrainPositionsAndNeighbors();
 	}
@@ -27,49 +27,51 @@ public class InfiniteTerrain : MonoBehaviour
 	private void UpdateTerrainPositionsAndNeighbors()
 	{
 		_terrainGrid[0,0].transform.position = new Vector3(
-			_terrainGrid[1,1].transform.position.x - _terrainGrid[1,1].terrainData.size.x,
-			_terrainGrid[1,1].transform.position.y,
-			_terrainGrid[1,1].transform.position.z + _terrainGrid[1,1].terrainData.size.z);
-		_terrainGrid[0,1].transform.position = new Vector3(
-			_terrainGrid[1,1].transform.position.x - _terrainGrid[1,1].terrainData.size.x,
-			_terrainGrid[1,1].transform.position.y,
-			_terrainGrid[1,1].transform.position.z);
+			_terrainGrid[0,1].transform.position.x - _terrainGrid[0,1].terrainData.size.x,
+			_terrainGrid[0,1].transform.position.y,
+			_terrainGrid[0,1].transform.position.z);
 		_terrainGrid[0,2].transform.position = new Vector3(
-			_terrainGrid[1,1].transform.position.x - _terrainGrid[1,1].terrainData.size.x,
-			_terrainGrid[1,1].transform.position.y,
-			_terrainGrid[1,1].transform.position.z - _terrainGrid[1,1].terrainData.size.z);
+			_terrainGrid[0,1].transform.position.x + _terrainGrid[0,1].terrainData.size.x,
+			_terrainGrid[0,1].transform.position.y,
+			_terrainGrid[0,1].transform.position.z);
 		
 		_terrainGrid[1,0].transform.position = new Vector3(
-			_terrainGrid[1,1].transform.position.x,
-			_terrainGrid[1,1].transform.position.y,
-			_terrainGrid[1,1].transform.position.z + _terrainGrid[1,1].terrainData.size.z);
+			_terrainGrid[0,1].transform.position.x - _terrainGrid[0, 1].terrainData.size.x,
+			_terrainGrid[0,1].transform.position.y,
+			_terrainGrid[0,1].transform.position.z + _terrainGrid[0,1].terrainData.size.z);
+        _terrainGrid[1,1].transform.position = new Vector3(
+            _terrainGrid[0, 1].transform.position.x,
+            _terrainGrid[0, 1].transform.position.y,
+            _terrainGrid[0, 1].transform.position.z + _terrainGrid[0, 1].terrainData.size.z);
 		_terrainGrid[1,2].transform.position = new Vector3(
-			_terrainGrid[1,1].transform.position.x,
-			_terrainGrid[1,1].transform.position.y,
-			_terrainGrid[1,1].transform.position.z - _terrainGrid[1,1].terrainData.size.z);
+			_terrainGrid[0,1].transform.position.x + _terrainGrid[0, 1].terrainData.size.x,
+			_terrainGrid[0,1].transform.position.y,
+			_terrainGrid[0,1].transform.position.z + _terrainGrid[0,1].terrainData.size.z);
 		
 		_terrainGrid[2,0].transform.position = new Vector3(
-			_terrainGrid[1,1].transform.position.x + _terrainGrid[1,1].terrainData.size.x,
-			_terrainGrid[1,1].transform.position.y,
-			_terrainGrid[1,1].transform.position.z + _terrainGrid[1,1].terrainData.size.z);
+			_terrainGrid[0,1].transform.position.x - _terrainGrid[0,1].terrainData.size.x,
+			_terrainGrid[0,1].transform.position.y,
+			_terrainGrid[0,1].transform.position.z + 2 * _terrainGrid[0,1].terrainData.size.z);
 		_terrainGrid[2,1].transform.position = new Vector3(
-			_terrainGrid[1,1].transform.position.x + _terrainGrid[1,1].terrainData.size.x,
-			_terrainGrid[1,1].transform.position.y,
-			_terrainGrid[1,1].transform.position.z);
+			_terrainGrid[0,1].transform.position.x,
+			_terrainGrid[0,1].transform.position.y,
+			_terrainGrid[0,1].transform.position.z + 2 * _terrainGrid[0, 1].terrainData.size.z);
 		_terrainGrid[2,2].transform.position = new Vector3(
-			_terrainGrid[1,1].transform.position.x + _terrainGrid[1,1].terrainData.size.x,
-			_terrainGrid[1,1].transform.position.y,
-			_terrainGrid[1,1].transform.position.z - _terrainGrid[1,1].terrainData.size.z);
+			_terrainGrid[0,1].transform.position.x + _terrainGrid[0,1].terrainData.size.x,
+			_terrainGrid[0,1].transform.position.y,
+			_terrainGrid[0,1].transform.position.z + 2 * _terrainGrid[0, 1].terrainData.size.z);
 		
-		_terrainGrid[0,0].SetNeighbors(             null,              null, _terrainGrid[1,0], _terrainGrid[0,1]);
-		_terrainGrid[0,1].SetNeighbors(             null, _terrainGrid[0,0], _terrainGrid[1,1], _terrainGrid[0,2]);
-		_terrainGrid[0,2].SetNeighbors(             null, _terrainGrid[0,1], _terrainGrid[1,2],              null);
-		_terrainGrid[1,0].SetNeighbors(_terrainGrid[0,0],              null, _terrainGrid[2,0], _terrainGrid[1,1]);
-		_terrainGrid[1,1].SetNeighbors(_terrainGrid[0,1], _terrainGrid[1,0], _terrainGrid[2,1], _terrainGrid[1,2]);
-		_terrainGrid[1,2].SetNeighbors(_terrainGrid[0,2], _terrainGrid[1,1], _terrainGrid[2,2],              null);
-		_terrainGrid[2,0].SetNeighbors(_terrainGrid[1,0],              null,              null, _terrainGrid[2,1]);
-		_terrainGrid[2,1].SetNeighbors(_terrainGrid[1,1], _terrainGrid[2,0],              null, _terrainGrid[2,2]);
-		_terrainGrid[2,2].SetNeighbors(_terrainGrid[1,2], _terrainGrid[2,1],              null,              null);
+		_terrainGrid[0,0].SetNeighbors(             null, _terrainGrid[1,0], _terrainGrid[1,2],              null);
+		_terrainGrid[0,1].SetNeighbors(_terrainGrid[0,0], _terrainGrid[1,1], _terrainGrid[0,2],              null);
+		_terrainGrid[0,2].SetNeighbors(_terrainGrid[0,1], _terrainGrid[1,2],              null,              null);
+
+		_terrainGrid[1,0].SetNeighbors(             null, _terrainGrid[2,0], _terrainGrid[1,1], _terrainGrid[0,0]);
+		_terrainGrid[1,1].SetNeighbors(_terrainGrid[0,1], _terrainGrid[2,1], _terrainGrid[1,2], _terrainGrid[0,1]);
+		_terrainGrid[1,2].SetNeighbors(_terrainGrid[1,1], _terrainGrid[2,0],              null, _terrainGrid[0,2]);
+
+		_terrainGrid[2,0].SetNeighbors(             null,              null, _terrainGrid[2,1], _terrainGrid[1,0]);
+		_terrainGrid[2,1].SetNeighbors(_terrainGrid[2,0],              null, _terrainGrid[2,2], _terrainGrid[1,1]);
+		_terrainGrid[2,2].SetNeighbors(_terrainGrid[2,1],              null,              null, _terrainGrid[1,2]);
 	}
 	
 	void Update ()
@@ -97,7 +99,7 @@ public class InfiniteTerrain : MonoBehaviour
 				break;
 		}
 		
-		if (playerTerrain != _terrainGrid[1,1])
+		if (playerTerrain != _terrainGrid[0,1])
 		{
 			Terrain[,] newTerrainGrid = new Terrain[3,3];
 			for (int x = 0; x < 3; x++)
