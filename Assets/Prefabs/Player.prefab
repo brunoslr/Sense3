@@ -64,6 +64,8 @@ GameObject:
   - 64: {fileID: 6448990}
   - 82: {fileID: 8215218}
   - 114: {fileID: 11444506}
+  - 54: {fileID: 5414682}
+  - 96: {fileID: 9608144}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -134,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -149.059998}
+  m_LocalPosition: {x: .300000012, y: 1, z: -148.667236}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 484488}
@@ -161,7 +163,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -.889999986}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 429712}
@@ -212,6 +214,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153040}
   m_Mesh: {fileID: 4300002, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
+--- !u!54 &5414682
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153040}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!64 &6448990
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -242,7 +259,7 @@ AudioSource:
   Spatialize: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 2.48614597
+  MinDistance: 3.70405483
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -364,6 +381,51 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!96 &9608144
+TrailRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153040}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 97b1f8b25cca2bc458cb9d6127c8d186, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: 5
+  m_StartWidth: 1
+  m_EndWidth: 1
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16777215
+  m_MinVertexDistance: .100000001
+  m_Autodestruct: 0
 --- !u!114 &11410132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -376,7 +438,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundtracks:
+  - {fileID: 8300000, guid: 222e39cdda8c3c341bb321b0aaefd607, type: 3}
+  - {fileID: 8300000, guid: cd65a8a2cb35db048ab31cc4993f9475, type: 3}
+  - {fileID: 8300000, guid: 00877118b0bd3e743b85753a57a81637, type: 3}
   - {fileID: 8300000, guid: adf5c5893ce82d54598abfb5b2e6b675, type: 3}
+  - {fileID: 8300000, guid: 4ddf4fba9e243e14db21e14a179acc76, type: 3}
   - {fileID: 8300000, guid: 4ddf4fba9e243e14db21e14a179acc76, type: 3}
   - {fileID: 8300000, guid: e7af714a331522f4a89788c078cb7d1b, type: 3}
   - {fileID: 8300000, guid: e600e5176549e5a4dab13f10780d113b, type: 3}
@@ -391,12 +457,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2862037054c1d40a82038a1df3eeb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideSpeed: 10
+  sideSpeed: 20
   sideDisp: 4.5
   forwardspeed: 10
+  speedMultiplier: .699999988
   tilt: 30
   jumpDisp: 3
   jumpSpeed: 5
+  trailTime: 2
 --- !u!114 &11478728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -473,7 +541,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  lineMat: {fileID: 0}
+  lineMat: {fileID: 2100000, guid: b3ae333a62df9dd489512dc59aa32d6e, type: 2}
   segment: 255
 --- !u!120 &12014080
 LineRenderer:
