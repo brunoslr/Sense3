@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
     private float systemRotation;
     private float worldRotation;
     private float avatarRotation;
+    private float avatarPosition;
     private PipeInstance currentPipe;
     private Transform world;
     private Transform rotator;
@@ -39,6 +40,16 @@ public class Player : MonoBehaviour {
 
         pipeWorld.transform.localRotation = Quaternion.Euler(0f, 0f, systemRotation);
         UpdateAvatarRotation();
+        UpDownMovement();
+    }
+
+    private void UpDownMovement()
+    {
+        if (Input.GetAxis("Vertical") != 0.0f)
+        {
+            avatarPosition = Input.GetAxis("Vertical") * rotationVelocity * Time.deltaTime;
+            transform.localPosition = new Vector3(0f, avatarPosition, 0f);
+        }
     }
 
     private void UpdateAvatarRotation()

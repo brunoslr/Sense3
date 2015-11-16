@@ -147,7 +147,7 @@ public class PipeInstance : MonoBehaviour {
     private Vector3 GetPoints(float u, float v)
     {
         Vector3 p;
-        float r = (curveRadius + (pipeRadius * Mathf.Cos(v)));
+        float r = (curveRadius + pipeRadius * Mathf.Cos(v));
         p.x = r * Mathf.Sin(u);
         p.y = r * Mathf.Cos(u);
         p.z = pipeRadius * Mathf.Sin(v);

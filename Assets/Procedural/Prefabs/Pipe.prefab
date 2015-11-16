@@ -75,10 +75,10 @@ MonoBehaviour:
   pipeSegmentCount: 10
   minCurveSegmentCount: 4
   maxCurveSegmentCount: 10
-  pipeRadius: 5
-  ringDistance: 5
-  minCurveRadius: 10
-  maxCurveRadius: 30
+  pipeRadius: 1
+  ringDistance: 1
+  minCurveRadius: 4
+  maxCurveRadius: 20
   obstacleGenerators:
   - {fileID: 11494994, guid: 4bce80b9a92b9534fab049daa71c8e2f, type: 2}
   - {fileID: 11494994, guid: 4bce80b9a92b9534fab049daa71c8e2f, type: 2}
@@ -102,11 +102,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: minCurveRadius
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxCurveRadius
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: minCurveSegmentCount
@@ -163,11 +163,11 @@ Prefab:
         type: 2}
     - target: {fileID: 0}
       propertyPath: pipeRadius
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ringDistance
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
