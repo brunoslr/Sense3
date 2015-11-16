@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Spectrum : MonoBehaviour
 {
+    private float average = 0;
+
     public GameObject prefab;
     public int numberOfObjects;
     public float radius = 5f;
@@ -14,6 +16,7 @@ public class Spectrum : MonoBehaviour
     public List<Material> cubeMat;
     public float[] spectrum;
     Vector3 pos;
+    public GameObject spectrumObj;
     void Start()
     {
         //  Instantiate(parent);
@@ -30,10 +33,12 @@ public class Spectrum : MonoBehaviour
         parent.transform.position = new Vector3(0, 0, 100);
         cubes = GameObject.FindGameObjectsWithTag("Cubes");
         InvokeRepeating("ChangeColorPatterns", 0.1f, 1);
+
     }
 
     void Update()
     {
+        float sum = 0;
        spectrum = AudioListener.GetSpectrumData(1024, 0, window);
         for (int i = 0; i < numberOfObjects; i++)
         {
@@ -41,9 +46,22 @@ public class Spectrum : MonoBehaviour
                 previousScale.y = Mathf.Lerp(previousScale.y, Mathf.Clamp(spectrum[i] * (30 + i * i), 0, 10), Time.deltaTime * 15);
                 cubes[i].transform.localScale = previousScale;
                 cubes[i].transform.position = new Vector3(cubes[i].transform.position.x, previousScale.y / 2 + 1, cubes[i].transform.position.z);
-
+                sum += spectrum[i];
         }
+
+         spectrumObj.GetComponent<DynamicTexture>().FFT[0]= spectrum[0];
+         spectrumObj.GetComponent<DynamicTexture>().FFT[1] = spectrum[1];
+         spectrumObj.GetComponent<DynamicTexture>().FFT[2] = spectrum[2];
+         spectrumObj.GetComponent<DynamicTexture>().FFT[3] = spectrum[3];
+        //sum /= numberOfObjects;
+        //setSpectrumAndAverage(sum);    
     }
+
+    //void setSpectrumAndAverage(float sum)
+    //{
+    //    spectrumObj.GetComponent<DynamicTexture>().FFT = Mathf.Sin((sum) * 100.0f);
+    //    average = (average + sum) / 2.0f;
+    //}
 
     void ChangeColorPatterns()
     {
