@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 public class AudioController : MonoBehaviour {
 
+    public float minVol = 0.65f;    
     public AudioClip[] soundtracks;
+
     private int counter, trackCounter, maxLevel;
     private AudioSource[] audioSources;
     private AudioSource tempSource;
@@ -92,23 +94,27 @@ public class AudioController : MonoBehaviour {
     }
 
     //These functions only change the values ofthe temp audio source
-    public void playCurrent(float pan)
+    public void playCurrent(int pan, float Volume)
     {
         int tempCounter = (counter-1 + maxLevel)% maxLevel;
         tempSource.panStereo = pan;
         tempSource.mute = false;
+        tempSource.volume = Volume;
         tempSource.Play();
+        reduceOverallVol();
     }
 
-    public void setCurrentPan(float pan)
+    public void setCurrentPan(int pan, float Volume)
     {
         tempSource.mute = false;
         tempSource.panStereo = pan;
+        tempSource.volume = Volume;
     }
 
     public void stopCurrent()
     {
         tempSource.mute = true;
+        increaseOverallVol();
     }
 
 
@@ -126,6 +132,22 @@ public class AudioController : MonoBehaviour {
             audioSources[i].mute = false;
             audioSources[i].timeSamples = audioSources[0].timeSamples;
             audioSources[i].Play();
+        }
+    }
+
+    private void reduceOverallVol()
+    {
+        for(int i=0; i < audioSources.Length; i++)
+        {
+            audioSources[i].volume = minVol;
+        }
+    }
+
+    private void increaseOverallVol()
+    {
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            audioSources[i].volume = 1.0f;
         }
     }
 }

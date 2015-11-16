@@ -31,8 +31,18 @@ public class soundObstacle : MonoBehaviour
             if (ColliderEnterCount == false)
             {
                 Vector3 playerPosition = other.gameObject.transform.position;
-           
-                 float pan = this.transform.GetChild(0).position.x - playerPosition.x;
+
+                //calculate the volume
+                float volume;
+                //We need the pickup collider's position because its located at the end of the collider
+                Vector3 pickUpPosition = this.transform.GetChild(0).transform.position;
+                volume = Vector3.Distance(playerPosition, pickUpPosition);
+                //because every collider has a different size
+                volume = volume / this.gameObject.GetComponent<BoxCollider>().size.z;
+                //Make sure the the volume never goes negative
+                volume = 0.1f + Mathf.Max(1 - volume, 0);
+
+                float pan = this.transform.GetChild(0).position.x - playerPosition.x;
 
                 //audioSource[0].timeSamples = other.gameObject.GetComponent<AudioSource>().timeSamples;
                 //audioSource[1].timeSamples = other.gameObject.GetComponent<AudioSource>().timeSamples;
@@ -55,7 +65,7 @@ public class soundObstacle : MonoBehaviour
                     //audioSource[1].Play();
                 }
                 ColliderEnterCount = true;
-                other.gameObject.GetComponentInChildren<AudioController>().playCurrent((int)pan);
+                other.gameObject.GetComponentInChildren<AudioController>().playCurrent((int)pan, volume);
             }
         }
     }
@@ -67,6 +77,16 @@ public class soundObstacle : MonoBehaviour
             Vector3 playerPosition = other.gameObject.transform.position;
             float pan = this.transform.GetChild(0).position.x - playerPosition.x;
 
+            //calculate the volume
+            float volume;
+            //We need the pickup collider's position because its located at the end of the collider
+            Vector3 pickUpPosition = this.transform.GetChild(0).transform.position;
+            volume = Vector3.Distance(playerPosition, pickUpPosition);
+            //because every collider has a different size
+            volume = volume / this.gameObject.GetComponent<BoxCollider>().size.z;
+            //Make sure the the volume never goes negative
+            volume = 0.1f + Mathf.Max(1 - volume, 0);
+
             if (Mathf.Abs(pan) >= 10.0f)
             {
                 pan = pan / Mathf.Abs(pan);
@@ -77,7 +97,7 @@ public class soundObstacle : MonoBehaviour
                 pan = 0;
             }
             
-            other.gameObject.GetComponentInChildren<AudioController>().setCurrentPan(pan);
+            other.gameObject.GetComponentInChildren<AudioController>().setCurrentPan((int) pan, volume);
             audioVisualizer.PlayerVisualizer(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z);
         }
     }
