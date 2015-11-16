@@ -27,6 +27,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 450772}
   - 114: {fileID: 11410646}
+  - 65: {fileID: 6504498}
+  - 114: {fileID: 11484416}
   m_Layer: 0
   m_Name: FlatObstacle
   m_TagString: Untagged
@@ -41,8 +43,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .409999996, y: .140000001, z: 162.399994}
-  m_LocalScale: {x: .275047779, y: 22.7001915, z: 1}
+  m_LocalPosition: {x: .409999996, y: .469999999, z: 858}
+  m_LocalScale: {x: .275047779, y: 14.3180475, z: 3.13554955}
   m_Children:
   - {fileID: 457254}
   m_Father: {fileID: 0}
@@ -90,6 +92,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191242}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &6504498
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198774}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: -.0299999993, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6524744
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -117,6 +131,19 @@ MonoBehaviour:
   targetAngle: -90
   posNegLerp: 0
   speed: 2
+  distanceFromObs: 20
+  moveIfPlayerClose: 0
+--- !u!114 &11484416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

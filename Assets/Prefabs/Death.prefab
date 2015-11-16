@@ -11,6 +11,7 @@ GameObject:
   - 33: {fileID: 3327600}
   - 65: {fileID: 6543850}
   - 23: {fileID: 2341192}
+  - 114: {fileID: 11404512}
   m_Layer: 0
   m_Name: Death
   m_TagString: Untagged
@@ -25,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .450309992, y: -.360000014, z: 61.4500008}
-  m_LocalScale: {x: 59.3133202, y: 1, z: 5.16166973}
+  m_LocalPosition: {x: .450309992, y: .0700000003, z: 955.900024}
+  m_LocalScale: {x: 59.3133202, y: .0700000003, z: 5.16166973}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,7 +41,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 135cfffa7b014c14d81f200bbe0be259, type: 2}
+  - {fileID: 2100000, guid: 9a4e2f3f1cf77a746b2ce17fa855c0fe, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -71,8 +72,19 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11404512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
