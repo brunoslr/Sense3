@@ -61,13 +61,13 @@ public class InfiniteTerrain : MonoBehaviour
 			_terrainGrid[0,1].transform.position.y,
 			_terrainGrid[0,1].transform.position.z + 2 * _terrainGrid[0, 1].terrainData.size.z);
 		
-		_terrainGrid[0,0].SetNeighbors(             null, _terrainGrid[1,0], _terrainGrid[1,2],              null);
+		_terrainGrid[0,0].SetNeighbors(             null, _terrainGrid[1,0], _terrainGrid[0,1],              null);
 		_terrainGrid[0,1].SetNeighbors(_terrainGrid[0,0], _terrainGrid[1,1], _terrainGrid[0,2],              null);
 		_terrainGrid[0,2].SetNeighbors(_terrainGrid[0,1], _terrainGrid[1,2],              null,              null);
 
 		_terrainGrid[1,0].SetNeighbors(             null, _terrainGrid[2,0], _terrainGrid[1,1], _terrainGrid[0,0]);
-		_terrainGrid[1,1].SetNeighbors(_terrainGrid[0,1], _terrainGrid[2,1], _terrainGrid[1,2], _terrainGrid[0,1]);
-		_terrainGrid[1,2].SetNeighbors(_terrainGrid[1,1], _terrainGrid[2,0],              null, _terrainGrid[0,2]);
+		_terrainGrid[1,1].SetNeighbors(_terrainGrid[1,0], _terrainGrid[2,1], _terrainGrid[1,2], _terrainGrid[0,1]);
+		_terrainGrid[1,2].SetNeighbors(_terrainGrid[1,1], _terrainGrid[2,2],              null, _terrainGrid[0,2]);
 
 		_terrainGrid[2,0].SetNeighbors(             null,              null, _terrainGrid[2,1], _terrainGrid[1,0]);
 		_terrainGrid[2,1].SetNeighbors(_terrainGrid[2,0],              null, _terrainGrid[2,2], _terrainGrid[1,1]);
