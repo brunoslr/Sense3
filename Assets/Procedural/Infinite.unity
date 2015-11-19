@@ -225,7 +225,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11444506, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
       propertyPath: forwardspeed
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8215218, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
       propertyPath: m_Enabled
@@ -320,10 +320,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1666843764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 421bac84966dca04287554eabb8ae970, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e65d82a828bc4e4bb502571310bb849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerObject: {fileID: 1746095484}
+  player: {fileID: 1746095484}
 --- !u!154 &1666843766
 TerrainCollider:
   m_ObjectHideFlags: 0
