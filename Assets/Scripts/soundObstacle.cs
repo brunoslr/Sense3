@@ -9,7 +9,7 @@ public class soundObstacle : MonoBehaviour
     //private AudioSource[] audioSource;
     //private AudioSource CenteraudioSource;
     
-    private AudioVisualizer audioVisualizer;
+    public AudioVisualizer audioVisualizer;
     public GameObject shock;
     private bool ColliderEnterCount;
     // Use this for initialization

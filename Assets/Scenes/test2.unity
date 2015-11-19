@@ -65,7 +65,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -85,6 +84,9 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!127 &5
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!1001 &32555322
 Prefab:
   m_ObjectHideFlags: 0
@@ -122,29 +124,53 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413396, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 11446424, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
-      propertyPath: shock
+    - target: {fileID: 11494556, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: player
       value: 
-      objectReference: {fileID: 1160109821}
-    - target: {fileID: 11470612, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
-      propertyPath: shock
+      objectReference: {fileID: 551835693}
+    - target: {fileID: 11478876, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: player
       value: 
-      objectReference: {fileID: 1160109821}
-    - target: {fileID: 11455734, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
-      propertyPath: shock
+      objectReference: {fileID: 551835693}
+    - target: {fileID: 11417702, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: player
       value: 
-      objectReference: {fileID: 1160109821}
-    - target: {fileID: 11474756, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
-      propertyPath: shock
+      objectReference: {fileID: 551835693}
+    - target: {fileID: 11400684, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: player
       value: 
-      objectReference: {fileID: 1160109821}
-    - target: {fileID: 11411022, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
-      propertyPath: shock
+      objectReference: {fileID: 551835693}
+    - target: {fileID: 11429604, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: player
       value: 
-      objectReference: {fileID: 1160109821}
-    - target: {fileID: 11430940, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      objectReference: {fileID: 551835693}
+    - target: {fileID: 11448262, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 551835693}
+    - target: {fileID: 11419744, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 551835693}
+    - target: {fileID: 11417974, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 551835693}
+    - target: {fileID: 11441220, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 551835693}
+    - target: {fileID: 11450036, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 551835693}
+    - target: {fileID: 11401144, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 551835693}
+    - target: {fileID: 11410268, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
       propertyPath: shock
       value: 
       objectReference: {fileID: 1160109821}
@@ -152,11 +178,19 @@ Prefab:
       propertyPath: shock
       value: 
       objectReference: {fileID: 1160109821}
-    - target: {fileID: 11455514, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+    - target: {fileID: 11430940, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
       propertyPath: shock
       value: 
       objectReference: {fileID: 1160109821}
-    - target: {fileID: 11423734, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+    - target: {fileID: 11455734, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: shock
+      value: 
+      objectReference: {fileID: 1160109821}
+    - target: {fileID: 11470612, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: shock
+      value: 
+      objectReference: {fileID: 1160109821}
+    - target: {fileID: 11474756, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
       propertyPath: shock
       value: 
       objectReference: {fileID: 1160109821}
@@ -164,7 +198,19 @@ Prefab:
       propertyPath: shock
       value: 
       objectReference: {fileID: 1160109821}
-    - target: {fileID: 11410268, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+    - target: {fileID: 11423734, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: shock
+      value: 
+      objectReference: {fileID: 1160109821}
+    - target: {fileID: 11446424, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: shock
+      value: 
+      objectReference: {fileID: 1160109821}
+    - target: {fileID: 11455514, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
+      propertyPath: shock
+      value: 
+      objectReference: {fileID: 1160109821}
+    - target: {fileID: 11411022, guid: 5d9dedb93f214c24a8ab06bf89f0629d, type: 2}
       propertyPath: shock
       value: 
       objectReference: {fileID: 1160109821}
@@ -232,7 +278,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
