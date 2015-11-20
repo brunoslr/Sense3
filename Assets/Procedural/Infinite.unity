@@ -229,7 +229,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 8215218, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
@@ -324,6 +324,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1746095484}
+  obstacles:
+  - {fileID: 101362, guid: 88e8accf1fd854541b7ac4b647037300, type: 2}
+  - {fileID: 163306, guid: d064c8523696c074095a6879545c7585, type: 2}
+  - {fileID: 142508, guid: ae93db38ffececd4db1e855bd8d1a77d, type: 2}
+  - {fileID: 137616, guid: 7e31ac2f44d221e4396251ab2dcc5f71, type: 2}
+  - {fileID: 162000, guid: de2db8b5850f38844b132d4498e59eec, type: 2}
+  - {fileID: 156210, guid: 5359f7b9584379d4b8dfd7eae727fd9f, type: 2}
+  yPos: 1
 --- !u!154 &1666843766
 TerrainCollider:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using System.Collections;
 public class InfiniteTerrainGenerator : MonoBehaviour
 {
     public GameObject player;
+    public GameObject[] obstacles;
+    public float yPos;
 
     private Terrain[,] _terrainGrid = new Terrain[3, 3];
     private Terrain linkedTerrain;
@@ -27,6 +29,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         _terrainGrid[2, 2] = Terrain.CreateTerrainGameObject(linkedTerrain.terrainData).GetComponent<Terrain>();
 
         UpdateTerrainPositionsAndNeighbors();
+        GenerateObstacles();
     }
 
     private void UpdateTerrainPositionsAndNeighbors()
@@ -79,6 +82,21 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         _terrainGrid[2, 2].SetNeighbors(_terrainGrid[2, 1], _terrainGrid[1, 2], null, null);
     }
 
+    void GenerateObstacles()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            int pick = Random.Range(0, obstacles.Length);
+            GameObject currentObstacle = Instantiate(obstacles[pick]);
+
+            float xPos = Random.Range(_terrainGrid[0, 0].transform.position.x, _terrainGrid[0, 2].transform.position.x + _terrainGrid[0, 2].terrainData.size.x);
+
+            float zPos = Random.Range(player.transform.position.z + 30.0f, _terrainGrid[0, 0].transform.position.z + _terrainGrid[0, 2].terrainData.size.z);
+
+            currentObstacle.transform.position = new Vector3(xPos, yPos, zPos);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -124,6 +142,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
                 }
             _terrainGrid = newTerrainGrid;
             UpdateTerrainPositionsAndNeighbors();
+            GenerateObstacles();
         }
     }
 }
