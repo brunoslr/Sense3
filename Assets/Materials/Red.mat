@@ -8,10 +8,11 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Red
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION
+  m_LightmapFlags: 1
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -32,6 +33,13 @@ Material:
       data:
         first:
           name: _DetailNormalMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DecalTex
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -78,6 +86,27 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Cube
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecGlossMap
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _CubeMap
+        second:
+          m_Texture: {fileID: 8900000, guid: f3a18a747c16a9b478bead78298b8258, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -86,11 +115,19 @@ Material:
       data:
         first:
           name: _DstBlend
-        second: 0
+        second: 10
+      data:
+        first:
+          name: _Scale
+        second: 1
       data:
         first:
           name: _Cutoff
         second: .5
+      data:
+        first:
+          name: _Shininess
+        second: 50
       data:
         first:
           name: _Parallax
@@ -98,11 +135,11 @@ Material:
       data:
         first:
           name: _ZWrite
-        second: 1
+        second: 0
       data:
         first:
           name: _Glossiness
-        second: .5
+        second: .637000024
       data:
         first:
           name: _BumpScale
@@ -122,17 +159,33 @@ Material:
       data:
         first:
           name: _Mode
-        second: 0
+        second: 3
       data:
         first:
           name: _Metallic
-        second: 0
+        second: .60799998
+      data:
+        first:
+          name: _Refraction
+        second: 1.79999995
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: .654411793, g: .00962371193, b: .00962371193, a: 1}
       data:
         first:
           name: _Color
-        second: {r: .698529422, g: .118133642, b: .118133642, a: 1}
+        second: {r: .345588207, g: .0686094239, b: .0686094239, a: 0}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: .772058845, g: .289522052, b: .289522052, a: 1}
+      data:
+        first:
+          name: _ReflectColor
+        second: {r: 1, g: .404411793, b: .404411793, a: .5}
+      data:
+        first:
+          name: _RimColor
+        second: {r: .933823526, g: .212856814, b: .212856814, a: 1}
