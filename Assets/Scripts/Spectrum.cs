@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class Spectrum : MonoBehaviour
 {
-    private float average = 0;
-
+    //private float average = 0;
+    public Camera mainCamera;
     public GameObject prefab;
     public int numberOfObjects;
     public float radius = 5f;
@@ -53,6 +53,10 @@ public class Spectrum : MonoBehaviour
          spectrumObj.GetComponent<DynamicTexture>().FFT[1] = spectrum[1];
          spectrumObj.GetComponent<DynamicTexture>().FFT[2] = spectrum[2];
          spectrumObj.GetComponent<DynamicTexture>().FFT[3] = spectrum[3];
+
+         mainCamera.gameObject.GetComponent<ForeGroundController>().setBloom(spectrum[3]);
+         this.gameObject.GetComponent<backGroundScript>().setTwirlAngle(spectrum[2]);
+         this.gameObject.GetComponent<backGroundScript>().setTwirlRadius(spectrum[1]);
         //sum /= numberOfObjects;
         //setSpectrumAndAverage(sum);    
     }
