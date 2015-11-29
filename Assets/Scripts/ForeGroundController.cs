@@ -22,12 +22,21 @@ public class ForeGroundController : MonoBehaviour {
     {
         this.gameObject.GetComponent<Fisheye>().strengthX = strength * fishEyeScale;
         this.gameObject.GetComponent<Fisheye>().strengthY = strength * fishEyeScale;
+        StartCoroutine(endFishEye());
+        
     }
 
     public void startBlur()
     {
-        this.gameObject.GetComponent<MotionBlur>().blurAmount = 0.3f;
+        this.gameObject.GetComponent<MotionBlur>().blurAmount = 0.52f;
         StartCoroutine(endBlur());
+    }
+
+    IEnumerator endFishEye()
+    {
+        yield return new WaitForSeconds(2.0f);
+        this.gameObject.GetComponent<Fisheye>().strengthX = 0.0f;
+        this.gameObject.GetComponent<Fisheye>().strengthY = 0.0f;
     }
 
     IEnumerator endBlur()

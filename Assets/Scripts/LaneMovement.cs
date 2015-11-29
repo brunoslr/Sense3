@@ -58,6 +58,8 @@ public class LaneMovement : MonoBehaviour
             sideDisp = forwardspeed * 2.0f;
             this.gameObject.GetComponentInChildren<AudioController>().decrementCounter();
         }
+        mainCamera.gameObject.GetComponent<ForeGroundController>().setFishEye(1.0f);
+
     }
 
 	// Update is called once per frame
