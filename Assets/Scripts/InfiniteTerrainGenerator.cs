@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class InfiniteTerrainGenerator : MonoBehaviour
 {
     public GameObject player;
-    public GameObject[] obstacles;
+    public GameObject[] obstaclePrefabs;
     public float yPos;
 
     private Terrain[,] _terrainGrid = new Terrain[3, 3];
@@ -13,9 +14,13 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private Terrain currentTerrain;
     private int xOffset;
     private int zOffset;
+    private List<GameObject> obstacles;
+
     // Use this for initialization
     void Start()
     {
+        obstacles = new List<GameObject>();
+
         linkedTerrain = gameObject.GetComponent<Terrain>();
 
         _terrainGrid[0, 0] = Terrain.CreateTerrainGameObject(linkedTerrain.terrainData).GetComponent<Terrain>();
@@ -86,14 +91,29 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            int pick = Random.Range(0, obstacles.Length);
-            GameObject currentObstacle = Instantiate(obstacles[pick]);
+            int pick = Random.Range(0, obstaclePrefabs.Length);
+            GameObject currentObstacle = Instantiate(obstaclePrefabs[pick]);
+            obstacles.Add(currentObstacle);
 
             float xPos = Random.Range(_terrainGrid[0, 0].transform.position.x, _terrainGrid[0, 2].transform.position.x + _terrainGrid[0, 2].terrainData.size.x);
 
             float zPos = Random.Range(player.transform.position.z + 30.0f, _terrainGrid[0, 0].transform.position.z + _terrainGrid[0, 2].terrainData.size.z);
 
             currentObstacle.transform.position = new Vector3(xPos, yPos, zPos);
+        }
+    }
+
+    void DeleteObstacles()
+    {
+        Transform obstacle;
+        for (int i = 0; i < obstacles.Count; i++)
+        {
+            obstacle = obstacles[i].transform;
+            if (obstacle.position.z < player.transform.position.z)
+            {
+                obstacles.Remove(obstacle.gameObject);
+                Destroy(obstacle.gameObject);
+            }
         }
     }
 
@@ -142,6 +162,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
                 }
             _terrainGrid = newTerrainGrid;
             UpdateTerrainPositionsAndNeighbors();
+            DeleteObstacles();
             GenerateObstacles();
         }
     }

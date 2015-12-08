@@ -15,7 +15,7 @@ public class soundObstacle : MonoBehaviour
     // Use this for initialization
 	void Start () {
         //audioSource = this.gameObject.GetComponents<AudioSource>();
-        audioVisualizer = shock.GetComponent<AudioVisualizer>();
+        //audioVisualizer = shock.GetComponent<AudioVisualizer>();
         ColliderEnterCount = false;
 	}
 	
