@@ -109,7 +109,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         for (int i = 0; i < obstacles.Count; i++)
         {
             obstacle = obstacles[i].transform;
-            if (obstacle.position.z < player.transform.position.z)
+            if (obstacle.position.z + 10.0f < player.transform.position.z)
             {
                 obstacles.Remove(obstacle.gameObject);
                 Destroy(obstacle.gameObject);
@@ -120,6 +120,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DeleteObstacles();
         playerPosition = player.transform.position;
         currentTerrain = null;
 
@@ -162,7 +163,6 @@ public class InfiniteTerrainGenerator : MonoBehaviour
                 }
             _terrainGrid = newTerrainGrid;
             UpdateTerrainPositionsAndNeighbors();
-            DeleteObstacles();
             GenerateObstacles();
         }
     }
