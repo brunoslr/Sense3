@@ -4,6 +4,7 @@ using XInputDotNetPure;
 
 public class LaneMovement : MonoBehaviour 
 {
+    public Camera mainCamera;
     public float sideSpeed;
     public float sideDisp;
     public float forwardspeed;
@@ -45,6 +46,7 @@ public class LaneMovement : MonoBehaviour
             this.gameObject.GetComponent<TrailRenderer>().enabled = true;
             StartCoroutine(endTrail());
             this.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
+            mainCamera.gameObject.GetComponent<ForeGroundController>().startBlur();
     }
 
     public void hit()
@@ -56,6 +58,8 @@ public class LaneMovement : MonoBehaviour
             sideDisp = forwardspeed * 2.0f;
             this.gameObject.GetComponentInChildren<AudioController>().decrementCounter();
         }
+        mainCamera.gameObject.GetComponent<ForeGroundController>().setFishEye(1.0f);
+
     }
 
 	// Update is called once per frame

@@ -96,7 +96,6 @@ public class AudioController : MonoBehaviour {
     //These functions only change the values ofthe temp audio source
     public void playCurrent(int pan, float Volume)
     {
-        int tempCounter = (counter-1 + maxLevel)% maxLevel;
         tempSource.panStereo = pan;
         tempSource.mute = false;
         tempSource.volume = Volume;
