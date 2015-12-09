@@ -141,8 +141,8 @@ MonoBehaviour:
   currentAngle: 0
   targetAngle: -90
   posNegLerp: 0
-  speed: 5
-  distanceFromObs: 20
+  speed: 8
+  distanceFromObs: 12
   moveIfPlayerClose: 1
 --- !u!1001 &100100000
 Prefab:
@@ -157,7 +157,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: speed
-      value: 5
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: distanceFromObs
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
