@@ -109,7 +109,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         for (int i = 0; i < obstacles.Count; i++)
         {
             obstacle = obstacles[i].transform;
-            if (obstacle.position.z + 10.0f < player.transform.position.z)
+            if (obstacle.position.z + 10.0f < player.transform.position.z || obstacle.position.x < _terrainGrid[2, 0].transform.position.x || obstacle.position.x > _terrainGrid[2, 2].transform.position.x + _terrainGrid[2, 2].terrainData.size.x)
             {
                 obstacles.Remove(obstacle.gameObject);
                 Destroy(obstacle.gameObject);
