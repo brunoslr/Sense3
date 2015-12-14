@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Layer : MonoBehaviour {
 
+    public string layername;                    //For ease of understanding. Can be exploited in later prototypes to automatically load all audio of a particular genre/layer.
     public AudioClip[] audioTracks;
 
     private AudioSource audioSource;
@@ -44,7 +45,12 @@ public class Layer : MonoBehaviour {
         audioSource.mute = true;
     }
 
-    public void setPanAndVol(float pan, float volume)
+    public bool isPlaying()
+    {
+        return !(audioSource.mute);
+    }
+
+    public void setPanAndVol(int pan, float volume)
     {
         audioSource.panStereo = pan;
         audioSource.volume = volume;

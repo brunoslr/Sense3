@@ -28,7 +28,7 @@ public class soundObstacle : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            if (ColliderEnterCount == false)
+            if (ColliderEnterCount == false)        // This is to make sure that this runs only once
             {
                 Vector3 playerPosition = other.gameObject.transform.position;
 
