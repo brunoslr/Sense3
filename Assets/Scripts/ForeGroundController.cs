@@ -28,7 +28,7 @@ public class ForeGroundController : MonoBehaviour {
 
     public void startBlur()
     {
-        this.gameObject.GetComponent<MotionBlur>().blurAmount = 0.52f;
+        this.gameObject.GetComponent<MotionBlur>().blurAmount = 0.92f;
         StartCoroutine(endBlur());
     }
 
