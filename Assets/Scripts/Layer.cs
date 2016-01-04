@@ -32,6 +32,8 @@ public class Layer : MonoBehaviour {
         currentTrackIndex = newIndex;
         audioSource.clip = audioTracks[currentTrackIndex];
         audioSource.mute = false;
+        if (!audioSource.isPlaying)
+            audioSource.Play();
     }
 
     public void playCurrentTrack()

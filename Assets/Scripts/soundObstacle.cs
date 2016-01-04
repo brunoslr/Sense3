@@ -9,13 +9,17 @@ public class soundObstacle : MonoBehaviour
     //private AudioSource[] audioSource;
     //private AudioSource CenteraudioSource;
     
-    private AudioVisualizer audioVisualizer;
+    public bool pickedUp;
     public GameObject shock;
+    
+    private AudioVisualizer audioVisualizer;
     private bool ColliderEnterCount;
+
     // Use this for initialization
 	void Start () {
         //audioSource = this.gameObject.GetComponents<AudioSource>();
         audioVisualizer = shock.GetComponent<AudioVisualizer>();
+        pickedUp = false;
         ColliderEnterCount = false;
 	}
 	
@@ -65,7 +69,9 @@ public class soundObstacle : MonoBehaviour
                     //audioSource[1].Play();
                 }
                 ColliderEnterCount = true;
-                other.gameObject.GetComponentInChildren<AudioController>().playCurrent((int)pan, volume);
+                //other.gameObject.GetComponentInChildren<AudioController>().playCurrent((int)pan, volume);
+                //Refactored audio controller below
+                other.gameObject.GetComponentInChildren<Theme>().playNew((int)pan, volume);
             }
         }
     }
@@ -97,7 +103,8 @@ public class soundObstacle : MonoBehaviour
                 pan = 0;
             }
             
-            other.gameObject.GetComponentInChildren<AudioController>().setCurrentPan((int) pan, volume);
+            //other.gameObject.GetComponentInChildren<AudioController>().setCurrentPan((int) pan, volume);
+            other.gameObject.GetComponentInChildren<Theme>().setCurrentPan((int)pan, volume);
             audioVisualizer.PlayerVisualizer(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z);
         }
     }
@@ -106,14 +113,11 @@ public class soundObstacle : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && this.gameObject.GetComponentInChildren<PickUpScript>().pickedUp == false)
         {
-            other.gameObject.GetComponentInChildren<AudioController>().stopCurrent();
+            //other.gameObject.GetComponentInChildren<AudioController>().stopCurrent();
+            other.gameObject.GetComponentInChildren<Theme>().stopCurrent();
             audioVisualizer.StopVisualizer();
         }
-       // audioSource[0].loop = false;
-       // audioSource[1].loop = false;
-       // audioSource[0].mute = true;
-       // audioSource[1].mute = true;
     }
 }

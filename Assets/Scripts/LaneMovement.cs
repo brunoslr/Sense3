@@ -45,7 +45,8 @@ public class LaneMovement : MonoBehaviour
         }
             this.gameObject.GetComponent<TrailRenderer>().enabled = true;
             StartCoroutine(endTrail());
-            this.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
+            //Disable this after refactoring
+            //this.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
             mainCamera.gameObject.GetComponent<ForeGroundController>().startBlur();
     }
 
@@ -56,7 +57,8 @@ public class LaneMovement : MonoBehaviour
             hitCounter -= 1;
             forwardspeed = (1.0f + (speedMultiplier * hitCounter)) * baseSpeed;
             sideDisp = forwardspeed * 2.0f;
-            this.gameObject.GetComponentInChildren<AudioController>().decrementCounter();
+            //Disable this after refactoring
+            //this.gameObject.GetComponentInChildren<AudioController>().decrementCounter();
         }
         mainCamera.gameObject.GetComponent<ForeGroundController>().setFishEye(1.0f);
 

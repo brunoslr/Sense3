@@ -6,7 +6,7 @@ public class Theme : MonoBehaviour {
 
     private Layer[] layers;
     private int totalLayers;
-    private List<int> availableLayers;
+    public List<int> availableLayers;
     private int lastPlayedLayerID;
 
 	// Use this for initialization
@@ -24,7 +24,7 @@ public class Theme : MonoBehaviour {
         int layerID, range;
 
         if(availableLayers.Count > 0)
-            range = availableLayers.Count;
+            range = availableLayers.Count - 1;
         else
             range = totalLayers-1;
  
