@@ -54,7 +54,7 @@ public class Spectrum : MonoBehaviour
          spectrumObj.GetComponent<DynamicTexture>().FFT[2] = spectrum[2];
          spectrumObj.GetComponent<DynamicTexture>().FFT[3] = spectrum[3];
 
-         mainCamera.gameObject.GetComponent<ForeGroundController>().setBloom(spectrum[3]);
+         mainCamera.gameObject.GetComponent<ForeGroundController>().setBloom(spectrum[0] * 0.5f);
          //this.gameObject.GetComponent<backGroundScript>().setTwirlAngle(spectrum[2]);
          //this.gameObject.GetComponent<backGroundScript>().setTwirlRadius(spectrum[1]);
         

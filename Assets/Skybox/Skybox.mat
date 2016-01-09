@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -11,7 +11,6 @@ Material:
   m_ShaderKeywords: _SUNDISK_HIGH_QUALITY
   m_LightmapFlags: 5
   m_CustomRenderQueue: 1000
-  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -130,14 +129,6 @@ Material:
     m_Floats:
       data:
         first:
-          name: _SrcBlend
-        second: 1
-      data:
-        first:
-          name: _DstBlend
-        second: 0
-      data:
-        first:
           name: _Cutoff
         second: .5
       data:
@@ -146,16 +137,20 @@ Material:
         second: 1.61000001
       data:
         first:
-          name: _SunDisk
-        second: 2
-      data:
-        first:
           name: _SunSize
         second: .291999996
       data:
         first:
           name: _AtmosphereThickness
         second: 5
+      data:
+        first:
+          name: _SrcBlend
+        second: 1
+      data:
+        first:
+          name: _DstBlend
+        second: 0
       data:
         first:
           name: _Parallax
@@ -194,6 +189,10 @@ Material:
         second: 0
       data:
         first:
+          name: _SunDisk
+        second: 2
+      data:
+        first:
           name: _Rotation
         second: 0
     m_Colors:
@@ -207,12 +206,12 @@ Material:
         second: {r: .727941155, g: .412143171, b: .412143171, a: 1}
       data:
         first:
-          name: _GroundColor
-        second: {r: .316176474, g: .148456961, b: .0813689455, a: 1}
-      data:
-        first:
           name: _SkyTint
         second: {r: .5, g: .5, b: .5, a: 1}
+      data:
+        first:
+          name: _GroundColor
+        second: {r: .316176474, g: .148456961, b: .0813689455, a: 1}
       data:
         first:
           name: _Tint

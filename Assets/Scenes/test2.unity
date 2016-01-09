@@ -12677,7 +12677,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2018808, guid: ab18ec31bd3ebed48a415eac4c3375b3, type: 2}
       propertyPath: m_ClearFlags
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11451776, guid: ab18ec31bd3ebed48a415eac4c3375b3, type: 2}
       propertyPath: numberOfObjects
@@ -12687,6 +12687,22 @@ Prefab:
       propertyPath: spectrumObj
       value: 
       objectReference: {fileID: 699876341}
+    - target: {fileID: 2359878, guid: ab18ec31bd3ebed48a415eac4c3375b3, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436290, guid: ab18ec31bd3ebed48a415eac4c3375b3, type: 2}
+      propertyPath: skybox
+      value: 
+      objectReference: {fileID: 2100000, guid: 218f5a90e0196ed4fa1b22a34d24b423, type: 2}
+    - target: {fileID: 11451776, guid: ab18ec31bd3ebed48a415eac4c3375b3, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451776, guid: ab18ec31bd3ebed48a415eac4c3375b3, type: 2}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 127089930}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab18ec31bd3ebed48a415eac4c3375b3, type: 2}
   m_IsPrefabParent: 0
