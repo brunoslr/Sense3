@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿// ATENTION!!! No longer in Use. Refactored and renamed as "AudioControllerV2.cs"
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
 
 public class AudioController : MonoBehaviour {
 
@@ -68,7 +71,7 @@ public class AudioController : MonoBehaviour {
     //incrementing the counter
     public void incrementCounter()
     {
-        //stopCurrent();
+        //stopCurrentTrack();
         //First set the current audio source to play the track "tempSource" is playing
         setAudioSourceValues(audioSources[counter], tempSource);
         playTrackAt(counter);

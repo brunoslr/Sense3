@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Theme : MonoBehaviour {
+public class AudioControllerV2 : MonoBehaviour {
 
     private Layer[] layers;
     private int totalLayers;
@@ -19,7 +19,7 @@ public class Theme : MonoBehaviour {
 	
     //Randomly chooses one player from the list of layers that are not playing, and plays a track from that layer
     //If all tracks are playing, then starts playing a new Track in a random layer
-    public void playNew(int pan, float volume)
+    public void playNewTrack(int pan, float volume)
     {
         int layerID, range;
 
@@ -44,7 +44,7 @@ public class Theme : MonoBehaviour {
         layers[lastPlayedLayerID].setPanAndVol(pan, volume);
     }
 
-    public void stopCurrent()
+    public void stopCurrentTrack()
     {
         layers[lastPlayedLayerID].stop();
         availableLayers.Add(lastPlayedLayerID);

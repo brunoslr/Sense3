@@ -28,8 +28,14 @@ public class soundObstacle : MonoBehaviour
 	
 	}
 
+    /// <summary>
+    /// Once the players the sound obstacle's collider, this calls a funciton in theme.
+    /// Computes and sends the volume and pan as calculated according to the relative position of the player
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerEnter(Collider other)
     {
+    
         if(other.gameObject.tag == "Player")
         {
             if (ColliderEnterCount == false)        // This is to make sure that this runs only once
@@ -71,11 +77,15 @@ public class soundObstacle : MonoBehaviour
                 ColliderEnterCount = true;
                 //other.gameObject.GetComponentInChildren<AudioController>().playCurrent((int)pan, volume);
                 //Refactored audio controller below
-                other.gameObject.GetComponentInChildren<Theme>().playNew((int)pan, volume);
+                other.gameObject.GetComponentInChildren<AudioControllerV2>().playNewTrack((int)pan, volume);
             }
         }
     }
 
+    /// <summary>
+    /// Updates the volume and pan with respect to the current player position in the AudioControllerV2 script
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -104,19 +114,21 @@ public class soundObstacle : MonoBehaviour
             }
             
             //other.gameObject.GetComponentInChildren<AudioController>().setCurrentPan((int) pan, volume);
-            other.gameObject.GetComponentInChildren<Theme>().setCurrentPan((int)pan, volume);
+            other.gameObject.GetComponentInChildren<AudioControllerV2>().setCurrentPan((int)pan, volume);
             audioVisualizer.PlayerVisualizer(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z);
         }
     }
     
-
-
+    /// <summary>
+    /// Checks if the player has picked up the obstacle and if not, tells the theme to stop playing the current track
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player" && this.gameObject.GetComponentInChildren<PickUpScript>().pickedUp == false)
         {
-            //other.gameObject.GetComponentInChildren<AudioController>().stopCurrent();
-            other.gameObject.GetComponentInChildren<Theme>().stopCurrent();
+            //other.gameObject.GetComponentInChildren<AudioController>().stopCurrentTrack();
+            other.gameObject.GetComponentInChildren<AudioControllerV2>().stopCurrentTrack();
             audioVisualizer.StopVisualizer();
         }
     }

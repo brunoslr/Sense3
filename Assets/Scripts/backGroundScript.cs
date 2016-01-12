@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityStandardAssets.ImageEffects;
 
-public class backGroundScript : MonoBehaviour {
+public class BackGroundScript : MonoBehaviour {
 
     public float AngleScale = 1.0f;
     public float RadiusScale = 1.0f;
