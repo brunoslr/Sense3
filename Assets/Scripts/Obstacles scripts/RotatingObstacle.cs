@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MWObstacle : MonoBehaviour
+/// <summary>
+/// To Do refactor entire class, create proper functions with correct responsibility, add coments to each and every function
+/// </summary>
+public class RotatingObstacle : MonoBehaviour
 {
     public float currentAngle;
     public float targetAngle;

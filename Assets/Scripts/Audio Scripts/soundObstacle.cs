@@ -10,15 +10,20 @@ public class soundObstacle : MonoBehaviour
     //private AudioSource CenteraudioSource;
     
     public bool pickedUp;
-    public GameObject shock;
+    //public GameObject shock;
     
-    private AudioVisualizer audioVisualizer;
+    //private AudioVisualizer audioVisualizer;
     private bool ColliderEnterCount;
 
-    // Use this for initialization
+    /// <summary>
+    /// To Do: Place audio visualizer in the right place in the architecture.
+    /// </summary>
+    /// <param name=""></param>
+    /// <param name="Start"></param>
+    /// <returns></returns>
 	void Start () {
         //audioSource = this.gameObject.GetComponents<AudioSource>();
-        audioVisualizer = shock.GetComponent<AudioVisualizer>();
+        //audioVisualizer = shock.GetComponent<AudioVisualizer>();
         pickedUp = false;
         ColliderEnterCount = false;
 	}
@@ -115,7 +120,7 @@ public class soundObstacle : MonoBehaviour
             
             //other.gameObject.GetComponentInChildren<AudioController>().setCurrentPan((int) pan, volume);
             other.gameObject.GetComponentInChildren<AudioControllerV2>().setCurrentPan((int)pan, volume);
-            audioVisualizer.PlayerVisualizer(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z);
+            //audioVisualizer.PlayerVisualizer(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z);
         }
     }
     
@@ -129,7 +134,7 @@ public class soundObstacle : MonoBehaviour
         {
             //other.gameObject.GetComponentInChildren<AudioController>().stopCurrentTrack();
             other.gameObject.GetComponentInChildren<AudioControllerV2>().stopCurrentTrack();
-            audioVisualizer.StopVisualizer();
+            //audioVisualizer.StopVisualizer();
         }
     }
 }

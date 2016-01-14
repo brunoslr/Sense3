@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// No idea what this does.
+/// </summary>
 public class ChangeEmission : MonoBehaviour {
     private Material material;
     private float emission;

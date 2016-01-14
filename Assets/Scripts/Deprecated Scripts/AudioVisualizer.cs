@@ -23,7 +23,7 @@ public class AudioVisualizer : MonoBehaviour
         //AudioSource
         //this.aSource = GetComponent<AudioSource>();
         //LineRenderer
-        lRenderer = GetComponent<LineRenderer>();
+        //lRenderer = GetComponent<LineRenderer>();
 
     }
 
@@ -32,7 +32,7 @@ public class AudioVisualizer : MonoBehaviour
         lRenderer.SetVertexCount(segment + 1);
         lRenderer.useWorldSpace = false;
         lineMat = this.gameObject.GetComponent<LineRenderer>().material;
-        InvokeRepeating("CreatePoints",0.1f, 0.2f);
+       // InvokeRepeating("CreatePoints",0.1f, 0.2f);
     }
 
     void Update()
@@ -42,12 +42,12 @@ public class AudioVisualizer : MonoBehaviour
 
     public void PlayerVisualizer(float radius)
     {
-        lRenderer.enabled = true;
+        //lRenderer.enabled = true;
   
     }
     public void StopVisualizer()
     {
-       // lRenderer.enabled = false;
+        //lRenderer.enabled = false;
 
     }
     public void CreatePoints()
@@ -61,13 +61,13 @@ public class AudioVisualizer : MonoBehaviour
             z = Mathf.Cos(Mathf.Deg2Rad * angle) * radius;
 
             //lRenderer.SetPosition(i, new Vector3(x, samples[Random.Range(0, 7)] * Random.Range(0,5), z));
-            lRenderer.SetPosition(i, new Vector3(x, z, samples[Random.Range(0, 7)] * Random.Range(0, 5)));
+           // lRenderer.SetPosition(i, new Vector3(x, z, samples[Random.Range(0, 7)] * Random.Range(0, 5)));
             angle += (360f / segment);
 
         }
 
         LineColor = new Color(Random.value, Random.value, Random.value);
-        lRenderer.SetColors(LineColor, LineColor);
+        //lRenderer.SetColors(LineColor, LineColor);
     }
 
 }

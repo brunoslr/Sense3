@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Triggers the hit() in the state manager.
+/// </summary>
 [RequireComponent(typeof(BoxCollider))]
-//[RequireComponent(typeof(Rigidbody))]
-
 public class ObstacleHitScript : MonoBehaviour {
 
    

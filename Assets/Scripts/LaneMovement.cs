@@ -15,22 +15,22 @@ public class LaneMovement : MonoBehaviour
     public float trailTime = 2.0f;
     private uint hitCounter;
     private float baseSpeed;
-   // public GameObject vibrate;
+    //public GameObject vibrate;
 
     private float horizontalAxis;
-    private bool getSideInput;
+    //private bool getSideInput;
     private bool getJumpInput;
     float horizontalStep;
     Vector3 tempTrans;
     Quaternion temprot;
     RaycastHit rHit;
     Rigidbody rgbody;
-    float distanceToGround = 0;
+    //float distanceToGround = 0;
     void Start()
     {
         hitCounter = 0;
         baseSpeed = forwardspeed;
-        getSideInput = true;
+        //getSideInput = true;
         getJumpInput = true;
         rgbody = this.gameObject.GetComponent<Rigidbody>();
     }
@@ -47,7 +47,7 @@ public class LaneMovement : MonoBehaviour
             StartCoroutine(endTrail());
             //Disable this after refactoring
             //this.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
-            mainCamera.gameObject.GetComponent<ForeGroundController>().startBlur();
+            //mainCamera.gameObject.GetComponent<ForeGroundController>().startBlur();
     }
 
     public void hit()
@@ -60,7 +60,7 @@ public class LaneMovement : MonoBehaviour
             //Disable this after refactoring
             //this.gameObject.GetComponentInChildren<AudioController>().decrementCounter();
         }
-        mainCamera.gameObject.GetComponent<ForeGroundController>().setFishEye(1.0f);
+        //mainCamera.gameObject.GetComponent<ForeGroundController>().setFishEye(1.0f);
 
     }
 
@@ -88,7 +88,7 @@ public class LaneMovement : MonoBehaviour
 
         if (Physics.Raycast(transform.position, -Vector3.up, out rHit, 5.0F))
         {
-            distanceToGround = rHit.distance;
+            //distanceToGround = rHit.distance;
        
         }
         else
