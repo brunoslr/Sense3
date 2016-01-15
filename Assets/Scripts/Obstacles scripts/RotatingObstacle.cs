@@ -17,7 +17,6 @@ public class RotatingObstacle : MonoBehaviour
     // Use this for initialization
 
     private float time;
-    private float time1;
     private int dir;
 
     void Start()
