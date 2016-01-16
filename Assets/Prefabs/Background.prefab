@@ -34,21 +34,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &166478
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 499994}
-  m_Layer: 0
-  m_Name: BackgroundDisplay
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &195424
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +45,6 @@ GameObject:
   - 20: {fileID: 2018808}
   - 124: {fileID: 12493834}
   - 92: {fileID: 9291896}
-  - 114: {fileID: 11451776}
   - 81: {fileID: 8162552}
   m_Layer: 8
   m_Name: BackgroundCamera
@@ -76,11 +60,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62.4889984, y: -15.0209999, z: -149.199997}
-  m_LocalScale: {x: 1.79999995, y: 1, z: 1}
+  m_LocalPosition: {x: 62.489, y: -15.021, z: -149.2}
+  m_LocalScale: {x: 1.8, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 453116}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &435094
 Transform:
   m_ObjectHideFlags: 1
@@ -100,26 +84,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .300000012, y: 0, z: 100}
+  m_LocalPosition: {x: 0.3, y: 0, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 435094}
-  - {fileID: 499994}
   - {fileID: 407140}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &499994
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166478}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 453116}
-  m_RootOrder: 1
 --- !u!20 &2018808
 Camera:
   m_ObjectHideFlags: 1
@@ -129,14 +100,14 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
-  near clip plane: .300000012
+  near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -152,7 +123,7 @@ Camera:
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
-  m_StereoSeparation: .0219999999
+  m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
 --- !u!23 &2359878
 MeshRenderer:
@@ -160,7 +131,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -172,8 +143,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -223,32 +196,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   computeShader: {fileID: 7200000, guid: 90007c1967ade58489902b28daac9a01, type: 3}
+  skybox: {fileID: 2100000, guid: 218f5a90e0196ed4fa1b22a34d24b423, type: 2}
   FFT:
   - 0
   - 0
   - 0
   - 0
---- !u!114 &11451776
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04c2d866787301344ac8048b05385b56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 109598, guid: 16a6537f86b6d2142a72490f7299a33d, type: 2}
-  numberOfObjects: 165
-  radius: 5
-  cubes: []
-  parent: {fileID: 166478}
-  channel: 0
-  window: 5
-  cubeMat: []
-  spectrum: []
-  spectrumObj: {fileID: 0}
 --- !u!124 &12493834
 Behaviour:
   m_ObjectHideFlags: 1

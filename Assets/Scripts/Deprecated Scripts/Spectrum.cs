@@ -42,17 +42,12 @@ public class Spectrum : MonoBehaviour
        spectrum = AudioListener.GetSpectrumData(1024, 0, window);
         for (int i = 0; i < numberOfObjects; i++)
         {
-                Vector3 previousScale = cubes[i].transform.localScale;
-                previousScale.y = Mathf.Lerp(previousScale.y, Mathf.Clamp(spectrum[i] * (30 + i * i), 0, 10), Time.deltaTime * 15);
-                cubes[i].transform.localScale = previousScale;
-                cubes[i].transform.position = new Vector3(cubes[i].transform.position.x, previousScale.y / 2 + 1, cubes[i].transform.position.z);
-                sum += spectrum[i];
+            Vector3 previousScale = cubes[i].transform.localScale;
+            previousScale.y = Mathf.Lerp(previousScale.y, Mathf.Clamp(spectrum[i] * (30 + i * i), 0, 10), Time.deltaTime * 15);
+            cubes[i].transform.localScale = previousScale;
+            cubes[i].transform.position = new Vector3(cubes[i].transform.position.x, previousScale.y / 2 + 1, cubes[i].transform.position.z);
+            sum += spectrum[i];
         }
-
-         spectrumObj.GetComponent<DynamicTexture>().FFT[0]= spectrum[0];
-         spectrumObj.GetComponent<DynamicTexture>().FFT[1] = spectrum[1];
-         spectrumObj.GetComponent<DynamicTexture>().FFT[2] = spectrum[2];
-         spectrumObj.GetComponent<DynamicTexture>().FFT[3] = spectrum[3];
 
          //mainCamera.gameObject.GetComponent<ForeGroundController>().setBloom(spectrum[3]);
          //this.gameObject.GetComponent<BackGroundScript>().setTwirlAngle(spectrum[2]);

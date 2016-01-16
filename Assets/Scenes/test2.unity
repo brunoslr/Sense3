@@ -5300,7 +5300,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11428294, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
       propertyPath: audioTracks.Array.size
-      value: 5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485700, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
+      propertyPath: availableLayers.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 445576, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
       propertyPath: m_LocalPosition.x
@@ -5337,7 +5341,7 @@ Prefab:
     - target: {fileID: 11428294, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
       propertyPath: audioTracks.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: d0cdd914894719640b16d2dfbe666b62, type: 3}
+      objectReference: {fileID: 8300000, guid: adf5c5893ce82d54598abfb5b2e6b675, type: 3}
     - target: {fileID: 11428294, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
       propertyPath: audioTracks.Array.data[1]
       value: 
@@ -5378,9 +5382,86 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11485700, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
+      propertyPath: availableLayers.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485700, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
+      propertyPath: availableLayers.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485700, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
+      propertyPath: availableLayers.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485700, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
+      propertyPath: availableLayers.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11428294, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &497297189 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 130634, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
+  m_PrefabInternal: {fileID: 497297188}
+--- !u!114 &497297190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 497297189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: 
+  audioTracks:
+  - {fileID: 8300000, guid: 00877118b0bd3e743b85753a57a81637, type: 3}
+--- !u!114 &497297191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 497297189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: 
+  audioTracks:
+  - {fileID: 8300000, guid: cd65a8a2cb35db048ab31cc4993f9475, type: 3}
+--- !u!114 &497297192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 497297189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: 
+  audioTracks:
+  - {fileID: 8300000, guid: 222e39cdda8c3c341bb321b0aaefd607, type: 3}
+--- !u!114 &497297193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 497297189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: 
+  audioTracks:
+  - {fileID: 8300000, guid: adf5c5893ce82d54598abfb5b2e6b675, type: 3}
 --- !u!1001 &502738078
 Prefab:
   m_ObjectHideFlags: 0
