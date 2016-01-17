@@ -27,7 +27,7 @@ public class Layer : MonoBehaviour {
         do
         {
           newIndex = Random.Range(0, totalTracks - 1);
-        } while (newIndex == currentTrackIndex);
+        } while (newIndex == currentTrackIndex && totalTracks > 1);
 
         currentTrackIndex = newIndex;
         audioSource.clip = audioTracks[currentTrackIndex];
