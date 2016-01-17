@@ -29,6 +29,7 @@ public class AudioControllerV2 : MonoBehaviour {
             range = totalLayers-1;
  
         layerID = Random.Range(0, range);
+        layerID = availableLayers[layerID];
 
         if (availableLayers.Count > 0)
             availableLayers.Remove(layerID);
