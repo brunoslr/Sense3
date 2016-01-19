@@ -2,6 +2,16 @@
 using System.Collections;
 using XInputDotNetPure;
 
+
+/// <summary>
+/// This script goes on the player game object.
+/// 
+/// It deals with getting input from the user and controling the character's movement.
+/// It was decided to not split this into two (characterController and inputController)
+/// because the user can only control the player and the input only directly affects 
+/// the character. All other events in the game are triggered by the character/environment 
+/// interaction.
+/// </summary>
 public class LaneMovement : MonoBehaviour 
 {
     public Camera mainCamera;
@@ -9,10 +19,12 @@ public class LaneMovement : MonoBehaviour
     public float sideDisp;
     public float forwardspeed;
     public float speedMultiplier;
+    public uint maxSpeedIncrement = 4;
     public float tilt;
     public float jumpDisp;
     public float jumpSpeed;
     public float trailTime = 2.0f;
+
     private uint hitCounter;
     private float baseSpeed;
     //public GameObject vibrate;
@@ -35,33 +47,39 @@ public class LaneMovement : MonoBehaviour
         rgbody = this.gameObject.GetComponent<Rigidbody>();
     }
 
-    public void pickUp()
+    //public void pickUp()
+    //{
+    //    if (hitCounter < maxSpeedIncrement)
+    //    {
+    //        hitCounter += 1;
+    //        forwardspeed = (1.0f + (speedMultiplier * hitCounter)) * baseSpeed;
+    //        sideDisp = forwardspeed * 2.0f;
+    //    }
+    //        this.gameObject.GetComponent<TrailRenderer>().enabled = true;
+    //        StartCoroutine(endTrail());
+    //        //Disable this after refactoring
+    //        //this.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
+    //        //mainCamera.gameObject.GetComponent<ForeGroundController>().startBlur();
+    //}
+
+    public void increasePlayerSpeed()
     {
-        if (hitCounter < 4)
+        if (hitCounter < maxSpeedIncrement)
         {
             hitCounter += 1;
             forwardspeed = (1.0f + (speedMultiplier * hitCounter)) * baseSpeed;
             sideDisp = forwardspeed * 2.0f;
         }
-            this.gameObject.GetComponent<TrailRenderer>().enabled = true;
-            StartCoroutine(endTrail());
-            //Disable this after refactoring
-            //this.gameObject.GetComponentInChildren<AudioController>().incrementCounter();
-            //mainCamera.gameObject.GetComponent<ForeGroundController>().startBlur();
     }
 
-    public void hit()
+    public void reducePlayerSpeed()
     {
         if (hitCounter > 0)
         {
             hitCounter -= 1;
             forwardspeed = (1.0f + (speedMultiplier * hitCounter)) * baseSpeed;
             sideDisp = forwardspeed * 2.0f;
-            //Disable this after refactoring
-            //this.gameObject.GetComponentInChildren<AudioController>().decrementCounter();
         }
-        //mainCamera.gameObject.GetComponent<ForeGroundController>().setFishEye(1.0f);
-
     }
 
 	// Update is called once per frame

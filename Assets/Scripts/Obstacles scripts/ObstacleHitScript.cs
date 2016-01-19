@@ -22,7 +22,7 @@ public class ObstacleHitScript : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<LaneMovement>().hit();
+            other.gameObject.GetComponent<CoreSystem>().executeOnHit();
         }
     }
 }

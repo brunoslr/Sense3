@@ -13,6 +13,7 @@ public class VisualObstacle : MonoBehaviour {
     private int tick;
     private int move;
     private int rand;
+
     void Start()
     {
         canMove = true;
