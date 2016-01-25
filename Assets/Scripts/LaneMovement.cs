@@ -135,10 +135,4 @@ public class LaneMovement : MonoBehaviour
         getJumpInput = true;
  
     }
-
-    IEnumerator endTrail()
-    {
-        yield return new WaitForSeconds(trailTime);
-        this.gameObject.GetComponent<TrailRenderer>().enabled = false;
-    }
 }
