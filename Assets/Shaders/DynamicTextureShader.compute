@@ -4,10 +4,8 @@
 // Create a RenderTexture with enableRandomWrite flag and set it
 // with cs.SetTexture
 RWTexture2D<float4> Result;
-//uniform float t;
+uniform float t;
 
-uniform float2 c1;
-uniform float2 c2;
 
 [numthreads(32,32,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
@@ -15,10 +13,8 @@ void CSMain (uint3 id : SV_DispatchThreadID)
     float2 z1 = float2(3.0 * ((1.0 / 960) * id.x) - 1.5, 2.0 * ((1.0 / 1080) * id.y) - 1.0);
     float2 z2 = float2(3.0 * ((1.0 / 960) * id.x) - 4.5, 2.0 * ((1.0 / 1080) * id.y) - 1.0);
     // Change this for different patterns
-	//float2 c1 = float2(-0.18453326967811071,  -0.18653326967811071);
-    //float2 c2 = float2(-0.11253326967811071,  cos(t / 10.0));
-	//float2 c1 = float2(0.0, 0.0);
-	//float2 c2 = float2(0.0, 0.0);
+	float2 c1 = float2(-0.18453326967811071, cos(t / 10.0));
+    float2 c2 = float2(-0.11253326967811071,  cos(t / 10.0));
     
 	int i1;
     for(i1 = 0; i1 < 100; i1++)
@@ -45,10 +41,10 @@ void CSMain (uint3 id : SV_DispatchThreadID)
 	float4 color1;
     if( i1 < 100 ) 
 	{
-        if( i1 < 5 ) color1 =			float4(1.0,						1.0,					 float(i1) / 8.0,			1.0);
-        else if( i1 < 10 ) color1 =	float4(1.0,						0.4,					 (float(i1) - 5.0) / 9.0,	1.0);
-        else if( i1 < 15 ) color1 =	float4(1.0,						(float(i1) - 10.0) / 9.0, 0.0,						1.0);
-        else if( i1 < 20 ) color1 =	float4((float(i1) - 10.0) / 5.0, 1.0,					 0.0,						1.0);
+        if( i1 < 5 ) color1 =			float4(1.0,						0.0,					 float(i1) / 8.0,			1.0);
+        else if( i1 < 10 ) color1 =	float4(0.3,						0.0,					 (float(i1) - 5.0) / 9.0,	1.0);
+        else if( i1 < 15 ) color1 =	float4(0.6,						(float(i1) - 10.0) / 9.0, 0.0,						1.0);
+        else if( i1 < 20 ) color1 =	float4((float(i1) - 6.0) / 5.0, 1.0,					 0.3,						1.0);
         else if( i1 < 25 ) color1 =	float4((float(i1) - 10.0) / 9.0,			0.0,					 (float(i1) - 40.0) / 9.0,	1.0);
         else if( i1 < 30 ) color1 =	float4(1.0,						(float(i1) - 10.0) / 6.0, 0.0,						1.0);
         else color1 =				float4((float(i1) - 10.0) / 4.0,						0.1, 0.3,						1.0);
@@ -61,9 +57,9 @@ void CSMain (uint3 id : SV_DispatchThreadID)
     if( i2 < 100 ) 
 	{
         if( i2 < 5 ) color2 =			float4(1.0,						1.0,					 float(i2) / 8.0,			1.0);
-        else if( i2 < 10 ) color2 =	float4(1.0,						0.4,					 (float(i2) - 5.0) / 9.0,	1.0);
-        else if( i2 < 15 ) color2 =	float4(1.0,						(float(i2) - 10.0) / 9.0, 0.0,						1.0);
-        else if( i2 < 20 ) color2 =	float4((float(i2) - 10.0) / 5.0, 1.0,					 0.0,						1.0);
+        else if( i2 < 10 ) color2 =	float4(0.0,						0.4,					 (float(i2) - 5.0) / 9.0,	1.0);
+        else if( i2 < 15 ) color2 =	float4(0.0,						(float(i2) - 10.0) / 9.0, 0.0,						1.0);
+        else if( i2 < 20 ) color2 =	float4((float(i2) - 2.0) / 5.0, 0.45,					 0.0,						1.0);
         else if( i2 < 25 ) color2 =	float4((float(i2) - 10.0) / 9.0,			0.0,					 (float(i2) - 40.0) / 9.0,	1.0);
         else if( i2 < 30 ) color2 =	float4(1.0,						(float(i2) - 10.0) / 6.0, 0.0,						1.0);
         else color2 =				float4((float(i2) - 10.0) / 8.0,						0.4, 0.0,						1.0);
