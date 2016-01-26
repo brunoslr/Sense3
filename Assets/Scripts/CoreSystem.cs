@@ -13,25 +13,25 @@ public class CoreSystem : MonoBehaviour {
     // If you feel a particular call is going to be repeated lots of times,
     // create a reference to it here. Querying again and again would be expensive.
     // Naming convention : object_the_script_si acctached_to Initials of the script
-    private LaneMovement    playerLM;
+    private PlayerMovement    playerLM;
     private Effects         cameraEf;
 
 	// Use this for initialization
 	void Start () {
-        playerLM = this.gameObject.GetComponent<LaneMovement>();
+        playerLM = this.gameObject.GetComponent<PlayerMovement>();
         cameraEf = Camera.main.GetComponent<Effects>();
 	}
     
     public void executeOnPickUp()
     {
-        playerLM.increasePlayerSpeed();
+        playerLM.IncreasePlayerSpeed();
         cameraEf.startTrail();
         cameraEf.startFishEye(3);
     }
 
     public void executeOnHit()
     {
-        playerLM.reducePlayerSpeed();
+        playerLM.ReducePlayerSpeed();
     }
     	
 	// Update is called once per frame
