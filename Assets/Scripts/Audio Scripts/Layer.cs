@@ -45,6 +45,11 @@ public class Layer : MonoBehaviour {
     public void stop()
     {
         audioSource.mute = true;
+        
+    }
+    public void StopTrack()
+    {
+        audioSource.Stop();  
     }
 
     public bool isPlaying()

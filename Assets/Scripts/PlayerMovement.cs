@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private float vertSpeed;          // current up down speed of the player.
 
     public uint maxSpeedCounter;    // max no. of times speed can boost or increase.
-    private uint speedCounter;      // current boost counter.
+    public uint speedCounter;      // current boost counter.
 
     public float trailTime;         // time of fire trail in sec.
 
@@ -32,12 +32,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        ResetSpeed();
+    }
+
+    public void ResetSpeed()
+    {
         speedCounter = 0;
         forwardSpeed = initialSpeed;
         sideSpeed = forwardSpeed * sideSpeedMul;
         vertSpeed = forwardSpeed * vertSpeedMul;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -90,4 +94,6 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(trailTime);
         this.gameObject.GetComponent<TrailRenderer>().enabled = false;
     }
+
+
 }
