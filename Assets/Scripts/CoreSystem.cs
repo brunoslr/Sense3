@@ -16,6 +16,10 @@ public class CoreSystem : MonoBehaviour {
     private PlayerMovement    playerLM;
     private Effects         cameraEf;
 
+    public bool boostMode;
+    public bool constIncMode;
+    public bool constSpeedMode;
+
 	// Use this for initialization
 	void Start () {
         playerLM = this.gameObject.GetComponent<PlayerMovement>();
@@ -24,16 +28,20 @@ public class CoreSystem : MonoBehaviour {
     
     public void executeOnPickUp()
     {
-        playerLM.IncreasePlayerSpeed();
+        if(boostMode)
+            playerLM.IncreasePlayerSpeed();
         cameraEf.startTrail();
         cameraEf.startFishEye(3);
     }
 
     public void executeOnHit()
     {
-        playerLM.ReducePlayerSpeed();
+        if(boostMode)
+            playerLM.ReducePlayerSpeed();
     }
-    	
+    
+	void Fixed
+
 	// Update is called once per frame
 	void Update () {
 	
