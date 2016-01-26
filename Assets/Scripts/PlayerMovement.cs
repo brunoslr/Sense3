@@ -16,21 +16,26 @@ public class PlayerMovement : MonoBehaviour
 {
     public float initialSpeed;      // initial speed of player.
     public float sideSpeedMul;      // factor multiplied by forward speed to get side speed of player.
+    public float vertSpeedMul;    // factor multiplied by forward speed to get up down speed of player
     public float speedMultiplier;   // factor multiplied to increase forward speed.
 
     private float forwardSpeed;     // current speed of the player at any point of time.
     private float sideSpeed;        // current side speed of the player at any point of time.
+    private float vertSpeed;          // current up down speed of the player.
 
     public uint maxSpeedCounter;    // max no. of times speed can boost or increase.
     private uint speedCounter;      // current boost counter.
 
     public float trailTime;         // time of fire trail in sec.
 
+  
+
     void Start()
     {
         speedCounter = 0;
         forwardSpeed = initialSpeed;
         sideSpeed = forwardSpeed * sideSpeedMul;
+        vertSpeed = forwardSpeed * vertSpeedMul;
     }
 
     // Update is called once per frame
@@ -38,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayerForward();
         MovePlayerSideways();
+        MovePlayerVertical();
     }
 
     void MovePlayerForward()
@@ -47,7 +53,14 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayerSideways()
     {
+      
         transform.Translate(transform.right * Input.GetAxis("Horizontal") * sideSpeed * Time.deltaTime);
+    }
+
+    void MovePlayerVertical()
+    {
+       
+        transform.Translate(transform.up * Input.GetAxis("Vertical") * vertSpeed * Time.deltaTime);
     }
 
     public void IncreasePlayerSpeed()
@@ -57,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
             ++speedCounter;
             forwardSpeed = (1.0f + (speedMultiplier * speedCounter)) * initialSpeed;
             sideSpeed = forwardSpeed * sideSpeedMul;
+            vertSpeed = forwardSpeed * vertSpeedMul;
         }
     }
 
@@ -67,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
             --speedCounter;
             forwardSpeed = (1.0f + (speedMultiplier * speedCounter)) * initialSpeed;
             sideSpeed = forwardSpeed * sideSpeedMul;
+            vertSpeed = forwardSpeed * vertSpeedMul;
         }
     }
 
