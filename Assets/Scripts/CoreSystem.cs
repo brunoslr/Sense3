@@ -40,7 +40,11 @@ public class CoreSystem : MonoBehaviour {
             playerLM.ReducePlayerSpeed();
     }
     
-	void Fixed
+	void FixedUpdate()
+    {
+        if (constIncMode)
+            playerLM.IncreasePlayerSpeed();
+    }
 
 	// Update is called once per frame
 	void Update () {
