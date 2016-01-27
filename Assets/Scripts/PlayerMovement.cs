@@ -2,7 +2,6 @@
 using System.Collections;
 using XInputDotNetPure;
 
-
 /// <summary>
 /// This script goes on the player game object.
 /// 
@@ -27,8 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private uint speedCounter;      // current boost counter.
 
     public float trailTime;         // time of fire trail in sec.
-
-  
+    public float vertClamp;         // max vertical disp.
 
     void Start()
     {
@@ -44,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         MovePlayerForward();
         MovePlayerSideways();
         MovePlayerVertical();
+        MovePlayerBackToCenter();
     }
 
     void MovePlayerForward()
@@ -53,14 +52,24 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayerSideways()
     {
-      
         transform.Translate(transform.right * Input.GetAxis("Horizontal") * sideSpeed * Time.deltaTime);
     }
 
     void MovePlayerVertical()
     {
-       
+        if (transform.position.y > vertClamp)
+            transform.position = new Vector3(transform.position.x, vertClamp, transform.position.z);
+
+        if (transform.position.y < -vertClamp)
+            transform.position = new Vector3(transform.position.x, -vertClamp, transform.position.z);
+
         transform.Translate(transform.up * Input.GetAxis("Vertical") * vertSpeed * Time.deltaTime);
+    }
+
+    void MovePlayerBackToCenter()
+    {
+        if (Input.GetAxis("Vertical") == 0.0f)
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 1.0f, transform.position.z), 0.01f);
     }
 
     public void IncreasePlayerSpeed()
