@@ -7389,13 +7389,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a315ed9396d1b545bfc29a6530e427f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 10
+  initialSpeed: 50
   sideSpeedMul: 1
-  vertSpeedMul: 1
+  vertSpeedMul: 0.1
   speedMultiplier: 2
+  sideSpeedInc: 1
+  vertSpeedInc: 0.5
+  vertClamp: 5
+  initialSideSpeed: 0
+  initialVertSpeed: 0
+  curSideSpeedInc: 0
+  curVertSpeedInc: 0
   maxSpeedCounter: 5
   trailTime: 2
-  vertClamp: 5
 --- !u!114 &551835695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7408,9 +7414,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ba4772f5eed2f4aa7657f47222dee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostMode: 1
+  boostMode: 0
   constIncMode: 0
-  constSpeedMode: 0
+  constSpeedMode: 1
 --- !u!96 &551835696
 TrailRenderer:
   m_ObjectHideFlags: 0
@@ -10811,6 +10817,18 @@ Prefab:
       propertyPath: shock
       value: 
       objectReference: {fileID: 1160109821}
+    - target: {fileID: 470730, guid: 12f40a031b585be4b80774f122f07327, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 6.5668397
+      objectReference: {fileID: 0}
+    - target: {fileID: 470730, guid: 12f40a031b585be4b80774f122f07327, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 25.349987
+      objectReference: {fileID: 0}
+    - target: {fileID: 470730, guid: 12f40a031b585be4b80774f122f07327, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 8.593488
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12f40a031b585be4b80774f122f07327, type: 2}
   m_IsPrefabParent: 0
