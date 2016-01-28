@@ -17,23 +17,34 @@ public class PlayerMovement : MonoBehaviour
     public float sideSpeedMul;      // factor multiplied by forward speed to get side speed of player.
     public float vertSpeedMul;    // factor multiplied by forward speed to get up down speed of player
     public float speedMultiplier;   // factor multiplied to increase forward speed.
+    public float sideSpeedInc;
+    public float vertSpeedInc;
+
+    public float vertClamp;         // max vertical disp.
 
     private float forwardSpeed;     // current speed of the player at any point of time.
-    private float sideSpeed;        // current side speed of the player at any point of time.
-    private float vertSpeed;          // current up down speed of the player.
+    public float initialSideSpeed;
+    public float initialVertSpeed;
+    private float finalSideSpeed;        // current side speed of the player at any point of time.
+    private float finalVertSpeed;          // current up down speed of the player.
+    public float curSideSpeedInc;
+    public float curVertSpeedInc;
 
     public uint maxSpeedCounter;    // max no. of times speed can boost or increase.
     private uint speedCounter;      // current boost counter.
 
     public float trailTime;         // time of fire trail in sec.
-    public float vertClamp;         // max vertical disp.
 
     void Start()
     {
         speedCounter = 0;
         forwardSpeed = initialSpeed;
-        sideSpeed = forwardSpeed * sideSpeedMul;
-        vertSpeed = forwardSpeed * vertSpeedMul;
+        initialSideSpeed = 0.0f;
+        initialVertSpeed = 0.0f;
+        finalSideSpeed = forwardSpeed * sideSpeedMul;
+        finalVertSpeed = forwardSpeed * vertSpeedMul;
+        curSideSpeedInc = sideSpeedInc;
+        curVertSpeedInc = vertSpeedInc;
     }
 
     // Update is called once per frame
@@ -42,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
         MovePlayerForward();
         MovePlayerSideways();
         MovePlayerVertical();
-        MovePlayerBackToCenter();
     }
 
     void MovePlayerForward()
@@ -52,24 +62,53 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayerSideways()
     {
-        transform.Translate(transform.right * Input.GetAxis("Horizontal") * sideSpeed * Time.deltaTime);
+        if (Input.GetAxis("Horizontal") == 0.0f)
+        {
+            initialSideSpeed = 0.0f;
+            curSideSpeedInc = sideSpeedInc;
+        }
+        else
+        {
+            if (initialSideSpeed < finalSideSpeed)
+            {
+                initialSideSpeed += curSideSpeedInc;
+            }
+            else
+                initialSideSpeed = finalSideSpeed;
+
+            transform.Translate(transform.right * Input.GetAxis("Horizontal") * initialSideSpeed * Time.deltaTime);
+        }
     }
 
     void MovePlayerVertical()
     {
-        if (transform.position.y > vertClamp)
-            transform.position = new Vector3(transform.position.x, vertClamp, transform.position.z);
+        if (Input.GetAxis("Vertical") == 0.0f)
+        {
+            MovePlayerBackToCenter();
+            initialVertSpeed = 0.0f;
+            curVertSpeedInc = vertSpeedInc;
+        }
+        else
+        {
+            if (transform.position.y > vertClamp)
+                transform.position = new Vector3(transform.position.x, vertClamp, transform.position.z);
 
-        if (transform.position.y < -vertClamp)
-            transform.position = new Vector3(transform.position.x, -vertClamp, transform.position.z);
+            if (transform.position.y < -vertClamp)
+                transform.position = new Vector3(transform.position.x, -vertClamp, transform.position.z);
 
-        transform.Translate(transform.up * Input.GetAxis("Vertical") * vertSpeed * Time.deltaTime);
+            if (initialVertSpeed < finalVertSpeed)
+            {
+                initialVertSpeed += curVertSpeedInc;
+            }
+            else
+                initialVertSpeed = finalVertSpeed;
+
+            transform.Translate(transform.up * Input.GetAxis("Vertical") * initialVertSpeed * Time.deltaTime);
+        }
     }
-
     void MovePlayerBackToCenter()
     {
-        if (Input.GetAxis("Vertical") == 0.0f)
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 1.0f, transform.position.z), 0.01f);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 1.0f, transform.position.z), 0.01f);
     }
 
     public void IncreasePlayerSpeed()
@@ -78,8 +117,8 @@ public class PlayerMovement : MonoBehaviour
         {
             ++speedCounter;
             forwardSpeed = (1.0f + (speedMultiplier * speedCounter)) * initialSpeed;
-            sideSpeed = forwardSpeed * sideSpeedMul;
-            vertSpeed = forwardSpeed * vertSpeedMul;
+            finalSideSpeed = forwardSpeed * sideSpeedMul;
+            finalVertSpeed = forwardSpeed * vertSpeedMul;
         }
     }
 
@@ -89,8 +128,8 @@ public class PlayerMovement : MonoBehaviour
         {
             --speedCounter;
             forwardSpeed = (1.0f + (speedMultiplier * speedCounter)) * initialSpeed;
-            sideSpeed = forwardSpeed * sideSpeedMul;
-            vertSpeed = forwardSpeed * vertSpeedMul;
+            finalSideSpeed = forwardSpeed * sideSpeedMul;
+            finalVertSpeed = forwardSpeed * vertSpeedMul;
         }
     }
 
