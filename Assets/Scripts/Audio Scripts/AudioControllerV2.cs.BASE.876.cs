@@ -5,15 +5,14 @@ using System.Collections.Generic;
 public class AudioControllerV2 : MonoBehaviour {
 
     private Layer[] layers;
-    private int totalLayers;   // Total number of layers - bass, rythm etc etc
-    public List<int> availableLayers; //Available layers that are not currently playing but available
-    private int lastPlayedLayerID; 
+    private int totalLayers;
+    public List<int> availableLayers;
+    private int lastPlayedLayerID;
 
 	// Use this for initialization
 	void Start () {
         layers = this.gameObject.GetComponents<Layer>();
         totalLayers = layers.Length;
-        availableLayers.Clear();
         for (int i = 0; i < totalLayers; i++)
             availableLayers.Add(i);
 	}
@@ -50,37 +49,6 @@ public class AudioControllerV2 : MonoBehaviour {
     {
         layers[lastPlayedLayerID].stop();
         availableLayers.Add(lastPlayedLayerID);
-    }
-
-    int CurrentTracks()
-    {
-        return totalLayers - availableLayers.Count;
-    }
-
-    public void ResetLayers()
-    {
-        for (int i = 0; i < layers.Length; i++)
-        {
-            layers[i].StopTrack();
-        }
-        availableLayers.Clear();
-        for (int i = 0; i < totalLayers; i++)
-            availableLayers.Add(i);
-
-    }
-	
-    public void stopAllTracks()
-    {
-        for (int i = 0; i < totalLayers; i++)
-        {
-            layers[i].stop();
-        }
-    }
-
-    public void resetController()
-    {
-        stopAllTracks();
-        Start();
     }
 
 	// Update is called once per frame

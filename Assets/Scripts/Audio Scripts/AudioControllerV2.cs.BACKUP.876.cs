@@ -52,6 +52,7 @@ public class AudioControllerV2 : MonoBehaviour {
         availableLayers.Add(lastPlayedLayerID);
     }
 
+<<<<<<< Updated upstream
     int CurrentTracks()
     {
         return totalLayers - availableLayers.Count;
@@ -68,7 +69,7 @@ public class AudioControllerV2 : MonoBehaviour {
             availableLayers.Add(i);
 
     }
-	
+=======
     public void stopAllTracks()
     {
         for (int i = 0; i < totalLayers; i++)
@@ -83,6 +84,7 @@ public class AudioControllerV2 : MonoBehaviour {
         Start();
     }
 
+>>>>>>> Stashed changes
 	// Update is called once per frame
 	void Update () {
 	

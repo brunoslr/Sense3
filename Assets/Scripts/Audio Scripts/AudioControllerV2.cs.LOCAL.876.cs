@@ -13,7 +13,6 @@ public class AudioControllerV2 : MonoBehaviour {
 	void Start () {
         layers = this.gameObject.GetComponents<Layer>();
         totalLayers = layers.Length;
-        availableLayers.Clear();
         for (int i = 0; i < totalLayers; i++)
             availableLayers.Add(i);
 	}
@@ -68,21 +67,6 @@ public class AudioControllerV2 : MonoBehaviour {
             availableLayers.Add(i);
 
     }
-	
-    public void stopAllTracks()
-    {
-        for (int i = 0; i < totalLayers; i++)
-        {
-            layers[i].stop();
-        }
-    }
-
-    public void resetController()
-    {
-        stopAllTracks();
-        Start();
-    }
-
 	// Update is called once per frame
 	void Update () {
 	
