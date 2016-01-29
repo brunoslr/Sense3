@@ -15,7 +15,5 @@ public class PickUpScript : MonoBehaviour {
             pickedUp = true;
             other.gameObject.GetComponent<CoreSystem>().executeOnPickUp();
 		}
-		
 	}
-	
 }

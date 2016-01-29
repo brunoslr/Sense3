@@ -8,6 +8,11 @@ using XInputDotNetPure;
 public class MineObstacle : MonoBehaviour
 {
     public GameObject Spikes;
+
+    public float triggerSpikes;
+
+    private float playerDist;
+
     //Spectrum _spectrum;
 	// Use this for initialization
 	void Start () {
@@ -25,10 +30,12 @@ public class MineObstacle : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
+
+        playerDist = Mathf.Abs(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z);
         if (other.gameObject.tag == "Player")
         {
             StartVibration();
-            if (Mathf.Abs(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z) < 8f)
+            if (playerDist < triggerSpikes)
             {
                 Spikes.SetActive(true);
                 SpikeAnimation();
