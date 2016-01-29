@@ -20,7 +20,10 @@ public class Layer : MonoBehaviour {
         audioSource.Play();
         currentTrackIndex = 0;
 	}
-	
+	public void restartLayer()
+    {
+        Start();
+    }
     public void playNewTrack()
     {
         int newIndex;
