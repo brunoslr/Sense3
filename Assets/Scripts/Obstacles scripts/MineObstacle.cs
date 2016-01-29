@@ -30,10 +30,11 @@ public class MineObstacle : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-
-        playerDist = Mathf.Abs(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z);
         if (other.gameObject.tag == "Player")
         {
+            playerDist = Mathf.Abs(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z);
+
+            if()
             StartVibration();
             if (playerDist < triggerSpikes)
             {
