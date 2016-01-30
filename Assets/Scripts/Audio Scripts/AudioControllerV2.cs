@@ -11,12 +11,13 @@ public class AudioControllerV2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        lastPlayedLayerID = 0;
         layers = this.gameObject.GetComponents<Layer>();
         totalLayers = layers.Length;
         for (int i = 0; i < totalLayers; i++)
             availableLayers.Add(i);
 	}
-	
+
     //Randomly chooses one player from the list of layers that are not playing, and plays a track from that layer
     //If all tracks are playing, then starts playing a new Track in a random layer
     public void playNewTrack(int pan, float volume)
@@ -26,17 +27,22 @@ public class AudioControllerV2 : MonoBehaviour {
         if(availableLayers.Count > 0)
             range = availableLayers.Count - 1;
         else
-            range = totalLayers-1;
+            range = totalLayers;
  
         layerID = Random.Range(0, range);
-        layerID = availableLayers[layerID];
 
         if (availableLayers.Count > 0)
+        {
+            layerID = availableLayers[layerID];
             availableLayers.Remove(layerID);
+        }
+
+        int temp = lastPlayedLayerID;
 
         lastPlayedLayerID = layerID;
 
-        layers[layerID].playNewTrack();
+        //Pass the previously playing audioSource's time sample to sync with
+        layers[layerID].playNewTrack(layers[temp].getTimeSample());
         layers[layerID].setPanAndVol(pan, volume);
     }
 
@@ -47,7 +53,7 @@ public class AudioControllerV2 : MonoBehaviour {
 
     public void stopCurrentTrack()
     {
-        layers[lastPlayedLayerID].stop();
+        layers[lastPlayedLayerID].StopTrack();
         availableLayers.Add(lastPlayedLayerID);
     }
 
@@ -74,9 +80,10 @@ public class AudioControllerV2 : MonoBehaviour {
     {
         for (int i = 0; i < totalLayers; i++)
         {
-            layers[i].stop();
+            layers[i].StopTrack();
         }
     }
+
     /// <summary>
     /// Resets the controller to the way it was at the start of the game
     /// </summary>

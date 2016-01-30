@@ -22,21 +22,37 @@ public class Layer : MonoBehaviour {
 	}
 	public void restartLayer()
     {
-        Start();
+        totalTracks = audioTracks.Length;
+        audioSource.loop = true;
+        audioSource.mute = true;
+        currentTrackIndex = 0;
     }
-    public void playNewTrack()
+
+    public void destroySelf()
     {
+        Destroy(audioSource);
+        Destroy(this);
+    }
+
+    public int getTimeSample()
+    {
+        return audioSource.timeSamples;
+    }
+
+    public void playNewTrack(int timeSample)
+    {
+        audioSource.Stop();
         int newIndex;
         do
         {
-          newIndex = Random.Range(0, totalTracks - 1);
+          newIndex = Random.Range(0, totalTracks);
         } while (newIndex == currentTrackIndex && totalTracks > 1);
 
         currentTrackIndex = newIndex;
         audioSource.clip = audioTracks[currentTrackIndex];
         audioSource.mute = false;
-        if (!audioSource.isPlaying)
-            audioSource.Play();
+        audioSource.timeSamples = timeSample;
+        audioSource.Play();
     }
 
     public void playCurrentTrack()
@@ -45,11 +61,6 @@ public class Layer : MonoBehaviour {
         audioSource.mute = false;
     }
 
-    public void stop()
-    {
-        audioSource.mute = true;
-        
-    }
     public void StopTrack()
     {
         audioSource.Stop();  
