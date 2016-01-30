@@ -6724,6 +6724,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 142
       objectReference: {fileID: 0}
+    - target: {fileID: 11451776, guid: ab18ec31bd3ebed48a415eac4c3375b3, type: 2}
+      propertyPath: spectrumObj
+      value: 
+      objectReference: {fileID: 1647224080}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab18ec31bd3ebed48a415eac4c3375b3, type: 2}
   m_IsPrefabParent: 0
@@ -9444,6 +9448,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93b2639814747bd4db12715b4efc28aa, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1647224080 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 125268, guid: ab18ec31bd3ebed48a415eac4c3375b3, type: 2}
+  m_PrefabInternal: {fileID: 1197424825}
 --- !u!1001 &1661485403
 Prefab:
   m_ObjectHideFlags: 0

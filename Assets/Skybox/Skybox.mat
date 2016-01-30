@@ -139,11 +139,11 @@ Material:
       data:
         first:
           name: _Cutoff
-        second: .5
+        second: 0.5
       data:
         first:
           name: _Exposure
-        second: 1.61000001
+        second: 1.61
       data:
         first:
           name: _SunDisk
@@ -151,7 +151,7 @@ Material:
       data:
         first:
           name: _SunSize
-        second: .291999996
+        second: 0.292
       data:
         first:
           name: _AtmosphereThickness
@@ -159,7 +159,7 @@ Material:
       data:
         first:
           name: _Parallax
-        second: .0199999996
+        second: 0.02
       data:
         first:
           name: _ZWrite
@@ -167,7 +167,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .5
+        second: 0.5
       data:
         first:
           name: _BumpScale
@@ -204,16 +204,16 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .727941155, g: .412143171, b: .412143171, a: 1}
-      data:
-        first:
-          name: _GroundColor
-        second: {r: .316176474, g: .148456961, b: .0813689455, a: 1}
+        second: {r: 0.72794116, g: 0.41214317, b: 0.41214317, a: 1}
       data:
         first:
           name: _SkyTint
-        second: {r: .5, g: .5, b: .5, a: 1}
+        second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+      data:
+        first:
+          name: _GroundColor
+        second: {r: 0.31617647, g: 0.14845696, b: 0.081368946, a: 1}
       data:
         first:
           name: _Tint
-        second: {r: .632352948, g: .632352948, b: .632352948, a: .5}
+        second: {r: 0.63235295, g: 0.63235295, b: 0.63235295, a: 0.5}

@@ -72,6 +72,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &180026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 440586}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &186266
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +142,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 452510}
   m_RootOrder: 3
+--- !u!4 &440586
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 452510}
+  m_RootOrder: 4
 --- !u!4 &452510
 Transform:
   m_ObjectHideFlags: 1
@@ -134,13 +161,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: -.230000004, z: 375.899994}
+  m_LocalPosition: {x: 29.7200012, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 425604}
   - {fileID: 469976}
   - {fileID: 418900}
   - {fileID: 438476}
+  - {fileID: 440586}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &469976
@@ -341,7 +369,9 @@ MonoBehaviour:
   currentAngle: 0
   targetAngle: 0
   posNegLerp: 1
-  speed: .400000006
+  speed: 1
+  distanceFromObs: 0
+  moveIfPlayerClose: 0
 --- !u!114 &11465952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -356,7 +386,9 @@ MonoBehaviour:
   currentAngle: 0
   targetAngle: 0
   posNegLerp: 1
-  speed: .400000006
+  speed: 1
+  distanceFromObs: 0
+  moveIfPlayerClose: 0
 --- !u!114 &11473108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -371,7 +403,9 @@ MonoBehaviour:
   currentAngle: 0
   targetAngle: 0
   posNegLerp: 1
-  speed: .400000006
+  speed: 1
+  distanceFromObs: 0
+  moveIfPlayerClose: 0
 --- !u!114 &11497588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -386,7 +420,9 @@ MonoBehaviour:
   currentAngle: 0
   targetAngle: 0
   posNegLerp: 1
-  speed: .400000006
+  speed: 1
+  distanceFromObs: 0
+  moveIfPlayerClose: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -396,6 +432,10 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: posNegLerp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
