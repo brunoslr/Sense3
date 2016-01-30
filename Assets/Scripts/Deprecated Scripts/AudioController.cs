@@ -16,7 +16,7 @@ public class AudioController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        maxLevel = soundtracks.Length /2;
+        maxLevel = soundtracks.Length;
         trackCounter = 0;
         counter = 0;
 
