@@ -15,15 +15,17 @@ public class CoreSystem : MonoBehaviour {
     // Naming convention : object_the_script_si acctached_to Initials of the script
     private PlayerMovement    playerLM;
     private Effects         cameraEf;
+    private AudioControllerV2 aController;
 
     public bool boostMode;
     public bool constIncMode;
     public bool constSpeedMode;
-
+    public GameObject startPosition;
 	// Use this for initialization
 	void Start () {
         playerLM = this.gameObject.GetComponent<PlayerMovement>();
         cameraEf = Camera.main.GetComponent<Effects>();
+        aController = this.gameObject.transform.FindChild("PlayerAudio").GetComponent<AudioControllerV2>();
 	}
     
     public void executeOnPickUp()
@@ -48,6 +50,16 @@ public class CoreSystem : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            GameReset();
+        }
 	}
+    public void GameReset()
+    {
+        playerLM.ResetSpeed();
+        this.GetComponent<TrailRenderer>().enabled = false;
+        this.gameObject.transform.position = startPosition.transform.position;
+        aController.ResetLayers();
+    }
 }
