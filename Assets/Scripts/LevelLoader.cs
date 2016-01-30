@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour {
 
@@ -15,7 +16,7 @@ public class LevelLoader : MonoBehaviour {
 
     public void LoadGame()
     {
-        Application.LoadLevel("test2");
+        SceneManager.LoadScene("test2");
     }
 
     public void QuitGame()
