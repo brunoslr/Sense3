@@ -37,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        ResetSpeed();
+    }
+   public void ResetSpeed()
+    {
         speedCounter = 0;
         forwardSpeed = initialSpeed;
         initialSideSpeed = 0.0f;
@@ -46,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
         curSideSpeedInc = sideSpeedInc;
         curVertSpeedInc = vertSpeedInc;
     }
-
     // Update is called once per frame
     void Update()
     {
