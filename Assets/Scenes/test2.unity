@@ -65,7 +65,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -85,6 +84,9 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!127 &5
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!1 &5019547 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 151198, guid: 8e4394a6ec737044cbd80a43954f49dd, type: 2}
@@ -2728,12 +2730,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 127089926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbeaccfed2f0ab8439484f166e90a770, type: 3}
+  m_Script: {fileID: 11500000, guid: f4334882a9c31d746ad09bfa333cd913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bloomScale: 1
   fishEyeScale: 1
   blurTime: 5
+  trailTime: 2
 --- !u!124 &127089928
 Behaviour:
   m_ObjectHideFlags: 0
@@ -2776,7 +2779,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -9988,7 +9990,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boostMode: 0
   constIncMode: 0
-  constSpeedMode: 1
+  constSpeedMode: 0
+  startPosition: {fileID: 0}
 --- !u!96 &551835696
 TrailRenderer:
   m_ObjectHideFlags: 0
@@ -10051,7 +10054,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 3.70405483
@@ -19924,7 +19926,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 2.48614597
