@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+#pragma warning disable 618 // Disable obsolete warning message
 
 public class AudioVisualizer : MonoBehaviour
 {

@@ -2,11 +2,15 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 public class PauseManager : MonoBehaviour {
+
+
+    private string mainMenuScene = "MainMenu";
 
     public Button resumeButton;
     public Button restartButton;
@@ -37,13 +41,13 @@ public class PauseManager : MonoBehaviour {
     private void OnMainMenuButtonClick()
     {
         Pause();
-        Application.LoadLevel("MainMenu");
+        SceneManager.LoadScene(mainMenuScene);
     }
 
     private void OnRestartButtonClick()
     {
         Pause();
-        Application.LoadLevel(Application.loadedLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnResumeButtonClick()

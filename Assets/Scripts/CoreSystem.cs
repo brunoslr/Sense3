@@ -16,6 +16,7 @@ public class CoreSystem : MonoBehaviour {
     private PlayerMovement    playerLM;
     private Effects         cameraEf;
     private AudioControllerV2 aController;
+    private SoundEffectsManager soundEffectsManager;
 
     public bool boostMode;
     public bool constIncMode;
@@ -26,6 +27,7 @@ public class CoreSystem : MonoBehaviour {
         playerLM = this.gameObject.GetComponent<PlayerMovement>();
         cameraEf = Camera.main.GetComponent<Effects>();
         aController = this.gameObject.transform.FindChild("PlayerAudio").GetComponent<AudioControllerV2>();
+        soundEffectsManager = this.gameObject.GetComponent<SoundEffectsManager>();
 	}
     
     public void executeOnPickUp()
@@ -40,6 +42,7 @@ public class CoreSystem : MonoBehaviour {
     {
         if(boostMode)
             playerLM.ReducePlayerSpeed();
+        soundEffectsManager.VisualObstacleCrashSound();
     }
     
 	void FixedUpdate()

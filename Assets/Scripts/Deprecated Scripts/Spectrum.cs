@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+#pragma warning disable 618 // Disable obsolete warning for spectrum class
+
 public class Spectrum : MonoBehaviour
 {
     //private float average = 0;

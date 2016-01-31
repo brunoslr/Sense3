@@ -23,12 +23,12 @@ public class PlayerMovement : MonoBehaviour
     public float vertClamp;         // max vertical disp.
 
     private float forwardSpeed;     // current speed of the player at any point of time.
-    public float initialSideSpeed;
-    public float initialVertSpeed;
+    private float initialSideSpeed;
+    private float initialVertSpeed;
     private float finalSideSpeed;        // current side speed of the player at any point of time.
     private float finalVertSpeed;          // current up down speed of the player.
-    public float curSideSpeedInc;
-    public float curVertSpeedInc;
+    private float curSideSpeedInc;
+    private float curVertSpeedInc;
 
     public uint maxSpeedCounter;    // max no. of times speed can boost or increase.
     private uint speedCounter;      // current boost counter.
