@@ -8952,12 +8952,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layername: Bass
-  audioTracks:
-  - {fileID: 8300000, guid: 088963da8d59f784b93a7f832f9e8eb4, type: 3}
-  - {fileID: 8300000, guid: 76df98f385ef2ee46acf8b227636589d, type: 3}
-  - {fileID: 8300000, guid: 848e1118c1f0e854da384590708bc293, type: 3}
-  - {fileID: 8300000, guid: 2fcbaf517dd88944da1a0f05de59a353, type: 3}
+  layername: EDM_Bass_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 4
+  audioTracks: []
 --- !u!114 &497297191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8969,12 +8967,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layername: High
-  audioTracks:
-  - {fileID: 8300000, guid: d44c599e39cdd3040abff843eea8a9aa, type: 3}
-  - {fileID: 8300000, guid: 1b751130e6279d940a6aff29fd99c66a, type: 3}
-  - {fileID: 8300000, guid: 90ad7e1a9af96a3469ed0a61cedf945b, type: 3}
-  - {fileID: 8300000, guid: 4bcdaafccf9896a4793d3d47a80fbc71, type: 3}
+  layername: EDM_HighHat_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 4
+  audioTracks: []
 --- !u!114 &497297192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8986,11 +8982,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layername: Kick
-  audioTracks:
-  - {fileID: 8300000, guid: 1870ed267c1986741b0bd6abf1b88b48, type: 3}
-  - {fileID: 8300000, guid: 5c492cdb464f70f4590d75ce70294231, type: 3}
-  - {fileID: 8300000, guid: 9e22508d99c967d46be14deb55024de1, type: 3}
+  layername: EDM_kick_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 3
+  audioTracks: []
 --- !u!114 &497297193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9002,12 +8997,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layername: Lead
-  audioTracks:
-  - {fileID: 8300000, guid: d9f7e18dbc75dc048885037a9d18d13c, type: 3}
-  - {fileID: 8300000, guid: 043abff67c3e11c4aa88232625c12f39, type: 3}
-  - {fileID: 8300000, guid: 95497fbb6b785a8499a52906eb68804a, type: 3}
-  - {fileID: 8300000, guid: 553762c3cf885bb429000b1263d86d14, type: 3}
+  layername: EDM_Lead_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 4
+  audioTracks: []
 --- !u!4 &497297194
 Transform:
   m_ObjectHideFlags: 0
@@ -9044,12 +9037,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layername: Snare
-  audioTracks:
-  - {fileID: 8300000, guid: d0e3f733cb4b5a642853c36ba7bc6f63, type: 3}
-  - {fileID: 8300000, guid: 25a63ca8e8c27cc49af996316edae2d6, type: 3}
-  - {fileID: 8300000, guid: 89465c6da86d79c40bea25efff8c3a68, type: 3}
-  - {fileID: 8300000, guid: d6a2eaaf66b015f4387302b5fbafad8f, type: 3}
+  layername: EDM_Snare_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 4
+  audioTracks: []
 --- !u!114 &497297197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9061,12 +9052,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layername: SCpad
-  audioTracks:
-  - {fileID: 8300000, guid: 18d3bd7b5d6630b42b586e1349d930d2, type: 3}
-  - {fileID: 8300000, guid: abd7bd85630acf14eaaafa55918f7e98, type: 3}
-  - {fileID: 8300000, guid: d43f5b5e46f752b468602db60dfae9fd, type: 3}
-  - {fileID: 8300000, guid: f16fb4ade6217504fade47aa41f35cc3, type: 3}
+  layername: EDM_SCpad_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 4
+  audioTracks: []
 --- !u!114 &497297198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9078,12 +9067,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layername: Rhythm
-  audioTracks:
-  - {fileID: 8300000, guid: 0095fe0ffd684794c8b22d19e4724815, type: 3}
-  - {fileID: 8300000, guid: 559ee55e01deb4541aaa8a00bd89ab7a, type: 3}
-  - {fileID: 8300000, guid: cba6622c3b5e2be4db323d6b690954c4, type: 3}
-  - {fileID: 8300000, guid: 68a2ec65efee7444cb0af050a63cb7c8, type: 3}
+  layername: EDM_RhythmPad_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 4
+  audioTracks: []
 --- !u!1001 &502738078
 Prefab:
   m_ObjectHideFlags: 0

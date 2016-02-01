@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 #pragma warning disable 618 // Disable obsolete warning message
+#pragma warning disable 649 // Disable field never used warning message
+#pragma warning disable 414 // Disable private field never used warning message
 
 public class AudioVisualizer : MonoBehaviour
 {
