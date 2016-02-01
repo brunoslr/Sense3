@@ -26,7 +26,9 @@ public class Effects : MonoBehaviour {
         player = GameObject.FindWithTag("Player");
         if (player == null)
             Debug.Log("Cannot find object with tag player");
-	}
+
+        CoreSystem.onSoundEvent += startTrail;
+    }
 
     #region Trail Renderer
     public void startTrail()

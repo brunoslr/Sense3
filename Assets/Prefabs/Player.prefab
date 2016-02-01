@@ -26,9 +26,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 498764}
-  - 114: {fileID: 11410132}
   - 114: {fileID: 11485700}
-  - 114: {fileID: 11428294}
+  - 114: {fileID: 11408804}
+  - 114: {fileID: 11468646}
+  - 114: {fileID: 11488546}
+  - 114: {fileID: 11486662}
+  - 114: {fileID: 11482314}
+  - 114: {fileID: 11433098}
+  - 114: {fileID: 11414438}
   m_Layer: 0
   m_Name: PlayerAudio
   m_TagString: Untagged
@@ -65,10 +70,10 @@ GameObject:
   - 23: {fileID: 2327190}
   - 64: {fileID: 6448990}
   - 82: {fileID: 8215218}
-  - 114: {fileID: 11444506}
-  - 54: {fileID: 5417008}
-  - 96: {fileID: 9690320}
+  - 114: {fileID: 11442144}
   - 114: {fileID: 11490766}
+  - 96: {fileID: 9690320}
+  - 114: {fileID: 11470682}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -139,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -1311}
+  m_LocalPosition: {x: 1099.1, y: 1, z: -4062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 484488}
@@ -219,21 +224,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153040}
   m_Mesh: {fileID: 4300002, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
---- !u!54 &5417008
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 153040}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!64 &6448990
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -371,7 +361,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -393,7 +383,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!96 &9690320
 TrailRenderer:
   m_ObjectHideFlags: 1
@@ -441,33 +431,7 @@ TrailRenderer:
       rgba: 16777215
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
---- !u!114 &11410132
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130634}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7374228572e1e6a4690c7b2228e703ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minVol: 0.65
-  soundtracks:
-  - {fileID: 8300000, guid: 3888c5f64c2f4a9479d42254bf454cea, type: 3}
-  - {fileID: 8300000, guid: d0cdd914894719640b16d2dfbe666b62, type: 3}
-  - {fileID: 8300000, guid: 069e86c0123317b489e4a7a1b9fc14c9, type: 3}
-  - {fileID: 8300000, guid: f8a5e05b87a06d34d8edb5be6aae2fb1, type: 3}
-  - {fileID: 8300000, guid: f8a5e05b87a06d34d8edb5be6aae2fb1, type: 3}
-  - {fileID: 8300000, guid: 92a4255380f73a7499c099dfc652350e, type: 3}
-  - {fileID: 8300000, guid: a76db120e24c64646bc02a7eb8de0573, type: 3}
-  - {fileID: 8300000, guid: 2e4fe818269cbc84a9ea8f1b2573e21c, type: 3}
-  - {fileID: 8300000, guid: 36a61d766634dda418bdacf8cd37e07e, type: 3}
-  - {fileID: 8300000, guid: 0c8b50056b5eaa84a84b1acad6bae313, type: 3}
-  - {fileID: 8300000, guid: e38c8aa7a83051441b9c4fe2b4a7b575, type: 3}
-  - {fileID: 8300000, guid: 3e405268a8a8a284ab76af516a2dc32b, type: 3}
-  - {fileID: 8300000, guid: e600e5176549e5a4dab13f10780d113b, type: 3}
---- !u!114 &11428294
+--- !u!114 &11408804
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -478,14 +442,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layername: 
-  audioTracks:
-  - {fileID: 8300000, guid: d0cdd914894719640b16d2dfbe666b62, type: 3}
-  - {fileID: 8300000, guid: 069e86c0123317b489e4a7a1b9fc14c9, type: 3}
-  - {fileID: 8300000, guid: f8a5e05b87a06d34d8edb5be6aae2fb1, type: 3}
-  - {fileID: 8300000, guid: 85a3e9d0ec06f51459734c726dd3d77f, type: 3}
-  - {fileID: 8300000, guid: a76db120e24c64646bc02a7eb8de0573, type: 3}
---- !u!114 &11444506
+  layername: EDM_Bass_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 4
+  audioTracks: []
+--- !u!114 &11414438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: EDM_Snare_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 4
+  audioTracks: []
+--- !u!114 &11433098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: EDM_SCpad_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 4
+  audioTracks: []
+--- !u!114 &11442144
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -493,19 +484,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 153040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db2862037054c1d40a82038a1df3eeb0, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a315ed9396d1b545bfc29a6530e427f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
-  sideSpeed: 20
-  sideDisp: 4.5
-  forwardspeed: 10
-  speedMultiplier: .699999988
-  maxSpeedIncrement: 4
-  tilt: 30
-  jumpDisp: 3
-  jumpSpeed: 5
+  initialSpeed: 100
+  sideSpeedMul: 1
+  vertSpeedMul: 0.1
+  speedMultiplier: 0.25
+  sideSpeedInc: 1
+  vertSpeedInc: 0.1
+  vertClamp: 5
+  maxSpeedCounter: 5
   trailTime: 2
+  gameMode: 0
+--- !u!114 &11468646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: EDM_HighHat_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 4
+  audioTracks: []
+--- !u!114 &11470682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78201363abbc7341b32873247690a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visObsCrashSound: {fileID: 8300000, guid: 66c795bc4c7b71f48951c007f8a162b3, type: 3}
+  minObsCrashSound: {fileID: 0}
+  audPickupSound: {fileID: 0}
+  movPlayerSound: {fileID: 0}
 --- !u!114 &11478728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -584,6 +605,21 @@ MonoBehaviour:
   - 0
   lineMat: {fileID: 2100000, guid: b3ae333a62df9dd489512dc59aa32d6e, type: 2}
   segment: 255
+--- !u!114 &11482314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: EDM_RhythmPad_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 4
+  audioTracks: []
 --- !u!114 &11485700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -596,6 +632,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableLayers: 
+--- !u!114 &11486662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: EDM_Lead_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 4
+  audioTracks: []
+--- !u!114 &11488546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: EDM_kick_
+  FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
+  totalTracks: 3
+  audioTracks: []
 --- !u!114 &11490766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -607,10 +673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ba4772f5eed2f4aa7657f47222dee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostMode: 0
-  constIncMode: 0
-  constSpeedMode: 0
-  startPosition: {fileID: 0}
 --- !u!120 &12014080
 LineRenderer:
   m_ObjectHideFlags: 1

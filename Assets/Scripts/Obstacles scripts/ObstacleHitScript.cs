@@ -22,7 +22,8 @@ public class ObstacleHitScript : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<CoreSystem>().ExecuteOnHit();
+            // other.gameObject.GetComponent<CoreSystem>().ExecuteOnHit();
+            CoreSystem.ExecuteOnObstacleCollision();
         }
     }
 }

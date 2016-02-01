@@ -11,8 +11,10 @@ using XInputDotNetPure;
 /// the character. All other events in the game are triggered by the character/environment 
 /// interaction.
 /// </summary>
-public class PlayerMovement : MonoBehaviour 
+public class PlayerMovement : MonoBehaviour
 {
+    public enum GameMode{ BOOST, CONSTINC, CONSTSPEED };
+
     public float initialSpeed;      // initial speed of player.
     public float sideSpeedMul;      // factor multiplied by forward speed to get side speed of player.
     public float vertSpeedMul;    // factor multiplied by forward speed to get up down speed of player
@@ -32,12 +34,19 @@ public class PlayerMovement : MonoBehaviour
 
     public uint maxSpeedCounter;    // max no. of times speed can boost or increase.
     private uint speedCounter;      // current boost counter.
-
     public float trailTime;         // time of fire trail in sec.
+
+    public GameMode gameMode;
 
     void Start()
     {
+
         ResetSpeed();
+        if (gameMode == GameMode.BOOST)
+        {
+            CoreSystem.onSoundEvent += IncreasePlayerSpeed;
+            CoreSystem.onObstacleEvent += ReducePlayerSpeed;
+        }
     }
    public void ResetSpeed()
     {
@@ -61,6 +70,12 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayerForward()
     {
         transform.Translate(transform.forward * forwardSpeed * Time.deltaTime);
+    }
+
+    void FixedUpdate()
+    {
+        if (gameMode == GameMode.CONSTINC)
+            IncreasePlayerSpeed();
     }
 
     void MovePlayerSideways()
@@ -141,4 +156,5 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(trailTime);
         this.gameObject.GetComponent<TrailRenderer>().enabled = false;
     }
+
 }

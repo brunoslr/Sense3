@@ -9612,12 +9612,13 @@ MonoBehaviour:
   initialSpeed: 100
   sideSpeedMul: 1
   vertSpeedMul: 0.1
-  speedMultiplier: 2
+  speedMultiplier: 0.25
   sideSpeedInc: 1
   vertSpeedInc: 0.1
   vertClamp: 5
   maxSpeedCounter: 5
   trailTime: 2
+  gameMode: 0
 --- !u!114 &551835695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9630,10 +9631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ba4772f5eed2f4aa7657f47222dee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostMode: 0
-  constIncMode: 0
-  constSpeedMode: 1
-  startPosition: {fileID: 0}
 --- !u!96 &551835696
 TrailRenderer:
   m_ObjectHideFlags: 0

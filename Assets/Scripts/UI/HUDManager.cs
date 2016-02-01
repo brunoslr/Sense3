@@ -10,13 +10,14 @@ public class HUDManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         soundPickups = soundHud.GetComponent<Text>();
-        EventManager.updateSoundPickup += this.DisplaySoundCount; // Subscribe the function to eventmanager event
+        CoreSystem.updateSoundPickup += this.DisplaySoundCount; // Subscribe the function to eventmanager event
     }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+   
     public void DisplaySoundCount(string score) {
         soundPickups.text = pickupText + score;
     }

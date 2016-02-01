@@ -19,7 +19,8 @@ public class SoundEffectsManager : MonoBehaviour {
         minObsAudioSource = this.gameObject.AddComponent<AudioSource>();
         audPickupAudioSource = this.gameObject.AddComponent<AudioSource>();
         movPlayerAudioSource = this.gameObject.AddComponent<AudioSource>();
-	}
+        CoreSystem.onObstacleEvent += VisualObstacleCrashSound;
+    }
 	
 	// Update is called once per frame
 	void Update () {
