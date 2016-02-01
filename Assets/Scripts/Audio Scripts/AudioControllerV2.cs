@@ -10,6 +10,10 @@ public class AudioControllerV2 : MonoBehaviour {
     private int lastPlayedLayerID;
     private int numOfCollectedLayers;
 
+    public delegate void FadeinQue();
+
+    public static event FadeinQue fadeInLayers;
+
     public int NumOfCollectedLayers{
         get
         {
@@ -57,6 +61,8 @@ public class AudioControllerV2 : MonoBehaviour {
         //Pass the previously playing audioSource's time sample to sync with
         layers[layerID].playNewTrack(layers[temp].getTimeSample());
         layers[layerID].setPanAndVol(pan, volume);
+
+        FadeOutLayers();
     }
 
     public void setCurrentPan(int pan, float volume)
@@ -117,6 +123,23 @@ public class AudioControllerV2 : MonoBehaviour {
         // Cal the trigger the function UpdateSoundPickUp
         CoreSystem.UpdateSoundPickup(numOfCollectedLayers.ToString());
 
+    }
+
+
+    public void FadeOutLayers()
+    {
+        for(int i=0;i < totalLayers; i++)
+        {
+            if(i != lastPlayedLayerID)
+            {
+                layers[i].startFadeOut();
+            }
+        }
+    }
+
+    public void FadeInLayers()
+    {
+        fadeInLayers();
     }
 
     #if UNITY_EDITOR

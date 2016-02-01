@@ -55,7 +55,7 @@ public class soundObstacle : MonoBehaviour
                 //because every collider has a different size
                 volume = volume / this.gameObject.GetComponent<BoxCollider>().size.z;
                 //Make sure the the volume never goes negative
-                volume = 0.1f + Mathf.Max(1 - volume, 0);
+                volume = 0.2f + Mathf.Max(1 - volume, 0);
 
                 float pan = this.transform.GetChild(0).position.x - playerPosition.x;
 
@@ -106,7 +106,7 @@ public class soundObstacle : MonoBehaviour
             //because every collider has a different size
             volume = volume / this.gameObject.GetComponent<BoxCollider>().size.z;
             //Make sure the the volume never goes negative
-            volume = 0.1f + Mathf.Max(1 - volume, 0);
+            volume = 0.4f + Mathf.Max(1 - volume, 0);
 
             if (Mathf.Abs(pan) >= 10.0f)
             {
@@ -130,11 +130,16 @@ public class soundObstacle : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player" && this.gameObject.GetComponentInChildren<PickUpScript>().pickedUp == false)
+        if (other.gameObject.tag == "Player")
         {
-            //other.gameObject.GetComponentInChildren<AudioController>().stopCurrentTrack();
-            other.gameObject.GetComponentInChildren<AudioControllerV2>().stopCurrentTrack();
-            //audioVisualizer.StopVisualizer();
+            if (this.gameObject.GetComponentInChildren<PickUpScript>().pickedUp == false)
+            {
+                //other.gameObject.GetComponentInChildren<AudioController>().stopCurrentTrack();
+                other.gameObject.GetComponentInChildren<AudioControllerV2>().stopCurrentTrack();
+                //audioVisualizer.StopVisualizer();
+            }
+            other.gameObject.GetComponentInChildren<AudioControllerV2>().FadeInLayers();
         }
+
     }
 }

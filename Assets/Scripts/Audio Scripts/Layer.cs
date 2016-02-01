@@ -11,6 +11,8 @@ public class Layer : MonoBehaviour {
    
     private AudioSource audioSource;
     private int currentTrackIndex;
+    private float minVol;
+    private float maxVol;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +24,9 @@ public class Layer : MonoBehaviour {
         audioSource.mute = true;
         audioSource.Play();
         currentTrackIndex = 0;
+        minVol = 0.2f;
+        maxVol = 0.8f;
+        AudioControllerV2.fadeInLayers += startFadeIn;
     }
 
     private void loadAudioClips()
@@ -110,4 +115,34 @@ public class Layer : MonoBehaviour {
 	}
 
 
+    public void startFadeIn()
+    {
+        StartCoroutine(FadeIn());
+    }
+    public void startFadeOut()
+    {
+        StartCoroutine(FadeOut());
+    }
+
+    IEnumerator FadeOut()
+    {
+        float FadeDuration = 0.1f;
+
+        while(audioSource.volume > minVol)
+        {
+            audioSource.volume = Mathf.Lerp(audioSource.volume, 0, FadeDuration);
+            yield return 0;
+        }
+    }
+
+    IEnumerator FadeIn()
+    {
+        float FadeDuration = 1.0f;
+
+        while (audioSource.volume < maxVol)
+        {
+            audioSource.volume = Mathf.Lerp(audioSource.volume, maxVol, FadeDuration);
+            yield return 0;
+        }
+    }
 }
