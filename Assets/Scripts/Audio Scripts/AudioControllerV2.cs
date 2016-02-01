@@ -10,10 +10,6 @@ public class AudioControllerV2 : MonoBehaviour {
     private int lastPlayedLayerID;
     private int numOfCollectedLayers;
 
-
-    public delegate void UpdateScore();
-    public static event UpdateScore updateScore;
-
     public int NumOfCollectedLayers{
         get
         {
@@ -116,8 +112,9 @@ public class AudioControllerV2 : MonoBehaviour {
     /// 
     public void updateNumOfCollectedLayers()
     {
+        //Increments the sound count
         numOfCollectedLayers++;
-        // Cal the trigger the function - Fire the event
+        // Cal the trigger the function UpdateSoundPickUp
         EventManager.UpdateSoundPickup(numOfCollectedLayers.ToString());
 
     }
