@@ -7,7 +7,23 @@ public class AudioControllerV2 : MonoBehaviour {
     private Layer[] layers;
     private int totalLayers;   // Total number of layers - bass, rythm etc etc
     public List<int> availableLayers; //Available layers that are not currently playing but available
-    private int lastPlayedLayerID; 
+    private int lastPlayedLayerID;
+    private int numOfCollectedLayers;
+
+
+    public delegate void UpdateScore();
+    public static event UpdateScore updateScore;
+
+    public int NumOfCollectedLayers{
+        get
+        {
+            return numOfCollectedLayers;
+        }
+        set
+        {
+            numOfCollectedLayers = value;
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +32,8 @@ public class AudioControllerV2 : MonoBehaviour {
         totalLayers = layers.Length;
         for (int i = 0; i < totalLayers; i++)
             availableLayers.Add(i);
-	}
+
+    }
 
     //Randomly chooses one player from the list of layers that are not playing, and plays a track from that layer
     //If all tracks are playing, then starts playing a new Track in a random layer
@@ -57,13 +74,13 @@ public class AudioControllerV2 : MonoBehaviour {
         availableLayers.Add(lastPlayedLayerID);
     }
 
-    int CurrentTracks()
+    int numOfPlayingLayers()
     {
         return totalLayers - availableLayers.Count;
     }
 
 
-    public void ResetLayers()
+    public void resetLayers()
     {
         for (int i = 0; i < layers.Length; i++)
         {
@@ -93,8 +110,23 @@ public class AudioControllerV2 : MonoBehaviour {
         Start();
     }
 
-	// Update is called once per frame
-	void Update () {
-	
+    /// <summary>
+    /// Increments the number of Sound Tracks Collected everytime we pick a sound
+    /// </summary>
+    /// 
+    public void updateNumOfCollectedLayers()
+    {
+        numOfCollectedLayers++;
+        // Cal the trigger the function - Fire the event
+        EventManager.UpdateSoundPickup(numOfCollectedLayers.ToString());
+
+    }
+
+    #if UNITY_EDITOR
+    // Update is called once per frame
+    void Update () {
+
+        Debug.Log(NumOfCollectedLayers);
 	}
+    #endif
 }

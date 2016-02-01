@@ -30,15 +30,16 @@ public class CoreSystem : MonoBehaviour {
         soundEffectsManager = this.gameObject.GetComponent<SoundEffectsManager>();
 	}
     
-    public void executeOnPickUp()
+    public void ExecuteOnPickUp()
     {
         if(boostMode)
             playerLM.IncreasePlayerSpeed();
         cameraEf.startTrail();
-        cameraEf.startFishEye(3);
+        aController.updateNumOfCollectedLayers();
+       // cameraEf.startFishEye(3);
     }
 
-    public void executeOnHit()
+    public void ExecuteOnHit()
     {
         if(boostMode)
             playerLM.ReducePlayerSpeed();
@@ -63,6 +64,6 @@ public class CoreSystem : MonoBehaviour {
         playerLM.ResetSpeed();
         this.GetComponent<TrailRenderer>().enabled = false;
         this.gameObject.transform.position = startPosition.transform.position;
-        aController.ResetLayers();
+        aController.resetLayers();
     }
 }
