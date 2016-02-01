@@ -5,22 +5,43 @@ using System.Collections.Generic;
 public class Layer : MonoBehaviour {
 
     public string layername;                    //For ease of understanding. Can be exploited in later prototypes to automatically load all audio of a particular genre/layer.
-    public AudioClip[] audioTracks;
-
+    public string FolderName;
+    public int totalTracks;
+    public AudioClip[] audioTracks;             //This is public only because another script access this to load (AudioToolApp.cs)
+   
     private AudioSource audioSource;
-    private int totalTracks;
     private int currentTrackIndex;
 
 	// Use this for initialization
 	void Start () {
         audioSource = this.gameObject.AddComponent<AudioSource>();
         audioSource.timeSamples = 0;
+        loadAudioClips();
         totalTracks = audioTracks.Length;
         audioSource.loop = true;
         audioSource.mute = true;
         audioSource.Play();
         currentTrackIndex = 0;
-	}
+    }
+
+    private void loadAudioClips()
+    {
+        string path = "Audio Files/Music/";
+        audioTracks = new AudioClip[totalTracks];
+        for (int i = 1; i <= totalTracks; i++)
+        {
+            string index = "00" + i;
+            index = index.Substring(index.Length - 2);
+
+            string trackName = layername + index;
+
+            audioTracks[i-1] = Resources.Load(path + FolderName + "/" + trackName, typeof(AudioClip)) as AudioClip;
+            if (audioTracks[i - 1] == null)
+                Debug.Log("Error Loading audio File : " + path + FolderName + "/" + trackName + ".wav");
+            
+        }
+    }
+
 	public void restartLayer()
     {
         if (audioSource != null)
