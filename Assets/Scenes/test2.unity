@@ -9603,6 +9603,7 @@ GameObject:
   - 114: {fileID: 551835694}
   - 114: {fileID: 551835695}
   - 96: {fileID: 551835696}
+  - 114: {fileID: 551835697}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -9628,10 +9629,6 @@ MonoBehaviour:
   sideSpeedInc: 1
   vertSpeedInc: 0.1
   vertClamp: 5
-  initialSideSpeed: 0
-  initialVertSpeed: 0
-  curSideSpeedInc: 0
-  curVertSpeedInc: 0
   maxSpeedCounter: 5
   trailTime: 2
 --- !u!114 &551835695
@@ -9698,6 +9695,21 @@ TrailRenderer:
       rgba: 16777215
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &551835697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 551835693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78201363abbc7341b32873247690a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visObsCrashSound: {fileID: 8300000, guid: 66c795bc4c7b71f48951c007f8a162b3, type: 3}
+  minObsCrashSound: {fileID: 0}
+  audPickupSound: {fileID: 0}
+  movPlayerSound: {fileID: 0}
 --- !u!82 &551835698
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9750,7 +9762,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -9772,7 +9784,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!64 &551835699
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18646,7 +18658,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -18668,7 +18680,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &1160109824
 MonoBehaviour:
   m_ObjectHideFlags: 0

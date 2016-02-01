@@ -137,6 +137,7 @@ public class AudioToolApp : MonoBehaviour {
 
     public void StopAllTracks()
     {
+        refreshed = false;
         outputText.text = "All tracks Stopped";
         playerAudio.GetComponent<AudioControllerV2>().stopAllTracks();
     }

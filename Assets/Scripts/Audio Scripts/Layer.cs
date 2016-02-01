@@ -14,6 +14,7 @@ public class Layer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         audioSource = this.gameObject.AddComponent<AudioSource>();
+        audioSource.timeSamples = 0;
         totalTracks = audioTracks.Length;
         audioSource.loop = true;
         audioSource.mute = true;
@@ -22,10 +23,15 @@ public class Layer : MonoBehaviour {
 	}
 	public void restartLayer()
     {
-        totalTracks = audioTracks.Length;
-        audioSource.loop = true;
-        audioSource.mute = true;
+        if (audioSource != null)
+        {
+            audioSource.timeSamples = 0;
+            audioSource.loop = true;
+            audioSource.mute = true;
+        }
+
         currentTrackIndex = 0;
+        totalTracks = audioTracks.Length;
     }
 
     public void destroySelf()
