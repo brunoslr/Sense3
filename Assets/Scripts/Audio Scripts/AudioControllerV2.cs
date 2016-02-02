@@ -146,7 +146,7 @@ public class AudioControllerV2 : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        Debug.Log(NumOfCollectedLayers);
+        //Debug.Log(NumOfCollectedLayers);
 	}
     #endif
 }
