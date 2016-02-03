@@ -1,74 +1,34 @@
 ﻿// Each #kernel tells which function to compile; you can have many kernels
 #pragma kernel CSMain
 
-// Create a RenderTexture with enableRandomWrite flag and set it
-// with cs.SetTexture
 RWTexture2D<float4> Result;
 uniform float t;
-
+uniform Texture2D<float4> palette;
 
 [numthreads(32,32,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-    float2 z1 = float2(3.0 * ((1.0 / 960) * id.x) - 1.5, 2.0 * ((1.0 / 1080) * id.y) - 1.0);
-    float2 z2 = float2(3.0 * ((1.0 / 960) * id.x) - 4.5, 2.0 * ((1.0 / 1080) * id.y) - 1.0);
+    float2 z = float2(((1.0 / 512) * id.x) - 0.5,((1.0 / 512) * id.y) - 0.5);
+
     // Change this for different patterns
-	float2 c1 = float2(-0.18453326967811071, cos(t / 10.0));
-    float2 c2 = float2(-0.11253326967811071,  cos(t / 10.0));
+	float2 c = float2(-0.18453326967811071, cos(t / 10.0));
     
-	int i1;
-    for(i1 = 0; i1 < 100; i1++)
+	int i;
+    for(i = 0; i < 100; i++)
 	{
-        float x = (z1.x * z1.x - z1.y * z1.y) + c1.x;
-        float y = (z1.y * z1.x + z1.x * z1.y) + c1.y;
-        if((x * x + y * y) > 4.0f) 
-			break;
-        z1.x = x;
-        z1.y = y;
+        float x = (z.x * z.x - z.y * z.y) + c.x;
+        float y = (z.y * z.x + z.x * z.y) + c.y;
+        if((x * x + y * y) > 4.0f) break;
+        z.x = x;
+        z.y = y;
     }
 
-	int i2;
-    for(i2 = 0; i2 < 100; i2++)
-	{
-        float x = (z2.x * z2.x - z2.y * z2.y) + c2.x;
-        float y = (z2.y * z2.x + z2.x * z2.y) + c2.y;
-        if((x * x + y * y) > 4.0f) 
-			break;
-        z2.x = x;
-        z2.y = y;
-    }
-
-	float4 color1;
-    if( i1 < 100 ) 
-	{
-        if( i1 < 5 ) color1 =			float4(1.0,						0.0,					 float(i1) / 8.0,			1.0);
-        else if( i1 < 10 ) color1 =	float4(0.3,						0.0,					 (float(i1) - 5.0) / 9.0,	1.0);
-        else if( i1 < 15 ) color1 =	float4(0.6,						(float(i1) - 10.0) / 9.0, 0.0,						1.0);
-        else if( i1 < 20 ) color1 =	float4((float(i1) - 6.0) / 5.0, 1.0,					 0.3,						1.0);
-        else if( i1 < 25 ) color1 =	float4((float(i1) - 10.0) / 9.0,			0.0,					 (float(i1) - 40.0) / 9.0,	1.0);
-        else if( i1 < 30 ) color1 =	float4(1.0,						(float(i1) - 10.0) / 6.0, 0.0,						1.0);
-        else color1 =				float4((float(i1) - 10.0) / 4.0,						0.1, 0.3,						1.0);
-    }
-
+	uint2 temp;
+	if(i == 0)
+		temp = uint2(0, 0);
 	else
-		color1 = float4((float(i1) - 10.0) / 8.0,						0.4, 0.0,						1.0);
-
-	float4 color2;
-    if( i2 < 100 ) 
-	{
-        if( i2 < 5 ) color2 =			float4(1.0,						1.0,					 float(i2) / 8.0,			1.0);
-        else if( i2 < 10 ) color2 =	float4(0.0,						0.4,					 (float(i2) - 5.0) / 9.0,	1.0);
-        else if( i2 < 15 ) color2 =	float4(0.0,						(float(i2) - 10.0) / 9.0, 0.0,						1.0);
-        else if( i2 < 20 ) color2 =	float4((float(i2) - 2.0) / 5.0, 0.45,					 0.0,						1.0);
-        else if( i2 < 25 ) color2 =	float4((float(i2) - 10.0) / 9.0,			0.0,					 (float(i2) - 40.0) / 9.0,	1.0);
-        else if( i2 < 30 ) color2 =	float4(1.0,						(float(i2) - 10.0) / 6.0, 0.0,						1.0);
-        else color2 =				float4((float(i2) - 10.0) / 8.0,						0.4, 0.0,						1.0);
-    }
-
-	else
-		color2 = float4((float(i2) - 10.0) / 8.0,						0.4, 0.0,						0.0);
-
-    Result[id.xy] = color1 + color2;
+		temp = uint2(i % 256, 0);
+    Result[id.xy] = palette[temp];
 }
 
 

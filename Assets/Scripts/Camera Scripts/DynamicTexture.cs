@@ -5,17 +5,17 @@ public class DynamicTexture : MonoBehaviour
 {
     public ComputeShader computeShader;
     public Material skybox;
+    public Texture2D palette;
 
     private RenderTexture tex;
     private int kernelHandle;
 
- 
 	// Use this for initialization
 	void Start () 
     {
         kernelHandle = computeShader.FindKernel("CSMain");
 
-        tex = new RenderTexture(1920, 1080, 24);
+        tex = new RenderTexture(512, 512, 24);
         tex.enableRandomWrite = true;
         tex.Create();
         this.GetComponent<MeshRenderer>().material.mainTexture = tex;
@@ -27,13 +27,14 @@ public class DynamicTexture : MonoBehaviour
         skybox.SetTexture("_LeftTex", tex);
         skybox.SetTexture("_RightTex", tex);
 
-     
+        computeShader.SetTexture(kernelHandle, "palette", palette);
+   
     }
 
 	void Update () 
     {
         computeShader.SetFloat("t", Time.time);
         computeShader.SetTexture(kernelHandle, "Result", tex);
-        computeShader.Dispatch(kernelHandle, 1920 / 32, 1080 / 32, 1);
+        computeShader.Dispatch(kernelHandle, 512 / 32, 512 / 32, 1);
 	}
 }
