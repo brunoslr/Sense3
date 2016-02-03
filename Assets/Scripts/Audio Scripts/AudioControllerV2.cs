@@ -77,6 +77,7 @@ public class AudioControllerV2 : MonoBehaviour {
 
     public void incrementLayerStack()
     {
+        layers[lastPlayedLayerID].setPanAndVol(0, 1.0f);
         activeLayers.Add(lastPlayedLayerID);
     }
 
@@ -89,7 +90,7 @@ public class AudioControllerV2 : MonoBehaviour {
     {
         if (activeLayers.Count > 0)
         {
-            int temp = Random.Range(0, activeLayers - 1);
+            int temp = Random.Range(0, activeLayers.Count - 1);
             temp = activeLayers[temp];
             layers[temp].StopTrack();
             activeLayers.Remove(temp);
