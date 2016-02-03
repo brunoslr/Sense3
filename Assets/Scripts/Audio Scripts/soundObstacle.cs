@@ -135,7 +135,7 @@ public class soundObstacle : MonoBehaviour
             if (this.gameObject.GetComponentInChildren<PickUpScript>().pickedUp == false)
             {
                 //other.gameObject.GetComponentInChildren<AudioController>().stopCurrentTrack();
-                other.gameObject.GetComponentInChildren<AudioControllerV2>().stopCurrentTrack();
+                other.gameObject.GetComponentInChildren<AudioControllerV2>().stopOneTrack();
                 //audioVisualizer.StopVisualizer();
             }
             other.gameObject.GetComponentInChildren<AudioControllerV2>().FadeInLayers();

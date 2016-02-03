@@ -6,7 +6,9 @@ public class AudioControllerV2 : MonoBehaviour {
 
     private Layer[] layers;
     private int totalLayers;   // Total number of layers - bass, rythm etc etc
-    public List<int> availableLayers; //Available layers that are not currently playing but available
+
+    private List<int> availableLayers; //Available layers that are not currently playing but available
+    private List<int> activeLayers;     //Layers that are currently playing.
     private int lastPlayedLayerID;
     private int numOfCollectedLayers;
 
@@ -30,9 +32,15 @@ public class AudioControllerV2 : MonoBehaviour {
         lastPlayedLayerID = 0;
         layers = this.gameObject.GetComponents<Layer>();
         totalLayers = layers.Length;
+
+        availableLayers = new List<int>();
+        activeLayers = new List<int>();
+        availableLayers.Clear();
+        activeLayers.Clear();
         for (int i = 0; i < totalLayers; i++)
             availableLayers.Add(i);
         CoreSystem.onSoundEvent += updateNumOfCollectedLayers;
+        CoreSystem.onObstacleEvent += stopOneTrack;
     }
 
     //Randomly chooses one player from the list of layers that are not playing, and plays a track from that layer
@@ -57,6 +65,7 @@ public class AudioControllerV2 : MonoBehaviour {
         int temp = lastPlayedLayerID;
 
         lastPlayedLayerID = layerID;
+        activeLayers.Add(lastPlayedLayerID);
 
         //Pass the previously playing audioSource's time sample to sync with
         layers[layerID].playNewTrack(layers[temp].getTimeSample());
@@ -70,10 +79,15 @@ public class AudioControllerV2 : MonoBehaviour {
         layers[lastPlayedLayerID].setPanAndVol(pan, volume);
     }
 
-    public void stopCurrentTrack()
+    public void stopOneTrack()
     {
-        layers[lastPlayedLayerID].StopTrack();
-        availableLayers.Add(lastPlayedLayerID);
+        if (activeLayers.Count > 0)
+        {
+            layers[lastPlayedLayerID].StopTrack();
+            activeLayers.Remove(lastPlayedLayerID);
+            availableLayers.Add(lastPlayedLayerID);
+            lastPlayedLayerID = activeLayers[activeLayers.Count - 1];
+        }
     }
 
     int numOfPlayingLayers()
@@ -128,12 +142,9 @@ public class AudioControllerV2 : MonoBehaviour {
 
     public void FadeOutLayers()
     {
-        for(int i=0;i < totalLayers; i++)
+        for(int i=0;i < activeLayers.Count; i++)
         {
-            if(i != lastPlayedLayerID)
-            {
-                layers[i].startFadeOut();
-            }
+            layers[activeLayers[i]].startFadeOut();
         }
     }
 
