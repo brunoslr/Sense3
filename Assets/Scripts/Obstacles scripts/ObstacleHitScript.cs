@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// Triggers the hit() in the state manager.
 /// </summary>
-[RequireComponent(typeof(BoxCollider))]
+//[RequireComponent(typeof(BoxCollider))]
 public class ObstacleHitScript : MonoBehaviour {
 
    
