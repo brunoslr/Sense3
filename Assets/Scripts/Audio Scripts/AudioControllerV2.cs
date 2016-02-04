@@ -40,6 +40,7 @@ public class AudioControllerV2 : MonoBehaviour {
         for (int i = 0; i < totalLayers; i++)
             availableLayers.Add(i);
         CoreSystem.onSoundEvent += updateNumOfCollectedLayers;
+        CoreSystem.onSoundEvent += incrementLayerStack;
         CoreSystem.onObstacleEvent += stopOneTrack;
     }
 
@@ -65,13 +66,19 @@ public class AudioControllerV2 : MonoBehaviour {
         int temp = lastPlayedLayerID;
 
         lastPlayedLayerID = layerID;
-        activeLayers.Add(lastPlayedLayerID);
+        //activeLayers.Add(lastPlayedLayerID);
 
         //Pass the previously playing audioSource's time sample to sync with
         layers[layerID].playNewTrack(layers[temp].getTimeSample());
         layers[layerID].setPanAndVol(pan, volume);
 
         FadeOutLayers();
+    }
+
+    public void incrementLayerStack()
+    {
+        layers[lastPlayedLayerID].setPanAndVol(0, 1.0f);
+        activeLayers.Add(lastPlayedLayerID);
     }
 
     public void setCurrentPan(int pan, float volume)
@@ -83,10 +90,11 @@ public class AudioControllerV2 : MonoBehaviour {
     {
         if (activeLayers.Count > 0)
         {
-            layers[lastPlayedLayerID].StopTrack();
-            activeLayers.Remove(lastPlayedLayerID);
-            availableLayers.Add(lastPlayedLayerID);
-            lastPlayedLayerID = activeLayers[activeLayers.Count - 1];
+            int temp = Random.Range(0, activeLayers.Count - 1);
+            temp = activeLayers[temp];
+            layers[temp].StopTrack();
+            activeLayers.Remove(temp);
+            availableLayers.Add(temp);
         }
     }
 
