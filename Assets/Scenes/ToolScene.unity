@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -4968,7 +4968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382c8aa86cde5334c9e89fd91c3c6306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableLayers: 
 --- !u!114 &1211714194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5031,10 +5030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ba4772f5eed2f4aa7657f47222dee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostMode: 0
-  constIncMode: 0
-  constSpeedMode: 0
-  startPosition: {fileID: 0}
 --- !u!96 &1280985141
 TrailRenderer:
   m_ObjectHideFlags: 0
@@ -5117,13 +5112,12 @@ MonoBehaviour:
   speedMultiplier: 0
   sideSpeedInc: 0
   vertSpeedInc: 0
+  horClamp: 0
+  startPos: 0
   vertClamp: 0
-  initialSideSpeed: 0
-  initialVertSpeed: 0
-  curSideSpeedInc: 0
-  curVertSpeedInc: 0
   maxSpeedCounter: 0
   trailTime: 0
+  gameMode: 0
 --- !u!82 &1280985144
 AudioSource:
   m_ObjectHideFlags: 0
