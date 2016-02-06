@@ -22,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
     public float sideSpeedInc;
     public float vertSpeedInc;
     public float horClamp;
-    public float startPos;
-
 
     public float vertClamp;         // max vertical disp.
 
@@ -34,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
     private float finalVertSpeed;          // current up down speed of the player.
     private float curSideSpeedInc;
     private float curVertSpeedInc;
-    
 
     public uint maxSpeedCounter;    // max no. of times speed can boost or increase.
     private uint speedCounter;      // current boost counter.
@@ -44,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        startPos = this.transform.position.x;
         ResetSpeed();
         if (gameMode == GameMode.BOOST)
         {
@@ -91,24 +87,17 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (transform.position.x > startPos + horClamp)
-            {
-                transform.position = new Vector3(startPos + horClamp, transform.position.y, transform.position.z);
-                //transform.position -= Vector3.one;
-            }
+            if (transform.position.x > horClamp)
+                transform.position = new Vector3(horClamp, transform.position.y, transform.position.z);
 
-            if (transform.position.x < startPos - horClamp)
-                transform.position = new Vector3(startPos - horClamp, transform.position.y, transform.position.z);
+            if (transform.position.x < -horClamp)
+                transform.position = new Vector3(-horClamp, transform.position.y, transform.position.z);
 
             if (initialSideSpeed < finalSideSpeed)
-            {
                 initialSideSpeed += curSideSpeedInc;
-            }
+      
             else
                 initialSideSpeed = finalSideSpeed;
-
-          
-
 
             transform.Translate(transform.right * Input.GetAxis("Horizontal") * initialSideSpeed * Time.deltaTime);
         }
@@ -142,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void MovePlayerBackToCenter()
     {
-        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 1.0f, transform.position.z), 0.01f);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0.0f, transform.position.z), 0.01f);
     }
 
     public void IncreasePlayerSpeed()
@@ -172,5 +161,4 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(trailTime);
         this.gameObject.GetComponent<TrailRenderer>().enabled = false;
     }
-
 }

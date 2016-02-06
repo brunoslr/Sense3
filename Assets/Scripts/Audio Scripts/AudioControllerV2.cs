@@ -81,6 +81,13 @@ public class AudioControllerV2 : MonoBehaviour {
         activeLayers.Add(lastPlayedLayerID);
     }
 
+    public void refreshLastPlayed()
+    {
+        layers[lastPlayedLayerID].StopTrack();
+        if (activeLayers.Count > 0) 
+            lastPlayedLayerID = activeLayers[activeLayers.Count - 1];
+    }
+
     public void setCurrentPan(int pan, float volume)
     {
         layers[lastPlayedLayerID].setPanAndVol(pan, volume);

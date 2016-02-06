@@ -8,7 +8,8 @@ public class Layer : MonoBehaviour {
     public string FolderName;
     public int totalTracks;
     public AudioClip[] audioTracks;             //This is public only because another script access this to load (AudioToolApp.cs)
-   
+
+    private float FadeDuration;
     private AudioSource audioSource;
     private int currentTrackIndex;
     private float minVol;
@@ -19,6 +20,8 @@ public class Layer : MonoBehaviour {
         audioSource = this.gameObject.AddComponent<AudioSource>();
         audioSource.timeSamples = 0;
         loadAudioClips();
+        FadeDuration = audioTracks[0].length;
+        FadeDuration /= 4.0f;
         totalTracks = audioTracks.Length;
         audioSource.loop = true;
         audioSource.mute = true;
@@ -126,8 +129,6 @@ public class Layer : MonoBehaviour {
 
     IEnumerator FadeOut()
     {
-        float FadeDuration = 0.1f;
-
         while(audioSource.volume > minVol)
         {
             audioSource.volume = Mathf.Lerp(audioSource.volume, 0, FadeDuration);
@@ -137,8 +138,6 @@ public class Layer : MonoBehaviour {
 
     IEnumerator FadeIn()
     {
-        float FadeDuration = 1.0f;
-
         while (audioSource.volume < maxVol)
         {
             audioSource.volume = Mathf.Lerp(audioSource.volume, maxVol, FadeDuration);
