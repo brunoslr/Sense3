@@ -16,7 +16,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     public GameObject soundObstaclePrefab;
     public float xOffsetSound;
     public float yOffsetSound;
-    public float zOffsetSound;
+    public float zOffsetFromPlayer;
 
     public int numberOfObstaclesInX;
 
@@ -29,12 +29,14 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private int zOffset;
 
     private List<GameObject> visualObstacles;
-    private List<GameObject> soundObstacles;
 
     private List<GameObject> loadedObstacles;
     private GameObject currentObstacle;
+    private GameObject soundObstacle;
 
     private float zPos;
+
+    private float soundPickupZValue = 200f;
 
     // Use this for initialization
     void Start()
@@ -54,10 +56,12 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             loadedObstacles.Add(temp);
         }
 
-        zPos = _terrainGrid[0,0].terrainData.size.z / 2;
+        zPos = zOffsetVisual;
+
+        soundObstacle = Instantiate(soundObstaclePrefab);
 
         InitializeVisualObstacles();
-        //GenerateSoundObstacles();
+        GenerateSoundObstacles(soundPickupZValue);
     }
 
     private void InitializeTerrain()
@@ -148,7 +152,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
                 xPos += _terrainGrid[0,0].terrainData.size.x;
             }
             xPos = _terrainGrid[0, 0].transform.position.x + _terrainGrid[0, 0].terrainData.size.x / 2;
-            zPos += _terrainGrid[0,0].terrainData.size.z;
+            zPos += zOffsetVisual;
         }
     }
 
@@ -168,7 +172,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             xPos += _terrainGrid[0, 0].terrainData.size.x;
         }
         xPos = _terrainGrid[0, 0].transform.position.x + _terrainGrid[0, 0].terrainData.size.x / 2;
-        zPos += _terrainGrid[0, 0].terrainData.size.z;
+        zPos += zOffsetVisual;
     }
 
     void DeleteVisualObstacles()
@@ -185,9 +189,9 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         }
     }
 
-    void GenerateSoundObstacles()
+    void GenerateSoundObstacles(float zPosition)
     {
-
+        soundObstacle.transform.position = new Vector3(Random.Range(_terrainGrid[0, 0].transform.position.x, _terrainGrid[0, 2].transform.position.x + _terrainGrid[0, 2].terrainData.size.x), yOffsetSound, zPosition);
     }
 
     void DeleteSoundObstacles()
@@ -195,7 +199,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     }
 
-    private void MoveObstacles()
+    private void MoveVisualObstacles()
     {
         for (int i = 0; i < visualObstacles.Count; i++)
         {
@@ -216,6 +220,11 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     {
         int updatedZ = 2, updatedX = 1;
         DeleteVisualObstacles();
+
+        if (player.transform.position.z % 2000 <= 1)
+        {
+            GenerateSoundObstacles(player.transform.position.z + zOffsetFromPlayer + soundObstacle.transform.localScale.z / 2.0f);
+        }
 
         playerPosition = player.transform.position;
         currentTerrain = null;
@@ -268,7 +277,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
             //when moved right or left
             if (updatedX == 0 || updatedX == 2)
-            MoveObstacles();
+            MoveVisualObstacles();
         }
     }
 }

@@ -9,8 +9,9 @@ public class CreateSO : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        transform.localScale = scaleSO;
         soundPickup = transform.GetChild(0);
-        soundPickup.localScale = new Vector3(transform.localScale.x / 5.0f / 10.0f, transform.localScale.y / 4.0f, transform.localScale.z / transform.localScale.z / 1000.0f);
+        soundPickup.localScale = new Vector3(transform.localScale.x / transform.localScale.x / 5.0f, transform.localScale.y / 4.0f, transform.localScale.z / transform.localScale.z / 1000.0f);
 
         soundPickup.localPosition = new Vector3(0.0f, 0.0f, (transform.localScale.z / 2.0f / transform.localScale.z) - (soundPickup.localScale.z * 5.0f / 10.0f));
 	}
