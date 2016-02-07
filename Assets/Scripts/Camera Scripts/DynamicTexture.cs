@@ -18,7 +18,6 @@ public class DynamicTexture : MonoBehaviour
         tex = new RenderTexture(512, 512, 24);
         tex.enableRandomWrite = true;
         tex.Create();
-        this.GetComponent<MeshRenderer>().material.mainTexture = tex;
         RenderSettings.skybox = skybox;
         skybox.SetTexture("_FrontTex", tex);
         skybox.SetTexture("_BackTex", tex);
