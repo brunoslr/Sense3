@@ -420,7 +420,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 708936217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 3, z: -5}
+  m_LocalPosition: {x: 25, y: 3, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3577,6 +3577,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layername: 
+  FolderName: 
+  totalTracks: 0
   audioTracks:
   - {fileID: 8300000, guid: d0cdd914894719640b16d2dfbe666b62, type: 3}
   - {fileID: 8300000, guid: 069e86c0123317b489e4a7a1b9fc14c9, type: 3}
@@ -3595,7 +3597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382c8aa86cde5334c9e89fd91c3c6306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableLayers: 
 --- !u!114 &1250876658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3714,13 +3715,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1746095484}
-  obstaclePrefabs:
-  - {fileID: 157554, guid: 1d1b42d83cff6014289b1bb774e7407f, type: 2}
-  - {fileID: 155334, guid: 1b8f60f6ab227794c90fa73d18ba0701, type: 2}
-  - {fileID: 152880, guid: 3cf46a75345748246b9c7ca7cfe84a8e, type: 2}
-  - {fileID: 137616, guid: 7e31ac2f44d221e4396251ab2dcc5f71, type: 2}
-  - {fileID: 142508, guid: ae93db38ffececd4db1e855bd8d1a77d, type: 2}
-  yPos: 0
+  visualObstaclePrefabs:
+  - {fileID: 191264, guid: ff8b55a5315492c4cb922dd139ac9d66, type: 2}
+  - {fileID: 170708, guid: d4d578b86d38dcf41b20587d2e093af9, type: 2}
+  - {fileID: 151396, guid: 5e81023ebeaa41a4e8c01c6304a7036b, type: 2}
+  - {fileID: 191264, guid: ff8b55a5315492c4cb922dd139ac9d66, type: 2}
+  - {fileID: 170708, guid: d4d578b86d38dcf41b20587d2e093af9, type: 2}
+  - {fileID: 151396, guid: 5e81023ebeaa41a4e8c01c6304a7036b, type: 2}
+  - {fileID: 191264, guid: ff8b55a5315492c4cb922dd139ac9d66, type: 2}
+  - {fileID: 170708, guid: d4d578b86d38dcf41b20587d2e093af9, type: 2}
+  - {fileID: 151396, guid: 5e81023ebeaa41a4e8c01c6304a7036b, type: 2}
+  xOffsetVisual: 20
+  yOffsetVisual: 0.5
+  zOffsetVisual: 200
+  soundObstaclePrefab: {fileID: 0}
+  xOffsetSound: 0
+  yOffsetSound: 0
+  zOffsetSound: 0
+  numberOfObstaclesInX: 3
 --- !u!154 &1666843766
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -3809,10 +3821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ba4772f5eed2f4aa7657f47222dee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostMode: 0
-  constIncMode: 0
-  constSpeedMode: 0
-  startPosition: {fileID: 0}
 --- !u!96 &1746095486
 TrailRenderer:
   m_ObjectHideFlags: 0
@@ -3873,19 +3881,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a315ed9396d1b545bfc29a6530e427f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 100
-  sideSpeedMul: 1
+  initialSpeed: 10
+  sideSpeedMul: 50
   vertSpeedMul: 0.1
   speedMultiplier: 2
   sideSpeedInc: 1
   vertSpeedInc: 0.1
+  horClamp: 1e+29
+  startPos: 0
   vertClamp: 5
-  initialSideSpeed: 0
-  initialVertSpeed: 0
-  curSideSpeedInc: 0
-  curVertSpeedInc: 0
   maxSpeedCounter: 5
   trailTime: 2
+  gameMode: 0
 --- !u!82 &1746095488
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4032,7 +4039,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1746095484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 1, z: 5}
+  m_LocalPosition: {x: 25, y: 1, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 384772346}
