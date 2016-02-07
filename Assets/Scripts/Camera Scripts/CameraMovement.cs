@@ -9,15 +9,15 @@ public class CameraMovement : MonoBehaviour
     public GameObject player;
 
     //How far the camera is supposed to be behind the player.
-    private float offset;
+    public Vector3 initialOffset;
 
     void Start()
     {
-        offset = transform.position.z - player.transform.position.z;
+        transform.position = player.transform.position + initialOffset;
     }
 
     void LateUpdate()
     {
-        transform.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z + offset);
+        transform.position = new Vector3(transform.position.x, transform.position.y, player.transform.position.z + initialOffset.z);
     }
 }

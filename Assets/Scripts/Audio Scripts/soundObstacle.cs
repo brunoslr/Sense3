@@ -1,20 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(Rigidbody))]
-
 public class soundObstacle : MonoBehaviour 
 {
-    //private AudioSource[] audioSource;
-    //private AudioSource CenteraudioSource;
-    
-    public bool pickedUp;
-    //public GameObject shock;
-    
-    //private AudioVisualizer audioVisualizer;
-    private bool ColliderEnterCount;
-
+    private float pan;
     /// <summary>
     /// To Do: Place audio visualizer in the right place in the architecture.
     /// </summary>
@@ -22,10 +11,7 @@ public class soundObstacle : MonoBehaviour
     /// <param name="Start"></param>
     /// <returns></returns>
 	void Start () {
-        //audioSource = this.gameObject.GetComponents<AudioSource>();
-        //audioVisualizer = shock.GetComponent<AudioVisualizer>();
-        pickedUp = false;
-        ColliderEnterCount = false;
+   
 	}
 	
 	// Update is called once per frame
@@ -40,50 +26,33 @@ public class soundObstacle : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerEnter(Collider other)
     {
-    
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            if (ColliderEnterCount == false)        // This is to make sure that this runs only once
+            Vector3 playerPosition = other.gameObject.transform.position;
+
+            //calculate the volume
+            float volume;
+            //We need the pickup collider's position because its located at the end of the collider
+            Vector3 pickUpPosition = this.transform.GetChild(0).transform.position;
+            volume = Vector3.Distance(playerPosition, pickUpPosition);
+            //because every collider has a different size
+            volume = volume / this.gameObject.GetComponent<BoxCollider>().size.z;
+            //Make sure the the volume never goes negative
+            volume = 0.2f + Mathf.Max(1 - volume, 0);
+
+            pan = this.transform.GetChild(0).position.x - playerPosition.x;
+
+            if (Mathf.Abs(pan) >= 2.0f)
             {
-                Vector3 playerPosition = other.gameObject.transform.position;
-
-                //calculate the volume
-                float volume;
-                //We need the pickup collider's position because its located at the end of the collider
-                Vector3 pickUpPosition = this.transform.GetChild(0).transform.position;
-                volume = Vector3.Distance(playerPosition, pickUpPosition);
-                //because every collider has a different size
-                volume = volume / this.gameObject.GetComponent<BoxCollider>().size.z;
-                //Make sure the the volume never goes negative
-                volume = 0.2f + Mathf.Max(1 - volume, 0);
-
-                float pan = this.transform.GetChild(0).position.x - playerPosition.x;
-
-                //audioSource[0].timeSamples = other.gameObject.GetComponent<AudioSource>().timeSamples;
-                //audioSource[1].timeSamples = other.gameObject.GetComponent<AudioSource>().timeSamples;
-
-                if (Mathf.Abs(pan) >= 2.0f)
-                {
-                    pan = pan / Mathf.Abs(pan);
-                    //audioSource[0].panStereo = pan;
-                    //audioSource[0].volume = Mathf.Abs(pan);
-                    //audioSource[0].mute = false;
-                    //audioSource[0].Play();
-
-                }
-                else
-                {
-                    pan = 0;
-                    //audioSource[1].panStereo = pan;
-                    //audioSource[1].volume = 1 - Mathf.Abs(pan);
-                    //audioSource[1].mute = false;
-                    //audioSource[1].Play();
-                }
-                ColliderEnterCount = true;
-                //other.gameObject.GetComponentInChildren<AudioController>().playCurrent((int)pan, volume);
-                //Refactored audio controller below
-                other.gameObject.GetComponentInChildren<AudioControllerV2>().playNewTrack((int)pan, volume);
+                pan = pan / Mathf.Abs(pan);
             }
+            else
+            {
+                pan = 0;
+            }
+
+            //Refactored audio controller below
+            other.gameObject.GetComponentInChildren<AudioControllerV2>().playNewTrack((int)pan, volume);
         }
     }
 
@@ -104,11 +73,11 @@ public class soundObstacle : MonoBehaviour
             Vector3 pickUpPosition = this.transform.GetChild(0).transform.position;
             volume = Vector3.Distance(playerPosition, pickUpPosition);
             //because every collider has a different size
-            volume = volume / this.gameObject.GetComponent<BoxCollider>().size.z;
+            volume = volume / this.gameObject.GetComponent<BoxCollider>().transform.localScale.z;
             //Make sure the the volume never goes negative
-            volume = 0.4f + Mathf.Max(1 - volume, 0);
+            volume = Mathf.Max(1 - volume, 0);
 
-            if (Mathf.Abs(pan) >= 10.0f)
+            if (Mathf.Abs(pan) >= 1.0f)
             {
                 pan = pan / Mathf.Abs(pan);
             }
@@ -117,10 +86,8 @@ public class soundObstacle : MonoBehaviour
             {
                 pan = 0;
             }
-            
-            //other.gameObject.GetComponentInChildren<AudioController>().setCurrentPan((int) pan, volume);
-            other.gameObject.GetComponentInChildren<AudioControllerV2>().setCurrentPan((int)pan, volume);
-            //audioVisualizer.PlayerVisualizer(this.gameObject.transform.GetChild(0).position.z - other.gameObject.transform.position.z);
+                      
+            other.gameObject.GetComponentInChildren<AudioControllerV2>().setCurrentPan((int)pan, volume);          
         }
     }
     
@@ -133,13 +100,10 @@ public class soundObstacle : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             if (this.gameObject.GetComponentInChildren<PickUpScript>().pickedUp == false)
-            {
-                //other.gameObject.GetComponentInChildren<AudioController>().stopCurrentTrack();
-                other.gameObject.GetComponentInChildren<AudioControllerV2>().stopOneTrack();
-                //audioVisualizer.StopVisualizer();
+            {              
+                other.gameObject.GetComponentInChildren<AudioControllerV2>().refreshLastPlayed();              
             }
             other.gameObject.GetComponentInChildren<AudioControllerV2>().FadeInLayers();
         }
-
     }
 }
