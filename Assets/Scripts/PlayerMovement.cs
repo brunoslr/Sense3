@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     private float finalVertSpeed;          // current up down speed of the player.
     private float curSideSpeedInc;
     private float curVertSpeedInc;
+    private float startxPos;
 
     public uint maxSpeedCounter;    // max no. of times speed can boost or increase.
     private uint speedCounter;      // current boost counter.
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
             CoreSystem.onSoundEvent += IncreasePlayerSpeed;
             CoreSystem.onObstacleEvent += ReducePlayerSpeed;
         }
+        startxPos = transform.position.x;
     }
    public void ResetSpeed()
     {
@@ -87,11 +89,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (transform.position.x > horClamp)
-                transform.position = new Vector3(horClamp, transform.position.y, transform.position.z);
+            if (transform.position.x > (startxPos + horClamp))
+                transform.position = new Vector3(startxPos + horClamp, transform.position.y, transform.position.z);
 
-            if (transform.position.x < -horClamp)
-                transform.position = new Vector3(-horClamp, transform.position.y, transform.position.z);
+            if (transform.position.x < (startxPos - horClamp))
+                transform.position = new Vector3(startxPos - horClamp, transform.position.y, transform.position.z);
 
             if (initialSideSpeed < finalSideSpeed)
                 initialSideSpeed += curSideSpeedInc;
