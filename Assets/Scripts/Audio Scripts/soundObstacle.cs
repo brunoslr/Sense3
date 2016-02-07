@@ -4,6 +4,7 @@ using System.Collections;
 public class soundObstacle : MonoBehaviour 
 {
     private float pan;
+    private float checkPan;
     /// <summary>
     /// To Do: Place audio visualizer in the right place in the architecture.
     /// </summary>
@@ -11,7 +12,7 @@ public class soundObstacle : MonoBehaviour
     /// <param name="Start"></param>
     /// <returns></returns>
 	void Start () {
-   
+        checkPan = this.transform.localScale.x / 10.0f;
 	}
 	
 	// Update is called once per frame
@@ -42,7 +43,7 @@ public class soundObstacle : MonoBehaviour
 
             pan = this.transform.GetChild(0).position.x - playerPosition.x;
 
-            if (Mathf.Abs(pan) >= 2.0f)
+            if (Mathf.Abs(pan) >= checkPan)
             {
                 pan = pan / Mathf.Abs(pan);
             }
@@ -77,7 +78,7 @@ public class soundObstacle : MonoBehaviour
             //Make sure the the volume never goes negative
             volume = Mathf.Max(1 - volume, 0);
 
-            if (Mathf.Abs(pan) >= 1.0f)
+            if (Mathf.Abs(pan) >= checkPan)
             {
                 pan = pan / Mathf.Abs(pan);
             }
