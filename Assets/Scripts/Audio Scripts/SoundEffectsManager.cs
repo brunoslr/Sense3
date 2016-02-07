@@ -20,6 +20,7 @@ public class SoundEffectsManager : MonoBehaviour {
         audPickupAudioSource = this.gameObject.AddComponent<AudioSource>();
         movPlayerAudioSource = this.gameObject.AddComponent<AudioSource>();
         CoreSystem.onObstacleEvent += VisualObstacleCrashSound;
+        CoreSystem.onSoundEvent += AudioObstaclePickupSound;
     }
 	
 	// Update is called once per frame
