@@ -36,8 +36,8 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     private float zPos;
     private float xPos;
-    private float lowerClamp;
-    private float upperClamp;
+    private int lowerClamp;
+    private int upperClamp;
 
     public float previousValue, currentValue, newValue;
 
@@ -50,6 +50,9 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     void Start()
     {
         previousValue = currentValue = newValue = player.transform.position.x / 5.0f;
+
+        lowerClamp = (int) player.transform.position.x - xClamp;
+        upperClamp = (int) player.transform.position.x + xClamp;
 
         InitializeTerrain();
 
@@ -245,17 +248,21 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             mainCounter++;
         }
 
-        //when moved left
-        //if (player.transform.position.x < lowerClamp)
-        //{
-        //    CreateNewPuzzleOnLeft();
-        //}
+        if ((int) xPos <= lowerClamp)
+        {
+            upperClamp = lowerClamp;
+            lowerClamp -= 2 * xClamp;
+            Debug.Log("Left");
+            //CreateNewPuzzleOnLeft();
+        }
 
-        ////when moved right
-        //if (player.transform.position.x > xClamp)
-        //{
-        //    CreateNewPuzzleOnRight();
-        //}
+        if ((int) xPos >= upperClamp)
+        {
+            lowerClamp = upperClamp;
+            upperClamp += 2 * xClamp;
+            Debug.Log("Right");
+            //CreateNewPuzzleOnRight();
+        }
     }
 
     private void UpdateSoundObstacle()
