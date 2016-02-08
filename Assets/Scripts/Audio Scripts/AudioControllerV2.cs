@@ -6,7 +6,9 @@ public class AudioControllerV2 : MonoBehaviour {
 
     private Layer[] layers;
     private int totalLayers;   // Total number of layers - bass, rythm etc etc
-    public List<int> availableLayers; //Available layers that are not currently playing but available
+
+    private List<int> availableLayers; //Available layers that are not currently playing but available
+    private List<int> activeLayers;     //Layers that are currently playing.
     private int lastPlayedLayerID;
     private int numOfCollectedLayers;
 
@@ -30,9 +32,15 @@ public class AudioControllerV2 : MonoBehaviour {
         lastPlayedLayerID = 0;
         layers = this.gameObject.GetComponents<Layer>();
         totalLayers = layers.Length;
+
+        availableLayers = new List<int>();
+        activeLayers = new List<int>();
+        availableLayers.Clear();
+        activeLayers.Clear();
         for (int i = 0; i < totalLayers; i++)
             availableLayers.Add(i);
-        CoreSystem.onSoundEvent += updateNumOfCollectedLayers;
+        CoreSystem.onSoundEvent += incrementLayerStack;
+        CoreSystem.onObstacleEvent += stopOneTrack;
     }
 
     //Randomly chooses one player from the list of layers that are not playing, and plays a track from that layer
@@ -57,6 +65,7 @@ public class AudioControllerV2 : MonoBehaviour {
         int temp = lastPlayedLayerID;
 
         lastPlayedLayerID = layerID;
+        //activeLayers.Add(lastPlayedLayerID);
 
         //Pass the previously playing audioSource's time sample to sync with
         layers[layerID].playNewTrack(layers[temp].getTimeSample());
@@ -65,15 +74,39 @@ public class AudioControllerV2 : MonoBehaviour {
         FadeOutLayers();
     }
 
+    public void incrementLayerStack()
+    {
+        layers[lastPlayedLayerID].setPanAndVol(0, 1.0f);
+        activeLayers.Add(lastPlayedLayerID);
+        //Increments the sound count
+        numOfCollectedLayers++;
+
+        // Cal the trigger the function UpdateSoundPickUp
+        CoreSystem.UpdateSoundPickup(numOfCollectedLayers.ToString());
+    }
+
     public void setCurrentPan(int pan, float volume)
     {
         layers[lastPlayedLayerID].setPanAndVol(pan, volume);
     }
 
-    public void stopCurrentTrack()
+    public void stopOneTrack()
     {
-        layers[lastPlayedLayerID].StopTrack();
-        availableLayers.Add(lastPlayedLayerID);
+        if (activeLayers.Count > 0)
+        {
+            int temp = Random.Range(0, activeLayers.Count - 1);
+            temp = activeLayers[temp];
+            layers[temp].StopTrack();
+            activeLayers.Remove(temp);
+            availableLayers.Add(temp);
+
+
+            // Cal the trigger the function UpdateSoundPickUp
+            numOfCollectedLayers--;
+            CoreSystem.UpdateSoundPickup(numOfCollectedLayers.ToString());
+
+        }
+   
     }
 
     int numOfPlayingLayers()
@@ -112,28 +145,11 @@ public class AudioControllerV2 : MonoBehaviour {
         Start();
     }
 
-    /// <summary>
-    /// Increments the number of Sound Tracks Collected everytime we pick a sound
-    /// </summary>
-    /// 
-    public void updateNumOfCollectedLayers()
-    {
-        //Increments the sound count
-        numOfCollectedLayers++;
-        // Cal the trigger the function UpdateSoundPickUp
-        CoreSystem.UpdateSoundPickup(numOfCollectedLayers.ToString());
-
-    }
-
-
     public void FadeOutLayers()
     {
-        for(int i=0;i < totalLayers; i++)
+        for(int i=0;i < activeLayers.Count; i++)
         {
-            if(i != lastPlayedLayerID)
-            {
-                layers[i].startFadeOut();
-            }
+            layers[activeLayers[i]].startFadeOut();
         }
     }
 
