@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour {
 
-    private string startScene = "test2";
+    public string startScene;
 
     public Button startButton;
     public Button quitButton;

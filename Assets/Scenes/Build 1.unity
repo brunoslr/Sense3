@@ -3457,6 +3457,48 @@ Transform:
   - {fileID: 519989765}
   m_Father: {fileID: 1134387769}
   m_RootOrder: 1
+--- !u!1001 &1632363479
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 425724, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425724, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425724, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425724, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425724, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425724, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 425724, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 425724, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2063829182
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,6 +3538,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 4
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &2063829184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3512,6 +3555,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 4
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &2063829185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3528,6 +3572,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 4
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &2063829186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3544,6 +3589,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 4
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &2063829187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3560,6 +3606,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 3
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &2063829188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3576,6 +3623,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 4
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &2063829189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3592,6 +3640,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 4
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &2063829190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3604,7 +3653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382c8aa86cde5334c9e89fd91c3c6306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableLayers: 
 --- !u!4 &2063829191
 Transform:
   m_ObjectHideFlags: 0
@@ -3716,4 +3764,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1134387761}
-  offset: {x: 0, y: -5, z: 15}
+  initialOffset: {x: 0, y: 0, z: 0}
