@@ -18,7 +18,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     public float yOffsetSound;
     public float zOffsetFromPlayer;
 
-    public int numberOfObstaclesInX;
+    public int xClamp;
 
     private Vector3 playerPosition;
 
@@ -35,12 +35,22 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private GameObject soundObstacle;
 
     private float zPos;
+    private float xPos;
+    private float lowerClamp;
+    private float upperClamp;
 
+    public float previousValue, currentValue, newValue;
+
+    private float[] zPosition = new float [3];
+    private int counter = 0;
+    private int mainCounter = 1;
     private float soundPickupZValue = 200f;
 
     // Use this for initialization
     void Start()
     {
+        previousValue = currentValue = newValue = player.transform.position.x / 5.0f;
+
         InitializeTerrain();
 
         UpdateTerrainPositionsAndNeighbors();
@@ -137,30 +147,8 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private void InitializeVisualObstacles()
     {
         int pick;
-        float xPos = _terrainGrid[0,0].transform.position.x + _terrainGrid[0,0].terrainData.size.x / 2;
+        float xPos = _terrainGrid[1,1].transform.position.x + _terrainGrid[1,1].terrainData.size.x / 2;
         for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                pick = Random.Range(0, loadedObstacles.Count);
-                currentObstacle = GetNextObstacle(pick);
-                currentObstacle.SetActive(true);
-                loadedObstacles.RemoveAt(pick);
-                visualObstacles.Add(currentObstacle);
-
-                currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPos);
-                xPos += _terrainGrid[0,0].terrainData.size.x;
-            }
-            xPos = _terrainGrid[0, 0].transform.position.x + _terrainGrid[0, 0].terrainData.size.x / 2;
-            zPos += zOffsetVisual;
-        }
-    }
-
-    void GenerateVisualObstacles()
-    {
-        int pick;
-        float xPos = _terrainGrid[0, 0].transform.position.x + _terrainGrid[0, 0].terrainData.size.x / 2;
-        for (int j = 0; j < 3; j++)
         {
             pick = Random.Range(0, loadedObstacles.Count);
             currentObstacle = GetNextObstacle(pick);
@@ -169,9 +157,24 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             visualObstacles.Add(currentObstacle);
 
             currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPos);
-            xPos += _terrainGrid[0, 0].terrainData.size.x;
+            zPosition[i] = zPos;
+            zPos += zOffsetVisual; 
         }
-        xPos = _terrainGrid[0, 0].transform.position.x + _terrainGrid[0, 0].terrainData.size.x / 2;
+    }
+
+    void GenerateVisualObstacles()
+    {
+        int pick;
+        float xPos = _terrainGrid[1, 1].transform.position.x + _terrainGrid[1, 1].terrainData.size.x / 2;
+        pick = Random.Range(0, loadedObstacles.Count);
+        currentObstacle = GetNextObstacle(pick);
+        currentObstacle.SetActive(true);
+        loadedObstacles.RemoveAt(pick);
+        visualObstacles.Add(currentObstacle);
+
+        currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPos);
+        zPosition[counter] = zPos;
+        counter = (counter + 1) % 3;
         zPos += zOffsetVisual;
     }
 
@@ -191,6 +194,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     void GenerateSoundObstacles(float zPosition)
     {
+        soundObstacle.GetComponentInChildren<PickUpScript>().pickedUp = false;
         soundObstacle.transform.position = new Vector3(Random.Range(_terrainGrid[0, 0].transform.position.x, _terrainGrid[0, 2].transform.position.x + _terrainGrid[0, 2].terrainData.size.x), yOffsetSound, zPosition);
     }
 
@@ -203,9 +207,9 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     {
         for (int i = 0; i < visualObstacles.Count; i++)
         {
-            if (visualObstacles[i].transform.position.x < _terrainGrid[0,0].transform.position.x)
+            if (visualObstacles[i].transform.position.x < _terrainGrid[0, 0].transform.position.x)
             {
-                visualObstacles[i].transform.position = (new Vector3(_terrainGrid[0,2].transform.position.x + _terrainGrid[0,2].terrainData.size.x / 2, visualObstacles[i].transform.position.y, visualObstacles[i].transform.position.z));
+                visualObstacles[i].transform.position = (new Vector3(_terrainGrid[0, 2].transform.position.x + _terrainGrid[0, 2].terrainData.size.x / 2, visualObstacles[i].transform.position.y, visualObstacles[i].transform.position.z));
             }
 
             if (visualObstacles[i].transform.position.x > _terrainGrid[0, 2].transform.position.x + _terrainGrid[0, 2].terrainData.size.x)
@@ -218,14 +222,52 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int updatedZ = 2, updatedX = 1;
+        UpdateTerrainGrid();
+
+        UpdateVisualObstacles();
+
         DeleteVisualObstacles();
 
+        UpdateSoundObstacle();
+    }
+
+    private void UpdateVisualObstacles()
+    {
+        xPos = (int)(player.transform.position.x);
+        if (xPos % xClamp == 0)
+        {
+               
+        }
+        //only when changhe tile in z
+        if (player.transform.position.z > zOffsetVisual * mainCounter)
+        {
+            GenerateVisualObstacles();
+            mainCounter++;
+        }
+
+        //when moved left
+        //if (player.transform.position.x < lowerClamp)
+        //{
+        //    CreateNewPuzzleOnLeft();
+        //}
+
+        ////when moved right
+        //if (player.transform.position.x > xClamp)
+        //{
+        //    CreateNewPuzzleOnRight();
+        //}
+    }
+
+    private void UpdateSoundObstacle()
+    {
         if (player.transform.position.z % 2000 <= 1)
         {
             GenerateSoundObstacles(player.transform.position.z + zOffsetFromPlayer + soundObstacle.transform.localScale.z / 2.0f);
         }
+    }
 
+    private void UpdateTerrainGrid()
+    {
         playerPosition = player.transform.position;
         currentTerrain = null;
 
@@ -241,43 +283,59 @@ public class InfiniteTerrainGenerator : MonoBehaviour
                     xOffset = 1 - x;
                     zOffset = 2 - z;
                     currentTerrain = _terrainGrid[z, x];
-                    updatedX = x;
-                    updatedZ = z;
                     break;
                 }
+        }
+
+        if (currentTerrain != null) { break; }
+    }
+
+    if (currentTerrain != _terrainGrid[2, 1])
+    {
+        Terrain[,] newTerrainGrid = new Terrain[3, 3];
+        for (int z = 0; z < 3; z++)
+            for (int x = 0; x < 3; x++)
+            {
+                int newX = x + xOffset;
+                if (newX < 0)
+                    newX = 2;
+                else if (newX > 2)
+                    newX = 0;
+                int newZ = z + zOffset;
+                if (newZ < 0)
+                    newZ = 2;
+                else if (newZ > 2)
+                    newZ = 0;
+                newTerrainGrid[newZ, newX] = _terrainGrid[z, x];
             }
+        _terrainGrid = newTerrainGrid;
+        UpdateTerrainPositionsAndNeighbors();
+    }
+}
 
-            if (currentTerrain != null) { break; }
-        }
+    private void CreateNewPuzzleOnLeft()
+    {
+        var z = zPosition[counter];
+        float xPos = _terrainGrid[1, 1].transform.position.x - 3 * _terrainGrid[1, 1].terrainData.size.x;
+        int pick = Random.Range(0, loadedObstacles.Count);
+        GameObject currentObstacle = GetNextObstacle(pick);
+        currentObstacle.SetActive(true);
+        loadedObstacles.RemoveAt(pick);
+        visualObstacles.Add(currentObstacle);
 
-        if (currentTerrain != _terrainGrid[2, 1])
-        {
-            Terrain[,] newTerrainGrid = new Terrain[3, 3];
-            for (int z = 0; z < 3; z++)
-                for (int x = 0; x < 3; x++)
-                {
-                    int newX = x + xOffset;
-                    if (newX < 0)
-                        newX = 2;
-                    else if (newX > 2)
-                        newX = 0;
-                    int newZ = z + zOffset;
-                    if (newZ < 0)
-                        newZ = 2;
-                    else if (newZ > 2)
-                        newZ = 0;
-                    newTerrainGrid[newZ, newX] = _terrainGrid[z, x];
-                }
-            _terrainGrid = newTerrainGrid;
-            UpdateTerrainPositionsAndNeighbors();
+        currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, z);
+    }
 
-            //only when changhe tile in z
-            if (updatedZ == 1)
-            GenerateVisualObstacles();
+    private void CreateNewPuzzleOnRight()
+    {
+        var z = zPosition[counter];
+        float xPos = _terrainGrid[1, 1].transform.position.x + 3 * _terrainGrid[1, 1].terrainData.size.x;
+        int pick = Random.Range(0, loadedObstacles.Count);
+        GameObject currentObstacle = GetNextObstacle(pick);
+        currentObstacle.SetActive(true);
+        loadedObstacles.RemoveAt(pick);
+        visualObstacles.Add(currentObstacle);
 
-            //when moved right or left
-            if (updatedX == 0 || updatedX == 2)
-            MoveVisualObstacles();
-        }
+        currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, z);
     }
 }
