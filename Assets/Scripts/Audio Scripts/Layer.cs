@@ -29,6 +29,10 @@ public class Layer : MonoBehaviour {
         currentTrackIndex = 0;
         minVol = 0.2f;
         maxVol = 0.8f;
+        
+    }
+    void OnLevelWasLoaded()
+    {
         AudioControllerV2.fadeInLayers += startFadeIn;
     }
 
