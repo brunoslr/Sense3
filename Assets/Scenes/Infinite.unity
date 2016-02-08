@@ -308,7 +308,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430472, guid: 7e24b8c98b9c9f84688f559543c6269a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: -7.68
       objectReference: {fileID: 0}
     - target: {fileID: 430472, guid: 7e24b8c98b9c9f84688f559543c6269a, type: 2}
       propertyPath: m_LocalRotation.x
@@ -337,6 +337,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e24b8c98b9c9f84688f559543c6269a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &599559628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 599559629}
+  - 114: {fileID: 599559630}
+  m_Layer: 0
+  m_Name: playerStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &599559629
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599559628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1853631761}
+  m_RootOrder: 2
+--- !u!114 &599559630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599559628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8799a70007526e648959638e96ea4fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LossScenario_sceneName: Infinite
+  WinScenario_sceneName: MainMenu
+  finalRunTime: 15
 --- !u!1001 &933001883
 Prefab:
   m_ObjectHideFlags: 0
@@ -3848,7 +3890,8 @@ MonoBehaviour:
   yOffsetSound: 0
   zOffsetFromPlayer: 100
   xClamp: 100
-  zPos: 0
+  zPosFront: 0
+  zPosSide: 0
 --- !u!154 &1666843766
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -4102,10 +4145,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1853631752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 2.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1084241941}
   - {fileID: 1534078101}
+  - {fileID: 599559629}
   m_Father: {fileID: 0}
   m_RootOrder: 2
