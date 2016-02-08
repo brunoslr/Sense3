@@ -38,7 +38,8 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     private GameObject cubeTest;
 
-    private float zPos;
+    public float zPosFront;
+    public float zPosSide;
     private float xPos;
     private int lowerClamp;
     private int upperClamp;
@@ -69,7 +70,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             loadedObstacles.Add(temp);
         }
 
-        zPos = zOffsetVisual;
+        zPosFront = zOffsetVisual;
 
         soundObstacle = Instantiate(soundObstaclePrefab);
 
@@ -153,15 +154,15 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         float xPos = _terrainGrid[1,1].transform.position.x + _terrainGrid[1,1].terrainData.size.x / 2;
         for (int i = 0; i < 3; i++)
         {
-            //pick = Random.Range(0, loadedObstacles.Count);
-            //currentObstacle = GetNextObstacle(pick);
-            //currentObstacle.SetActive(true);
-            //loadedObstacles.RemoveAt(pick);
-            //visualObstacles.Add(currentObstacle);
+            pick = Random.Range(0, loadedObstacles.Count);
+            currentObstacle = GetNextObstacle(pick);
+            currentObstacle.SetActive(true);
+            loadedObstacles.RemoveAt(pick);
+            visualObstacles.Add(currentObstacle);
 
-            //currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPos);
-            zPosition[i] = zPos;
-            zPos += zOffsetVisual; 
+            currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPosFront);
+            zPosition[i] = zPosFront;
+            zPosFront += zOffsetVisual; 
         }
 
         cubeTestPrefab.GetComponent<CubeGenerator>().zPos = zPosition[counter];
@@ -171,18 +172,18 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     void GenerateVisualObstacles()
     {
-        //int pick;
+        int pick;
         float xPos = _terrainGrid[1, 1].transform.position.x + _terrainGrid[1, 1].terrainData.size.x / 2;
-        //pick = Random.Range(0, loadedObstacles.Count);
-        //currentObstacle = GetNextObstacle(pick);
-        //currentObstacle.SetActive(true);
-        //loadedObstacles.RemoveAt(pick);
-        //visualObstacles.Add(currentObstacle);
+        pick = Random.Range(0, loadedObstacles.Count);
+        currentObstacle = GetNextObstacle(pick);
+        currentObstacle.SetActive(true);
+        loadedObstacles.RemoveAt(pick);
+        visualObstacles.Add(currentObstacle);
 
-        //currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPos);
-        zPosition[counter] = zPos;
+        currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPosFront);
+        zPosition[counter] = zPosFront;
         counter = (counter + 1) % 3;
-        zPos += zOffsetVisual;
+        zPosFront += zOffsetVisual;
 
         cubeTestPrefab.GetComponent<CubeGenerator>().zPos = zPosition[counter];
         cubeTest = Instantiate(cubeTestPrefab);
@@ -245,11 +246,6 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     private void UpdateVisualObstacles()
     {
-        xPos = (int)(player.transform.position.x);
-        if (xPos % xClamp == 0)
-        {
-               
-        }
         //only when changhe tile in z
         if (player.transform.position.z > zOffsetVisual * mainCounter)
         {
@@ -257,6 +253,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             mainCounter++;
         }
 
+        xPos = player.transform.position.x;
         if ((int) xPos < lowerClamp)
         {
             upperClamp = lowerClamp;
@@ -331,15 +328,15 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     private void CreateNewPuzzleOnLeft()
     {
-        var z = zPosition[counter];
+        zPosSide = zPosition[counter];
         float xPos = _terrainGrid[1, 1].transform.position.x - 3 * _terrainGrid[1, 1].terrainData.size.x;
-        //int pick = Random.Range(0, loadedObstacles.Count);
-        //GameObject currentObstacle = GetNextObstacle(pick);
-        //currentObstacle.SetActive(true);
-        //loadedObstacles.RemoveAt(pick);
-        //visualObstacles.Add(currentObstacle);
+        int pick = Random.Range(0, loadedObstacles.Count);
+        GameObject currentObstacle = GetNextObstacle(pick);
+        currentObstacle.SetActive(true);
+        loadedObstacles.RemoveAt(pick);
+        visualObstacles.Add(currentObstacle);
 
-        //currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, z);
+        currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPosSide);
 
         cubeTestPrefab.GetComponent<CubeGenerator>().zPos = zPosition[counter];
         cubeTest = Instantiate(cubeTestPrefab);
@@ -348,15 +345,15 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     private void CreateNewPuzzleOnRight()
     {
-        var z = zPosition[counter];
+        zPosSide = zPosition[counter];
         float xPos = _terrainGrid[1, 1].transform.position.x + 3 * _terrainGrid[1, 1].terrainData.size.x;
-        //int pick = Random.Range(0, loadedObstacles.Count);
-        //GameObject currentObstacle = GetNextObstacle(pick);
-        //currentObstacle.SetActive(true);
-        //loadedObstacles.RemoveAt(pick);
-        //visualObstacles.Add(currentObstacle);
+        int pick = Random.Range(0, loadedObstacles.Count);
+        GameObject currentObstacle = GetNextObstacle(pick);
+        currentObstacle.SetActive(true);
+        loadedObstacles.RemoveAt(pick);
+        visualObstacles.Add(currentObstacle);
 
-        //currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, z);
+        currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPosSide);
 
         cubeTestPrefab.GetComponent<CubeGenerator>().zPos = zPosition[counter];
         cubeTest = Instantiate(cubeTestPrefab);

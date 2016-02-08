@@ -337,6 +337,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e24b8c98b9c9f84688f559543c6269a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &933001883
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c0d515a133991794e93875b10b64899e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &943014966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,6 +2037,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 4
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &1084241943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2011,6 +2054,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 4
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &1084241944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2027,6 +2071,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 4
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &1084241945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2043,6 +2088,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 4
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &1084241946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2059,6 +2105,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 3
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &1084241947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2075,6 +2122,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 4
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &1084241948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2091,6 +2139,7 @@ MonoBehaviour:
   FolderName: John's Tracks/EDM tracks/EDM wav 12-18-15
   totalTracks: 4
   audioTracks: []
+  FadeDuration: 0
 --- !u!114 &1084241949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3793,12 +3842,13 @@ MonoBehaviour:
   - {fileID: 151396, guid: 5e81023ebeaa41a4e8c01c6304a7036b, type: 2}
   xOffsetVisual: 20
   yOffsetVisual: 0.5
-  zOffsetVisual: 400
+  zOffsetVisual: 200
   soundObstaclePrefab: {fileID: 173268, guid: 31dd98dbff424254cbb56b9b98c6cc18, type: 2}
   xOffsetSound: 0
   yOffsetSound: 0
   zOffsetFromPlayer: 100
   xClamp: 100
+  zPos: 0
 --- !u!154 &1666843766
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -4059,53 +4109,3 @@ Transform:
   - {fileID: 1534078101}
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!1001 &2038193263
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 411764, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 402950, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c0d515a133991794e93875b10b64899e, type: 2}
-  m_IsPrefabParent: 0

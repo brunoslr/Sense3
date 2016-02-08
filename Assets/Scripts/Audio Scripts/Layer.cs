@@ -76,7 +76,7 @@ public class Layer : MonoBehaviour {
 
     public void playNewTrack(int timeSample)
     {
-        Debug.Log("Now Playing: " + layername);
+        //Debug.Log("Now Playing: " + layername);
        
         audioSource.Stop();
         int newIndex;
@@ -100,7 +100,7 @@ public class Layer : MonoBehaviour {
 
     public void StopTrack()
     {
-        Debug.Log("Stopping Playing: " + layername);
+        //Debug.Log("Stopping Playing: " + layername);
         audioSource.Stop();  
     }
 
