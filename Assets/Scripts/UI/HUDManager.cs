@@ -10,7 +10,7 @@ public class HUDManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         soundPickups = soundHud.GetComponent<Text>();
-        CoreSystem.updateSoundPickup += this.DisplaySoundCount; // Subscribe the function to eventmanager event
+        //PlayerStateScript.updateSoundPickup += this.DisplaySoundCount; // Subscribe the function to eventmanager event
     }
 	
 	// Update is called once per frame

@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
 
     public GameMode gameMode;
 
+    private SoundEffectsManager soundEffectsManager;
+
     void Start()
     {
         ResetSpeed();
@@ -48,7 +50,9 @@ public class PlayerMovement : MonoBehaviour
             CoreSystem.onSoundEvent += IncreasePlayerSpeed;
             CoreSystem.onObstacleEvent += ReducePlayerSpeed;
         }
+
         startxPos = transform.position.x;
+        soundEffectsManager = this.GetComponent<SoundEffectsManager>();
     }
    public void ResetSpeed()
     {
@@ -102,6 +106,7 @@ public class PlayerMovement : MonoBehaviour
                 initialSideSpeed = finalSideSpeed;
 
             transform.Translate(transform.right * Input.GetAxis("Horizontal") * initialSideSpeed * Time.deltaTime);
+            soundEffectsManager.MovePlayerSound();
         }
     }
 
@@ -129,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
                 initialVertSpeed = finalVertSpeed;
 
             transform.Translate(transform.up * Input.GetAxis("Vertical") * initialVertSpeed * Time.deltaTime);
+            soundEffectsManager.MovePlayerSound();
         }
     }
     void MovePlayerBackToCenter()

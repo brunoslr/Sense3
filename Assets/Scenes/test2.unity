@@ -1596,6 +1596,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11458674, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
+      propertyPath: minObsCrashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3dc7455402dfa462b89a4bbd513955e9, type: 3}
+    - target: {fileID: 11458674, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
+      propertyPath: audPickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bf75b984df8a84987bcf3a8bf6e2862d, type: 3}
+    - target: {fileID: 11458674, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
+      propertyPath: movPlayerSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1be4472894949437694aead55c6da60f, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
   m_IsPrefabParent: 0
