@@ -39,8 +39,6 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private int lowerClamp;
     private int upperClamp;
 
-    public float previousValue, currentValue, newValue;
-
     private float[] zPosition = new float [3];
     private int counter = 0;
     private int mainCounter = 1;
@@ -49,8 +47,6 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        previousValue = currentValue = newValue = player.transform.position.x / 5.0f;
-
         lowerClamp = (int) player.transform.position.x - xClamp;
         upperClamp = (int) player.transform.position.x + xClamp;
 
@@ -187,8 +183,9 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         for (int i = 0; i < visualObstacles.Count; i++)
         {
             visualObstacle = visualObstacles[i].transform;
-            if (visualObstacle.position.z + 20.0f < player.transform.position.z)
+            if (visualObstacle.position.z + 150.0f < player.transform.position.z)
             {
+                visualObstacle.gameObject.SetActive(false);
                 visualObstacles.Remove(visualObstacle.gameObject);
                 loadedObstacles.Add(visualObstacle.gameObject);
             }
@@ -248,20 +245,20 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             mainCounter++;
         }
 
-        if ((int) xPos <= lowerClamp)
+        if ((int) xPos < lowerClamp)
         {
             upperClamp = lowerClamp;
             lowerClamp -= 2 * xClamp;
-            Debug.Log("Left");
-            //CreateNewPuzzleOnLeft();
+            //Debug.Log("Left");
+            CreateNewPuzzleOnLeft();
         }
 
-        if ((int) xPos >= upperClamp)
+        if ((int) xPos > upperClamp)
         {
             lowerClamp = upperClamp;
             upperClamp += 2 * xClamp;
-            Debug.Log("Right");
-            //CreateNewPuzzleOnRight();
+            //Debug.Log("Right");
+            CreateNewPuzzleOnRight();
         }
     }
 
