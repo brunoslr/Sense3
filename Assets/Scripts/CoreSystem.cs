@@ -16,27 +16,13 @@ public class CoreSystem : MonoBehaviour {
 
     // Use this for initialization
 
-    // UI EVENTS
-    public delegate void HUDeventHandler(string message);
-    // All the functions that needs to be called when score is updated will be subscribed to this event
-    public static event HUDeventHandler updateScore;
-    // All the functions that needs to be called when a sound is picked will be subscribed to this event
-    public static event HUDeventHandler updateSoundPickup;
-
+    
     // On Collision Events
     public delegate void OnCollisionEvent();
     public static event OnCollisionEvent onSoundEvent;
     public static event OnCollisionEvent onObstacleEvent;
 
-    // Trigger Functions
-    public static void UpdateScore(string score)
-    {
-        updateScore(score.ToString());
-    }
-    public static void UpdateSoundPickup(string score)
-    {
-        updateSoundPickup(score.ToString());
-    }
+
     // Trigger Function for OnCollisionEvents
     public static void ExecuteOnSoundCollision()
     {
@@ -44,6 +30,7 @@ public class CoreSystem : MonoBehaviour {
     }
     public static void ExecuteOnObstacleCollision()
     {
+        Debug.Log("this works");
         onObstacleEvent();
     }
 

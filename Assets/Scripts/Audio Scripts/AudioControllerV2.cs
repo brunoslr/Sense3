@@ -10,21 +10,21 @@ public class AudioControllerV2 : MonoBehaviour {
     private List<int> availableLayers; //Available layers that are not currently playing but available
     private List<int> activeLayers;     //Layers that are currently playing.
     private int lastPlayedLayerID;
-    private int numOfCollectedLayers;
+    //private int numOfCollectedLayers;
     private bool pickUpScope;
     public delegate void FadeinQue();
     public static event FadeinQue fadeInLayers;
 
-    public int NumOfCollectedLayers{
-        get
-        {
-            return numOfCollectedLayers;
-        }
-        set
-        {
-            numOfCollectedLayers = value;
-        }
-    }
+    //public int NumOfCollectedLayers{
+    //    get
+    //    {
+    //        return numOfCollectedLayers;
+    //    }
+    //    set
+    //    {
+    //        numOfCollectedLayers = value;
+    //    }
+    //}
 
 	// Use this for initialization
 	void Start () {
@@ -49,7 +49,7 @@ public class AudioControllerV2 : MonoBehaviour {
     {
         if (!pickUpScope)
         {
-            Debug.Log("pick up scope: "+ pickUpScope);
+            //Debug.Log("pick up scope: "+ pickUpScope);
             int layerID, range;
 
             if (availableLayers.Count > 0)
@@ -87,10 +87,10 @@ public class AudioControllerV2 : MonoBehaviour {
         layers[lastPlayedLayerID].setPanAndVol(0, 1.0f);
         activeLayers.Add(lastPlayedLayerID);
         //Increments the sound count
-        numOfCollectedLayers++;
+        //numOfCollectedLayers++;
 
         // Cal the trigger the function UpdateSoundPickUp
-        CoreSystem.UpdateSoundPickup(numOfCollectedLayers.ToString());
+        //CoreSystem.UpdateSoundPickup(numOfCollectedLayers.ToString());
     }
 
     private void refreshLastPlayed()
@@ -136,8 +136,8 @@ public class AudioControllerV2 : MonoBehaviour {
 
 
             // Cal the trigger the function UpdateSoundPickUp
-            numOfCollectedLayers--;
-            CoreSystem.UpdateSoundPickup(numOfCollectedLayers.ToString());
+            //numOfCollectedLayers--;
+            //CoreSystem.UpdateSoundPickup(numOfCollectedLayers.ToString());
 
         }
    
