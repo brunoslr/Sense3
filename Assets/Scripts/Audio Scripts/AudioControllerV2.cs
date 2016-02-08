@@ -11,9 +11,8 @@ public class AudioControllerV2 : MonoBehaviour {
     private List<int> activeLayers;     //Layers that are currently playing.
     private int lastPlayedLayerID;
     private int numOfCollectedLayers;
-
+    private bool pickUpScope;
     public delegate void FadeinQue();
-
     public static event FadeinQue fadeInLayers;
 
     public int NumOfCollectedLayers{
@@ -29,6 +28,7 @@ public class AudioControllerV2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        pickUpScope = false;
         lastPlayedLayerID = 0;
         layers = this.gameObject.GetComponents<Layer>();
         totalLayers = layers.Length;
@@ -47,31 +47,39 @@ public class AudioControllerV2 : MonoBehaviour {
     //If all tracks are playing, then starts playing a new Track in a random layer
     public void playNewTrack(int pan, float volume)
     {
-        int layerID, range;
-
-        if(availableLayers.Count > 0)
-            range = availableLayers.Count - 1;
-        else
-            range = totalLayers;
- 
-        layerID = Random.Range(0, range);
-
-        if (availableLayers.Count > 0)
+        if (!pickUpScope)
         {
-            layerID = availableLayers[layerID];
-            availableLayers.Remove(layerID);
+            Debug.Log("pick up scope: "+ pickUpScope);
+            int layerID, range;
+
+            if (availableLayers.Count > 0)
+                range = availableLayers.Count - 1;
+            else
+                range = totalLayers;
+
+            layerID = Random.Range(0, range);
+
+            if (availableLayers.Count > 0)
+            {
+                layerID = availableLayers[layerID];
+                availableLayers.Remove(layerID);
+            }
+
+            int temp = lastPlayedLayerID;
+
+            lastPlayedLayerID = layerID;
+            //activeLayers.Add(lastPlayedLayerID);
+
+            //Pass the previously playing audioSource's time sample to sync with
+            layers[layerID].playNewTrack(layers[temp].getTimeSample());
+            layers[layerID].setPanAndVol(pan, volume);
+
+            FadeOutLayers();
         }
-
-        int temp = lastPlayedLayerID;
-
-        lastPlayedLayerID = layerID;
-        //activeLayers.Add(lastPlayedLayerID);
-
-        //Pass the previously playing audioSource's time sample to sync with
-        layers[layerID].playNewTrack(layers[temp].getTimeSample());
-        layers[layerID].setPanAndVol(pan, volume);
-
-        FadeOutLayers();
+        else
+        {
+            layers[lastPlayedLayerID].UnMute();
+        }
     }
 
     public void incrementLayerStack()
@@ -85,11 +93,30 @@ public class AudioControllerV2 : MonoBehaviour {
         CoreSystem.UpdateSoundPickup(numOfCollectedLayers.ToString());
     }
 
-    public void refreshLastPlayed()
+    private void refreshLastPlayed()
     {
-        layers[lastPlayedLayerID].StopTrack();
+        //layers[lastPlayedLayerID].StopTrack();
         if (activeLayers.Count > 0) 
             lastPlayedLayerID = activeLayers[activeLayers.Count - 1];
+    }
+
+    public void muteLast()
+    {
+        layers[lastPlayedLayerID].Mute();
+        StartCoroutine(refreshLast());
+        pickUpScope = true;
+    }
+
+    //public void unMuteLast()
+    //{
+    //    layers[lastPlayedLayerID].UnMute();
+    //}
+
+    IEnumerator refreshLast()
+    {
+        yield return new WaitForSeconds(4.5f * layers[0].FadeDuration);
+        refreshLastPlayed();
+        pickUpScope = false;
     }
 
     public void setCurrentPan(int pan, float volume)

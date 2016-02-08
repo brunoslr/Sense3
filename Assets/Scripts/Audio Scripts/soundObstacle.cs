@@ -100,9 +100,10 @@ public class soundObstacle : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (this.gameObject.GetComponentInChildren<PickUpScript>().pickedUp == false)
+            bool fuckiongbullshit = this.gameObject.GetComponentInChildren<PickUpScript>().pickedUp;
+            if ( fuckiongbullshit == false)
             {              
-                other.gameObject.GetComponentInChildren<AudioControllerV2>().refreshLastPlayed();              
+                other.gameObject.GetComponentInChildren<AudioControllerV2>().muteLast();              
             }
             other.gameObject.GetComponentInChildren<AudioControllerV2>().FadeInLayers();
         }

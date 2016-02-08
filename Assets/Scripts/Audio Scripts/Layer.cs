@@ -8,8 +8,8 @@ public class Layer : MonoBehaviour {
     public string FolderName;
     public int totalTracks;
     public AudioClip[] audioTracks;             //This is public only because another script access this to load (AudioToolApp.cs)
+    public float FadeDuration;
 
-    private float FadeDuration;
     private AudioSource audioSource;
     private int currentTrackIndex;
     private float minVol;
@@ -76,6 +76,8 @@ public class Layer : MonoBehaviour {
 
     public void playNewTrack(int timeSample)
     {
+        Debug.Log("Now Playing: " + layername);
+       
         audioSource.Stop();
         int newIndex;
         do
@@ -98,7 +100,17 @@ public class Layer : MonoBehaviour {
 
     public void StopTrack()
     {
+        Debug.Log("Stopping Playing: " + layername);
         audioSource.Stop();  
+    }
+
+    public void Mute()
+    {
+        audioSource.mute = true;
+    }
+    public void UnMute()
+    {
+        audioSource.mute = false;
     }
 
     public bool isPlaying()
@@ -129,19 +141,23 @@ public class Layer : MonoBehaviour {
 
     IEnumerator FadeOut()
     {
-        while(audioSource.volume > minVol)
+        float diff = (audioSource.volume - minVol) / (10.0f * FadeDuration);
+        while (audioSource.volume > minVol)
         {
-            audioSource.volume = Mathf.Lerp(audioSource.volume, 0, FadeDuration);
-            yield return 0;
+            audioSource.volume -= diff;
+            yield return new WaitForSeconds(0.1f * FadeDuration);
         }
     }
 
     IEnumerator FadeIn()
     {
+        float diff = (maxVol - audioSource.volume)/(10.0f * FadeDuration); 
         while (audioSource.volume < maxVol)
         {
-            audioSource.volume = Mathf.Lerp(audioSource.volume, maxVol, FadeDuration);
-            yield return 0;
+            //audioSource.volume = Mathf.Lerp(audioSource.volume, maxVol, FadeDuration);
+            //yield return 0;
+            audioSource.volume += diff;
+            yield return new WaitForSeconds(0.1f * FadeDuration);
         }
     }
 }
