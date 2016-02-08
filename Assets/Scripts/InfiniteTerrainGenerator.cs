@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class InfiniteTerrainGenerator : MonoBehaviour
 {
-    //testing
-    public GameObject cubeTestPrefab;
     public GameObject player;
 
     //Visual obstacles placement requirements
@@ -164,10 +162,6 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             zPosition[i] = zPosFront;
             zPosFront += zOffsetVisual; 
         }
-
-        cubeTestPrefab.GetComponent<CubeGenerator>().zPos = zPosition[counter];
-        cubeTest = Instantiate(cubeTestPrefab);
-        cubeTest.transform.position = new Vector3(xPos, 0, zPosition[counter]);
     }
 
     void GenerateVisualObstacles()
@@ -184,10 +178,6 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         zPosition[counter] = zPosFront;
         counter = (counter + 1) % 3;
         zPosFront += zOffsetVisual;
-
-        cubeTestPrefab.GetComponent<CubeGenerator>().zPos = zPosition[counter];
-        cubeTest = Instantiate(cubeTestPrefab);
-        cubeTest.transform.position = new Vector3(xPos, 0, zPosition[counter]);
     }
 
     void DeleteVisualObstacles()
@@ -337,10 +327,6 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         visualObstacles.Add(currentObstacle);
 
         currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPosSide);
-
-        cubeTestPrefab.GetComponent<CubeGenerator>().zPos = zPosition[counter];
-        cubeTest = Instantiate(cubeTestPrefab);
-        cubeTest.transform.position = new Vector3(xPos, 0, zPosition[counter]);
     }
 
     private void CreateNewPuzzleOnRight()
@@ -354,9 +340,5 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         visualObstacles.Add(currentObstacle);
 
         currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPosSide);
-
-        cubeTestPrefab.GetComponent<CubeGenerator>().zPos = zPosition[counter];
-        cubeTest = Instantiate(cubeTestPrefab);
-        cubeTest.transform.position = new Vector3(xPos, 0, zPosition[counter]);
     }
 }

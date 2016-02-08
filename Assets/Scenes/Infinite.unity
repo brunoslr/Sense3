@@ -337,48 +337,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e24b8c98b9c9f84688f559543c6269a, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &933001883
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 411504, guid: c0d515a133991794e93875b10b64899e, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c0d515a133991794e93875b10b64899e, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &943014966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3828,27 +3786,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e65d82a828bc4e4bb502571310bb849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeTestPrefab: {fileID: 162608, guid: c0d515a133991794e93875b10b64899e, type: 2}
   player: {fileID: 1853631752}
   visualObstaclePrefabs:
-  - {fileID: 191264, guid: ff8b55a5315492c4cb922dd139ac9d66, type: 2}
-  - {fileID: 170708, guid: d4d578b86d38dcf41b20587d2e093af9, type: 2}
-  - {fileID: 151396, guid: 5e81023ebeaa41a4e8c01c6304a7036b, type: 2}
-  - {fileID: 191264, guid: ff8b55a5315492c4cb922dd139ac9d66, type: 2}
-  - {fileID: 170708, guid: d4d578b86d38dcf41b20587d2e093af9, type: 2}
-  - {fileID: 151396, guid: 5e81023ebeaa41a4e8c01c6304a7036b, type: 2}
-  - {fileID: 191264, guid: ff8b55a5315492c4cb922dd139ac9d66, type: 2}
-  - {fileID: 170708, guid: d4d578b86d38dcf41b20587d2e093af9, type: 2}
-  - {fileID: 151396, guid: 5e81023ebeaa41a4e8c01c6304a7036b, type: 2}
+  - {fileID: 153288, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+  - {fileID: 186676, guid: 4adb55f94bf9aac4788b9209f14e93f1, type: 2}
+  - {fileID: 166832, guid: 88422675091ffaf48b028cab99b4dc99, type: 2}
+  - {fileID: 153288, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+  - {fileID: 186676, guid: 4adb55f94bf9aac4788b9209f14e93f1, type: 2}
+  - {fileID: 166832, guid: 88422675091ffaf48b028cab99b4dc99, type: 2}
+  - {fileID: 153288, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+  - {fileID: 186676, guid: 4adb55f94bf9aac4788b9209f14e93f1, type: 2}
+  - {fileID: 166832, guid: 88422675091ffaf48b028cab99b4dc99, type: 2}
+  - {fileID: 153288, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+  - {fileID: 186676, guid: 4adb55f94bf9aac4788b9209f14e93f1, type: 2}
+  - {fileID: 166832, guid: 88422675091ffaf48b028cab99b4dc99, type: 2}
+  - {fileID: 153288, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+  - {fileID: 186676, guid: 4adb55f94bf9aac4788b9209f14e93f1, type: 2}
+  - {fileID: 166832, guid: 88422675091ffaf48b028cab99b4dc99, type: 2}
+  - {fileID: 153288, guid: 964b4e616c82fd34695dd60cc46d7964, type: 2}
+  - {fileID: 186676, guid: 4adb55f94bf9aac4788b9209f14e93f1, type: 2}
+  - {fileID: 166832, guid: 88422675091ffaf48b028cab99b4dc99, type: 2}
   xOffsetVisual: 20
   yOffsetVisual: 0.5
-  zOffsetVisual: 200
+  zOffsetVisual: 400
   soundObstaclePrefab: {fileID: 173268, guid: 31dd98dbff424254cbb56b9b98c6cc18, type: 2}
   xOffsetSound: 0
   yOffsetSound: 0
   zOffsetFromPlayer: 100
   xClamp: 100
-  zPos: 0
+  zPosFront: 0
+  zPosSide: 0
 --- !u!154 &1666843766
 TerrainCollider:
   m_ObjectHideFlags: 0
