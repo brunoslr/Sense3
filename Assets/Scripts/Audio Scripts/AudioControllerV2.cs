@@ -43,6 +43,13 @@ public class AudioControllerV2 : MonoBehaviour {
         CoreSystem.onObstacleEvent += stopOneTrack;
     }
 
+
+    void OnDisable()
+    {
+        CoreSystem.onSoundEvent -= incrementLayerStack;
+        CoreSystem.onObstacleEvent -= stopOneTrack;
+    }
+
     //Randomly chooses one player from the list of layers that are not playing, and plays a track from that layer
     //If all tracks are playing, then starts playing a new Track in a random layer
     public void playNewTrack(int pan, float volume)
@@ -84,6 +91,7 @@ public class AudioControllerV2 : MonoBehaviour {
 
     public void incrementLayerStack()
     {
+        //Debug.Log("incrementLayerStack");
         layers[lastPlayedLayerID].setPanAndVol(0, 1.0f);
         activeLayers.Add(lastPlayedLayerID);
         //Increments the sound count
@@ -126,6 +134,7 @@ public class AudioControllerV2 : MonoBehaviour {
 
     public void stopOneTrack()
     {
+        //Debug.Log("stopOnetrack");
         if (activeLayers.Count > 0)
         {
             int temp = Random.Range(0, activeLayers.Count - 1);
@@ -189,7 +198,8 @@ public class AudioControllerV2 : MonoBehaviour {
 
     public void FadeInLayers()
     {
-        fadeInLayers();
+        if(fadeInLayers != null)
+            fadeInLayers();
     }
 
     #if UNITY_EDITOR
