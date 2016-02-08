@@ -13,11 +13,9 @@ public class PlayerStateScript : MonoBehaviour {
     private LevelLoader levelLoader;
 
     // UI EVENTS
-    //public delegate void HUDeventHandler(string message);
-    //// All the functions that needs to be called when score is updated will be subscribed to this event
-    //public static event HUDeventHandler updateScore;
-    //// All the functions that needs to be called when a sound is picked will be subscribed to this event
-    //public static event HUDeventHandler updateSoundPickup;
+    public delegate void HUDeventHandler(string message);
+    // All the functions that needs to be called when a sound is picked will be subscribed to this event
+    public static event HUDeventHandler updateSoundPickup;
 
 
     // Use this for initialization
@@ -25,13 +23,21 @@ public class PlayerStateScript : MonoBehaviour {
         playerLevel = 0;
         maxLevel = (GameObject.FindGameObjectWithTag("Player").GetComponentsInChildren<Layer>()).Length;
         finalState = false;
+        levelLoader = new LevelLoader();
         CoreSystem.onSoundEvent += incrementPlayerLevel;
         CoreSystem.onObstacleEvent += decrementPlayerLevel;
 	}
 
+
+    void OnDisable()
+    {
+        CoreSystem.onSoundEvent -= incrementPlayerLevel;
+        CoreSystem.onObstacleEvent -= decrementPlayerLevel;
+    }
+
     private void checkState()
     {
-        if (playerLevel > maxLevel)
+        if (playerLevel >= maxLevel)
         {
             finalState = true;
             StartCoroutine(checkWin());
@@ -67,9 +73,10 @@ public class PlayerStateScript : MonoBehaviour {
 
     private void updatePlayerLevel()
     {
-        Debug.Log(playerLevel);
+        //Debug.Log(playerLevel);
         checkState();
-        //updateSoundPickup(playerLevel.ToString());
+        if(updateSoundPickup != null)
+            updateSoundPickup(playerLevel.ToString());
     }
 
     public void incrementPlayerLevel()

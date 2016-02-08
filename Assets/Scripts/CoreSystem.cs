@@ -26,12 +26,27 @@ public class CoreSystem : MonoBehaviour {
     // Trigger Function for OnCollisionEvents
     public static void ExecuteOnSoundCollision()
     {
-        onSoundEvent();
+        if(onSoundEvent != null)
+            onSoundEvent();
+
+        System.Delegate[] list = onSoundEvent.GetInvocationList();
+
+        for (int i = 0; i < list.Length; i++)
+        {
+            Debug.Log("On obstacle event method :" + list[i].Method + " instance : " + list[i].Target);
+        }
     }
     public static void ExecuteOnObstacleCollision()
     {
-        Debug.Log("this works");
-        onObstacleEvent();
+        if(onObstacleEvent != null)
+            onObstacleEvent();
+
+        System.Delegate[] list = onObstacleEvent.GetInvocationList();
+
+        for (int i = 0; i < list.Length; i++)
+        {
+            Debug.Log("On obstacle event method :" + list[i].Method + " instance : " + list[i].Target);
+        }
     }
 
 
