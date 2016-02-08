@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class InfiniteTerrainGenerator : MonoBehaviour
 {
+    //testing
+    public GameObject cubeTestPrefab;
     public GameObject player;
 
     //Visual obstacles placement requirements
@@ -33,6 +35,8 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private List<GameObject> loadedObstacles;
     private GameObject currentObstacle;
     private GameObject soundObstacle;
+
+    private GameObject cubeTest;
 
     private float zPos;
     private float xPos;
@@ -149,32 +153,40 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         float xPos = _terrainGrid[1,1].transform.position.x + _terrainGrid[1,1].terrainData.size.x / 2;
         for (int i = 0; i < 3; i++)
         {
-            pick = Random.Range(0, loadedObstacles.Count);
-            currentObstacle = GetNextObstacle(pick);
-            currentObstacle.SetActive(true);
-            loadedObstacles.RemoveAt(pick);
-            visualObstacles.Add(currentObstacle);
+            //pick = Random.Range(0, loadedObstacles.Count);
+            //currentObstacle = GetNextObstacle(pick);
+            //currentObstacle.SetActive(true);
+            //loadedObstacles.RemoveAt(pick);
+            //visualObstacles.Add(currentObstacle);
 
-            currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPos);
+            //currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPos);
             zPosition[i] = zPos;
             zPos += zOffsetVisual; 
         }
+
+        cubeTestPrefab.GetComponent<CubeGenerator>().zPos = zPosition[counter];
+        cubeTest = Instantiate(cubeTestPrefab);
+        cubeTest.transform.position = new Vector3(xPos, 0, zPosition[counter]);
     }
 
     void GenerateVisualObstacles()
     {
-        int pick;
+        //int pick;
         float xPos = _terrainGrid[1, 1].transform.position.x + _terrainGrid[1, 1].terrainData.size.x / 2;
-        pick = Random.Range(0, loadedObstacles.Count);
-        currentObstacle = GetNextObstacle(pick);
-        currentObstacle.SetActive(true);
-        loadedObstacles.RemoveAt(pick);
-        visualObstacles.Add(currentObstacle);
+        //pick = Random.Range(0, loadedObstacles.Count);
+        //currentObstacle = GetNextObstacle(pick);
+        //currentObstacle.SetActive(true);
+        //loadedObstacles.RemoveAt(pick);
+        //visualObstacles.Add(currentObstacle);
 
-        currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPos);
+        //currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, zPos);
         zPosition[counter] = zPos;
         counter = (counter + 1) % 3;
         zPos += zOffsetVisual;
+
+        cubeTestPrefab.GetComponent<CubeGenerator>().zPos = zPosition[counter];
+        cubeTest = Instantiate(cubeTestPrefab);
+        cubeTest.transform.position = new Vector3(xPos, 0, zPosition[counter]);
     }
 
     void DeleteVisualObstacles()
@@ -321,25 +333,33 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     {
         var z = zPosition[counter];
         float xPos = _terrainGrid[1, 1].transform.position.x - 3 * _terrainGrid[1, 1].terrainData.size.x;
-        int pick = Random.Range(0, loadedObstacles.Count);
-        GameObject currentObstacle = GetNextObstacle(pick);
-        currentObstacle.SetActive(true);
-        loadedObstacles.RemoveAt(pick);
-        visualObstacles.Add(currentObstacle);
+        //int pick = Random.Range(0, loadedObstacles.Count);
+        //GameObject currentObstacle = GetNextObstacle(pick);
+        //currentObstacle.SetActive(true);
+        //loadedObstacles.RemoveAt(pick);
+        //visualObstacles.Add(currentObstacle);
 
-        currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, z);
+        //currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, z);
+
+        cubeTestPrefab.GetComponent<CubeGenerator>().zPos = zPosition[counter];
+        cubeTest = Instantiate(cubeTestPrefab);
+        cubeTest.transform.position = new Vector3(xPos, 0, zPosition[counter]);
     }
 
     private void CreateNewPuzzleOnRight()
     {
         var z = zPosition[counter];
         float xPos = _terrainGrid[1, 1].transform.position.x + 3 * _terrainGrid[1, 1].terrainData.size.x;
-        int pick = Random.Range(0, loadedObstacles.Count);
-        GameObject currentObstacle = GetNextObstacle(pick);
-        currentObstacle.SetActive(true);
-        loadedObstacles.RemoveAt(pick);
-        visualObstacles.Add(currentObstacle);
+        //int pick = Random.Range(0, loadedObstacles.Count);
+        //GameObject currentObstacle = GetNextObstacle(pick);
+        //currentObstacle.SetActive(true);
+        //loadedObstacles.RemoveAt(pick);
+        //visualObstacles.Add(currentObstacle);
 
-        currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, z);
+        //currentObstacle.transform.position = new Vector3(xPos, yOffsetVisual, z);
+
+        cubeTestPrefab.GetComponent<CubeGenerator>().zPos = zPosition[counter];
+        cubeTest = Instantiate(cubeTestPrefab);
+        cubeTest.transform.position = new Vector3(xPos, 0, zPosition[counter]);
     }
 }
