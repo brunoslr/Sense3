@@ -54,8 +54,8 @@ GameObject:
   - 114: {fileID: 11400128}
   - 114: {fileID: 11490766}
   - 96: {fileID: 9690320}
-  - 114: {fileID: 11458674}
   - 54: {fileID: 5472626}
+  - 114: {fileID: 11458674}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LossScenario_sceneName: Infinite
-  WinScenario_sceneName: Main Menu
+  WinScenario_sceneName: MainMenu
   finalRunTime: 15
 --- !u!114 &11458674
 MonoBehaviour:
