@@ -35,11 +35,11 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private GameObject currentObstacle;
     private GameObject soundObstacle;
 
-    public int zPosVisualObstacle;
-    public int xPosVisualObstacle;
+    private int zPosVisualObstacle;
+    private int xPosVisualObstacle;
 
-    public int lowerClamp;
-    public int upperClamp;
+    private int lowerClamp;
+    private int upperClamp;
 
     private float zOffsetBetweenSoundObstacle;
     // Use this for initialization

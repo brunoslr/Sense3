@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SoundEffectsManager : MonoBehaviour {
+public class SoundEffectsManager : MonoBehaviour
+{
 
     public AudioClip visObsCrashSound;
     public AudioClip minObsCrashSound;
@@ -13,20 +14,28 @@ public class SoundEffectsManager : MonoBehaviour {
     private AudioSource audPickupAudioSource;
     private AudioSource movPlayerAudioSource;
 
-	// Use this for initialization
-	void Start () {
-	    visObsAudioSource =  this.gameObject.AddComponent<AudioSource>();
+    // Use this for initialization
+    void Start()
+    {
+        visObsAudioSource = this.gameObject.AddComponent<AudioSource>();
         minObsAudioSource = this.gameObject.AddComponent<AudioSource>();
         audPickupAudioSource = this.gameObject.AddComponent<AudioSource>();
         movPlayerAudioSource = this.gameObject.AddComponent<AudioSource>();
         CoreSystem.onObstacleEvent += VisualObstacleCrashSound;
         CoreSystem.onSoundEvent += AudioObstaclePickupSound;
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    void OnDestroy()
+    {
+        CoreSystem.onObstacleEvent -= VisualObstacleCrashSound;
+        CoreSystem.onSoundEvent -= AudioObstaclePickupSound;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void VisualObstacleCrashSound()
     {
