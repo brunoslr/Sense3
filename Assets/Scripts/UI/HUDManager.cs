@@ -24,6 +24,6 @@ public class HUDManager : MonoBehaviour {
 	}
    
     public void DisplaySoundCount(string score) {
-        soundPickups.text = pickupText + score;
+        //soundPickups.text = pickupText + score;
     }
 }
