@@ -133,7 +133,7 @@ public class Layer : MonoBehaviour {
 	
 	}
 
-
+    //TODO add validation to check if layer exists 
     public void startFadeIn()
     {
         StartCoroutine(FadeIn());
@@ -143,6 +143,7 @@ public class Layer : MonoBehaviour {
         StartCoroutine(FadeOut());
     }
 
+    //TODO add validation to check if layer exists before access 
     IEnumerator FadeOut()
     {
         float diff = (audioSource.volume - minVol) / (10.0f * FadeDuration);
@@ -153,6 +154,7 @@ public class Layer : MonoBehaviour {
         }
     }
 
+    //TODO add validation to check if layer exists before access 
     IEnumerator FadeIn()
     {
         float diff = (maxVol - audioSource.volume)/(10.0f * FadeDuration); 
