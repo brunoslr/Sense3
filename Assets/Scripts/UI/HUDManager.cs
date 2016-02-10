@@ -6,7 +6,6 @@ public class HUDManager : MonoBehaviour {
     public Text score;
     public Text soundPickups;
     public GameObject soundHud;
-    string pickupText = "Sound Pickups: ";
 
     // Use this for initialization
     void Start () {
