@@ -25,4 +25,8 @@ public class HUDManager : MonoBehaviour {
     public void DisplaySoundCount(string score) {
         //soundPickups.text = pickupText + score;
     }
+    void OnDestroy()
+    {
+        PlayerStateScript.updateSoundPickup -= this.DisplaySoundCount;
+    }
 }
