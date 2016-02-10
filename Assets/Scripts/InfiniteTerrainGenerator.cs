@@ -133,14 +133,17 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         float xpos = xPosVisualObstacle + (xOffsetVisual * dir);
         for (int i = -1; i < 1; i++)
         {
-            int pick = Random.Range(0, loadedObstacles.Count);
-            GameObject currentObstacle = loadedObstacles[pick];
-            currentObstacle.SetActive(true);
-            loadedObstacles.RemoveAt(pick);
-            visualObstacles.Add(currentObstacle);
+            Vector3 newPosition = new Vector3(xpos, yOffsetVisual, zPosVisualObstacle + (zOffsetVisual * i));
+            if ((Physics.OverlapBox(newPosition, Vector3.one * ((xOffsetVisual / 2.0f) - 10.0f))).Length == 0)
+            {
+                int pick = Random.Range(0, loadedObstacles.Count);
+                GameObject currentObstacle = loadedObstacles[pick];
+                currentObstacle.SetActive(true);
+                loadedObstacles.RemoveAt(pick);
+                visualObstacles.Add(currentObstacle);
 
-
-            currentObstacle.transform.position = new Vector3(xpos, yOffsetVisual, zPosVisualObstacle + (zOffsetVisual * i));
+                currentObstacle.transform.position = new Vector3(xpos, yOffsetVisual, zPosVisualObstacle + (zOffsetVisual * i));
+            }
         }
     }
 
@@ -171,7 +174,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         if (player.transform.position.z > zOffsetSound)
         {
             zOffsetSound += zOffsetBetweenSoundObstacle;
-            GenerateSoundObstacle(player.transform.position.z + zOffsetFromPlayer + soundObstacle.transform.localScale.z);
+            GenerateSoundObstacle(player.transform.position.z + zOffsetFromPlayer);
         }
     }
 

@@ -29,6 +29,7 @@ public class CoreSystem : MonoBehaviour {
         if(onSoundEvent != null)
             onSoundEvent();
 
+        //finding subscribed functions 
         System.Delegate[] list = onSoundEvent.GetInvocationList();
 
         for (int i = 0; i < list.Length; i++)
@@ -41,6 +42,7 @@ public class CoreSystem : MonoBehaviour {
         if(onObstacleEvent != null)
             onObstacleEvent();
 
+        //finding subscribed functions
         System.Delegate[] list = onObstacleEvent.GetInvocationList();
 
         for (int i = 0; i < list.Length; i++)
