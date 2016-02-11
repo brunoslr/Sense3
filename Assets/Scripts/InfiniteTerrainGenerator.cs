@@ -190,7 +190,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         if (playerZPosition > zOffsetSound)
         {
             zOffsetSound += zOffsetBetweenSoundObstacle;
-            GenerateSoundObstacle(playerZPosition + zOffsetFromPlayerSound);
+            GenerateSoundObstacle(playerZPosition + zOffsetFromPlayerSound + soundObstacle.transform.localScale.z);
         }
     }
 
@@ -206,7 +206,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         if (playerZPosition > zOffsetTactile)
         {
             zOffsetTactile += zOffsetBetweenTactileObstacle;
-            GenerateTactileObstacle(playerZPosition + zOffsetFromPlayerTactile);
+            GenerateTactileObstacle(playerZPosition + zOffsetFromPlayerTactile + tactileObstacle.transform.localScale.z);
         }
     }
 
