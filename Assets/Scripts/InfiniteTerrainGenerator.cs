@@ -49,7 +49,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private GameObject soundObstacle;
     private float zOffsetBetweenSoundObstacle;
 
-    private GameObject TactileObstacle;
+    private GameObject tactileObstacle;
     private float zOffsetBetweenTactileObstacle;
 
     private int lowerClamp;
@@ -83,9 +83,9 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         soundObstacle = Instantiate(soundObstaclePrefab);
         soundObstacle.SetActive(false);
 
-        zOffsetBetweenTactileObstacle = (int)zOffsetTactile;
-        TactileObstacle = Instantiate(tactileObstaclePrefab);
-        TactileObstacle.SetActive(false);
+        zOffsetBetweenTactileObstacle = zOffsetTactile;
+        tactileObstacle = Instantiate(tactileObstaclePrefab);
+        tactileObstacle.SetActive(false);
 
         GenerateVisualObstacles();
     }
@@ -203,7 +203,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     private void UpdateTactileObstacle()
     {
-        if (playerZPosition > zOffsetVisual)
+        if (playerZPosition > zOffsetTactile)
         {
             zOffsetTactile += zOffsetBetweenTactileObstacle;
             GenerateTactileObstacle(playerZPosition + zOffsetFromPlayerTactile);
@@ -212,8 +212,8 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     private void GenerateTactileObstacle(float zPosition)
     {
-        TactileObstacle.SetActive(true);
-        TactileObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), yOffsetTactile, zPosition);
+        tactileObstacle.SetActive(true);
+        tactileObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), yOffsetTactile, zPosition);
     }
 
     private void InitializeTerrain()

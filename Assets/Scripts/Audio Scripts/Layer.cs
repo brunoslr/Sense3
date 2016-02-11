@@ -131,7 +131,11 @@ public class Layer : MonoBehaviour {
 	
 	}
 
-    //TODO add validation to check if layer exists 
+    void OnDestroy()
+    {
+        AudioControllerV2.fadeInLayers -= startFadeIn;
+    }
+ 
     public void startFadeIn()
     {
         StartCoroutine(FadeIn());
@@ -141,7 +145,6 @@ public class Layer : MonoBehaviour {
         StartCoroutine(FadeOut());
     }
 
-    //TODO add validation to check if layer exists before access 
     IEnumerator FadeOut()
     {
         float diff = (audioSource.volume - minVol) / (10.0f * FadeDuration);

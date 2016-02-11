@@ -457,11 +457,12 @@ MonoBehaviour:
   yOffsetSound: 0
   zOffsetSound: 2000
   zOffsetFromPlayerSound: 400
-  hapticObstaclePrefab: {fileID: 175060, guid: 488d8df9ca8eac548b67bef3d64cc886, type: 2}
-  xOffsetHaptic: 0
-  yOffsetHaptic: 0
-  zOffsetHaptic: 3000
-  zOffsetFromPlayerHaptic: 200
+  tactileObstaclePrefab: {fileID: 175060, guid: 488d8df9ca8eac548b67bef3d64cc886,
+    type: 2}
+  xOffsetTactile: 0
+  yOffsetTactile: 0
+  zOffsetTactile: 3000
+  zOffsetFromPlayerTactile: 100
 --- !u!154 &1666843766
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -478,7 +479,7 @@ Terrain:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1666843764}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_TerrainData: {fileID: 15600000, guid: f5961725fb8d59e44943745353213ad7, type: 2}
   m_TreeDistance: 2000
