@@ -22,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
     public float sideSpeedInc;
     public float vertSpeedInc;
     public float horClamp;
-
     public float vertClamp;         // max vertical disp.
+    public float tilt;
 
     private float forwardSpeed;     // current speed of the player at any point of time.
     private float initialSideSpeed;
@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private float curSideSpeedInc;
     private float curVertSpeedInc;
     private float startxPos;
+    private float horAxis;
 
     public uint maxSpeedCounter;    // max no. of times speed can boost or increase.
     private uint speedCounter;      // current boost counter.
@@ -104,8 +105,9 @@ public class PlayerMovement : MonoBehaviour
       
             else
                 initialSideSpeed = finalSideSpeed;
-
-            transform.Translate(transform.right * Input.GetAxis("Horizontal") * initialSideSpeed * Time.deltaTime);
+            horAxis = Input.GetAxis("Horizontal");
+            transform.Translate(transform.right * horAxis * initialSideSpeed * Time.deltaTime);
+            transform.Rotate(new Vector3(0.0f, 0.0f, -horAxis * tilt));
             soundEffectsManager.MovePlayerSound();
         }
     }

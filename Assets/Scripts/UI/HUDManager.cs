@@ -22,7 +22,6 @@ public class HUDManager : MonoBehaviour {
    
     public void DisplaySoundCount(string score) {
         soundPickups.text = score;
-        Debug.Log(score);
     }
     void OnDestroy()
     {
