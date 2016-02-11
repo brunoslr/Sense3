@@ -42,8 +42,7 @@ public class PlayerStateScript : MonoBehaviour {
             finalState = true;
             StartCoroutine(checkWin());
         }
-        else
-            if(playerLevel < 0)
+        else if(playerLevel < 0)
         {
             Debug.Log("Loading :" + LossScenario_sceneName);
             levelLoader.LoadScene(LossScenario_sceneName);
