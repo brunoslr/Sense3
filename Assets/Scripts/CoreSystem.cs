@@ -28,27 +28,28 @@ public class CoreSystem : MonoBehaviour {
     {
         if(onSoundEvent != null)
             onSoundEvent();
-
+        else
+            Debug.Log("OnSoundEvent is null: cannot call anything");
+        
         //finding subscribed functions 
         System.Delegate[] list = onSoundEvent.GetInvocationList();
 
-        for (int i = 0; i < list.Length; i++)
-        {
-            Debug.Log("On obstacle event method :" + list[i].Method + " instance : " + list[i].Target);
-        }
+        //for (int i = 0; i < list.Length; i++)
+        //    Debug.Log("On sound piuckeup event method :" + list[i].Method + " instance : " + list[i].Target);
     }
     public static void ExecuteOnObstacleCollision()
     {
-        if(onObstacleEvent != null)
+        if (onObstacleEvent != null)
             onObstacleEvent();
-
+        else
+            Debug.Log("OnObstacleEvent is null: cannot call anything");
+        
         //finding subscribed functions
         System.Delegate[] list = onObstacleEvent.GetInvocationList();
 
-        for (int i = 0; i < list.Length; i++)
-        {
-            Debug.Log("On obstacle event method :" + list[i].Method + " instance : " + list[i].Target);
-        }
+        //for (int i = 0; i < list.Length; i++)
+        //    Debug.Log("On obstacle event method :" + list[i].Method + " instance : " + list[i].Target);
+        
     }
 
 

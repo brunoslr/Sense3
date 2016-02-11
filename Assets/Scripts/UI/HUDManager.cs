@@ -11,10 +11,8 @@ public class HUDManager : MonoBehaviour {
     void Start () {
         soundHud = GameObject.Find("SoundPickupText");
         soundPickups = soundHud.GetComponent<Text>();
-        PlayerStateScript.updateSoundPickup += this.DisplaySoundCount; 
-        
-        
         // Subscribe the function to eventmanager event
+        PlayerStateScript.updateSoundPickup += this.DisplaySoundCount; 
     }
 	
 	// Update is called once per frame
@@ -23,7 +21,8 @@ public class HUDManager : MonoBehaviour {
 	}
    
     public void DisplaySoundCount(string score) {
-        //soundPickups.text = pickupText + score;
+        soundPickups.text = score;
+        Debug.Log(score);
     }
     void OnDestroy()
     {

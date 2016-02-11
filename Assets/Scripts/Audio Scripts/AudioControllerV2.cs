@@ -198,8 +198,11 @@ public class AudioControllerV2 : MonoBehaviour {
 
     public void FadeInLayers()
     {
-        if(fadeInLayers != null)
+        if (fadeInLayers != null)
             fadeInLayers();
+        else
+            Debug.Log("Fade in failed to call");
+
     }
 
     #if UNITY_EDITOR
