@@ -26,6 +26,6 @@ public class CameraMovement : MonoBehaviour
 
     public void RotateCamera(float dir)
     {
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, dir * tilt);
+        this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, dir * tilt);
     }
 }
