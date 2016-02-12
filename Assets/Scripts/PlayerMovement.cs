@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
     private SoundEffectsManager soundEffectsManager;
 
+    private Transform playerModel;
+
     void Start()
     {
         ResetSpeed();
@@ -54,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
         startxPos = transform.position.x;
         soundEffectsManager = this.GetComponent<SoundEffectsManager>();
+        playerModel = this.transform;
     }
    public void ResetSpeed()
     {
@@ -107,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
                 initialSideSpeed = finalSideSpeed;
             horAxis = Input.GetAxis("Horizontal");
             transform.Translate(transform.right * horAxis * initialSideSpeed * Time.deltaTime);
-            transform.Rotate(new Vector3(0.0f, 0.0f, -horAxis * tilt));
+            playerModel.rotation = new Quaternion(0.0f, 0.0f, 1.0f, horAxis * tilt / 2.0f); //(new Vector3(0.0f, 0.0f, 1.0f) + playerModel.position, -horAxis * tilt);
             soundEffectsManager.MovePlayerSound();
         }
     }
