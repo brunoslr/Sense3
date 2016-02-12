@@ -271,21 +271,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11458674, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
-      propertyPath: masterVolume
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327190, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 11400128, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
-      propertyPath: tilt
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 752581157}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &752581157 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 147778, guid: 7e24b8c98b9c9f84688f559543c6269a, type: 2}
+  m_PrefabInternal: {fileID: 242420382}
 --- !u!1 &943014966
 GameObject:
   m_ObjectHideFlags: 0

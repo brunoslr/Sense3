@@ -315,9 +315,11 @@ MonoBehaviour:
   vertSpeedInc: 0.1
   horClamp: 3.4028235e+38
   vertClamp: 2
+  tilt: 30
   maxSpeedCounter: 5
   trailTime: 2
   gameMode: 0
+  camera: {fileID: 0}
 --- !u!114 &11413648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -379,6 +381,7 @@ MonoBehaviour:
   minObsCrashSound: {fileID: 0}
   audPickupSound: {fileID: 0}
   movPlayerSound: {fileID: 0}
+  masterVolume: 0
 --- !u!114 &11470472
 MonoBehaviour:
   m_ObjectHideFlags: 1
