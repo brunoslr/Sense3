@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(0.0f, 0.0f, -horAxis * tilt);
             transform.Translate(new Vector3(1.0f, 0.0f, 0.0f) * horAxis * initialSideSpeed * Time.deltaTime, Space.World);
-            cameraMovement.RotateCamera(horAxis * tilt);
+            cameraMovement.RotateCamera(horAxis);
 
             soundEffectsManager.MovePlayerSound();
         }

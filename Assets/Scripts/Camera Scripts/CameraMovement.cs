@@ -10,7 +10,7 @@ public class CameraMovement : MonoBehaviour
 
     //How far the camera is supposed to be behind the player.
     public Vector3 initialOffset;
-
+    public float tilt;
     private PlayerMovement playerMovement;
 
     void Start()
@@ -24,8 +24,8 @@ public class CameraMovement : MonoBehaviour
         transform.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z + initialOffset.z);
     }
 
-    public void RotateCamera(float angle)
+    public void RotateCamera(float dir)
     {
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, dir * tilt);
     }
 }
