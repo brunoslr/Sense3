@@ -55,6 +55,8 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private int lowerClamp;
     private int upperClamp;
 
+    private int nextZ;
+
     // Use this for initialization
     void Start()
     {
@@ -78,6 +80,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         }
 
         zPosVisualObstacle = (int) zOffsetVisual;
+        nextZ = (int)(zOffsetVisual - (zOffsetVisual / 2));
 
         zOffsetBetweenSoundObstacle = zOffsetSound;
         soundObstacle = Instantiate(soundObstaclePrefab);
@@ -87,7 +90,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         tactileObstacle = Instantiate(tactileObstaclePrefab);
         tactileObstacle.SetActive(false);
 
-        GenerateVisualObstacles();
+        InitializeVisualObstacles();
     }
 
     void FixedUpdate()
@@ -104,6 +107,31 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         UpdateSoundObstacle();
 
         UpdateTactileObstacle();
+    }
+
+    private void InitializeVisualObstacles()
+    {
+        int pick;
+        float xpos = xPosVisualObstacle - xOffsetVisual;
+        float zpos = zPosVisualObstacle;
+        for (int i = 0; i < 4; ++i)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                pick = Random.Range(0, loadedVisualObstacles.Count);
+                visualObstacle = loadedVisualObstacles[pick];
+                visualObstacle.SetActive(true);
+                loadedVisualObstacles.RemoveAt(pick);
+                visualObstacles.Add(visualObstacle);
+
+                visualObstacle.transform.position = new Vector3(xpos, yOffsetVisual, zpos);
+                xpos += xOffsetVisual;
+                
+            }
+            zpos += zOffsetVisual;
+            xpos = xPosVisualObstacle - xOffsetVisual;
+        }
+        zPosVisualObstacle = (int)(zpos - zOffsetVisual);
     }
 
     private void GenerateVisualObstacles()
@@ -125,9 +153,9 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     private void UpdateVisualObstacles()
     {
-        //only when changhe tile in z
-        if (playerZPosition > (zPosVisualObstacle - (zOffsetVisual / 2.0f)))
+        if (playerZPosition > nextZ)
         {
+            nextZ += (int)zOffsetVisual;
             zPosVisualObstacle += (int)zOffsetVisual;
             GenerateVisualObstacles();
         }
@@ -154,7 +182,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private void CreateNewPuzzleOnSide(float dir)
     {
         float xpos = xPosVisualObstacle + (xOffsetVisual * dir);
-        for (int i = -1; i < 1; i++)
+        for (int i = -4; i < 1; i++)
         {
             Vector3 newPosition = new Vector3(xpos, yOffsetVisual, zPosVisualObstacle + (zOffsetVisual * i));
             if ((Physics.OverlapBox(newPosition, Vector3.one * ((xOffsetVisual / 2.0f) - 10.0f))).Length == 0)
