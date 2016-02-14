@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     public float horClamp;
     public float vertClamp;         // max vertical disp.
     public float tilt;
+    public float linezOffset;
+    public float linexScale;
 
     private float forwardSpeed;     // current speed of the player at any point of time.
     private float initialSideSpeed;
@@ -48,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject camera;
     private CameraMovement cameraMovement;
 
+    private LineRenderer lineRenderer;
+
     void Start()
     {
         ResetSpeed();
@@ -60,7 +64,8 @@ public class PlayerMovement : MonoBehaviour
         startxPos = transform.position.x;
         soundEffectsManager = this.GetComponent<SoundEffectsManager>();
         playerModel = this.transform;
-        cameraMovement = camera.GetComponent<CameraMovement>(); 
+        cameraMovement = camera.GetComponent<CameraMovement>();
+        lineRenderer = this.GetComponent<LineRenderer>();
     }
    public void ResetSpeed()
     {
@@ -81,6 +86,12 @@ public class PlayerMovement : MonoBehaviour
         MovePlayerVertical();
     }
 
+    void LateUpdate()
+    {
+        lineRenderer.SetPosition(0, new Vector3(this.transform.position.x - linexScale, this.transform.position.y, this.transform.position.z + linezOffset));
+        lineRenderer.SetPosition(1, new Vector3(this.transform.position.x + linexScale, this.transform.position.y, this.transform.position.z + linezOffset));
+    }
+
     void MovePlayerForward()
     {
         transform.Translate(transform.forward * forwardSpeed * Time.deltaTime);
@@ -98,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
         {
             initialSideSpeed = 0.0f;
             curSideSpeedInc = sideSpeedInc;
+            cameraMovement.RotateCamera(0.0f);
         }
         else
         {
@@ -126,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetAxis("Vertical") == 0.0f)
         {
-            MovePlayerBackToCenter();
+            //MovePlayerBackToCenter();
             initialVertSpeed = 0.0f;
             curVertSpeedInc = vertSpeedInc;
         }
