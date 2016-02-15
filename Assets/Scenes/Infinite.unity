@@ -207,14 +207,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1853631752}
-    - target: {fileID: 430472, guid: 7e24b8c98b9c9f84688f559543c6269a, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11461716, guid: 7e24b8c98b9c9f84688f559543c6269a, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e24b8c98b9c9f84688f559543c6269a, type: 2}
   m_IsPrefabParent: 0
@@ -545,7 +537,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1853631752}
   initialOffset: {x: 0, y: 1.5, z: -5}
-  tilt: 10
+  tilt: 5
+  initialRotationX: 0
 --- !u!1 &1313892902
 GameObject:
   m_ObjectHideFlags: 0

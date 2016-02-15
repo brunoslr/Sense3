@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private float curVertSpeedInc;
     private float startxPos;
     private float horAxis;
+    private float vertAxis;
 
     public uint maxSpeedCounter;    // max no. of times speed can boost or increase.
     private uint speedCounter;      // current boost counter.
@@ -105,7 +106,8 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayerSideways()
     {
-        if (Input.GetAxis("Horizontal") == 0.0f)
+        horAxis = Input.GetAxis("Horizontal");
+        if (horAxis == 0.0f)
         {
             initialSideSpeed = 0.0f;
             curSideSpeedInc = sideSpeedInc;
@@ -124,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
       
             else
                 initialSideSpeed = finalSideSpeed;
-            horAxis = Input.GetAxis("Horizontal");
+            
 
             transform.rotation = Quaternion.Euler(0.0f, 0.0f, -horAxis * tilt);
             transform.Translate(new Vector3(1.0f, 0.0f, 0.0f) * horAxis * initialSideSpeed * Time.deltaTime, Space.World);
@@ -136,7 +138,8 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayerVertical()
     {
-        if (Input.GetAxis("Vertical") == 0.0f)
+        vertAxis = Input.GetAxis("Vertical");
+        if (vertAxis == 0.0f)
         {
             //MovePlayerBackToCenter();
             initialVertSpeed = 0.0f;
@@ -157,7 +160,8 @@ public class PlayerMovement : MonoBehaviour
             else
                 initialVertSpeed = finalVertSpeed;
 
-            transform.Translate(transform.up * Input.GetAxis("Vertical") * initialVertSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(vertAxis * tilt, 0.0f, 0.0f);
+            transform.Translate(new Vector3(0.0f, 1.0f, 0.0f) * vertAxis * initialVertSpeed * Time.deltaTime);
             soundEffectsManager.MovePlayerSound();
         }
     }
