@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayerForward()
     {
-        transform.Translate(transform.forward * forwardSpeed * Time.deltaTime);
+        transform.Translate(new Vector3(0.0f, 0.0f, 1.0f) * forwardSpeed * Time.deltaTime, Space.World);
     }
 
     void FixedUpdate()
@@ -111,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
         {
             initialSideSpeed = 0.0f;
             curSideSpeedInc = sideSpeedInc;
+           // transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
             cameraMovement.RotateCamera(0.0f);
         }
         else
@@ -144,6 +145,7 @@ public class PlayerMovement : MonoBehaviour
             //MovePlayerBackToCenter();
             initialVertSpeed = 0.0f;
             curVertSpeedInc = vertSpeedInc;
+            //transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         }
         else
         {
@@ -160,8 +162,8 @@ public class PlayerMovement : MonoBehaviour
             else
                 initialVertSpeed = finalVertSpeed;
 
-            transform.rotation = Quaternion.Euler(vertAxis * tilt, 0.0f, 0.0f);
-            transform.Translate(new Vector3(0.0f, 1.0f, 0.0f) * vertAxis * initialVertSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(-vertAxis * tilt, 0.0f, 0.0f);
+            transform.Translate(new Vector3(0.0f, 1.0f, 0.0f) * vertAxis * initialVertSpeed * Time.deltaTime, Space.World);
             soundEffectsManager.MovePlayerSound();
         }
     }
