@@ -23,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
     public float vertSpeedInc;
     public float horClamp;
     public float vertClamp;         // max vertical disp.
-    public float tilt;
+    public float horTilt;
+    public float vertTilt;
     public float linezOffset;
     public float linexScale;
 
@@ -111,7 +112,6 @@ public class PlayerMovement : MonoBehaviour
         {
             initialSideSpeed = 0.0f;
             curSideSpeedInc = sideSpeedInc;
-           // transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
             cameraMovement.RotateCamera(0.0f);
         }
         else
@@ -129,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
                 initialSideSpeed = finalSideSpeed;
             
 
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, -horAxis * tilt);
+            transform.rotation = Quaternion.Euler(0.0f, 0.0f, -horAxis * horTilt);
             transform.Translate(new Vector3(1.0f, 0.0f, 0.0f) * horAxis * initialSideSpeed * Time.deltaTime, Space.World);
             cameraMovement.RotateCamera(horAxis);
 
@@ -145,15 +145,18 @@ public class PlayerMovement : MonoBehaviour
             //MovePlayerBackToCenter();
             initialVertSpeed = 0.0f;
             curVertSpeedInc = vertSpeedInc;
-            //transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         }
         else
         {
             if (transform.position.y > vertClamp)
+            {
                 transform.position = new Vector3(transform.position.x, vertClamp, transform.position.z);
+            }
 
             if (transform.position.y < -vertClamp)
+            {
                 transform.position = new Vector3(transform.position.x, -vertClamp, transform.position.z);
+            }
 
             if (initialVertSpeed < finalVertSpeed)
             {
@@ -162,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
             else
                 initialVertSpeed = finalVertSpeed;
 
-            transform.rotation = Quaternion.Euler(-vertAxis * tilt, 0.0f, 0.0f);
+            transform.rotation = Quaternion.Euler(-vertAxis * vertTilt, 0.0f, 0.0f);
             transform.Translate(new Vector3(0.0f, 1.0f, 0.0f) * vertAxis * initialVertSpeed * Time.deltaTime, Space.World);
             soundEffectsManager.MovePlayerSound();
         }
