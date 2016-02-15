@@ -56,6 +56,7 @@ GameObject:
   - 96: {fileID: 9690320}
   - 54: {fileID: 5472626}
   - 114: {fileID: 11458674}
+  - 120: {fileID: 12034590}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -314,8 +315,10 @@ MonoBehaviour:
   sideSpeedInc: 1
   vertSpeedInc: 0.1
   horClamp: 3.4028235e+38
-  vertClamp: 2
+  vertClamp: 3
   tilt: 30
+  linezOffset: 500
+  linexScale: 50
   maxSpeedCounter: 5
   trailTime: 2
   gameMode: 0
@@ -484,6 +487,45 @@ MonoBehaviour:
   totalTracks: 4
   audioTracks: []
   FadeDuration: 0
+--- !u!120 &12034590
+LineRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153040}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 0b709bb7e56aaf14087370c56da5b04f, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: -1, y: 0, z: 1}
+  - {x: -1, y: 0, z: 1}
+  m_Parameters:
+    startWidth: 1
+    endWidth: 1
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4278190080
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4294967295
+  m_UseWorldSpace: 1
 --- !u!198 &19834292
 ParticleSystem:
   m_ObjectHideFlags: 1

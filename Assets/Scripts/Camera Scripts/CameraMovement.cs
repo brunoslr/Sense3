@@ -12,20 +12,22 @@ public class CameraMovement : MonoBehaviour
     public Vector3 initialOffset;
     public float tilt;
     private PlayerMovement playerMovement;
+    public float initialRotationX;
 
     void Start()
     {
         transform.position = player.transform.position + initialOffset;
+        initialRotationX = transform.rotation.eulerAngles.x;
         playerMovement = player.GetComponent<PlayerMovement>();
     }
 
     void LateUpdate()
     {
-        transform.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z + initialOffset.z);
+        transform.position = new Vector3(player.transform.position.x, player.transform.position.y + initialOffset.y, player.transform.position.z + initialOffset.z);
     }
 
     public void RotateCamera(float dir)
     {
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, dir * tilt);
+        transform.rotation = Quaternion.Euler(initialRotationX, 0.0f, dir * tilt);
     }
 }
