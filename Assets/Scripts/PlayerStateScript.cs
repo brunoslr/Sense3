@@ -23,7 +23,7 @@ public class PlayerStateScript : MonoBehaviour {
         playerLevel = 0;
         maxLevel = (GameObject.FindGameObjectWithTag("Player").GetComponentsInChildren<Layer>()).Length;
         finalState = false;
-        levelLoader = new LevelLoader();
+        levelLoader = gameObject.AddComponent<LevelLoader>();
         CoreSystem.onSoundEvent += incrementPlayerLevel;
         CoreSystem.onObstacleEvent += decrementPlayerLevel;
 	}

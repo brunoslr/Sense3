@@ -5,7 +5,7 @@ using XInputDotNetPure;
 public class MineObstacle : MonoBehaviour
 {
     private float playerDist;
-    private float spikePos;
+    private float spikePos = 0;
     private float totalDist;
     private float ratio;
 

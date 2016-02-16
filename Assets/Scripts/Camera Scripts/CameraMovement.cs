@@ -11,14 +11,14 @@ public class CameraMovement : MonoBehaviour
     //How far the camera is supposed to be behind the player.
     public Vector3 initialOffset;
     public float tilt;
-    private PlayerMovement playerMovement;
+    //private PlayerMovement playerMovement; // Removed - Unused
     public float initialRotationX;
 
     void Start()
     {
         transform.position = player.transform.position + initialOffset;
         initialRotationX = transform.rotation.eulerAngles.x;
-        playerMovement = player.GetComponent<PlayerMovement>();
+        // playerMovement = player.GetComponent<PlayerMovement>(); // Removed - Unused
     }
 
     void LateUpdate()

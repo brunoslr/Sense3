@@ -47,9 +47,10 @@ public class PlayerMovement : MonoBehaviour
 
     private SoundEffectsManager soundEffectsManager;
 
-    private Transform playerModel;
+   // private Transform playerModel; 
 
-    public GameObject camera;
+    public GameObject mainCamera;
+
     private CameraMovement cameraMovement;
 
     private LineRenderer lineRenderer;
@@ -65,8 +66,8 @@ public class PlayerMovement : MonoBehaviour
 
         startxPos = transform.position.x;
         soundEffectsManager = this.GetComponent<SoundEffectsManager>();
-        playerModel = this.transform;
-        cameraMovement = camera.GetComponent<CameraMovement>();
+       // playerModel = this.transform;
+        cameraMovement = mainCamera.GetComponent<CameraMovement>();
         lineRenderer = this.GetComponent<LineRenderer>();
     }
    public void ResetSpeed()
