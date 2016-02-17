@@ -361,6 +361,10 @@ Prefab:
       propertyPath: vertClamp
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 12034590, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6e6ef1554395ef498edf8c1541fa4c2, type: 2}
   m_IsPrefabParent: 0
