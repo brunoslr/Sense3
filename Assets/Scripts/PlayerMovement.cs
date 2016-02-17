@@ -15,18 +15,26 @@ public class PlayerMovement : MonoBehaviour
 {
     public enum GameMode{ BOOST, CONSTINC, CONSTSPEED };
 
-    public float initialSpeed;      // initial speed of player.
-    public float sideSpeedMul;      // factor multiplied by forward speed to get side speed of player.
-    public float vertSpeedMul;    // factor multiplied by forward speed to get up down speed of player
-    public float speedMultiplier;   // factor multiplied to increase forward speed.
-    public float sideSpeedInc;
-    public float vertSpeedInc;
-    public float horClamp;
-    public float vertClamp;         // max vertical disp.
-    public float horTilt;
-    public float vertTilt;
-    public float linezOffset;
-    public float linexScale;
+    public float initialSpeed = 100;      // initial speed of player.
+    public float sideSpeedMul = 1;      // factor multiplied by forward speed to get side speed of player.
+    public float vertSpeedMul = 0.1f;    // factor multiplied by forward speed to get up down speed of player
+    public float speedMultiplier = 0.25f;   // factor multiplied to increase forward speed.
+    public float sideSpeedInc = 1;
+    public float vertSpeedInc = 0.1f;
+    public float horClamp = float.MaxValue;
+    public float vertClamp = 7;         // max vertical disp.
+    public float horTilt = 30;
+    public float vertTilt = 5;
+    public float linezOffset = 200;
+    public float linexScale = 200;
+
+    public uint maxSpeedCounter = 5;    // max no. of times speed can boost or increase.
+    public float trailTime = 2;         // time of fire trail in sec.
+    private uint speedCounter;      // current boost counter.
+
+    public GameMode gameMode = GameMode.BOOST;
+    public GameObject mainCamera;
+
 
     private float forwardSpeed;     // current speed of the player at any point of time.
     private float initialSideSpeed;
@@ -39,17 +47,10 @@ public class PlayerMovement : MonoBehaviour
     private float horAxis;
     private float vertAxis;
 
-    public uint maxSpeedCounter;    // max no. of times speed can boost or increase.
-    private uint speedCounter;      // current boost counter.
-    public float trailTime;         // time of fire trail in sec.
-
-    public GameMode gameMode;
-
     private SoundEffectsManager soundEffectsManager;
 
-    private Transform playerModel;
+   // private Transform playerModel; 
 
-    public GameObject camera;
     private CameraMovement cameraMovement;
 
     private LineRenderer lineRenderer;
@@ -65,8 +66,8 @@ public class PlayerMovement : MonoBehaviour
 
         startxPos = transform.position.x;
         soundEffectsManager = this.GetComponent<SoundEffectsManager>();
-        playerModel = this.transform;
-        cameraMovement = camera.GetComponent<CameraMovement>();
+       // playerModel = this.transform;
+        cameraMovement = mainCamera.GetComponent<CameraMovement>();
         lineRenderer = this.GetComponent<LineRenderer>();
     }
    public void ResetSpeed()

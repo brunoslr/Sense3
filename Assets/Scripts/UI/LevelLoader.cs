@@ -11,9 +11,13 @@ public class LevelLoader : MonoBehaviour {
     public Button quitButton;
      
 	// Use this for initialization
-	void Start () {
-        startButton.onClick.AddListener(() => { LoadScene(startScene); });
-        quitButton.onClick.AddListener(() => { QuitGame(); });
+	void Start ()
+    {
+        if(startButton!= null)
+            startButton.onClick.AddListener(() => { LoadScene(startScene); });
+
+        if (quitButton != null)
+            quitButton.onClick.AddListener(() => { QuitGame(); });
 
 	}
 
