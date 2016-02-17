@@ -4,14 +4,24 @@ using XInputDotNetPure;
 
 public class MineObstacle : MonoBehaviour
 {
+    public float freq = 20.0f;
     private float playerDist;
-    private float spikePos;
+    private float endPos;
     private float totalDist;
     private float ratio;
+    private State state;
+
+    Coroutine activeCoroutine;
+
+    enum State{ NEW, LOW, MED, HIGH};
+
 
 	// Use this for initialization
-	void Start () {
-	}
+	void Start () 
+    {
+        endPos = transform.position.z + transform.localScale.z / 2.0f;	
+        state = State.NEW;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -21,24 +31,66 @@ public class MineObstacle : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-            totalDist = Mathf.Abs(spikePos - other.gameObject.transform.position.z);
+        totalDist = Mathf.Abs(endPos - other.gameObject.transform.position.z);
     }
 
     void OnTriggerStay(Collider other)
     {
+        if (other.gameObject.tag != "Player")
+        {
+            return;
+        }
+
+        playerDist = Mathf.Abs(endPos - other.gameObject.transform.position.z);
+        ratio = playerDist / totalDist;
+        switch (state)
+        {
+            case State.NEW:
+                state = State.LOW;
+                activeCoroutine = StartCoroutine(SetVibrationPWM(0.2f, freq));
+                break;
+            case State.LOW:
+                if (ratio > 0.6f)
+                {
+                    state = State.MED;
+                    StopCoroutine(activeCoroutine);
+                    activeCoroutine = StartCoroutine(SetVibrationPWM(0.2f, freq));
+                }
+                break;
+            case State.MED:
+                if (ratio < 0.6f && ratio > 0.3f)
+                {
+                    state = State.HIGH;
+                    StopCoroutine(activeCoroutine);
+                    activeCoroutine = StartCoroutine(SetVibrationPWM(0.2f, freq));
+                }
+                break;
+            case State.HIGH:
+                if (ratio < 0.3f)
+                {
+                    StopCoroutine(activeCoroutine);
+                }
+                break;
+            default:
+                break;
+        }
+
+
+
+        return;
+
         if (other.gameObject.tag == "Player")
         {
-            playerDist = Mathf.Abs(spikePos - other.gameObject.transform.position.z);
+            playerDist = Mathf.Abs(endPos - other.gameObject.transform.position.z);
 
             ratio = playerDist / totalDist;
 
-            if(ratio > 0.5f)
+            if(ratio > 0.6f)
             {
-                StartCoroutine(StartVibration(5.0f));
+                StartCoroutine(StartVibration(0.5f));
             }
 
-            else if(ratio < 0.5f && ratio > 0.3f)
+            else if(ratio < 0.6f && ratio > 0.3f)
             {
                 StartCoroutine(StartVibration(0.5f));
             }
@@ -56,10 +108,16 @@ public class MineObstacle : MonoBehaviour
             StopVibration();
     }
 
-    IEnumerator StartVibration(float waitTime)
+
+    IEnumerator SetVibrationPWM(float timeActive, float freq)
+    {
+        float PWMDur = 1 / freq;
+        timeActive = 
+    }
+
+    IEnumerator StartVibration()
     {
         GamePad.SetVibration(0, 1.0f, 1.0f);
-        yield return new WaitForSeconds(waitTime);
     }
 
     void StopVibration()
