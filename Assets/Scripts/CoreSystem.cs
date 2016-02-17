@@ -31,36 +31,37 @@ public class CoreSystem : MonoBehaviour {
         else
             Debug.Log("OnSoundEvent is null: cannot call anything");
         
-        //finding subscribed functions 
-        System.Delegate[] list = onSoundEvent.GetInvocationList();
-
-        //for (int i = 0; i < list.Length; i++)
-        //    Debug.Log("On sound piuckeup event method :" + list[i].Method + " instance : " + list[i].Target);
+        
     }
+
     public static void ExecuteOnObstacleCollision()
     {
         if (onObstacleEvent != null)
             onObstacleEvent();
         else
             Debug.Log("OnObstacleEvent is null: cannot call anything");
-        
-        //finding subscribed functions
-        System.Delegate[] list = onObstacleEvent.GetInvocationList();
 
-        //for (int i = 0; i < list.Length; i++)
-        //    Debug.Log("On obstacle event method :" + list[i].Method + " instance : " + list[i].Target);
-        
+        //LogSoundPickupSubscribedFunctions()
     }
 
+    //finding subscribed functions 
+    public void LogSoundPickupSubscribedFunctions()
+    {
+        System.Delegate[] list = onSoundEvent.GetInvocationList();
 
- //   void Start () {
- //      // playerLM = this.gameObject.GetComponent<PlayerMovement>();
- //      // cameraEf = Camera.main.GetComponent<Effects>();
- //       //aController = this.gameObject.transform.FindChild("PlayerAudio").GetComponent<AudioControllerV2>();
- //      // soundEffectsManager = this.gameObject.GetComponent<SoundEffectsManager>();
-   
-	//}
-    
+        for (int i = 0; i < list.Length; i++)
+            Debug.Log("On sound piuckeup event method :" + list[i].Method + " instance : " + list[i].Target);
+
+    }
+
+    //   void Start () {
+    //      // playerLM = this.gameObject.GetComponent<PlayerMovement>();
+    //      // cameraEf = Camera.main.GetComponent<Effects>();
+    //       //aController = this.gameObject.transform.FindChild("PlayerAudio").GetComponent<AudioControllerV2>();
+    //      // soundEffectsManager = this.gameObject.GetComponent<SoundEffectsManager>();
+
+    //}
+
     //public void ExecuteOnPickUp()
     //{
     //    //if(boostMode)
@@ -76,19 +77,19 @@ public class CoreSystem : MonoBehaviour {
     //       // playerLM.ReducePlayerSpeed();
     //   // soundEffectsManager.VisualObstacleCrashSound();
     //}
-    
-	//void FixedUpdate()
- //   {
- //       if (constIncMode)
- //           playerLM.IncreasePlayerSpeed();
- //   }
 
-	// Update is called once per frame
-	//void Update () {
- //       if (Input.GetKeyDown(KeyCode.J))
- //       {
- //           GameReset();
- //       }
-	//}
- 
+    //void FixedUpdate()
+    //   {
+    //       if (constIncMode)
+    //           playerLM.IncreasePlayerSpeed();
+    //   }
+
+    // Update is called once per frame
+    //void Update () {
+    //       if (Input.GetKeyDown(KeyCode.J))
+    //       {
+    //           GameReset();
+    //       }
+    //}
+
 }

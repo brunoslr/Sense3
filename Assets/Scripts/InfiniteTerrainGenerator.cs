@@ -29,7 +29,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     private Vector3 playerPosition;
     private float playerXPosition;
-    private float playerYPosition;
+    //private float playerYPosition; removed -- Unused
     private float playerZPosition;
 
     private Terrain[,] _terrainGrid = new Terrain[3, 3];
@@ -96,7 +96,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     void FixedUpdate()
     {
         playerXPosition = player.transform.position.x;
-        playerYPosition = player.transform.position.y;
+        //playerYPosition = player.transform.position.y; // Removed, not used
         playerZPosition = player.transform.position.z;
         //UpdateTerrainGrid();
 
