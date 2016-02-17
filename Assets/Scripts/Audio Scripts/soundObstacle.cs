@@ -5,6 +5,7 @@ public class soundObstacle : MonoBehaviour
 {
     private float pan;
     private float checkPan;
+    private AudioControllerV2 audioController;
     /// <summary>
     /// To Do: Place audio visualizer in the right place in the architecture.
     /// </summary>
@@ -13,7 +14,8 @@ public class soundObstacle : MonoBehaviour
     /// <returns></returns>
 	void Start () {
         checkPan = this.transform.localScale.x / 10.0f;
-	}
+        audioController = GameObject.Find("PlayerAudio").GetComponentInChildren<AudioControllerV2>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -53,7 +55,7 @@ public class soundObstacle : MonoBehaviour
             }
 
             //Refactored audio controller below
-            other.gameObject.GetComponentInChildren<AudioControllerV2>().playNewTrack((int)pan, volume);
+            audioController.playNewTrack((int)pan, volume);
         }
     }
 
@@ -87,8 +89,8 @@ public class soundObstacle : MonoBehaviour
             {
                 pan = 0;
             }
-                      
-            other.gameObject.GetComponentInChildren<AudioControllerV2>().setCurrentPan((int)pan, volume);          
+
+            audioController.setCurrentPan((int)pan, volume);          
         }
     }
     
@@ -100,12 +102,12 @@ public class soundObstacle : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            bool fuckiongbullshit = this.gameObject.GetComponentInChildren<PickUpScript>().pickedUp;
-            if ( fuckiongbullshit == false)
-            {              
-                other.gameObject.GetComponentInChildren<AudioControllerV2>().muteLast();              
+            bool soundPicked = this.gameObject.GetComponentInChildren<PickUpScript>().pickedUp;
+            if ( soundPicked == false)
+            {
+                audioController.muteLast();              
             }
-            other.gameObject.GetComponentInChildren<AudioControllerV2>().FadeInLayers();
+            audioController.FadeInLayers();
         }
     }
 }
