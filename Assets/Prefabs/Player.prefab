@@ -310,12 +310,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialSpeed: 100
   sideSpeedMul: 1
-  vertSpeedMul: 0.1
+  vertSpeedMul: 1
   speedMultiplier: 0.25
   sideSpeedInc: 1
-  vertSpeedInc: 0.1
+  vertSpeedInc: 1
   horClamp: 3.4028235e+38
-  vertClamp: 7
+  vertClamp: 50
   horTilt: 30
   vertTilt: 5
   linezOffset: 200
