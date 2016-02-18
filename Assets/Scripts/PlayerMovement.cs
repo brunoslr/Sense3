@@ -109,11 +109,12 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayerSideways()
     {
         horAxis = Input.GetAxis("Horizontal");
-        if (horAxis == 0.0f)
-        {
+        if (horAxis == 0.0f )
+        {   
             initialSideSpeed = 0.0f;
             curSideSpeedInc = sideSpeedInc;
             cameraMovement.RotateCamera(0.0f);
+            transform.rotation = Quaternion.Euler(0,0,0);
         }
         else
         {
@@ -130,9 +131,10 @@ public class PlayerMovement : MonoBehaviour
                 initialSideSpeed = finalSideSpeed;
             
 
+            horAxis = horAxis / Mathf.Abs(horAxis);
             transform.rotation = Quaternion.Euler(0.0f, 0.0f, -horAxis * horTilt);
             transform.Translate(new Vector3(1.0f, 0.0f, 0.0f) * horAxis * initialSideSpeed * Time.deltaTime, Space.World);
-            cameraMovement.RotateCamera(horAxis);
+           // cameraMovement.RotateCamera(horAxis);
 
             soundEffectsManager.MovePlayerSound();
         }

@@ -9,23 +9,17 @@ public class MineObstacle : MonoBehaviour
     private float endPos;
     private float totalDist;
     private float ratio;
-    private State state;
+    public State state;
+    private GameObject player;
 
-    enum State{ NEW, LOW, MED, HIGH};
-
+    public enum State{ NEW, LOW, MED, HIGH};
 
 	// Use this for initialization
 	void Start () 
     {
-        endPos = transform.position.z + transform.localScale.z / 2.0f;	
         state = State.NEW;
+        player = GameObject.Find("Player");
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	
-	}
 
     void OnTriggerEnter(Collider other)
     {
@@ -34,10 +28,9 @@ public class MineObstacle : MonoBehaviour
             return;
         }
 
-        endPos = transform.position.z + transform.localScale.z / 2.0f;	
+        endPos = transform.position.z + transform.localScale.z / 2.0f;
         totalDist = Mathf.Abs(endPos - other.gameObject.transform.position.z);
     }
-
 
     void OnTriggerStay(Collider other)
     {
@@ -93,10 +86,20 @@ public class MineObstacle : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.tag != "Player")
+        {
+            return;
+        }
+
         StopAllCoroutines();
         GamePad.SetVibration(0, 0.0f, 0.0f);
     }
-
+    
+    void Update()
+    {
+        if (player.transform.position.z > endPos)
+            state = State.NEW;
+    }
 
     IEnumerator SetVibrationPWM(float activePortion, float freq)
     {
