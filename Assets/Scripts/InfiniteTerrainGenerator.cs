@@ -93,11 +93,12 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         InitializeVisualObstacles();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         playerXPosition = player.transform.position.x;
         //playerYPosition = player.transform.position.y; // Removed, not used
         playerZPosition = player.transform.position.z;
+
         //UpdateTerrainGrid();
 
         UpdateVisualObstacles();
@@ -112,11 +113,11 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private void InitializeVisualObstacles()
     {
         int pick;
-        float xpos = xPosVisualObstacle - xOffsetVisual;
+        float xpos = xPosVisualObstacle -  (2 * xOffsetVisual);
         float zpos = zPosVisualObstacle;
         for (int i = 0; i < 4; ++i)
         {
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < 5; j++)
             {
                 pick = Random.Range(0, loadedVisualObstacles.Count);
                 visualObstacle = loadedVisualObstacles[pick];
@@ -129,7 +130,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
                 
             }
             zpos += zOffsetVisual;
-            xpos = xPosVisualObstacle - xOffsetVisual;
+            xpos = xPosVisualObstacle - (2 * xOffsetVisual);
         }
         zPosVisualObstacle = (int)(zpos - zOffsetVisual);
     }
@@ -137,8 +138,8 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private void GenerateVisualObstacles()
     {
         int pick;
-        float xpos = xPosVisualObstacle - xOffsetVisual;
-        for (int i = 0; i < 3; ++i)
+        float xpos = xPosVisualObstacle - (2 * xOffsetVisual);
+        for (int i = 0; i < 5; ++i)
         {
             pick = Random.Range(0, loadedVisualObstacles.Count);
             visualObstacle = loadedVisualObstacles[pick];
@@ -153,13 +154,6 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     private void UpdateVisualObstacles()
     {
-        if (playerZPosition > nextZ)
-        {
-            nextZ += (int)zOffsetVisual;
-            zPosVisualObstacle += (int)zOffsetVisual;
-            GenerateVisualObstacles();
-        }
-
         if ((int)playerXPosition < lowerClamp)
         {
             xPosVisualObstacle -= (int)xOffsetVisual;
@@ -177,15 +171,22 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             //Debug.Log("Right");
             CreateNewPuzzleOnSide(1.0f);
         }
+
+        if (playerZPosition > nextZ)
+        {
+            nextZ += (int)zOffsetVisual;
+            zPosVisualObstacle += (int)zOffsetVisual;
+            GenerateVisualObstacles();
+        }
     }
 
     private void CreateNewPuzzleOnSide(float dir)
     {
-        float xpos = xPosVisualObstacle + (xOffsetVisual * dir);
+        float xpos = xPosVisualObstacle + (2 * xOffsetVisual * dir);
         for (int i = -4; i < 1; i++)
         {
             Vector3 newPosition = new Vector3(xpos, yOffsetVisual, zPosVisualObstacle + (zOffsetVisual * i));
-            if ((Physics.OverlapBox(newPosition, Vector3.one * ((xOffsetVisual / 2.0f) - 10.0f))).Length == 0)
+            if ((Physics.OverlapBox(newPosition, Vector3.one * ((xOffsetVisual / 2.0f) - 20.0f))).Length == 0)
             {
                 int pick = Random.Range(0, loadedVisualObstacles.Count);
                 GameObject visualObstacle = loadedVisualObstacles[pick];
@@ -352,7 +353,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
                 newTerrainGrid[newZ, newX] = _terrainGrid[z, x];
             }
         _terrainGrid = newTerrainGrid;
-        //UpdateTerrainPositionsAndNeighbors();
+        UpdateTerrainPositionsAndNeighbors();
     }
 }
 }
