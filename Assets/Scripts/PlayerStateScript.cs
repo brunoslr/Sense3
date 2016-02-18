@@ -6,6 +6,7 @@ public class PlayerStateScript : MonoBehaviour {
     public string LossScenario_sceneName;
     public string WinScenario_sceneName;
     public int finalRunTime = 15;
+    public GameObject playerAudio;
 
     private int maxLevel;
     private int playerLevel;
@@ -21,7 +22,11 @@ public class PlayerStateScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         playerLevel = 0;
-        maxLevel = (GameObject.FindGameObjectWithTag("Player").GetComponentsInChildren<Layer>()).Length;
+        if (playerAudio != null && (playerAudio.GetComponents<Layer>().Length>0))
+            maxLevel = playerAudio.GetComponents<Layer>().Length;
+        else
+            maxLevel = 7;
+
         finalState = false;
         levelLoader = gameObject.AddComponent<LevelLoader>();
         CoreSystem.onSoundEvent += incrementPlayerLevel;
