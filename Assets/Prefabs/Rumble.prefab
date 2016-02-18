@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eaa1805bc7422b41a040d24bc74425c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scale: {x: 240, y: 15, z: 2000}
+  scale: {x: 240, y: 100, z: 2000}
 --- !u!114 &11469466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,7 +190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freq: 10
   state: 0
-  player: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
