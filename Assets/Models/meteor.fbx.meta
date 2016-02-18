@@ -1,17 +1,18 @@
 fileFormatVersion: 2
-guid: 1236a63cad334ba419b8ee718c772468
-timeCreated: 1455725410
+guid: 6a8e8299498f50a4893aab2ed701369c
+timeCreated: 1455732093
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    4300000: Ship_Base
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Meteor_Base:pCube1
     9500000: //RootNode
-    13700000: //RootNode
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -34,7 +35,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.02
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
