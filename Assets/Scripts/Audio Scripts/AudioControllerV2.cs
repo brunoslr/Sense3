@@ -82,6 +82,9 @@ public class AudioControllerV2 : MonoBehaviour {
             layers[layerID].setPanAndVol(pan, volume);
 
             FadeOutLayers();
+
+            //StartCoroutine(refreshLast());
+            pickUpScope = true;
         }
         else
         {
@@ -89,9 +92,15 @@ public class AudioControllerV2 : MonoBehaviour {
         }
     }
 
+    public void disableScope()
+    {
+        pickUpScope = false;
+    }
+
     public void incrementLayerStack()
     {
         //Debug.Log("incrementLayerStack");
+        pickUpScope = false;
         layers[lastPlayedLayerID].setPanAndVol(0, 1.0f);
         activeLayers.Add(lastPlayedLayerID);
         //Increments the sound count
@@ -111,21 +120,19 @@ public class AudioControllerV2 : MonoBehaviour {
     public void muteLast()
     {
         layers[lastPlayedLayerID].Mute();
-        StartCoroutine(refreshLast());
-        pickUpScope = true;
     }
 
-    //public void unMuteLast()
-    //{
-    //    layers[lastPlayedLayerID].UnMute();
-    //}
-
-    IEnumerator refreshLast()
+    public void unMuteLast()
     {
-        yield return new WaitForSeconds(4.5f * layers[0].FadeDuration);
-        refreshLastPlayed();
-        pickUpScope = false;
+        layers[lastPlayedLayerID].UnMute();
     }
+
+    //IEnumerator refreshLast()
+    //{
+    //    yield return new WaitForSeconds(4.0f * layers[0].FadeDuration);
+    //    refreshLastPlayed();
+    //    pickUpScope = false;
+    //}
 
     public void setCurrentPan(int pan, float volume)
     {

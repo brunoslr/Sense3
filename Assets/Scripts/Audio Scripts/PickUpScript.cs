@@ -13,7 +13,6 @@ public class PickUpScript : MonoBehaviour {
     void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "Player"){
             pickedUp = true;
-            CoreSystem.ExecuteOnSoundCollision();
 		}
 	}
 }
