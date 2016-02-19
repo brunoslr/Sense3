@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &132180
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 430412}
-  - 114: {fileID: 11429628}
-  m_Layer: 0
-  m_Name: PlayerStats
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &150966
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,6 +61,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &183560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 487428}
+  - 114: {fileID: 11412104}
+  m_Layer: 0
+  m_Name: Player Stats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &425792
 Transform:
   m_ObjectHideFlags: 1
@@ -89,21 +89,9 @@ Transform:
   m_Children:
   - {fileID: 449172}
   - {fileID: 483108}
-  - {fileID: 430412}
+  - {fileID: 487428}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &430412
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132180}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 425792}
-  m_RootOrder: 2
 --- !u!4 &449172
 Transform:
   m_ObjectHideFlags: 1
@@ -128,6 +116,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 425792}
   m_RootOrder: 1
+--- !u!4 &487428
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183560}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 425792}
+  m_RootOrder: 2
 --- !u!54 &5479300
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -204,6 +204,21 @@ MonoBehaviour:
   totalTracks: 4
   audioTracks: []
   FadeDuration: 0
+--- !u!114 &11412104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8799a70007526e648959638e96ea4fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LossScenario_sceneName: Infinite
+  WinScenario_sceneName: MainMenu
+  finalRunTime: 15
+  playerAudio: {fileID: 171924}
 --- !u!114 &11419220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,20 +251,6 @@ MonoBehaviour:
   totalTracks: 3
   audioTracks: []
   FadeDuration: 0
---- !u!114 &11429628
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8799a70007526e648959638e96ea4fd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LossScenario_sceneName: Infinite
-  WinScenario_sceneName: MainMenu
-  finalRunTime: 15
 --- !u!114 &11436962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -347,14 +348,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b32bf5924b8ccb409ea666b156d06c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 100
-  sideSpeedMul: 1
-  vertSpeedMul: 0.1
+  initialSpeed: 150
+  sideSpeedMul: 2
+  vertSpeedMul: 2
   speedMultiplier: 0.25
-  sideSpeedInc: 1
-  vertSpeedInc: 0.1
+  sideSpeedInc: 5
+  vertSpeedInc: 5
   horClamp: 3.4028235e+38
-  vertClamp: 7
+  vertClamp: 50
   horTilt: 30
   vertTilt: 5
   linezOffset: 200
@@ -369,7 +370,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150966}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -433,7 +434,8 @@ SkinnedMeshRenderer:
   m_UpdateWhenOffscreen: 1
   m_Mesh: {fileID: 4300000, guid: 1236a63cad334ba419b8ee718c772468, type: 3}
   m_Bones: []
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 0
   m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: 0.12197876, y: 2.535912, z: -0.0000038146973}
