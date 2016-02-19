@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     public float vertTilt = 5;
     public float linezOffset = 200;
     public float linexScale = 200;
+    public float jumpVel;
 
     public uint maxSpeedCounter = 5;    // max no. of times speed can boost or increase.
     public float trailTime = 2;         // time of fire trail in sec.
@@ -46,10 +47,12 @@ public class PlayerMovement : MonoBehaviour
     private float startxPos;
     private float horAxis;
     private float vertAxis;
+    private bool isGrounded;
+    private bool jump;
+
+    private Rigidbody rigidBody;
 
     private SoundEffectsManager soundEffectsManager;
-
-   // private Transform playerModel; 
 
     private CameraMovement cameraMovement;
 
@@ -65,10 +68,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         startxPos = transform.position.x;
-        soundEffectsManager = this.GetComponent<SoundEffectsManager>();
-       // playerModel = this.transform;
+        soundEffectsManager = GetComponent<SoundEffectsManager>();
+        rigidBody = this.GetComponent<Rigidbody>();
         cameraMovement = mainCamera.GetComponent<CameraMovement>();
         lineRenderer = this.GetComponent<LineRenderer>();
+        isGrounded = true;
+        jump = false;
     }
    public void ResetSpeed()
     {
@@ -86,7 +91,20 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayerForward();
         MovePlayerSideways();
-        MovePlayerVertical();
+        //MovePlayerVertical();
+        JumpPlayer();
+        CheckPlayerGrounded();
+    }
+
+    void FixedUpdate()
+    {
+        if (gameMode == GameMode.CONSTINC)
+            IncreasePlayerSpeed();
+
+        if(Input.GetButton("Jump"))
+        {
+            jump = true;
+        }
     }
 
     void LateUpdate()
@@ -98,12 +116,6 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayerForward()
     {
         transform.Translate(new Vector3(0.0f, 0.0f, 1.0f) * forwardSpeed * Time.deltaTime, Space.World);
-    }
-
-    void FixedUpdate()
-    {
-        if (gameMode == GameMode.CONSTINC)
-            IncreasePlayerSpeed();
     }
 
     void MovePlayerSideways()
@@ -173,6 +185,28 @@ public class PlayerMovement : MonoBehaviour
             soundEffectsManager.MovePlayerSound();
         }
     }
+
+    void JumpPlayer()
+    {
+        if(isGrounded && jump)
+        {
+            isGrounded = false;
+            rigidBody.AddForce(Vector3.up * jumpVel, ForceMode.VelocityChange);
+            rigidBody.useGravity = true;
+        }
+    }
+
+    void CheckPlayerGrounded()
+    {
+        if (transform.position.y < 0.0f)
+        {
+            rigidBody.useGravity = false;
+            isGrounded = true;
+            jump = false;
+            transform.position = new Vector3(transform.position.x, 0.0f, transform.position.z);
+        }
+    }
+
     void MovePlayerBackToCenter()
     {
         transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0.0f, transform.position.z), 0.01f);
