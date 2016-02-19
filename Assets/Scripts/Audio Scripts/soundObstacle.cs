@@ -103,10 +103,12 @@ public class soundObstacle : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             bool soundPicked = this.gameObject.GetComponentInChildren<PickUpScript>().pickedUp;
+
             if ( soundPicked == false)
-            {
                 audioController.muteLast();              
-            }
+            else
+                CoreSystem.ExecuteOnSoundCollision();
+
             audioController.FadeInLayers();
         }
     }
