@@ -28,9 +28,9 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     public float zOffsetFromPlayerTactile;
 
     private Vector3 playerPosition;
-    private float playerXPosition;
+    private int playerXPosition;
     //private float playerYPosition; removed -- Unused
-    private float playerZPosition;
+    private int playerZPosition;
 
     private Terrain[,] _terrainGrid = new Terrain[3, 3];
     private Terrain linkedTerrain;
@@ -95,9 +95,9 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
     void Update()
     {
-        playerXPosition = player.transform.position.x;
+        playerXPosition = (int)player.transform.position.x;
         //playerYPosition = player.transform.position.y; // Removed, not used
-        playerZPosition = player.transform.position.z;
+        playerZPosition = (int)player.transform.position.z;
 
         //UpdateTerrainGrid();
 
@@ -172,7 +172,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             CreateNewPuzzleOnSide(1.0f);
         }
 
-        if (playerZPosition > nextZ)
+        if ( playerZPosition > nextZ)
         {
             nextZ += (int)zOffsetVisual;
             zPosVisualObstacle += (int)zOffsetVisual;
