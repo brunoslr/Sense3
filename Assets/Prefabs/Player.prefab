@@ -8,13 +8,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 491392}
-  - 114: {fileID: 11469636}
   - 114: {fileID: 11405584}
   - 114: {fileID: 11447690}
-  - 120: {fileID: 12077074}
+  - 54: {fileID: 5489268}
+  - 64: {fileID: 6480718}
+  - 114: {fileID: 11450338}
+  - 120: {fileID: 12083278}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,11 +31,9 @@ GameObject:
   - 4: {fileID: 488528}
   - 137: {fileID: 13707846}
   - 95: {fileID: 9547752}
-  - 54: {fileID: 5440646}
-  - 64: {fileID: 6410768}
   m_Layer: 0
   m_Name: PlayerMesh
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,27 +128,27 @@ Transform:
   - {fileID: 484048}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!54 &5440646
+--- !u!54 &5489268
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112858}
+  m_GameObject: {fileID: 105690}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &6410768
+--- !u!64 &6480718
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112858}
+  m_GameObject: {fileID: 105690}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -273,6 +273,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ba4772f5eed2f4aa7657f47222dee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11450338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b32bf5924b8ccb409ea666b156d06c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialSpeed: 100
+  sideSpeedMul: 1
+  vertSpeedMul: 0.1
+  speedMultiplier: 0.25
+  sideSpeedInc: 1
+  vertSpeedInc: 0.1
+  horClamp: 3.4028235e+38
+  vertClamp: 50
+  horTilt: 30
+  vertTilt: 5
+  linezOffset: 200
+  linexScale: 200
+  jumpVel: 10
+  maxSpeedCounter: 5
+  trailTime: 2
+  gameMode: 0
+  mainCamera: {fileID: 0}
 --- !u!114 &11454214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -321,33 +349,6 @@ MonoBehaviour:
   totalTracks: 4
   audioTracks: []
   FadeDuration: 0
---- !u!114 &11469636
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b32bf5924b8ccb409ea666b156d06c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialSpeed: 100
-  sideSpeedMul: 1
-  vertSpeedMul: 0.1
-  speedMultiplier: 0.25
-  sideSpeedInc: 1
-  vertSpeedInc: 0.1
-  horClamp: 3.4028235e+38
-  vertClamp: 7
-  horTilt: 30
-  vertTilt: 5
-  linezOffset: 200
-  linexScale: 200
-  maxSpeedCounter: 5
-  trailTime: 2
-  gameMode: 0
-  mainCamera: {fileID: 0}
 --- !u!114 &11484042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -364,7 +365,7 @@ MonoBehaviour:
   totalTracks: 4
   audioTracks: []
   FadeDuration: 0
---- !u!120 &12077074
+--- !u!120 &12083278
 LineRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -413,7 +414,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 40ae9186bf5f4464baf23b022971d21f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
