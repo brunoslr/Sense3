@@ -39,49 +39,8 @@ public class MineObstacle : MonoBehaviour
             return;
         }
 
-        //var p = other.gameObject.transform.position;
-        //p.z = endPos;
-
-        //Color c = state == State.LOW ? Color.green
-        //    : state == State.MED ? Color.yellow
-        //    : state == State.HIGH ? Color.red
-        //    : Color.magenta;
-
-        //Debug.DrawLine(p, other.gameObject.transform.position, c);
-
-        playerDist = Mathf.Abs(endPos - other.gameObject.transform.position.z);
-        ratio = playerDist / totalDist;
-
-        switch (state)
-        {
-            case State.NEW:
-                state = State.LOW;
-                StartCoroutine(SetVibrationPWM(0.4f, freq));
-                break;
-            case State.LOW:
-                if (ratio < 0.8f)
-                {
-                    state = State.MED;
-                    StopAllCoroutines();
-                    GamePad.SetVibration(0, 0.0f, 0.0f);
-                    StartCoroutine(SetVibrationPWM(0.8f, freq));
-                }
-                break;
-            case State.MED:
-                if (ratio < 0.4f)
-                {
-                    state = State.HIGH;
-                    StopAllCoroutines();
-                    GamePad.SetVibration(0, 0.0f, 0.0f);
-                    StartCoroutine(SetVibrationPWM(1f, freq));
-                }
-                break;
-            case State.HIGH:
-              
-                break;
-            default:
-                break;
-        }
+        CheckVibrationLevel(other);
+        PullPlayerToCenter(other);
     }
 
     void OnTriggerExit(Collider other)
@@ -121,6 +80,60 @@ public class MineObstacle : MonoBehaviour
             GamePad.SetVibration(0, 0.0f, 0.0f);
             yield return new WaitForSeconds(timeInactive);
         }
+    }
+
+    void CheckVibrationLevel(Collider other)
+    {
+
+        //var p = other.gameObject.transform.position;
+        //p.z = endPos;
+
+        //Color c = state == State.LOW ? Color.green
+        //    : state == State.MED ? Color.yellow
+        //    : state == State.HIGH ? Color.red
+        //    : Color.magenta;
+
+        //Debug.DrawLine(p, other.gameObject.transform.position, c);
+
+        playerDist = Mathf.Abs(endPos - other.gameObject.transform.position.z);
+        ratio = playerDist / totalDist;
+
+        switch (state)
+        {
+            case State.NEW:
+                state = State.LOW;
+                StartCoroutine(SetVibrationPWM(0.4f, freq));
+                break;
+            case State.LOW:
+                if (ratio < 0.8f)
+                {
+                    state = State.MED;
+                    StopAllCoroutines();
+                    GamePad.SetVibration(0, 0.0f, 0.0f);
+                    StartCoroutine(SetVibrationPWM(0.8f, freq));
+                }
+                break;
+            case State.MED:
+                if (ratio < 0.4f)
+                {
+                    state = State.HIGH;
+                    StopAllCoroutines();
+                    GamePad.SetVibration(0, 0.0f, 0.0f);
+                    StartCoroutine(SetVibrationPWM(1f, freq));
+                }
+                break;
+            case State.HIGH:
+
+                break;
+            default:
+                break;
+        }
+    }
+
+    void PullPlayerToCenter(Collider other)
+    {
+        if(other.transform.position.x != transform.position.x)
+            other.transform.position = Vector3.Lerp(other.transform.position, new Vector3(transform.position.x, other.transform.position.y, other.transform.position.z), 0.01f);
     }
 
     void OnDestroy()
