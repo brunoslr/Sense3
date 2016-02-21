@@ -30,4 +30,9 @@ public class CameraMovement : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(initialRotationX, 0.0f, dir * tilt);
     }
+
+    public void RumbleCamera()
+    {
+        transform.rotation = Quaternion.Euler(initialRotationX, 0.0f, Mathf.Sin(Time.time) * tilt);
+    }
 }

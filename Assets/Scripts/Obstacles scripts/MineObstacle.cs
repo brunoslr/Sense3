@@ -11,6 +11,8 @@ public class MineObstacle : MonoBehaviour
     private float ratio;
     public State state;
     private GameObject player;
+    public float pullForce;
+    private CameraMovement cameraMovement;
 
     public enum State{ NEW, LOW, MED, HIGH};
 
@@ -19,6 +21,7 @@ public class MineObstacle : MonoBehaviour
     {
         state = State.NEW;
         player = GameObject.Find("Player");
+        cameraMovement = GameObject.Find("MainCameraParent").GetComponent<CameraMovement>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -41,6 +44,7 @@ public class MineObstacle : MonoBehaviour
 
         CheckVibrationLevel(other);
         PullPlayerToCenter(other);
+        cameraMovement.RumbleCamera();
     }
 
     void OnTriggerExit(Collider other)
@@ -133,7 +137,7 @@ public class MineObstacle : MonoBehaviour
     void PullPlayerToCenter(Collider other)
     {
         if(other.transform.position.x != transform.position.x)
-            other.transform.position = Vector3.Lerp(other.transform.position, new Vector3(transform.position.x, other.transform.position.y, other.transform.position.z), 0.01f);
+            other.transform.position = Vector3.Lerp(other.transform.position, new Vector3(transform.position.x, other.transform.position.y, other.transform.position.z), pullForce);
     }
 
     void OnDestroy()
