@@ -728,21 +728,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1876953504}
   visualObstaclePrefabs:
+  - {fileID: 150290, guid: cc3d0b5dab333794dad0c5b814c8c179, type: 2}
+  - {fileID: 199794, guid: a6ebec2eec686ea4a99bb2b819ec2485, type: 2}
   - {fileID: 120030, guid: 3690af71123a8524984ef0abe481d8c5, type: 2}
-  - {fileID: 173660, guid: b17b69806915ed84f8c32aa6ee35610d, type: 2}
-  - {fileID: 196956, guid: 0143f3c80eb5e0b40a7bfe07d7b33f3e, type: 2}
-  - {fileID: 142484, guid: 40192eac7cfcdff43892b7c1ec53a66c, type: 2}
-  - {fileID: 134282, guid: 763619c4b5c1cfc4c9840967d71d01ba, type: 2}
+  - {fileID: 141388, guid: 6a6b9a5e4a7da0740bc9f69287a391bb, type: 2}
+  - {fileID: 150290, guid: cc3d0b5dab333794dad0c5b814c8c179, type: 2}
+  - {fileID: 199794, guid: a6ebec2eec686ea4a99bb2b819ec2485, type: 2}
   - {fileID: 120030, guid: 3690af71123a8524984ef0abe481d8c5, type: 2}
-  - {fileID: 196956, guid: 0143f3c80eb5e0b40a7bfe07d7b33f3e, type: 2}
-  - {fileID: 142484, guid: 40192eac7cfcdff43892b7c1ec53a66c, type: 2}
-  - {fileID: 134282, guid: 763619c4b5c1cfc4c9840967d71d01ba, type: 2}
-  - {fileID: 173660, guid: b17b69806915ed84f8c32aa6ee35610d, type: 2}
-  - {fileID: 120030, guid: 3690af71123a8524984ef0abe481d8c5, type: 2}
-  - {fileID: 142484, guid: 40192eac7cfcdff43892b7c1ec53a66c, type: 2}
-  - {fileID: 134282, guid: 763619c4b5c1cfc4c9840967d71d01ba, type: 2}
-  - {fileID: 173660, guid: b17b69806915ed84f8c32aa6ee35610d, type: 2}
-  - {fileID: 120030, guid: 3690af71123a8524984ef0abe481d8c5, type: 2}
+  - {fileID: 141388, guid: 6a6b9a5e4a7da0740bc9f69287a391bb, type: 2}
+  - {fileID: 150290, guid: cc3d0b5dab333794dad0c5b814c8c179, type: 2}
+  - {fileID: 199794, guid: a6ebec2eec686ea4a99bb2b819ec2485, type: 2}
   xOffsetVisual: 160
   yOffsetVisual: 0.5
   zOffsetVisual: 200
