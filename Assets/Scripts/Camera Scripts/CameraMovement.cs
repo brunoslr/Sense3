@@ -11,13 +11,15 @@ public class CameraMovement : MonoBehaviour
     //How far the camera is supposed to be behind the player.
     public Vector3 initialOffset;
     public float tilt;
+    public float shakeFactor;
     //private PlayerMovement playerMovement; // Removed - Unused
-    public float initialRotationX;
+    private float initialRotationX;
 
     void Start()
     {
         transform.position = player.transform.position + initialOffset;
         initialRotationX = transform.rotation.eulerAngles.x;
+
         // playerMovement = player.GetComponent<PlayerMovement>(); // Removed - Unused
     }
 
@@ -29,5 +31,10 @@ public class CameraMovement : MonoBehaviour
     public void RotateCamera(float dir)
     {
         transform.rotation = Quaternion.Euler(initialRotationX, 0.0f, dir * tilt);
+    }
+
+    public void RumbleCamera()
+    {
+        transform.rotation = Quaternion.Euler(initialRotationX, 0.0f, Mathf.Sin(Time.time * shakeFactor) * tilt);
     }
 }

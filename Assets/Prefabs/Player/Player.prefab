@@ -1,0 +1,416 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &109582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 463522}
+  - 114: {fileID: 11436464}
+  m_Layer: 0
+  m_Name: Player Stats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &117580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 477290}
+  - 114: {fileID: 11460630}
+  - 114: {fileID: 11428628}
+  - 54: {fileID: 5444222}
+  - 64: {fileID: 6443148}
+  - 114: {fileID: 11439268}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &125482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 492412}
+  - 114: {fileID: 11407994}
+  - 114: {fileID: 11483846}
+  - 114: {fileID: 11456308}
+  - 114: {fileID: 11475730}
+  - 114: {fileID: 11477432}
+  - 114: {fileID: 11483938}
+  - 114: {fileID: 11411670}
+  - 114: {fileID: 11445476}
+  m_Layer: 0
+  m_Name: PlayerAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &190316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 473018}
+  - 137: {fileID: 13724266}
+  - 95: {fileID: 9551496}
+  m_Layer: 0
+  m_Name: PlayerMesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &463522
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109582}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 477290}
+  m_RootOrder: 2
+--- !u!4 &473018
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190316}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 477290}
+  m_RootOrder: 0
+--- !u!4 &477290
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117580}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 473018}
+  - {fileID: 492412}
+  - {fileID: 463522}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &492412
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125482}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 477290}
+  m_RootOrder: 1
+--- !u!54 &5444222
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117580}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &6443148
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117580}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: 1236a63cad334ba419b8ee718c772468, type: 3}
+--- !u!95 &9551496
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190316}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 1236a63cad334ba419b8ee718c772468, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11407994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382c8aa86cde5334c9e89fd91c3c6306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11411670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: EDM_SCpad_
+  FolderName: EDM
+  totalTracks: 4
+  audioTracks: []
+  FadeDuration: 0
+--- !u!114 &11428628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ba4772f5eed2f4aa7657f47222dee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11436464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8799a70007526e648959638e96ea4fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LossScenario_sceneName: Infinite
+  WinScenario_sceneName: MainMenu
+  finalRunTime: 15
+  playerAudio: {fileID: 125482}
+--- !u!114 &11439268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b32bf5924b8ccb409ea666b156d06c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialSpeed: 100
+  sideSpeedMul: 1
+  vertSpeedMul: 0.1
+  speedMultiplier: 0.25
+  sideSpeedInc: 1
+  vertSpeedInc: 0.1
+  horClamp: 3.4028235e+38
+  vertClamp: 50
+  horTilt: 30
+  vertTilt: 5
+  linezOffset: 200
+  linexScale: 200
+  jumpVel: 15
+  maxSpeedCounter: 5
+  trailTime: 2
+  gameMode: 0
+  mainCamera: {fileID: 0}
+  playerInsideMine: 0
+--- !u!114 &11445476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: EDM_Snare_
+  FolderName: EDM
+  totalTracks: 4
+  audioTracks: []
+  FadeDuration: 0
+--- !u!114 &11456308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: EDM_HighHat_
+  FolderName: EDM
+  totalTracks: 4
+  audioTracks: []
+  FadeDuration: 0
+--- !u!114 &11460630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78201363abbc7341b32873247690a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visObsCrashSound: {fileID: 8300000, guid: ed9bc2d55c1de2745a57755c9ad7a2f1, type: 3}
+  minObsCrashSound: {fileID: 0}
+  audPickupSound: {fileID: 0}
+  movPlayerSound: {fileID: 0}
+  masterVolume: 0
+--- !u!114 &11475730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: EDM_kick_
+  FolderName: EDM
+  totalTracks: 3
+  audioTracks: []
+  FadeDuration: 0
+--- !u!114 &11477432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: EDM_Lead_
+  FolderName: EDM
+  totalTracks: 4
+  audioTracks: []
+  FadeDuration: 0
+--- !u!114 &11483846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: EDM_Bass_
+  FolderName: EDM
+  totalTracks: 4
+  audioTracks: []
+  FadeDuration: 0
+--- !u!114 &11483938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layername: EDM_RhythmPad_
+  FolderName: EDM
+  totalTracks: 4
+  audioTracks: []
+  FadeDuration: 0
+--- !u!137 &13724266
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190316}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 9bce5248bd70b2d408ebfb8cf4579a96, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 1
+  m_Mesh: {fileID: 4300000, guid: 1236a63cad334ba419b8ee718c772468, type: 3}
+  m_Bones: []
+  m_BlendShapeWeights:
+  - 0
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0.12197876, y: 2.535912, z: -0.0000038146973}
+    m_Extent: {x: 30.628477, y: 16.642792, z: 21.566288}
+  m_DirtyAABB: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 117580}
+  m_IsPrefabParent: 1

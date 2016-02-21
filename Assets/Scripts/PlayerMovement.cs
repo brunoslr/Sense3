@@ -58,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
 
     //private LineRenderer lineRenderer;
 
+    public bool playerInsideMine;
+
     void Start()
     {
         ResetSpeed();
@@ -92,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         MovePlayerForward();
         MovePlayerSideways();
         //MovePlayerVertical();
-        JumpPlayer();
+  
         CheckPlayerGrounded();
     }
 
@@ -101,9 +103,9 @@ public class PlayerMovement : MonoBehaviour
         if (gameMode == GameMode.CONSTINC)
             IncreasePlayerSpeed();
 
-        if(Input.GetButton("Jump"))
+        if (Input.GetButton("Jump") && isGrounded)
         {
-            jump = true;
+            JumpPlayer();
         }
     }
 
@@ -125,7 +127,8 @@ public class PlayerMovement : MonoBehaviour
         {   
             initialSideSpeed = 0.0f;
             curSideSpeedInc = sideSpeedInc;
-            cameraMovement.RotateCamera(0.0f);
+            if(!playerInsideMine)
+                cameraMovement.RotateCamera(0.0f);
             transform.rotation = Quaternion.Euler(0,0,0);
         }
         else
@@ -188,12 +191,9 @@ public class PlayerMovement : MonoBehaviour
 
     void JumpPlayer()
     {
-        if(isGrounded && jump)
-        {
-            isGrounded = false;
-            rigidBody.AddForce(Vector3.up * jumpVel, ForceMode.VelocityChange);
-            rigidBody.useGravity = true;
-        }
+        isGrounded = false;
+        rigidBody.AddForce(Vector3.up * jumpVel, ForceMode.VelocityChange);
+        rigidBody.useGravity = true;
     }
 
     void CheckPlayerGrounded()
