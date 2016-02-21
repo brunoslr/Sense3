@@ -29,6 +29,8 @@ public class MineObstacle : MonoBehaviour
         cameraMovement = camera.GetComponent<CameraMovement>();
         playerMovement = player.GetComponent<PlayerMovement>();
         cameraTwirl = camera.GetComponent<Twirl>();
+        cameraTwirl.radius.x = cameraTwirl.radius.y = 0.1f;
+        cameraTwirl.angle = 150.0f;
         rumblePickup = transform.GetChild(0);
     }
 
@@ -55,9 +57,8 @@ public class MineObstacle : MonoBehaviour
 
         CheckVibrationLevel(other);
         PullPlayerToCenter(other);
-       // cameraMovement.RumbleCamera();
-        Camera.main.transform.LookAt(rumblePickup);
-        cameraTwirl.center = Camera.main.WorldToViewportPoint(rumblePickup.localPosition);
+        cameraMovement.RumbleCamera();
+        cameraTwirl.center = Camera.main.WorldToViewportPoint(rumblePickup.position);
     }
 
     void OnTriggerExit(Collider other)
