@@ -65,8 +65,8 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
         xPosVisualObstacle = (int) player.transform.position.x;
 
-        InitializeTerrain();
-        UpdateTerrainPositionsAndNeighbors();
+        //InitializeTerrain();
+        //UpdateTerrainPositionsAndNeighbors();
 
         visualObstacles = new List<GameObject>();
         loadedVisualObstacles = new List<GameObject>();
@@ -99,7 +99,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         //playerYPosition = player.transform.position.y; // Removed, not used
         playerZPosition = (int)player.transform.position.z;
 
-        UpdateTerrainGrid();
+        //UpdateTerrainGrid();
 
         UpdateVisualObstacles();
 
@@ -116,7 +116,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 		int rotX, rotY, rotZ;
         float xpos = xPosVisualObstacle -  (2 * xOffsetVisual);
         float zpos = zPosVisualObstacle;
-        for (int i = 0; i < 4; ++i)
+        for (int i = 0; i < 3; ++i)
         {
             for (int j = 0; j < 5; j++)
             {
@@ -191,7 +191,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private void CreateNewPuzzleOnSide(float dir)
     {
         float xpos = xPosVisualObstacle + (2 * xOffsetVisual * dir);
-        for (int i = -4; i < 1; i++)
+        for (int i = -3; i < 1; i++)
         {
             Vector3 newPosition = new Vector3(xpos, yOffsetVisual, zPosVisualObstacle + (zOffsetVisual * i));
             if ((Physics.OverlapBox(newPosition, Vector3.one * ((xOffsetVisual / 2.0f) - 20.0f))).Length == 0)
