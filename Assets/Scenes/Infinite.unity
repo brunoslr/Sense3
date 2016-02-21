@@ -211,6 +211,10 @@ Prefab:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1001489375}
+    - target: {fileID: 11450338, guid: e6501d8e514793c448c0826b4322f501, type: 2}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1001489375}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6501d8e514793c448c0826b4322f501, type: 2}
   m_IsPrefabParent: 0
@@ -478,14 +482,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 2379246, guid: 31dd98dbff424254cbb56b9b98c6cc18, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2380320, guid: 31dd98dbff424254cbb56b9b98c6cc18, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31dd98dbff424254cbb56b9b98c6cc18, type: 2}
   m_IsPrefabParent: 0
@@ -590,10 +586,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd9383a6e9024f44846778b74e0365b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1876953504}
+  player: {fileID: 1249071148}
   initialOffset: {x: 0, y: 1.5, z: -5}
   tilt: 5
   initialRotationX: 0
+--- !u!1 &1249071148 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 105690, guid: e6501d8e514793c448c0826b4322f501, type: 2}
+  m_PrefabInternal: {fileID: 35878605}
 --- !u!1 &1313892902
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,22 +726,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e65d82a828bc4e4bb502571310bb849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1876953504}
+  player: {fileID: 1249071148}
   visualObstaclePrefabs:
   - {fileID: 150290, guid: cc3d0b5dab333794dad0c5b814c8c179, type: 2}
   - {fileID: 199794, guid: a6ebec2eec686ea4a99bb2b819ec2485, type: 2}
   - {fileID: 120030, guid: 3690af71123a8524984ef0abe481d8c5, type: 2}
   - {fileID: 141388, guid: 6a6b9a5e4a7da0740bc9f69287a391bb, type: 2}
+  - {fileID: 126794, guid: 2c0c5f1388071c5449fb1471c445976e, type: 2}
+  - {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
   - {fileID: 150290, guid: cc3d0b5dab333794dad0c5b814c8c179, type: 2}
   - {fileID: 199794, guid: a6ebec2eec686ea4a99bb2b819ec2485, type: 2}
   - {fileID: 120030, guid: 3690af71123a8524984ef0abe481d8c5, type: 2}
   - {fileID: 141388, guid: 6a6b9a5e4a7da0740bc9f69287a391bb, type: 2}
+  - {fileID: 126794, guid: 2c0c5f1388071c5449fb1471c445976e, type: 2}
+  - {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
   - {fileID: 150290, guid: cc3d0b5dab333794dad0c5b814c8c179, type: 2}
   - {fileID: 199794, guid: a6ebec2eec686ea4a99bb2b819ec2485, type: 2}
-  xOffsetVisual: 160
-  yOffsetVisual: 0.5
-  zOffsetVisual: 200
-  xClamp: 80
+  - {fileID: 120030, guid: 3690af71123a8524984ef0abe481d8c5, type: 2}
+  - {fileID: 141388, guid: 6a6b9a5e4a7da0740bc9f69287a391bb, type: 2}
+  - {fileID: 126794, guid: 2c0c5f1388071c5449fb1471c445976e, type: 2}
+  - {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+  - {fileID: 150290, guid: cc3d0b5dab333794dad0c5b814c8c179, type: 2}
+  - {fileID: 199794, guid: a6ebec2eec686ea4a99bb2b819ec2485, type: 2}
+  - {fileID: 120030, guid: 3690af71123a8524984ef0abe481d8c5, type: 2}
+  - {fileID: 141388, guid: 6a6b9a5e4a7da0740bc9f69287a391bb, type: 2}
+  - {fileID: 126794, guid: 2c0c5f1388071c5449fb1471c445976e, type: 2}
+  - {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+  - {fileID: 150290, guid: cc3d0b5dab333794dad0c5b814c8c179, type: 2}
+  - {fileID: 199794, guid: a6ebec2eec686ea4a99bb2b819ec2485, type: 2}
+  - {fileID: 120030, guid: 3690af71123a8524984ef0abe481d8c5, type: 2}
+  - {fileID: 141388, guid: 6a6b9a5e4a7da0740bc9f69287a391bb, type: 2}
+  - {fileID: 126794, guid: 2c0c5f1388071c5449fb1471c445976e, type: 2}
+  - {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+  xOffsetVisual: 100
+  yOffsetVisual: 0
+  zOffsetVisual: 100
+  xClamp: 100
   soundObstaclePrefab: {fileID: 173268, guid: 31dd98dbff424254cbb56b9b98c6cc18, type: 2}
   xOffsetSound: 0
   yOffsetSound: 0
@@ -1008,10 +1028,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 655e9b1e2a12e8f40b413dde6feb429d, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1876953504 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 150966, guid: e6501d8e514793c448c0826b4322f501, type: 2}
-  m_PrefabInternal: {fileID: 35878605}
 --- !u!1001 &1894198955
 Prefab:
   m_ObjectHideFlags: 0
