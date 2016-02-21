@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityStandardAssets.ImageEffects;
-
 /// <summary>
 /// This script goes on the main camera.
 /// It declares and defines all the effects taking place in the game.
@@ -52,51 +50,6 @@ public class Effects : MonoBehaviour {
     }
     #endregion
 
-    #region Bloom
-    public void setBloom(float bloom)
-    {
-        this.gameObject.GetComponent<BloomOptimized>().intensity = bloom * bloomScale;
-    }
-    #endregion
-
-    #region FishEye
-    public void startFishEye(float strength)
-    {
-        if(this.gameObject.GetComponent<Fisheye>() == null)
-        {
-            this.gameObject.AddComponent<Fisheye>();
-        }
-        this.gameObject.GetComponent<Fisheye>().strengthX = strength * fishEyeScale;
-        this.gameObject.GetComponent<Fisheye>().strengthY = strength * fishEyeScale;
-        StartCoroutine(endFishEye());
-    }
-
-    IEnumerator endFishEye()
-    {
-        yield return new WaitForSeconds(2.0f);
-        this.gameObject.GetComponent<Fisheye>().strengthX = 0.0f;
-        this.gameObject.GetComponent<Fisheye>().strengthY = 0.0f;
-    }
-    #endregion 
-
-    #region Blur
-    public void startBlur()
-    {
-        if (this.gameObject.GetComponent<MotionBlur>() == null)
-        {
-            this.gameObject.AddComponent<MotionBlur>();
-        }
-        this.gameObject.GetComponent<MotionBlur>().blurAmount = 0.52f;
-        StartCoroutine(endBlur());
-    }
-
-    IEnumerator endBlur()
-    {
-        yield return new WaitForSeconds(blurTime);
-        this.gameObject.GetComponent<MotionBlur>().blurAmount = 0.0f;
-    }
-    #endregion
-    
     // Update is called once per frame
 	void Update () {
 	

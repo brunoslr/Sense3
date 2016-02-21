@@ -23,7 +23,7 @@ public class CoreSystem : MonoBehaviour {
     public static event OnCollisionEvent onObstacleEvent;
 
 
-    // Trigger Function for OnCollisionEvents
+    // Trigger Function for OnCollisionSoundEvents -- Function is triggered when you pick up the sound
     public static void ExecuteOnSoundCollision()
     {
         if(onSoundEvent != null)

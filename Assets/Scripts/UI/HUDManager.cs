@@ -6,11 +6,13 @@ public class HUDManager : MonoBehaviour {
     public Text score;
     public Text soundPickups;
     public GameObject soundHud;
+    private string scoreInitialText;
 
     // Use this for initialization
     void Start () {
         soundHud = GameObject.Find("SoundPickupText");
         soundPickups = soundHud.GetComponent<Text>();
+        scoreInitialText = soundPickups.text;
         // Subscribe the function to eventmanager event
         PlayerStateScript.updateSoundPickup += this.DisplaySoundCount; 
     }
@@ -21,7 +23,7 @@ public class HUDManager : MonoBehaviour {
 	}
    
     public void DisplaySoundCount(string score) {
-		soundPickups.text += score;
+		soundPickups.text = scoreInitialText +" "+ score;
     }
     void OnDestroy()
     {
