@@ -12,6 +12,8 @@ public class PlayerStateScript : MonoBehaviour {
     private int playerLevel;
     private bool finalState;
     private LevelLoader levelLoader;
+    private GameObject player;
+
 
     // UI EVENTS
     public delegate void HUDeventHandler(string message);
@@ -26,6 +28,10 @@ public class PlayerStateScript : MonoBehaviour {
             maxLevel = playerAudio.GetComponents<Layer>().Length;
         else
             maxLevel = 7;
+
+        player = GameObject.FindWithTag("Player");
+        if (player == null)
+            Debug.Log("Cannot find object with tag player");
 
         finalState = false;
         levelLoader = gameObject.AddComponent<LevelLoader>();
@@ -81,7 +87,9 @@ public class PlayerStateScript : MonoBehaviour {
         checkState();
         if(updateSoundPickup != null)
             updateSoundPickup(playerLevel.ToString());
+
     }
+
 
     public void incrementPlayerLevel()
     {
@@ -100,17 +108,7 @@ public class PlayerStateScript : MonoBehaviour {
         return playerLevel;
     }
 
-    //// U.I Trigger Functions
-    //public void UpdateScore(string score)
-    //{
-    //    updateScore(score.ToString());
-    //}
-    //public static void UpdateSoundPickup(string score)
-    //{
-    //    updateSoundPickup(score.ToString());
-    //}
-
-	// Update is called once per frame
+   	// Update is called once per frame
 	void Update () {
 	
 	}

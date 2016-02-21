@@ -175,52 +175,43 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 425792, guid: e6501d8e514793c448c0826b4322f501, type: 2}
+    - target: {fileID: 491392, guid: e6501d8e514793c448c0826b4322f501, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 425792, guid: e6501d8e514793c448c0826b4322f501, type: 2}
+    - target: {fileID: 491392, guid: e6501d8e514793c448c0826b4322f501, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 425792, guid: e6501d8e514793c448c0826b4322f501, type: 2}
+    - target: {fileID: 491392, guid: e6501d8e514793c448c0826b4322f501, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 425792, guid: e6501d8e514793c448c0826b4322f501, type: 2}
+    - target: {fileID: 491392, guid: e6501d8e514793c448c0826b4322f501, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 425792, guid: e6501d8e514793c448c0826b4322f501, type: 2}
+    - target: {fileID: 491392, guid: e6501d8e514793c448c0826b4322f501, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 425792, guid: e6501d8e514793c448c0826b4322f501, type: 2}
+    - target: {fileID: 491392, guid: e6501d8e514793c448c0826b4322f501, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 425792, guid: e6501d8e514793c448c0826b4322f501, type: 2}
+    - target: {fileID: 491392, guid: e6501d8e514793c448c0826b4322f501, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 425792, guid: e6501d8e514793c448c0826b4322f501, type: 2}
+    - target: {fileID: 491392, guid: e6501d8e514793c448c0826b4322f501, type: 2}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11488464, guid: e6501d8e514793c448c0826b4322f501, type: 2}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 1001489375}
     - target: {fileID: 11450338, guid: e6501d8e514793c448c0826b4322f501, type: 2}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1001489375}
-    - target: {fileID: 12083278, guid: e6501d8e514793c448c0826b4322f501, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 12083278, guid: e6501d8e514793c448c0826b4322f501, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6501d8e514793c448c0826b4322f501, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &35878606 stripped
@@ -764,7 +755,7 @@ Terrain:
   m_GameObject: {fileID: 1666843764}
   m_Enabled: 1
   serializedVersion: 3
-  m_TerrainData: {fileID: 15600000, guid: f5961725fb8d59e44943745353213ad7, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 2000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
