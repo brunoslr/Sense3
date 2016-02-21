@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using XInputDotNetPure;
+using UnityStandardAssets.ImageEffects;
 
 public class MineObstacle : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class MineObstacle : MonoBehaviour
     public State state;
     private GameObject player;
     public float pullForce;
+    private GameObject camera;
     private CameraMovement cameraMovement;
-
+    private Twirl cameraTwirl;
+    private PlayerMovement playerMovement;
+    private Transform rumblePickup;
     public enum State{ NEW, LOW, MED, HIGH};
 
 	// Use this for initialization
@@ -21,7 +25,11 @@ public class MineObstacle : MonoBehaviour
     {
         state = State.NEW;
         player = GameObject.Find("Player");
-        cameraMovement = GameObject.Find("MainCameraParent").GetComponent<CameraMovement>();
+        camera =  GameObject.Find("MainCameraParent");
+        cameraMovement = camera.GetComponent<CameraMovement>();
+        playerMovement = player.GetComponent<PlayerMovement>();
+        cameraTwirl = camera.GetComponent<Twirl>();
+        rumblePickup = transform.GetChild(0);
     }
 
     void OnTriggerEnter(Collider other)
@@ -33,6 +41,9 @@ public class MineObstacle : MonoBehaviour
 
         endPos = transform.position.z + transform.localScale.z / 2.0f;
         totalDist = Mathf.Abs(endPos - other.gameObject.transform.position.z);
+        playerMovement.playerInsideMine = true;
+        cameraTwirl.enabled = true;
+        cameraTwirl.center = Camera.main.WorldToViewportPoint(rumblePickup.position);
     }
 
     void OnTriggerStay(Collider other)
@@ -45,6 +56,7 @@ public class MineObstacle : MonoBehaviour
         CheckVibrationLevel(other);
         PullPlayerToCenter(other);
         cameraMovement.RumbleCamera();
+        cameraTwirl.center = Camera.main.WorldToViewportPoint(rumblePickup.position);
     }
 
     void OnTriggerExit(Collider other)
@@ -56,12 +68,17 @@ public class MineObstacle : MonoBehaviour
 
         StopAllCoroutines();
         GamePad.SetVibration(0, 0.0f, 0.0f);
+        cameraTwirl.enabled = false;
     }
-    
+
     void Update()
     {
         if (player.transform.position.z > endPos)
+        {
             state = State.NEW;
+            playerMovement.playerInsideMine = false;
+            cameraTwirl.enabled = false;
+        }
     }
 
     IEnumerator SetVibrationPWM(float activePortion, float freq)
