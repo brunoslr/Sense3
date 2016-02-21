@@ -55,8 +55,9 @@ public class MineObstacle : MonoBehaviour
 
         CheckVibrationLevel(other);
         PullPlayerToCenter(other);
-        cameraMovement.RumbleCamera();
-        cameraTwirl.center = Camera.main.WorldToViewportPoint(rumblePickup.position);
+       // cameraMovement.RumbleCamera();
+        Camera.main.transform.LookAt(rumblePickup);
+        cameraTwirl.center = Camera.main.WorldToViewportPoint(rumblePickup.localPosition);
     }
 
     void OnTriggerExit(Collider other)
