@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
         MovePlayerForward();
         MovePlayerSideways();
         //MovePlayerVertical();
-        JumpPlayer();
+  
         CheckPlayerGrounded();
     }
 
@@ -101,9 +101,9 @@ public class PlayerMovement : MonoBehaviour
         if (gameMode == GameMode.CONSTINC)
             IncreasePlayerSpeed();
 
-        if(Input.GetButton("Jump"))
+        if (Input.GetButton("Jump") && isGrounded)
         {
-            jump = true;
+            JumpPlayer();
         }
     }
 
@@ -188,12 +188,9 @@ public class PlayerMovement : MonoBehaviour
 
     void JumpPlayer()
     {
-        if(isGrounded && jump)
-        {
-            isGrounded = false;
-            rigidBody.AddForce(Vector3.up * jumpVel, ForceMode.VelocityChange);
-            rigidBody.useGravity = true;
-        }
+        isGrounded = false;
+        rigidBody.AddForce(Vector3.up * jumpVel, ForceMode.VelocityChange);
+        rigidBody.useGravity = true;
     }
 
     void CheckPlayerGrounded()
