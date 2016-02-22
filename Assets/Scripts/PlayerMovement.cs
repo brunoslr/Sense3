@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
     //private LineRenderer lineRenderer;
 
-    public bool playerInsideMine;
+    [HideInInspector]public bool playerInsideMine;
 
     void Start()
     {
