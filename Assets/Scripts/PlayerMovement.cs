@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     private CameraMovement cameraMovement;
 
-    //private LineRenderer lineRenderer;
+    private LineRenderer lineRenderer;
 
     [HideInInspector]public bool playerInsideMine;
 
@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         soundEffectsManager = GetComponent<SoundEffectsManager>();
         rigidBody = this.GetComponent<Rigidbody>();
         cameraMovement = mainCamera.GetComponent<CameraMovement>();
-        //lineRenderer = this.GetComponent<LineRenderer>();
+        lineRenderer = this.GetComponent<LineRenderer>();
         isGrounded = true;
         jump = false;
     }
@@ -111,8 +111,8 @@ public class PlayerMovement : MonoBehaviour
 
     void LateUpdate()
     {
-        //lineRenderer.SetPosition(0, new Vector3(this.transform.position.x - linexScale, this.transform.position.y, this.transform.position.z + linezOffset));
-        //lineRenderer.SetPosition(1, new Vector3(this.transform.position.x + linexScale, this.transform.position.y, this.transform.position.z + linezOffset));
+        lineRenderer.SetPosition(0, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 0.5f));
+        lineRenderer.SetPosition(1, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + linezOffset));
     }
 
     void MovePlayerForward()

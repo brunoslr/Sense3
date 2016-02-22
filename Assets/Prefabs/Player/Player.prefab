@@ -29,6 +29,7 @@ GameObject:
   - 54: {fileID: 5444222}
   - 64: {fileID: 6443148}
   - 114: {fileID: 11439268}
+  - 120: {fileID: 12006056}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -245,7 +246,7 @@ MonoBehaviour:
   vertClamp: 50
   horTilt: 30
   vertTilt: 5
-  linezOffset: 200
+  linezOffset: 400
   linexScale: 200
   jumpVel: 15
   maxSpeedCounter: 5
@@ -365,6 +366,45 @@ MonoBehaviour:
   totalTracks: 4
   audioTracks: []
   FadeDuration: 0
+--- !u!120 &12006056
+LineRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117580}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 10}
+  m_Parameters:
+    startWidth: 0.01
+    endWidth: 0.5
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4294967295
+  m_UseWorldSpace: 1
 --- !u!137 &13724266
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
