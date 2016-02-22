@@ -29,6 +29,8 @@ public class MineObstacle : MonoBehaviour
         cameraMovement = camera.GetComponent<CameraMovement>();
         playerMovement = player.GetComponent<PlayerMovement>();
         cameraTwirl = camera.GetComponent<Twirl>();
+        cameraTwirl.radius.x = cameraTwirl.radius.y = 0.05f;
+        cameraTwirl.angle = 150.0f;
         rumblePickup = transform.GetChild(0);
     }
 
@@ -123,12 +125,14 @@ public class MineObstacle : MonoBehaviour
         {
             case State.NEW:
                 state = State.LOW;
+                cameraMovement.tilt = 0.2f;
                 StartCoroutine(SetVibrationPWM(0.4f, freq));
                 break;
             case State.LOW:
                 if (ratio < 0.8f)
                 {
                     state = State.MED;
+                    cameraMovement.tilt = 0.5f;
                     StopAllCoroutines();
                     GamePad.SetVibration(0, 0.0f, 0.0f);
                     StartCoroutine(SetVibrationPWM(0.8f, freq));
@@ -138,6 +142,7 @@ public class MineObstacle : MonoBehaviour
                 if (ratio < 0.4f)
                 {
                     state = State.HIGH;
+                    cameraMovement.tilt = 1.0f;
                     StopAllCoroutines();
                     GamePad.SetVibration(0, 0.0f, 0.0f);
                     StartCoroutine(SetVibrationPWM(1f, freq));
