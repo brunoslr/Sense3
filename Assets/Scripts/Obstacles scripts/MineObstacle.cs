@@ -28,7 +28,7 @@ public class MineObstacle : MonoBehaviour
         camera =  GameObject.Find("MainCameraParent");
         cameraMovement = camera.GetComponent<CameraMovement>();
         playerMovement = player.GetComponent<PlayerMovement>();
-        cameraTwirl = camera.GetComponent<Twirl>();
+        cameraTwirl = camera.GetComponentInChildren<Twirl>();
         cameraTwirl.radius.x = cameraTwirl.radius.y = 0.05f;
         cameraTwirl.angle = 150.0f;
         rumblePickup = transform.GetChild(0);
