@@ -120,7 +120,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         {
             for (int j = 0; j < 5; j++)
             {
-                pick = Random.Range(0, loadedVisualObstacles.Count);
+                pick = Random.Range(0, loadedVisualObstacles.Count-1);
                 visualObstacle = loadedVisualObstacles[pick];
                 visualObstacle.SetActive(true);
                 loadedVisualObstacles.RemoveAt(pick);
