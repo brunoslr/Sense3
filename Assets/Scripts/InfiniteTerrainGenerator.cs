@@ -142,7 +142,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         {
             pick = Random.Range(0, loadedVisualObstacles.Count);
             visualObstacle = loadedVisualObstacles[pick];
-            visualObstacle.SetActive(true);
+            //visualObstacle.SetActive(true);
             loadedVisualObstacles.RemoveAt(pick);
             visualObstacles.Add(visualObstacle);
             visualObstacle.transform.position = new Vector3(xpos, yOffsetVisual, zPosVisualObstacle);
@@ -188,7 +188,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             {
                 int pick = Random.Range(0, loadedVisualObstacles.Count);
                 GameObject visualObstacle = loadedVisualObstacles[pick];
-                visualObstacle.SetActive(true);
+                //visualObstacle.SetActive(true);
                 loadedVisualObstacles.RemoveAt(pick);
                 visualObstacles.Add(visualObstacle);
 
@@ -206,7 +206,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             if (visualObstacle.position.z + 150.0f < playerZPosition)
             {
 				visualObstacle.Rotate (Vector3.zero);
-                visualObstacle.gameObject.SetActive(false);
+                //visualObstacle.gameObject.SetActive(false);
                 visualObstacles.Remove(visualObstacle.gameObject);
                 loadedVisualObstacles.Add(visualObstacle.gameObject);
             }

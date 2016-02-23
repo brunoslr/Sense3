@@ -82,7 +82,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     public void moveLeft()
     {
-        Debug.Log("Left");
         GameObject[,] newPlanes = new GameObject[3, 3];
         for (int i = 0; i < 3; i++)
         {
@@ -102,7 +101,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     public void moveRight()
     {
-        Debug.Log("Right");
         GameObject[,] newPlanes = new GameObject[3, 3];
         for (int i = 0; i < 3; i++)
         {
@@ -122,7 +120,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     public void moveUp()
     {
-        Debug.Log("Up");
         GameObject[,] newPlanes = new GameObject[3, 3];
         for (int i = 0; i < 3; i++)
         {
