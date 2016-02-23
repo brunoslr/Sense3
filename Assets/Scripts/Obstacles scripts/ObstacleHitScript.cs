@@ -5,25 +5,28 @@ using System.Collections;
 /// Triggers the hit() in the state manager.
 /// </summary>
 //[RequireComponent(typeof(BoxCollider))]
-public class ObstacleHitScript : MonoBehaviour {
+public class ObstacleHitScript : MonoBehaviour
+{
 
-   
-	// Use this for initialization
-	void Start () {
-       
-	}
-	
-	// Update is called once per frame
-	void Update () {
-      
-	}
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            // other.gameObject.GetComponent<CoreSystem>().ExecuteOnHit();
-            CoreSystem.ExecuteOnObstacleCollision();
-        }
-    }
+    //// Use this for initialization
+    //void Start()
+    //{
+
+    //}
+
+    //// Update is called once per frame
+    //void Update()
+    //{
+
+    //}
+
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Player")
+    //    {
+    //        // other.gameObject.GetComponent<CoreSystem>().ExecuteOnHit();
+    //        CoreSystem.ExecuteOnObstacleCollision();
+    //    }
+    //}
 }

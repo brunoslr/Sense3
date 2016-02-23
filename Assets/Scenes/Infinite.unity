@@ -193,6 +193,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.size
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 476442, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
       propertyPath: m_LocalPosition.x
       value: -250
@@ -229,6 +233,134 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 2096852407}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[32]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[33]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[34]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[35]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[36]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[37]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[38]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[39]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[40]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[41]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[42]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[43]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[44]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[45]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[46]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[47]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[48]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[49]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[50]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[51]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[52]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[53]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[54]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[55]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[56]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[57]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[58]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[59]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[60]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[61]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[62]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
+    - target: {fileID: 11455888, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[63]
+      value: 
+      objectReference: {fileID: 145690, guid: 100eff7afdcbd9846b50cb68fe24e27e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32c214d6cfd0b90479f1980fb58ad845, type: 2}
   m_IsPrefabParent: 0
