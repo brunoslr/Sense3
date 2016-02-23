@@ -239,4 +239,12 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(trailTime);
         this.gameObject.GetComponent<TrailRenderer>().enabled = false;
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Obstacle")
+        {
+            // other.gameObject.GetComponent<CoreSystem>().ExecuteOnHit();
+            CoreSystem.ExecuteOnObstacleCollision();
+        }
+    }
 }
