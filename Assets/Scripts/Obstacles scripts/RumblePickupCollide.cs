@@ -17,7 +17,7 @@ public class RumblePickupCollide : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "PlayerMesh")
+        if (other.gameObject.tag == "Player")
         {
             CoreSystem.ExecuteOnObstacleCollision();
             mineObstacle.state = 0;

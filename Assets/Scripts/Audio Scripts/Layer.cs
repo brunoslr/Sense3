@@ -27,7 +27,7 @@ public class Layer : MonoBehaviour {
         audioSource.mute = true;
         audioSource.Play();
         currentTrackIndex = 0;
-        minVol = 0.2f;
+        minVol = 0.4f;
         maxVol = 0.8f;
         AudioControllerV2.fadeInLayers += startFadeIn;
         

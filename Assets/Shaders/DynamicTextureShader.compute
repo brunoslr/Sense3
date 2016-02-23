@@ -11,7 +11,7 @@ void CSMain (uint3 id : SV_DispatchThreadID)
     float2 z = float2(((1.0 / 512) * id.x) - 0.5,((1.0 / 512) * id.y) - 0.5);
 
     // Change this for different patterns
-	float2 c = float2(-0.18453326967811071, cos(t / 10.0));
+	float2 c = float2(0.20, cos(t/10));
     
 	int i;
     for(i = 0; i < 100; i++)
