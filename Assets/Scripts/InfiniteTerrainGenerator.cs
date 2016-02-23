@@ -65,8 +65,8 @@ public class InfiniteTerrainGenerator : MonoBehaviour
 
         xPosVisualObstacle = (int) player.transform.position.x;
 
-        InitializeTerrain();
-        UpdateTerrainPositionsAndNeighbors();
+        //InitializeTerrain();
+        //UpdateTerrainPositionsAndNeighbors();
 
         visualObstacles = new List<GameObject>();
         loadedVisualObstacles = new List<GameObject>();
@@ -99,7 +99,7 @@ public class InfiniteTerrainGenerator : MonoBehaviour
         //playerYPosition = player.transform.position.y; // Removed, not used
         playerZPosition = (int)player.transform.position.z;
 
-        UpdateTerrainGrid();
+        //UpdateTerrainGrid();
 
         UpdateVisualObstacles();
 
