@@ -248,11 +248,12 @@ MonoBehaviour:
   vertTilt: 5
   linezOffset: 400
   linexScale: 200
-  jumpVel: 15
+  jumpVel: 8
   maxSpeedCounter: 5
   trailTime: 2
   gameMode: 0
   mainCamera: {fileID: 0}
+  initialSideSpeed: 0
   playerInsideMine: 0
 --- !u!114 &11445476
 MonoBehaviour:
