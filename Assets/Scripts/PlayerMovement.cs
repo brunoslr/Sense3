@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private float forwardSpeed;     // current speed of the player at any point of time.
-    private float initialSideSpeed;
+    public float initialSideSpeed;
     private float initialVertSpeed;
     private float finalSideSpeed;        // current side speed of the player at any point of time.
     private float finalVertSpeed;          // current up down speed of the player.
@@ -149,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
             horAxis = horAxis / Mathf.Abs(horAxis);
             transform.rotation = Quaternion.Euler(0.0f, 0.0f, -horAxis * horTilt);
             transform.Translate(new Vector3(1.0f, 0.0f, 0.0f) * horAxis * initialSideSpeed * Time.deltaTime, Space.World);
-           // cameraMovement.RotateCamera(horAxis);
+            cameraMovement.RotateCamera(horAxis);
 
             soundEffectsManager.MovePlayerSound();
         }
