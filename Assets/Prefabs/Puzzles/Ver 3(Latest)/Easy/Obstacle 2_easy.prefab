@@ -251,6 +251,8 @@ GameObject:
   - 33: {fileID: 3343268}
   - 23: {fileID: 2320924}
   - 95: {fileID: 9504802}
+  - 135: {fileID: 13585956}
+  - 114: {fileID: 11447052}
   m_Layer: 0
   m_Name: meteor_square (2)
   m_TagString: Obstacle
@@ -269,6 +271,8 @@ GameObject:
   - 33: {fileID: 3313196}
   - 23: {fileID: 2384050}
   - 95: {fileID: 9532076}
+  - 135: {fileID: 13547950}
+  - 114: {fileID: 11479906}
   m_Layer: 0
   m_Name: meteor_square (3)
   m_TagString: Obstacle
@@ -287,6 +291,8 @@ GameObject:
   - 33: {fileID: 3355110}
   - 23: {fileID: 2344152}
   - 95: {fileID: 9555788}
+  - 135: {fileID: 13591620}
+  - 114: {fileID: 11448960}
   m_Layer: 0
   m_Name: meteor_square (12)
   m_TagString: Obstacle
@@ -1415,12 +1421,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11447052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11448118
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11448960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182522}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
@@ -1476,6 +1504,17 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11479906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172006}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
@@ -1552,6 +1591,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.46407637
   m_Center: {x: -0.02508071, y: -0.021952482, z: 0.008166956}
+--- !u!135 &13547950
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 64.2236
+  m_Center: {x: -0.000015258789, y: 7.380439, z: -0.30092672}
 --- !u!135 &13549348
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1612,6 +1663,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.4640764
   m_Center: {x: -0.025080232, y: -0.021952959, z: 0.008166001}
+--- !u!135 &13585956
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165720}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 62.20222
+  m_Center: {x: -0.000015258789, y: 7.380439, z: -0.30092672}
 --- !u!135 &13589904
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1624,6 +1687,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.4640764
   m_Center: {x: -0.025080232, y: -0.021952542, z: 0.008165524}
+--- !u!135 &13591620
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 60.641006
+  m_Center: {x: -0.000015258789, y: 7.3803167, z: -0.30092672}
 --- !u!135 &13597454
 SphereCollider:
   m_ObjectHideFlags: 1

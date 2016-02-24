@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11457830}
   m_Layer: 0
   m_Name: Asteroids
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,9 +27,11 @@ GameObject:
   - 33: {fileID: 3395354}
   - 23: {fileID: 2358348}
   - 95: {fileID: 9550230}
+  - 65: {fileID: 6504614}
+  - 114: {fileID: 11414170}
   m_Layer: 0
   m_Name: meteor_square_2 (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +46,7 @@ GameObject:
   - 4: {fileID: 425092}
   m_Layer: 0
   m_Name: Obstacle 1_easy
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +66,7 @@ GameObject:
   - 114: {fileID: 11489982}
   m_Layer: 0
   m_Name: RoundAsteroid (9)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +86,7 @@ GameObject:
   - 114: {fileID: 11475448}
   m_Layer: 0
   m_Name: RoundAsteroid (15)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +101,7 @@ GameObject:
   - 4: {fileID: 412584}
   m_Layer: 0
   m_Name: Moons
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +121,7 @@ GameObject:
   - 114: {fileID: 11478358}
   m_Layer: 0
   m_Name: RoundAsteroid (12)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,7 +141,7 @@ GameObject:
   - 114: {fileID: 11419540}
   m_Layer: 0
   m_Name: RoundAsteroid (17)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +161,7 @@ GameObject:
   - 114: {fileID: 11414042}
   m_Layer: 0
   m_Name: RoundAsteroid (20)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,7 +180,7 @@ GameObject:
   - 114: {fileID: 11415654}
   m_Layer: 0
   m_Name: MainPlanet
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -543,6 +545,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137792}
   m_Mesh: {fileID: 4300000, guid: 2e1d1d571ef903d4eab5f29cbf5b3b53, type: 3}
+--- !u!65 &6504614
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137792}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 195.15488, y: 62.423443, z: 138.74251}
+  m_Center: {x: -66.03008, y: 0.94416696, z: 15.116298}
 --- !u!95 &9516768
 Animator:
   serializedVersion: 3
@@ -651,6 +665,17 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11414170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137792}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
