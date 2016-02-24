@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &138034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 497580}
+  - 114: {fileID: 11440070}
+  m_Layer: 0
+  m_Name: InfinitePlaneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &497580
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11440070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d7da7b2d7ff3d48a6c917443f065e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planePrefab: {fileID: 198202, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
+  player: {fileID: 0}
+  visualObstaclePrefabs:
+  - {fileID: 190520, guid: d3e38982154bd5640b3068fb8d31aa0c, type: 2}
+  - {fileID: 182512, guid: 39ea3fa0afac76049805e9831c415441, type: 2}
+  - {fileID: 102928, guid: b76c3328359c54e4a996f16f0b3bd976, type: 2}
+  - {fileID: 121374, guid: e9210ac1c04d7bd42a260800250ac4ae, type: 2}
+  - {fileID: 144410, guid: 51e5f2d03f71370419d27ca6d347ebee, type: 2}
+  - {fileID: 165350, guid: 7be1be07d0b324b42ba4f28342f41d6f, type: 2}
+  - {fileID: 112888, guid: d835ca4742acc484bb29b9b501c45523, type: 2}
+  xOffsetVisual: 100
+  yOffsetVisual: 0
+  zOffsetVisual: 100
+  xClamp: 50
+  soundObstaclePrefab: {fileID: 173268, guid: cce816729b5e1e34d82e8b3a04687079, type: 2}
+  xOffsetSound: 0
+  yOffsetSound: 0
+  zOffsetSound: 2000
+  zOffsetFromPlayerSound: 400
+  tactileObstaclePrefab: {fileID: 175060, guid: 23aff0babb32e3840b1b75545dff5801,
+    type: 2}
+  xOffsetTactile: 0
+  yOffsetTactile: 0
+  zOffsetTactile: 3000
+  zOffsetFromPlayerTactile: 100
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 138034}
+  m_IsPrefabParent: 1

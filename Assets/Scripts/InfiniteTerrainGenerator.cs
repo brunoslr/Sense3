@@ -113,10 +113,9 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private void InitializeVisualObstacles()
     {
         int pick;
-		int rotX, rotY, rotZ;
         float xpos = xPosVisualObstacle -  (2 * xOffsetVisual);
         float zpos = zPosVisualObstacle;
-        for (int i = 0; i < 3; ++i)
+        for (int i = 0; i < 5; ++i)
         {
             for (int j = 0; j < 5; j++)
             {
@@ -125,10 +124,6 @@ public class InfiniteTerrainGenerator : MonoBehaviour
                 visualObstacle.SetActive(true);
                 loadedVisualObstacles.RemoveAt(pick);
                 visualObstacles.Add(visualObstacle);
-				rotX = Random.Range (0, 360);
-				rotY = Random.Range (0, 360);
-				rotZ = Random.Range (0, 360);
-				visualObstacle.transform.Rotate (new Vector3 (rotX, rotY, rotZ));
                 visualObstacle.transform.position = new Vector3(xpos, yOffsetVisual, zpos);
                 xpos += xOffsetVisual;
                 
@@ -142,7 +137,6 @@ public class InfiniteTerrainGenerator : MonoBehaviour
     private void GenerateVisualObstacles()
     {
         int pick;
-		int rotX, rotY, rotZ;
         float xpos = xPosVisualObstacle - (2 * xOffsetVisual);
         for (int i = 0; i < 5; ++i)
         {
@@ -151,10 +145,6 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             visualObstacle.SetActive(true);
             loadedVisualObstacles.RemoveAt(pick);
             visualObstacles.Add(visualObstacle);
-			rotX = Random.Range (0, 360);
-			rotY = Random.Range (0, 360);
-			rotZ = Random.Range (0, 360);
-			visualObstacle.transform.Rotate (new Vector3 (rotX, rotY, rotZ));
             visualObstacle.transform.position = new Vector3(xpos, yOffsetVisual, zPosVisualObstacle);
             xpos += xOffsetVisual;
         }
@@ -197,13 +187,8 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             if ((Physics.OverlapBox(newPosition, Vector3.one * ((xOffsetVisual / 2.0f) - 20.0f))).Length == 0)
             {
                 int pick = Random.Range(0, loadedVisualObstacles.Count);
-				int rotX, rotY, rotZ;
                 GameObject visualObstacle = loadedVisualObstacles[pick];
                 visualObstacle.SetActive(true);
-				rotX = Random.Range (0, 360);
-				rotY = Random.Range (0, 360);
-				rotZ = Random.Range (0, 360);
-				visualObstacle.transform.Rotate (new Vector3 (rotX, rotY, rotZ));
                 loadedVisualObstacles.RemoveAt(pick);
                 visualObstacles.Add(visualObstacle);
 
