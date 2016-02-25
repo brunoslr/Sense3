@@ -50,15 +50,14 @@ MonoBehaviour:
   - {fileID: 185698, guid: e1f2511905e2d734db71d4d7417089f2, type: 2}
   - {fileID: 164434, guid: 6331028c65938604b8112a0e3ec60c52, type: 2}
   visualDisplacementHorizontal: 100
-  visualDisplacementForward: 100
+  visualDisplacementForward: 200
   visualDisplacementForwardInitial: 500
   soundObstaclePrefab: {fileID: 173268, guid: cce816729b5e1e34d82e8b3a04687079, type: 2}
-  soundDisplacementForward: 2000
   soundDisplacementRandomFactor: 100
   soundDisplacementFromPlayer: 400
   tactileObstaclePrefab: {fileID: 175060, guid: 23aff0babb32e3840b1b75545dff5801,
     type: 2}
-  tactileDisplacementForward: 3000
+  tactileDisplacementInitial: 1500
   tactileDisplacementRandomFactor: 150
   tactileDisplacementFromPlayer: 100
 --- !u!1001 &100100000

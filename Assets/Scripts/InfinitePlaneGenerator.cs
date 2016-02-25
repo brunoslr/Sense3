@@ -16,13 +16,12 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     //Sound obstacle placement requirements
     public GameObject soundObstaclePrefab;
-    public int soundDisplacementForward;
     public int soundDisplacementRandomFactor;
     public int soundDisplacementFromPlayer;
 
     //Tactile obstacle placement requirements
     public GameObject tactileObstaclePrefab;
-    public int tactileDisplacementForward;
+    public int tactileDisplacementInitial;
     public int tactileDisplacementRandomFactor;
     public int tactileDisplacementFromPlayer;
 
@@ -56,7 +55,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
     private int visualPlacementInitialTrigger;
     private int nextVisualZDisplacement;
 
-    private int nextSoundZDispalcement;
+    private int nextSoundZDisplacement;
     private int soundPlacementZTrigger;
 
     private int nextTactileZDisplacement;
@@ -121,9 +120,9 @@ public class InfinitePlaneGenerator : MonoBehaviour
         soundObstacle = Instantiate(soundObstaclePrefab);
         soundObstacle.SetActive(false);
         soundZScale = (int)soundObstacle.transform.localScale.z;
-        nextSoundZDispalcement = soundDisplacementFromPlayer + (soundZScale / 4);
-        soundObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, nextSoundZDispalcement);
-        soundPlacementZTrigger = nextSoundZDispalcement + (soundZScale / 2) + soundDisplacementFromPlayer;
+        nextSoundZDisplacement = soundDisplacementFromPlayer + (soundZScale / 4);
+        soundObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, nextSoundZDisplacement);
+        soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + 100;
         soundObstacle.SetActive(true);
     }
 
@@ -132,6 +131,10 @@ public class InfinitePlaneGenerator : MonoBehaviour
         tactileObstacle = Instantiate(tactileObstaclePrefab);
         tactileObstacle.SetActive(false);
         tactileZScale = (int)tactileObstacle.transform.localScale.z;
+        nextTactileZDisplacement = tactileDisplacementInitial + (tactileZScale / 2);
+        tactileObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, nextTactileZDisplacement);
+        tactilePlacementZTrigger = nextTactileZDisplacement + (tactileZScale / 2) + Random.Range(0, tactileDisplacementRandomFactor);
+        tactileObstacle.SetActive(true);
     }
 
     private void InitializeVisualObstacles()
@@ -177,7 +180,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
         UpdateSoundObstacle();
 
-        //UpdateTactileObstacle();
+        UpdateTactileObstacle();
     }
 
     private void UpdatePlane()
@@ -333,7 +336,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
         float xpos = xPosVisualObstacle + (2 * visualDisplacementHorizontal * dir);
         for (int i = -5; i < 1; i++)
         {
-            Vector3 newPosition = new Vector3(xpos, 0, nextVisualZDisplacement + (visualDisplacementHorizontal * i));
+            Vector3 newPosition = new Vector3(xpos, 0, nextVisualZDisplacement + (visualDisplacementForward * i));
             if ((Physics.OverlapBox(newPosition, Vector3.one).Length == 0))
             {
                 pick = Random.Range(0, loadedVisualObstacles.Count);
@@ -370,9 +373,9 @@ public class InfinitePlaneGenerator : MonoBehaviour
     {
         if (playerZPosition > soundPlacementZTrigger)
         {
-            nextSoundZDispalcement = playerZPosition + soundDisplacementFromPlayer + soundZScale / 4;
-            soundPlacementZTrigger = nextSoundZDispalcement + soundDisplacementFromPlayer + (soundZScale/2);
-            GenerateSoundObstacle(nextSoundZDispalcement);
+            nextSoundZDisplacement = playerZPosition + soundDisplacementFromPlayer + (soundZScale / 2) + Random.Range(-soundDisplacementRandomFactor, soundDisplacementRandomFactor);
+            soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + 100;
+            GenerateSoundObstacle(nextSoundZDisplacement);
         }
     }
 
@@ -385,11 +388,12 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     private void UpdateTactileObstacle()
     {
-        //if (playerZPosition > zOffsetTactile)
-        //{
-        //    zOffsetTactile += zOffsetBetweenTactileObstacle;
-        //    GenerateTactileObstacle(playerZPosition + zOffsetFromPlayerTactile + tactileObstacle.transform.localScale.z);
-        //}
+        if (playerZPosition > tactilePlacementZTrigger)
+        {
+            nextTactileZDisplacement = playerZPosition + tactileDisplacementFromPlayer + (tactileZScale / 2);
+            tactilePlacementZTrigger = nextTactileZDisplacement + (tactileZScale / 2) + Random.Range(0, tactileDisplacementRandomFactor);
+            GenerateTactileObstacle(nextTactileZDisplacement);
+        }
     }
 
     private void GenerateTactileObstacle(float zPosition)
