@@ -9,24 +9,21 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     //Visual obstacle requirements
     public GameObject[] visualObstaclePrefabs;
-    public float xOffsetVisual;
-    public float yOffsetVisual;
-    public float zOffsetVisual;
-    public int xClamp;
+    public int visualDisplacementHorizontal;
+    public int visualDisplacementForward;
+    public int visualDisplacementForwardInitial;
+
 
     //Sound obstacle placement requirements
     public GameObject soundObstaclePrefab;
-    public float xOffsetSound;
-    public float yOffsetSound;
-    public float zOffsetSound;
-    public float zOffsetFromPlayerSound;
+    public int soundDisplacementRandomFactor;
+    public int soundDisplacementFromPlayer;
 
     //Tactile obstacle placement requirements
     public GameObject tactileObstaclePrefab;
-    public float xOffsetTactile;
-    public float yOffsetTactile;
-    public float zOffsetTactile;
-    public float zOffsetFromPlayerTactile;
+    public int tactileDisplacementInitial;
+    public int tactileDisplacementRandomFactor;
+    public int tactileDisplacementFromPlayer;
 
     //Plane update requirements
     private float sizeOfPlaneX;
@@ -45,15 +42,24 @@ public class InfinitePlaneGenerator : MonoBehaviour
     private int xPosVisualObstacle;
 
     private GameObject soundObstacle;
-    private float zOffsetBetweenSoundObstacle;
+    private int soundZScale;
 
     private GameObject tactileObstacle;
-    private float zOffsetBetweenTactileObstacle;
+    private int tactileZScale;
 
+    private int xClamp;
     private int lowerClamp;
     private int upperClamp;
 
-    private int nextZ;
+    private int visualPlacementZTrigger;
+    private int visualPlacementInitialTrigger;
+    private int nextVisualZDisplacement;
+
+    private int nextSoundZDisplacement;
+    private int soundPlacementZTrigger;
+
+    private int nextTactileZDisplacement;
+    private int tactilePlacementZTrigger;
 
     void Start()
     {
@@ -70,32 +76,26 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     private void SetupPlaneGrid()
     {
+        playerXPosition = (int)player.transform.position.x;
+        playerZPosition = (int)player.transform.position.z;
         sizeOfPlaneX = planePrefab.GetComponent<Renderer>().bounds.size.x;
         sizeOfPlaneZ = planePrefab.GetComponent<Renderer>().bounds.size.z;
-
+        Vector3 planePosition;
         for (int i = 0; i < 3; i++)
         {
             for (int c = 0; c < 3; c++)
             {
                 planes[i, c] = GameObject.Instantiate(planePrefab) as GameObject;
                 planes[i, c].name = i + "," + c;
-            }
-        }
-
-        // Reposition all of the planes.
-        for (int i = 0; i < 3; i++)
-        {
-            for (int c = 0; c < 3; c++)
-            {
-                // Adjust the x, z positions.
-                Vector3 tempPos = new Vector3((float)sizeOfPlaneX * (i - 1), -5, (float)sizeOfPlaneZ * ((c - 1) * -1));
-                planes[i, c].transform.position = tempPos;
+                planePosition = new Vector3((float)sizeOfPlaneX * (i - 1), -5, (float)sizeOfPlaneZ * ((c - 1) * -1));
+                planes[i, c].transform.position = planePosition;
             }
         }
     }
 
     private void LoadVisualObstacles()
     {
+        xClamp = visualDisplacementHorizontal / 2;
         lowerClamp = (int)player.transform.position.x - xClamp;
         upperClamp = (int)player.transform.position.x + xClamp;
 
@@ -111,31 +111,39 @@ public class InfinitePlaneGenerator : MonoBehaviour
             temp.SetActive(false);
             loadedVisualObstacles.Add(temp);
         }
-
-        zPosVisualObstacle = (int)zOffsetVisual;
-        nextZ = (int)(zOffsetVisual - (zOffsetVisual / 2));
+        visualPlacementZTrigger = visualDisplacementForwardInitial;
+        visualPlacementInitialTrigger = visualDisplacementForwardInitial - visualDisplacementForward;
     }
 
     private void LoadSoundObstacle()
     {
-        zOffsetBetweenSoundObstacle = zOffsetSound;
         soundObstacle = Instantiate(soundObstaclePrefab);
         soundObstacle.SetActive(false);
+        soundZScale = (int)soundObstacle.transform.localScale.z;
+        nextSoundZDisplacement = soundDisplacementFromPlayer + (soundZScale / 4);
+        soundObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, nextSoundZDisplacement);
+        soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + 100;
+        soundObstacle.SetActive(true);
     }
 
     private void LoadTactileObstacle()
     {
-        zOffsetBetweenTactileObstacle = zOffsetTactile;
         tactileObstacle = Instantiate(tactileObstaclePrefab);
         tactileObstacle.SetActive(false);
+        tactileZScale = (int)tactileObstacle.transform.localScale.z;
+        nextTactileZDisplacement = tactileDisplacementInitial + (tactileZScale / 2);
+        tactileObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, nextTactileZDisplacement);
+        tactilePlacementZTrigger = nextTactileZDisplacement + (tactileZScale / 2) + Random.Range(0, tactileDisplacementRandomFactor);
+        tactileObstacle.SetActive(true);
     }
 
     private void InitializeVisualObstacles()
     {
         int pick;
-        float xpos = xPosVisualObstacle - (2 * xOffsetVisual);
-        float zpos = zPosVisualObstacle;
-        for (int i = 0; i < 5; ++i)
+        int rotX, rotY, rotZ;
+        float xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal);
+        float zpos = visualDisplacementForwardInitial;
+        for (int i = 0; i < 5; i++)
         {
             for (int j = 0; j < 5; j++)
             {
@@ -144,14 +152,18 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 visualObstacle.SetActive(true);
                 loadedVisualObstacles.RemoveAt(pick);
                 visualObstacles.Add(visualObstacle);
-                visualObstacle.transform.position = new Vector3(xpos, yOffsetVisual, zpos);
-                xpos += xOffsetVisual;
+                rotX = Random.Range(0, 360);
+                rotY = Random.Range(0, 360);
+                rotZ = Random.Range(0, 360);
+                visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
+                visualObstacle.transform.position = new Vector3(xpos, 0, zpos);
+                xpos += visualDisplacementHorizontal;
 
             }
-            zpos += zOffsetVisual;
-            xpos = xPosVisualObstacle - (2 * xOffsetVisual);
+            zpos += ((5 - (i+1)) / 5.0f) * visualDisplacementForwardInitial;
+            xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal);
         }
-        zPosVisualObstacle = (int)(zpos - zOffsetVisual);
+        nextVisualZDisplacement = (int)zpos;
     }
 
     void Update()
@@ -266,24 +278,32 @@ public class InfinitePlaneGenerator : MonoBehaviour
     {
         if ((int)playerXPosition < lowerClamp)
         {
-            xPosVisualObstacle -= (int)xOffsetVisual;
+            xPosVisualObstacle -= (int)visualDisplacementHorizontal;
             upperClamp = lowerClamp;
             lowerClamp -= 2 * xClamp;
-            CreateNewPuzzleOnSide(-1.0f);
+            CreateVisualObstaclesOnSide(-1.0f);
         }
 
         if ((int)playerXPosition > upperClamp)
         {
-            xPosVisualObstacle += (int)xOffsetVisual;
+            xPosVisualObstacle += (int)visualDisplacementHorizontal;
             lowerClamp = upperClamp;
             upperClamp += 2 * xClamp;
-            CreateNewPuzzleOnSide(1.0f);
+            CreateVisualObstaclesOnSide(1.0f);
         }
 
-        if (playerZPosition > nextZ)
+        if (playerZPosition > visualPlacementZTrigger)
         {
-            nextZ += (int)zOffsetVisual;
-            zPosVisualObstacle += (int)zOffsetVisual;
+            if (visualPlacementInitialTrigger > 100)
+            {
+                visualPlacementZTrigger += visualPlacementInitialTrigger;
+                visualPlacementInitialTrigger -= visualDisplacementForward;
+            }
+            else
+            {
+                visualPlacementZTrigger += (int)visualDisplacementForward;
+            }
+            nextVisualZDisplacement += (int)visualDisplacementForward;
             GenerateVisualObstacles();
         }
     }
@@ -291,7 +311,8 @@ public class InfinitePlaneGenerator : MonoBehaviour
     private void GenerateVisualObstacles()
     {
         int pick;
-        float xpos = xPosVisualObstacle - (2 * xOffsetVisual);
+        int rotX, rotY, rotZ;
+        float xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal);
         for (int i = 0; i < 5; ++i)
         {
             pick = Random.Range(0, loadedVisualObstacles.Count);
@@ -299,26 +320,35 @@ public class InfinitePlaneGenerator : MonoBehaviour
             visualObstacle.SetActive(true);
             loadedVisualObstacles.RemoveAt(pick);
             visualObstacles.Add(visualObstacle);
-            visualObstacle.transform.position = new Vector3(xpos, yOffsetVisual, zPosVisualObstacle);
-            xpos += xOffsetVisual;
+            rotX = Random.Range(0, 360);
+            rotY = Random.Range(0, 360);
+            rotZ = Random.Range(0, 360);
+            visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
+            visualObstacle.transform.position = new Vector3(xpos, 0, nextVisualZDisplacement);
+            xpos += visualDisplacementHorizontal;
         }
     }
 
-    private void CreateNewPuzzleOnSide(float dir)
+    private void CreateVisualObstaclesOnSide(float dir)
     {
-        float xpos = xPosVisualObstacle + (2 * xOffsetVisual * dir);
+        int pick;
+        int rotX, rotY, rotZ;
+        float xpos = xPosVisualObstacle + (2 * visualDisplacementHorizontal * dir);
         for (int i = -5; i < 1; i++)
         {
-            Vector3 newPosition = new Vector3(xpos, yOffsetVisual, zPosVisualObstacle + (zOffsetVisual * i));
-            if ((Physics.OverlapBox(newPosition, Vector3.one * ((xOffsetVisual / 2.0f) - 20.0f))).Length == 0)
+            Vector3 newPosition = new Vector3(xpos, 0, nextVisualZDisplacement + (visualDisplacementForward * i));
+            if ((Physics.OverlapBox(newPosition, Vector3.one).Length == 0))
             {
-                int pick = Random.Range(0, loadedVisualObstacles.Count);
+                pick = Random.Range(0, loadedVisualObstacles.Count);
                 GameObject visualObstacle = loadedVisualObstacles[pick];
                 visualObstacle.SetActive(true);
                 loadedVisualObstacles.RemoveAt(pick);
                 visualObstacles.Add(visualObstacle);
-
-                visualObstacle.transform.position = new Vector3(xpos, yOffsetVisual, zPosVisualObstacle + (zOffsetVisual * i));
+                rotX = Random.Range(0, 360);
+                rotY = Random.Range(0, 360);
+                rotZ = Random.Range(0, 360);
+                visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
+                visualObstacle.transform.position = new Vector3(xpos, 0, nextVisualZDisplacement + (visualDisplacementHorizontal * i));
             }
         }
     }
@@ -341,10 +371,11 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     private void UpdateSoundObstacle()
     {
-        if (playerZPosition > zOffsetSound)
+        if (playerZPosition > soundPlacementZTrigger)
         {
-            zOffsetSound += zOffsetBetweenSoundObstacle;
-            GenerateSoundObstacle(playerZPosition + zOffsetFromPlayerSound + soundObstacle.transform.localScale.z);
+            nextSoundZDisplacement = playerZPosition + soundDisplacementFromPlayer + (soundZScale / 2) + Random.Range(-soundDisplacementRandomFactor, soundDisplacementRandomFactor);
+            soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + 100;
+            GenerateSoundObstacle(nextSoundZDisplacement);
         }
     }
 
@@ -352,21 +383,22 @@ public class InfinitePlaneGenerator : MonoBehaviour
     {
         soundObstacle.SetActive(true);
         soundObstacle.GetComponentInChildren<PickUpScript>().pickedUp = false;
-        soundObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), yOffsetSound, zPosition);
+        soundObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, zPosition);
     }
 
     private void UpdateTactileObstacle()
     {
-        if (playerZPosition > zOffsetTactile)
+        if (playerZPosition > tactilePlacementZTrigger)
         {
-            zOffsetTactile += zOffsetBetweenTactileObstacle;
-            GenerateTactileObstacle(playerZPosition + zOffsetFromPlayerTactile + tactileObstacle.transform.localScale.z);
+            nextTactileZDisplacement = playerZPosition + tactileDisplacementFromPlayer + (tactileZScale / 2);
+            tactilePlacementZTrigger = nextTactileZDisplacement + (tactileZScale / 2) + Random.Range(0, tactileDisplacementRandomFactor);
+            GenerateTactileObstacle(nextTactileZDisplacement);
         }
     }
 
     private void GenerateTactileObstacle(float zPosition)
     {
         tactileObstacle.SetActive(true);
-        tactileObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), yOffsetTactile, zPosition);
+        tactileObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, zPosition);
     }
 }
