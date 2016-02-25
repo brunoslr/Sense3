@@ -49,21 +49,18 @@ MonoBehaviour:
   - {fileID: 195946, guid: bb00e178edceed045832877ce1784f72, type: 2}
   - {fileID: 185698, guid: e1f2511905e2d734db71d4d7417089f2, type: 2}
   - {fileID: 164434, guid: 6331028c65938604b8112a0e3ec60c52, type: 2}
-  xOffsetVisual: 100
-  yOffsetVisual: 0
-  zOffsetVisual: 100
-  xClamp: 50
+  visualDisplacementHorizontal: 100
+  visualDisplacementForward: 100
+  visualDisplacementForwardInitial: 500
   soundObstaclePrefab: {fileID: 173268, guid: cce816729b5e1e34d82e8b3a04687079, type: 2}
-  xOffsetSound: 0
-  yOffsetSound: 0
-  zOffsetSound: 2000
-  zOffsetFromPlayerSound: 400
+  soundDisplacementForward: 2000
+  soundDisplacementRandomFactor: 100
+  soundDisplacementFromPlayer: 400
   tactileObstaclePrefab: {fileID: 175060, guid: 23aff0babb32e3840b1b75545dff5801,
     type: 2}
-  xOffsetTactile: 0
-  yOffsetTactile: 0
-  zOffsetTactile: 3000
-  zOffsetFromPlayerTactile: 100
+  tactileDisplacementForward: 3000
+  tactileDisplacementRandomFactor: 150
+  tactileDisplacementFromPlayer: 100
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
