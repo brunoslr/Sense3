@@ -49,7 +49,8 @@ public class PlayerMovement : MonoBehaviour
     private float vertAxis;
     private bool isGrounded;
     private bool jump;
-
+    private int collisionTempTime;
+    private bool coolDownflag = false;
     private Rigidbody rigidBody;
 
     private SoundEffectsManager soundEffectsManager;
@@ -76,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
         lineRenderer = this.GetComponent<LineRenderer>();
         isGrounded = true;
         jump = false;
+        collisionTempTime = CoreSystem.coolDownTimeInSeconds;
+        coolDownflag = false;   
     }
    public void ResetSpeed()
     {
@@ -225,13 +228,26 @@ public class PlayerMovement : MonoBehaviour
 
     public void ReducePlayerSpeed()
     {
-        if (speedCounter > 0)
+        if (!coolDownflag)
         {
-            --speedCounter;
-            forwardSpeed = (1.0f + (speedMultiplier * speedCounter)) * initialSpeed;
-            finalSideSpeed = forwardSpeed * sideSpeedMul;
-            finalVertSpeed = forwardSpeed * vertSpeedMul;
+            if (speedCounter > 0)
+            {
+                --speedCounter;
+                forwardSpeed = (1.0f + (speedMultiplier * speedCounter)) * initialSpeed;
+                finalSideSpeed = forwardSpeed * sideSpeedMul;
+                finalVertSpeed = forwardSpeed * vertSpeedMul;
+            }
+            coolDownflag = true;
+            StartCoroutine(CoolDown());
         }
+    }
+
+    IEnumerator CoolDown()
+    {
+        forwardSpeed /= 2.0f;
+        yield return new WaitForSeconds(collisionTempTime);
+        forwardSpeed *= 2.0f;
+        coolDownflag = false;
     }
 
     IEnumerator EndTrail()
