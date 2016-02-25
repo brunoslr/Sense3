@@ -23,6 +23,15 @@ public class CameraMovement : MonoBehaviour
         // playerMovement = player.GetComponent<PlayerMovement>(); // Removed - Unused
     }
 
+    void Awake()
+    {
+        GameObject[] camera = GameObject.FindGameObjectsWithTag("MainCamera");
+        for (int i = 0; i < camera.Length; i++)
+        {
+            camera[i].GetComponent<Camera>().farClipPlane *= 5.0f;
+        }
+    }
+
     void LateUpdate()
     {
         transform.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z + initialOffset.z);
