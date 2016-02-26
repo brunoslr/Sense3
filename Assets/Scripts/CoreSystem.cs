@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 
 /// <summary>
@@ -15,13 +16,23 @@ public class CoreSystem : MonoBehaviour {
     // Naming convention : object_the_script_si acctached_to Initials of the script
 
     // Use this for initialization
+    public int coolDownTime = 2;
+    public static int coolDownTimeInSeconds = 2;
+    public static bool coolDownFlag = false;
+    public static CoreSystem instance;                  // needed to call coroutines from STATIC functions
 
-    
     // On Collision Events
     public delegate void OnCollisionEvent();
     public static event OnCollisionEvent onSoundEvent;
     public static event OnCollisionEvent onObstacleEvent;
 
+
+    void Awake()
+    {
+        coolDownTimeInSeconds = coolDownTime;
+        instance = this;
+        coolDownFlag = false; 
+    }
 
     // Trigger Function for OnCollisionSoundEvents -- Function is triggered when you pick up the sound
     public static void ExecuteOnSoundCollision()
@@ -36,12 +47,25 @@ public class CoreSystem : MonoBehaviour {
 
     public static void ExecuteOnObstacleCollision()
     {
-        if (onObstacleEvent != null)
-            onObstacleEvent();
-        else
-            Debug.Log("OnObstacleEvent is null: cannot call anything");
+        Debug.Log("Collision detected :" + coolDownFlag);
+        if (!coolDownFlag)
+        {
+            if (onObstacleEvent != null)
+                onObstacleEvent();
+            else
+                Debug.Log("OnObstacleEvent is null: cannot call anything");
 
+            coolDownFlag = true;
+
+            instance.StartCoroutine(instance.CoolDown());
+        }
         //LogSoundPickupSubscribedFunctions()
+    }
+
+    IEnumerator CoolDown()
+    {
+        yield return new WaitForSeconds(coolDownTimeInSeconds);
+        coolDownFlag = false;
     }
 
     //finding subscribed functions 
