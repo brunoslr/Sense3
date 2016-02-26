@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2397682}
   - 95: {fileID: 9536832}
   - 135: {fileID: 13592986}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (60)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ GameObject:
   - 23: {fileID: 2312010}
   - 95: {fileID: 9591108}
   - 65: {fileID: 6589806}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AsteroidLong (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   - 33: {fileID: 3391736}
   - 135: {fileID: 13573412}
   - 23: {fileID: 2349160}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - 23: {fileID: 2367078}
   - 95: {fileID: 9543788}
   - 135: {fileID: 13539926}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (61)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - 23: {fileID: 2366912}
   - 95: {fileID: 9535360}
   - 135: {fileID: 13572488}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (58)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - 23: {fileID: 2366954}
   - 95: {fileID: 9570820}
   - 135: {fileID: 13539634}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (66)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 491360}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Obstacle 5_easy
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - 23: {fileID: 2342154}
   - 95: {fileID: 9566944}
   - 65: {fileID: 6531136}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AsteroidLong
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -673,7 +673,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 184430}

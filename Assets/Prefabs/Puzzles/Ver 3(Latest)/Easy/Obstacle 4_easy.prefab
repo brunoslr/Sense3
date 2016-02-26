@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11422992}
   - 65: {fileID: 6576112}
   - 65: {fileID: 6533126}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tier_14
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ GameObject:
   - 114: {fileID: 11497790}
   - 65: {fileID: 6517778}
   - 65: {fileID: 6578322}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tier_6
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - 114: {fileID: 11480804}
   - 65: {fileID: 6526854}
   - 65: {fileID: 6599852}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tier_15
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426178}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Obstacle 4_easy
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - 114: {fileID: 11466060}
   - 65: {fileID: 6558280}
   - 65: {fileID: 6509490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tier_10
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - 114: {fileID: 11454564}
   - 65: {fileID: 6553496}
   - 65: {fileID: 6542798}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tier_9
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - 114: {fileID: 11409792}
   - 65: {fileID: 6569514}
   - 65: {fileID: 6513954}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tier_5
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - 114: {fileID: 11412040}
   - 65: {fileID: 6585630}
   - 65: {fileID: 6505094}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tier_12
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - 114: {fileID: 11497314}
   - 65: {fileID: 6597814}
   - 65: {fileID: 6534616}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tier_3
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - 114: {fileID: 11432656}
   - 65: {fileID: 6556932}
   - 65: {fileID: 6595566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tier_8
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - 114: {fileID: 11423618}
   - 65: {fileID: 6541038}
   - 65: {fileID: 6558052}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tier_13
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   - 114: {fileID: 11433058}
   - 65: {fileID: 6509940}
   - 65: {fileID: 6574172}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tier_7
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - 4: {fileID: 467082}
   - 95: {fileID: 9526832}
   - 64: {fileID: 6437426}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Moving Pillar (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - 114: {fileID: 11484870}
   - 65: {fileID: 6511148}
   - 65: {fileID: 6575458}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tier_11
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1304,7 +1304,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 121476}

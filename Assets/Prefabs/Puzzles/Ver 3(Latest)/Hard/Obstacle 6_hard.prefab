@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2382016}
   - 95: {fileID: 9511204}
   - 135: {fileID: 13513882}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (80)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ GameObject:
   - 23: {fileID: 2316008}
   - 95: {fileID: 9570532}
   - 135: {fileID: 13511780}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (81)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   - 23: {fileID: 2390966}
   - 95: {fileID: 9538940}
   - 135: {fileID: 13510738}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (84)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - 23: {fileID: 2347216}
   - 95: {fileID: 9546308}
   - 135: {fileID: 13577086}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (85)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - 23: {fileID: 2373098}
   - 95: {fileID: 9529342}
   - 65: {fileID: 6588804}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AsteroidLong (7)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - 23: {fileID: 2364464}
   - 95: {fileID: 9595130}
   - 65: {fileID: 6593068}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AsteroidLong (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - 23: {fileID: 2370092}
   - 95: {fileID: 9520788}
   - 135: {fileID: 13531578}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (83)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Obstacle 6_hard
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - 23: {fileID: 2329778}
   - 95: {fileID: 9590030}
   - 135: {fileID: 13540124}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (78)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - 23: {fileID: 2337392}
   - 95: {fileID: 9503886}
   - 135: {fileID: 13578146}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (77)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - 23: {fileID: 2353078}
   - 95: {fileID: 9501390}
   - 65: {fileID: 6538036}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AsteroidLong (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - 23: {fileID: 2343954}
   - 95: {fileID: 9577100}
   - 135: {fileID: 13551726}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (82)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - 23: {fileID: 2363302}
   - 95: {fileID: 9560862}
   - 135: {fileID: 13548688}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (86)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - 23: {fileID: 2349858}
   - 95: {fileID: 9511208}
   - 65: {fileID: 6599684}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AsteroidLong (8)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   - 23: {fileID: 2392664}
   - 95: {fileID: 9593410}
   - 135: {fileID: 13542142}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (79)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - 23: {fileID: 2320200}
   - 95: {fileID: 9573190}
   - 65: {fileID: 6556188}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AsteroidLong (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1447,6 +1447,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

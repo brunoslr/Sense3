@@ -405,30 +405,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 2096852407}
-    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
-      propertyPath: tactileDisplacementInitial
-      value: 3000
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
-      propertyPath: tactileDisplacementRandomFactor
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
-      propertyPath: visualDisplacementForward
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
-      propertyPath: soundDisplacementFromPlayer
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
-      propertyPath: tactileObstaclePrefab
-      value: 
-      objectReference: {fileID: 175060, guid: 23aff0babb32e3840b1b75545dff5801, type: 2}
-    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
-      propertyPath: tactileDisplacementFromPlayer
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
   m_IsPrefabParent: 0
