@@ -11,7 +11,6 @@ GameObject:
   - 33: {fileID: 3381816}
   - 23: {fileID: 2397682}
   - 95: {fileID: 9536832}
-  - 114: {fileID: 11420512}
   - 135: {fileID: 13592986}
   m_Layer: 0
   m_Name: RoundAsteroid (60)
@@ -32,7 +31,6 @@ GameObject:
   - 23: {fileID: 2312010}
   - 95: {fileID: 9591108}
   - 65: {fileID: 6589806}
-  - 114: {fileID: 11463264}
   m_Layer: 0
   m_Name: AsteroidLong (5)
   m_TagString: Obstacle
@@ -51,7 +49,6 @@ GameObject:
   - 33: {fileID: 3391736}
   - 135: {fileID: 13573412}
   - 23: {fileID: 2349160}
-  - 114: {fileID: 11456558}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Obstacle
@@ -70,7 +67,6 @@ GameObject:
   - 33: {fileID: 3375952}
   - 23: {fileID: 2367078}
   - 95: {fileID: 9543788}
-  - 114: {fileID: 11454146}
   - 135: {fileID: 13539926}
   m_Layer: 0
   m_Name: RoundAsteroid (61)
@@ -90,7 +86,6 @@ GameObject:
   - 33: {fileID: 3372622}
   - 23: {fileID: 2366912}
   - 95: {fileID: 9535360}
-  - 114: {fileID: 11467608}
   - 135: {fileID: 13572488}
   m_Layer: 0
   m_Name: RoundAsteroid (58)
@@ -110,7 +105,6 @@ GameObject:
   - 33: {fileID: 3358960}
   - 23: {fileID: 2366954}
   - 95: {fileID: 9570820}
-  - 114: {fileID: 11445328}
   - 135: {fileID: 13539634}
   m_Layer: 0
   m_Name: RoundAsteroid (66)
@@ -146,7 +140,6 @@ GameObject:
   - 23: {fileID: 2342154}
   - 95: {fileID: 9566944}
   - 65: {fileID: 6531136}
-  - 114: {fileID: 11405570}
   m_Layer: 0
   m_Name: AsteroidLong
   m_TagString: Obstacle
@@ -161,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106466}
   m_LocalRotation: {x: 0.15505598, y: -0.94512653, z: 0.24521978, w: 0.15020257}
-  m_LocalPosition: {x: -5.6, y: -1.9, z: -30.1}
+  m_LocalPosition: {x: -24.2, y: -1.9, z: -30.1}
   m_LocalScale: {x: 7.6451283, y: 7.6451325, z: 7.6451254}
   m_Children: []
   m_Father: {fileID: 491360}
@@ -173,7 +166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129516}
   m_LocalRotation: {x: 0.15505598, y: -0.94512653, z: 0.24521978, w: 0.15020257}
-  m_LocalPosition: {x: 16.1, y: -1.9, z: 13.8}
+  m_LocalPosition: {x: 3.5, y: -1.9, z: 13.8}
   m_LocalScale: {x: 7.645128, y: 7.6451306, z: 7.6451254}
   m_Children: []
   m_Father: {fileID: 491360}
@@ -185,8 +178,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108794}
   m_LocalRotation: {x: 0.000000053945076, y: -0.94359136, z: -0.3311125, w: -0.00000015373055}
-  m_LocalPosition: {x: 49.4, y: -43.400005, z: 26.7}
-  m_LocalScale: {x: 0.031271603, y: 0.03291549, z: 0.03195106}
+  m_LocalPosition: {x: 49.369, y: -43.713, z: 27.326}
+  m_LocalScale: {x: 0.022991287, y: 0.024199897, z: 0.01866428}
   m_Children: []
   m_Father: {fileID: 491360}
   m_RootOrder: 6
@@ -197,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125370}
   m_LocalRotation: {x: 0.15505598, y: -0.94512653, z: 0.24521978, w: 0.15020257}
-  m_LocalPosition: {x: 84.9, y: -1.9, z: -16.4}
+  m_LocalPosition: {x: 91.9, y: -1.9, z: -16.4}
   m_LocalScale: {x: 7.6451283, y: 7.6451335, z: 7.6451254}
   m_Children: []
   m_Father: {fileID: 491360}
@@ -233,8 +226,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199756}
   m_LocalRotation: {x: 0.000000053945076, y: -0.94359136, z: -0.3311125, w: -0.00000015373055}
-  m_LocalPosition: {x: 6, y: 44.6, z: 6.7}
-  m_LocalScale: {x: 0.031271603, y: 0.032915484, z: 0.031951055}
+  m_LocalPosition: {x: 5.97, y: 44.248, z: 7.3668}
+  m_LocalScale: {x: 0.023248293, y: 0.024470406, z: 0.017589802}
   m_Children: []
   m_Father: {fileID: 491360}
   m_RootOrder: 5
@@ -614,83 +607,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11405570
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11420512
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11445328
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11454146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11456558
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11463264
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11467608
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &13539634
 SphereCollider:
   m_ObjectHideFlags: 1

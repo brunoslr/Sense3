@@ -12,7 +12,6 @@ GameObject:
   - 23: {fileID: 2392374}
   - 95: {fileID: 9520044}
   - 65: {fileID: 6592884}
-  - 114: {fileID: 11449506}
   m_Layer: 0
   m_Name: AsteroidLong (4)
   m_TagString: Obstacle
@@ -32,7 +31,6 @@ GameObject:
   - 23: {fileID: 2398322}
   - 95: {fileID: 9519684}
   - 135: {fileID: 13541374}
-  - 114: {fileID: 11406520}
   m_Layer: 0
   m_Name: RoundAsteroid (86)
   m_TagString: Obstacle
@@ -52,7 +50,6 @@ GameObject:
   - 23: {fileID: 2369438}
   - 95: {fileID: 9533910}
   - 65: {fileID: 6558390}
-  - 114: {fileID: 11478076}
   m_Layer: 0
   m_Name: AsteroidLong (6)
   m_TagString: Obstacle
@@ -72,7 +69,6 @@ GameObject:
   - 23: {fileID: 2340802}
   - 95: {fileID: 9599140}
   - 135: {fileID: 13581676}
-  - 114: {fileID: 11484990}
   m_Layer: 0
   m_Name: RoundAsteroid (82)
   m_TagString: Obstacle
@@ -92,7 +88,6 @@ GameObject:
   - 23: {fileID: 2380470}
   - 95: {fileID: 9500768}
   - 65: {fileID: 6522026}
-  - 114: {fileID: 11453332}
   m_Layer: 0
   m_Name: AsteroidLong (8)
   m_TagString: Obstacle
@@ -112,7 +107,6 @@ GameObject:
   - 23: {fileID: 2332804}
   - 95: {fileID: 9542106}
   - 135: {fileID: 13543154}
-  - 114: {fileID: 11460756}
   m_Layer: 0
   m_Name: RoundAsteroid (84)
   m_TagString: Obstacle
@@ -132,7 +126,6 @@ GameObject:
   - 23: {fileID: 2304506}
   - 95: {fileID: 9522916}
   - 135: {fileID: 13502948}
-  - 114: {fileID: 11474150}
   m_Layer: 0
   m_Name: RoundAsteroid (79)
   m_TagString: Obstacle
@@ -152,7 +145,6 @@ GameObject:
   - 23: {fileID: 2343050}
   - 95: {fileID: 9578494}
   - 135: {fileID: 13570116}
-  - 114: {fileID: 11447024}
   m_Layer: 0
   m_Name: RoundAsteroid (77)
   m_TagString: Obstacle
@@ -172,7 +164,6 @@ GameObject:
   - 23: {fileID: 2304472}
   - 95: {fileID: 9573990}
   - 65: {fileID: 6527972}
-  - 114: {fileID: 11428640}
   m_Layer: 0
   m_Name: AsteroidLong (7)
   m_TagString: Obstacle
@@ -192,7 +183,6 @@ GameObject:
   - 23: {fileID: 2348144}
   - 95: {fileID: 9576850}
   - 135: {fileID: 13525992}
-  - 114: {fileID: 11443758}
   m_Layer: 0
   m_Name: RoundAsteroid (85)
   m_TagString: Obstacle
@@ -905,116 +895,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11406520
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11428640
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 186306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11443758
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 192806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11447024
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11449506
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11453332
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 151594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11460756
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 163372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11474150
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11478076
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11484990
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &13502948
 SphereCollider:
   m_ObjectHideFlags: 1

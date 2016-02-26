@@ -12,7 +12,6 @@ GameObject:
   - 23: {fileID: 2342462}
   - 95: {fileID: 9587492}
   - 135: {fileID: 13569442}
-  - 114: {fileID: 11420044}
   m_Layer: 0
   m_Name: RoundAsteroid (63)
   m_TagString: Obstacle
@@ -32,7 +31,6 @@ GameObject:
   - 23: {fileID: 2381892}
   - 95: {fileID: 9539872}
   - 135: {fileID: 13508632}
-  - 114: {fileID: 11412682}
   m_Layer: 0
   m_Name: RoundAsteroid (39)
   m_TagString: Obstacle
@@ -52,7 +50,6 @@ GameObject:
   - 23: {fileID: 2392966}
   - 95: {fileID: 9554300}
   - 135: {fileID: 13523634}
-  - 114: {fileID: 11414376}
   m_Layer: 0
   m_Name: RoundAsteroid (40)
   m_TagString: Obstacle
@@ -72,7 +69,6 @@ GameObject:
   - 23: {fileID: 2383478}
   - 95: {fileID: 9583990}
   - 135: {fileID: 13580312}
-  - 114: {fileID: 11477856}
   m_Layer: 0
   m_Name: RoundAsteroid (25)
   m_TagString: Obstacle
@@ -92,7 +88,6 @@ GameObject:
   - 23: {fileID: 2316464}
   - 95: {fileID: 9596002}
   - 135: {fileID: 13529736}
-  - 114: {fileID: 11456392}
   m_Layer: 0
   m_Name: RoundAsteroid (64)
   m_TagString: Obstacle
@@ -112,7 +107,6 @@ GameObject:
   - 23: {fileID: 2312934}
   - 95: {fileID: 9508954}
   - 135: {fileID: 13566288}
-  - 114: {fileID: 11448118}
   m_Layer: 0
   m_Name: RoundAsteroid (69)
   m_TagString: Obstacle
@@ -132,7 +126,6 @@ GameObject:
   - 23: {fileID: 2374736}
   - 95: {fileID: 9502976}
   - 135: {fileID: 13597454}
-  - 114: {fileID: 11472104}
   m_Layer: 0
   m_Name: RoundAsteroid (43)
   m_TagString: Obstacle
@@ -152,7 +145,6 @@ GameObject:
   - 23: {fileID: 2319502}
   - 95: {fileID: 9561550}
   - 135: {fileID: 13524664}
-  - 114: {fileID: 11430198}
   m_Layer: 0
   m_Name: RoundAsteroid (58)
   m_TagString: Obstacle
@@ -172,7 +164,6 @@ GameObject:
   - 23: {fileID: 2373540}
   - 95: {fileID: 9552952}
   - 135: {fileID: 13599498}
-  - 114: {fileID: 11411574}
   m_Layer: 0
   m_Name: RoundAsteroid (17)
   m_TagString: Obstacle
@@ -192,7 +183,6 @@ GameObject:
   - 23: {fileID: 2361806}
   - 95: {fileID: 9531974}
   - 135: {fileID: 13589904}
-  - 114: {fileID: 11469786}
   m_Layer: 0
   m_Name: RoundAsteroid (34)
   m_TagString: Obstacle
@@ -212,7 +202,6 @@ GameObject:
   - 23: {fileID: 2356818}
   - 95: {fileID: 9530772}
   - 135: {fileID: 13523074}
-  - 114: {fileID: 11461170}
   m_Layer: 0
   m_Name: RoundAsteroid (38)
   m_TagString: Obstacle
@@ -232,7 +221,6 @@ GameObject:
   - 23: {fileID: 2324722}
   - 95: {fileID: 9500344}
   - 135: {fileID: 13549348}
-  - 114: {fileID: 11430190}
   m_Layer: 0
   m_Name: RoundAsteroid (74)
   m_TagString: Obstacle
@@ -252,7 +240,6 @@ GameObject:
   - 23: {fileID: 2320924}
   - 95: {fileID: 9504802}
   - 135: {fileID: 13585956}
-  - 114: {fileID: 11447052}
   m_Layer: 0
   m_Name: meteor_square (2)
   m_TagString: Obstacle
@@ -272,7 +259,6 @@ GameObject:
   - 23: {fileID: 2384050}
   - 95: {fileID: 9532076}
   - 135: {fileID: 13547950}
-  - 114: {fileID: 11479906}
   m_Layer: 0
   m_Name: meteor_square (3)
   m_TagString: Obstacle
@@ -292,7 +278,6 @@ GameObject:
   - 23: {fileID: 2344152}
   - 95: {fileID: 9555788}
   - 135: {fileID: 13591620}
-  - 114: {fileID: 11448960}
   m_Layer: 0
   m_Name: meteor_square (12)
   m_TagString: Obstacle
@@ -327,7 +312,6 @@ GameObject:
   - 23: {fileID: 2338400}
   - 95: {fileID: 9553654}
   - 135: {fileID: 13557644}
-  - 114: {fileID: 11488066}
   m_Layer: 0
   m_Name: RoundAsteroid (20)
   m_TagString: Obstacle
@@ -1355,182 +1339,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11411574
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11412682
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11414376
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 118244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11420044
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11430190
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11430198
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 151678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11447052
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11448118
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11448960
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 182522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11456392
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11461170
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11469786
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 157426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11472104
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 151604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11477856
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 118724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11479906
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11488066
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 194326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &13508632
 SphereCollider:
   m_ObjectHideFlags: 1

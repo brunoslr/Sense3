@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 417736}
   - 33: {fileID: 3338174}
   - 23: {fileID: 2313806}
+  - 64: {fileID: 6419128}
   m_Layer: 0
   m_Name: pCube6
   m_TagString: Obstacle
@@ -28,6 +29,7 @@ GameObject:
   - 33: {fileID: 3378352}
   - 23: {fileID: 2362106}
   - 95: {fileID: 9589374}
+  - 65: {fileID: 6578954}
   m_Layer: 0
   m_Name: meteor_square_2
   m_TagString: Obstacle
@@ -45,6 +47,7 @@ GameObject:
   - 4: {fileID: 468662}
   - 33: {fileID: 3367932}
   - 23: {fileID: 2306424}
+  - 64: {fileID: 6482988}
   m_Layer: 0
   m_Name: pCube5
   m_TagString: Obstacle
@@ -63,6 +66,7 @@ GameObject:
   - 33: {fileID: 3374310}
   - 23: {fileID: 2320436}
   - 95: {fileID: 9503830}
+  - 135: {fileID: 13597082}
   m_Layer: 0
   m_Name: meteor_square (1)
   m_TagString: Obstacle
@@ -81,6 +85,7 @@ GameObject:
   - 33: {fileID: 3391906}
   - 23: {fileID: 2355426}
   - 95: {fileID: 9503708}
+  - 135: {fileID: 13584616}
   m_Layer: 0
   m_Name: meteor_square
   m_TagString: Obstacle
@@ -114,6 +119,7 @@ GameObject:
   - 33: {fileID: 3386804}
   - 23: {fileID: 2399444}
   - 95: {fileID: 9524544}
+  - 65: {fileID: 6584384}
   m_Layer: 0
   m_Name: meteor_square_2 (1)
   m_TagString: Obstacle
@@ -438,6 +444,54 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146832}
   m_Mesh: {fileID: 4300000, guid: b073733a346ccf2478045969c596fdd6, type: 3}
+--- !u!64 &6419128
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108060}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300002, guid: 3d27086bfd6561b489233a1be434ebe2, type: 3}
+--- !u!64 &6482988
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122668}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: 3d27086bfd6561b489233a1be434ebe2, type: 3}
+--- !u!65 &6578954
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108266}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 185.36649, y: 139.52455, z: 100.38081}
+  m_Center: {x: -67.53643, y: 2.6652493, z: 9.70987}
+--- !u!65 &6584384
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 199.83147, y: 139.52455, z: 76.18934}
+  m_Center: {x: -61.381454, y: 2.665251, z: 18.359594}
 --- !u!95 &9503708
 Animator:
   serializedVersion: 3
@@ -521,6 +575,30 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!135 &13584616
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 65.138626
+  m_Center: {x: -0.000015258789, y: 7.380377, z: -0.3009262}
+--- !u!135 &13597082
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 65.77374
+  m_Center: {x: -0.000015258789, y: 7.380377, z: -0.3009262}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
