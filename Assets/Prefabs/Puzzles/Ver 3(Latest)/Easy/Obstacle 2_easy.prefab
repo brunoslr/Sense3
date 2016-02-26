@@ -12,7 +12,7 @@ GameObject:
   - 23: {fileID: 2342462}
   - 95: {fileID: 9587492}
   - 135: {fileID: 13569442}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (63)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ GameObject:
   - 23: {fileID: 2381892}
   - 95: {fileID: 9539872}
   - 135: {fileID: 13508632}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (39)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   - 23: {fileID: 2392966}
   - 95: {fileID: 9554300}
   - 135: {fileID: 13523634}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (40)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - 23: {fileID: 2383478}
   - 95: {fileID: 9583990}
   - 135: {fileID: 13580312}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (25)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - 23: {fileID: 2316464}
   - 95: {fileID: 9596002}
   - 135: {fileID: 13529736}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (64)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - 23: {fileID: 2312934}
   - 95: {fileID: 9508954}
   - 135: {fileID: 13566288}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (69)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - 23: {fileID: 2374736}
   - 95: {fileID: 9502976}
   - 135: {fileID: 13597454}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (43)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - 23: {fileID: 2319502}
   - 95: {fileID: 9561550}
   - 135: {fileID: 13524664}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (58)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - 23: {fileID: 2373540}
   - 95: {fileID: 9552952}
   - 135: {fileID: 13599498}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (17)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - 23: {fileID: 2361806}
   - 95: {fileID: 9531974}
   - 135: {fileID: 13589904}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (34)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   - 23: {fileID: 2356818}
   - 95: {fileID: 9530772}
   - 135: {fileID: 13523074}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (38)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - 23: {fileID: 2324722}
   - 95: {fileID: 9500344}
   - 135: {fileID: 13549348}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (74)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - 23: {fileID: 2320924}
   - 95: {fileID: 9504802}
   - 135: {fileID: 13585956}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: meteor_square (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - 23: {fileID: 2384050}
   - 95: {fileID: 9532076}
   - 135: {fileID: 13547950}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: meteor_square (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - 23: {fileID: 2344152}
   - 95: {fileID: 9555788}
   - 135: {fileID: 13591620}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: meteor_square (12)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 470854}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Obstacle 2_easy
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   - 23: {fileID: 2338400}
   - 95: {fileID: 9553654}
   - 135: {fileID: 13557644}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RoundAsteroid (20)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1537,7 +1537,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 182642}

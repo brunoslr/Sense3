@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3362976}
   - 65: {fileID: 6545880}
   - 23: {fileID: 2347158}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 33: {fileID: 3320834}
   - 65: {fileID: 6576450}
   - 23: {fileID: 2350920}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - 23: {fileID: 2338904}
   - 95: {fileID: 9559216}
   - 135: {fileID: 13512874}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (74)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   - 23: {fileID: 2369120}
   - 95: {fileID: 9505734}
   - 135: {fileID: 13577936}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (73)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - 23: {fileID: 2315392}
   - 95: {fileID: 9510370}
   - 135: {fileID: 13548352}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (76)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - 23: {fileID: 2369760}
   - 95: {fileID: 9503878}
   - 65: {fileID: 6595694}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: meteor_square_2 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - 23: {fileID: 2312408}
   - 95: {fileID: 9519824}
   - 135: {fileID: 13561802}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (75)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - 23: {fileID: 2339730}
   - 95: {fileID: 9536728}
   - 135: {fileID: 13529326}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundAsteroid (71)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - 33: {fileID: 3317410}
   - 65: {fileID: 6500816}
   - 23: {fileID: 2305972}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - 23: {fileID: 2394498}
   - 95: {fileID: 9578362}
   - 65: {fileID: 6581044}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: meteor_square_2 (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - 23: {fileID: 2393346}
   - 95: {fileID: 9523202}
   - 65: {fileID: 6511962}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: meteor_square_2 (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - 23: {fileID: 2365250}
   - 95: {fileID: 9558248}
   - 65: {fileID: 6534074}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: meteor_square_2 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466834}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Satellite
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432276}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Obstacle 9_hard
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - 23: {fileID: 2327736}
   - 95: {fileID: 9597360}
   - 65: {fileID: 6542060}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: meteor_square_2 (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - 33: {fileID: 3367930}
   - 65: {fileID: 6554330}
   - 23: {fileID: 2392960}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - 33: {fileID: 3368796}
   - 65: {fileID: 6565608}
   - 23: {fileID: 2339810}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1385,6 +1385,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
