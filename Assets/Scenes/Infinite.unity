@@ -417,6 +417,18 @@ Prefab:
       propertyPath: visualDisplacementForward
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: soundDisplacementFromPlayer
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: tactileObstaclePrefab
+      value: 
+      objectReference: {fileID: 175060, guid: 23aff0babb32e3840b1b75545dff5801, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: tactileDisplacementFromPlayer
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
   m_IsPrefabParent: 0
@@ -935,6 +947,74 @@ Prefab:
     - target: {fileID: 11439268, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
       propertyPath: initialSpeed
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483846, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: FolderName
+      value: Synesthesia Tracks - 2-24-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483846, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: totalTracks
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456308, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: FolderName
+      value: Synesthesia Tracks - 2-24-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456308, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: totalTracks
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475730, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: FolderName
+      value: Synesthesia Tracks - 2-24-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475730, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: totalTracks
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477432, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: FolderName
+      value: Synesthesia Tracks - 2-24-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477432, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: totalTracks
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483938, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: FolderName
+      value: Synesthesia Tracks - 2-24-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483938, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: totalTracks
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411670, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: FolderName
+      value: Synesthesia Tracks - 2-24-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411670, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: totalTracks
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445476, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: FolderName
+      value: Synesthesia Tracks - 2-24-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445476, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: totalTracks
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436464, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: finalRunTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475730, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: layername
+      value: EDM_Kick_
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411670, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: layername
+      value: EDM_SCPad_
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
