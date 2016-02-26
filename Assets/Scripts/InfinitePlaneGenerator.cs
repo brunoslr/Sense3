@@ -434,6 +434,10 @@ public class InfinitePlaneGenerator : MonoBehaviour
                     {
                         loadedVisualObstacles.Add(visualObstacle.gameObject);
                     }
+                    else
+                    {
+                        loadedVisualObstaclesEasy.Add(visualObstacle.gameObject);
+                    }
                 }
                 else if (visualObstacle.gameObject.layer == 11)
                 {
@@ -441,12 +445,20 @@ public class InfinitePlaneGenerator : MonoBehaviour
                     {
                         loadedVisualObstacles.Add(visualObstacle.gameObject);
                     }
+                    else
+                    {
+                        loadedVisualObstaclesMedium.Add(visualObstacle.gameObject);
+                    }
                 }
                 else if (visualObstacle.gameObject.layer == 12)
                 {
                     if (currentPlayerLevel >= 6 && currentPlayerLevel <= 8)
                     {
                         loadedVisualObstacles.Add(visualObstacle.gameObject);
+                    }
+                    else
+                    {
+                        loadedVisualObstaclesHard.Add(visualObstacle.gameObject);
                     }
                 }
                 visualObstacle.Rotate(Vector3.zero);
