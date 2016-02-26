@@ -6,13 +6,14 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     public GameObject planePrefab; 
     public GameObject player;
+    public int numberOfObstaclesInEachDifficultyLevel;
+    public int numberOfCopiesOfEachObstacle;
 
     //Visual obstacle requirements
     public GameObject[] visualObstaclePrefabs;
     public int visualDisplacementHorizontal;
     public int visualDisplacementForward;
     public int visualDisplacementForwardInitial;
-
 
     //Sound obstacle placement requirements
     public GameObject soundObstaclePrefab;
@@ -61,8 +62,16 @@ public class InfinitePlaneGenerator : MonoBehaviour
     private int nextTactileZDisplacement;
     private int tactilePlacementZTrigger;
 
+    private int levelRangeLow;
+    private int levelRangeHigh;
+    private int playerLevel;
+
+    private int[] rotationArray = { 0,90,180,270};
+
     void Start()
     {
+        InitializePlayerVariables();
+
         SetupPlaneGrid();
 
         LoadVisualObstacles();
@@ -74,10 +83,17 @@ public class InfinitePlaneGenerator : MonoBehaviour
         InitializeVisualObstacles();
     }
 
-    private void SetupPlaneGrid()
+    private void InitializePlayerVariables()
     {
         playerXPosition = (int)player.transform.position.x;
         playerZPosition = (int)player.transform.position.z;
+        playerLevel = PlayerStateScript.getPlayerLevel();
+        levelRangeLow = 0;
+        levelRangeHigh = (numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) + 1;
+    }
+
+    private void SetupPlaneGrid()
+    {
         sizeOfPlaneX = planePrefab.GetComponent<Renderer>().bounds.size.x;
         sizeOfPlaneZ = planePrefab.GetComponent<Renderer>().bounds.size.z;
         Vector3 planePosition;
@@ -85,7 +101,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
         {
             for (int c = 0; c < 3; c++)
             {
-                planes[i, c] = GameObject.Instantiate(planePrefab) as GameObject;
+                planes[i, c] = Instantiate(planePrefab);
                 planes[i, c].name = i + "," + c;
                 planePosition = new Vector3((float)sizeOfPlaneX * (i - 1), -5, (float)sizeOfPlaneZ * ((c - 1) * -1));
                 planes[i, c].transform.position = planePosition;
@@ -104,10 +120,21 @@ public class InfinitePlaneGenerator : MonoBehaviour
         visualObstacles = new List<GameObject>();
         loadedVisualObstacles = new List<GameObject>();
 
-        GameObject temp;
-        for (int i = 0; i < visualObstaclePrefabs.Length * 20; i++)
+        GameObject temp = new GameObject();
+        for (int i = 0; i < 3 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle; i++)
         {
-            temp = Instantiate(visualObstaclePrefabs[i % visualObstaclePrefabs.Length]);
+            if (i < numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle)
+            {
+                temp = Instantiate(visualObstaclePrefabs[i % numberOfObstaclesInEachDifficultyLevel]);
+            }
+            else if (i >= numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle && i < 2 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle)
+            {
+                temp = Instantiate(visualObstaclePrefabs[numberOfObstaclesInEachDifficultyLevel + (i % numberOfObstaclesInEachDifficultyLevel)]);
+            }
+            else if (i >= 2 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle && i < 3 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle)
+            {
+                temp = Instantiate(visualObstaclePrefabs[2 * numberOfObstaclesInEachDifficultyLevel + (i % numberOfObstaclesInEachDifficultyLevel)]);
+            }
             temp.SetActive(false);
             loadedVisualObstacles.Add(temp);
         }
@@ -147,14 +174,15 @@ public class InfinitePlaneGenerator : MonoBehaviour
         {
             for (int j = 0; j < 5; j++)
             {
-                pick = Random.Range(0, loadedVisualObstacles.Count - 1);
+                pick = Random.Range(levelRangeLow, levelRangeHigh);
                 visualObstacle = loadedVisualObstacles[pick];
                 visualObstacle.SetActive(true);
                 loadedVisualObstacles.RemoveAt(pick);
                 visualObstacles.Add(visualObstacle);
-                rotX = Random.Range(0, 360);
-                rotY = Random.Range(0, 360);
-                rotZ = Random.Range(0, 360);
+                levelRangeHigh--;
+                rotX = rotationArray[Random.Range(0, 4)];
+                rotY = rotationArray[Random.Range(0, 4)];
+                rotZ = rotationArray[Random.Range(0, 4)];
                 visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
                 visualObstacle.transform.position = new Vector3(xpos, 0, zpos);
                 xpos += visualDisplacementHorizontal;
@@ -168,9 +196,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     void Update()
     {
-        playerXPosition = (int)player.transform.position.x;
-        //playerYPosition = player.transform.position.y; // Removed, not used
-        playerZPosition = (int)player.transform.position.z;
+        UpdatePlayer();
 
         UpdatePlane();
 
@@ -181,6 +207,30 @@ public class InfinitePlaneGenerator : MonoBehaviour
         UpdateSoundObstacle();
 
         UpdateTactileObstacle();
+    }
+
+    private void UpdatePlayer()
+    {
+        playerXPosition = (int)player.transform.position.x;
+        //playerYPosition = player.transform.position.y; // Removed, not used
+        playerZPosition = (int)player.transform.position.z;
+        playerLevel = PlayerStateScript.getPlayerLevel();
+
+        if(playerLevel >=0 && playerLevel <= 2)
+        {
+            levelRangeLow = 0;
+            levelRangeHigh = (numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) + 1;
+        }
+        else if (playerLevel >= 3 && playerLevel <= 5)
+        {
+            levelRangeLow = (numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) + 1;
+            levelRangeHigh = (2 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) + 1;
+        }
+        else if (playerLevel >=6 && playerLevel <=8)
+        {
+            levelRangeLow = (2 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) + 1;
+            levelRangeHigh = (3 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) + 1;
+        }
     }
 
     private void UpdatePlane()
@@ -276,35 +326,38 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     private void UpdateVisualObstacles()
     {
-        if ((int)playerXPosition < lowerClamp)
+        if (playerLevel < 8)
         {
-            xPosVisualObstacle -= (int)visualDisplacementHorizontal;
-            upperClamp = lowerClamp;
-            lowerClamp -= 2 * xClamp;
-            CreateVisualObstaclesOnSide(-1.0f);
-        }
-
-        if ((int)playerXPosition > upperClamp)
-        {
-            xPosVisualObstacle += (int)visualDisplacementHorizontal;
-            lowerClamp = upperClamp;
-            upperClamp += 2 * xClamp;
-            CreateVisualObstaclesOnSide(1.0f);
-        }
-
-        if (playerZPosition > visualPlacementZTrigger)
-        {
-            if (visualPlacementInitialTrigger > 100)
+            if ((int)playerXPosition < lowerClamp)
             {
-                visualPlacementZTrigger += visualPlacementInitialTrigger;
-                visualPlacementInitialTrigger -= visualDisplacementForward;
+                xPosVisualObstacle -= (int)visualDisplacementHorizontal;
+                upperClamp = lowerClamp;
+                lowerClamp -= 2 * xClamp;
+                CreateVisualObstaclesOnSide(-1.0f);
             }
-            else
+
+            if ((int)playerXPosition > upperClamp)
             {
-                visualPlacementZTrigger += (int)visualDisplacementForward;
+                xPosVisualObstacle += (int)visualDisplacementHorizontal;
+                lowerClamp = upperClamp;
+                upperClamp += 2 * xClamp;
+                CreateVisualObstaclesOnSide(1.0f);
             }
-            nextVisualZDisplacement += (int)visualDisplacementForward;
-            GenerateVisualObstacles();
+
+            if (playerZPosition > visualPlacementZTrigger)
+            {
+                if (visualPlacementInitialTrigger > 100)
+                {
+                    visualPlacementZTrigger += visualPlacementInitialTrigger;
+                    visualPlacementInitialTrigger -= visualDisplacementForward;
+                }
+                else
+                {
+                    visualPlacementZTrigger += (int)visualDisplacementForward;
+                }
+                nextVisualZDisplacement += (int)visualDisplacementForward;
+                GenerateVisualObstacles();
+            }
         }
     }
 
@@ -315,14 +368,15 @@ public class InfinitePlaneGenerator : MonoBehaviour
         float xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal);
         for (int i = 0; i < 5; ++i)
         {
-            pick = Random.Range(0, loadedVisualObstacles.Count);
+            pick = Random.Range(levelRangeLow, levelRangeHigh);
             visualObstacle = loadedVisualObstacles[pick];
             visualObstacle.SetActive(true);
             loadedVisualObstacles.RemoveAt(pick);
             visualObstacles.Add(visualObstacle);
-            rotX = Random.Range(0, 360);
-            rotY = Random.Range(0, 360);
-            rotZ = Random.Range(0, 360);
+            levelRangeHigh--;
+            rotX = rotationArray[Random.Range(0, 4)];
+            rotY = rotationArray[Random.Range(0, 4)];
+            rotZ = rotationArray[Random.Range(0, 4)];
             visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
             visualObstacle.transform.position = new Vector3(xpos, 0, nextVisualZDisplacement);
             xpos += visualDisplacementHorizontal;
@@ -339,14 +393,15 @@ public class InfinitePlaneGenerator : MonoBehaviour
             Vector3 newPosition = new Vector3(xpos, 0, nextVisualZDisplacement + (visualDisplacementForward * i));
             if ((Physics.OverlapBox(newPosition, Vector3.one).Length == 0))
             {
-                pick = Random.Range(0, loadedVisualObstacles.Count);
+                pick = Random.Range(levelRangeLow, levelRangeHigh);
                 GameObject visualObstacle = loadedVisualObstacles[pick];
                 visualObstacle.SetActive(true);
                 loadedVisualObstacles.RemoveAt(pick);
                 visualObstacles.Add(visualObstacle);
-                rotX = Random.Range(0, 360);
-                rotY = Random.Range(0, 360);
-                rotZ = Random.Range(0, 360);
+                levelRangeHigh--;
+                rotX = rotationArray[Random.Range(0, 4)];
+                rotY = rotationArray[Random.Range(0, 4)];
+                rotZ = rotationArray[Random.Range(0, 4)];
                 visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
                 visualObstacle.transform.position = new Vector3(xpos, 0, nextVisualZDisplacement + (visualDisplacementHorizontal * i));
             }
@@ -364,7 +419,19 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 visualObstacle.Rotate(Vector3.zero);
                 visualObstacle.gameObject.SetActive(false);
                 visualObstacles.Remove(visualObstacle.gameObject);
-                loadedVisualObstacles.Add(visualObstacle.gameObject);
+                if (visualObstacle.gameObject.layer == 10)
+                {
+                    loadedVisualObstacles.Insert(0, visualObstacle.gameObject);
+                }
+                else if (visualObstacle.gameObject.layer == 11)
+                {
+                    loadedVisualObstacles.Insert((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle), visualObstacle.gameObject);
+                }
+                else if (visualObstacle.gameObject.layer == 12)
+                {
+                    loadedVisualObstacles.Insert((2 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle), visualObstacle.gameObject);
+                }
+                levelRangeHigh++;
             }
         }
     }
