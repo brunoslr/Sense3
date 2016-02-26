@@ -310,7 +310,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
         for (int i = -5; i < 1; i++)
         {
             Vector3 newPosition = new Vector3(xpos, yOffsetVisual, zPosVisualObstacle + (zOffsetVisual * i));
-            if ((Physics.OverlapBox(newPosition, Vector3.one * ((xOffsetVisual / 2.0f) - 20.0f))).Length == 0)
+            if ((Physics.OverlapBox(newPosition, Vector3.one * ((xOffsetVisual / 2.0f))).Length == 0))
             {
                 int pick = Random.Range(0, loadedVisualObstacles.Count);
                 GameObject visualObstacle = loadedVisualObstacles[pick];

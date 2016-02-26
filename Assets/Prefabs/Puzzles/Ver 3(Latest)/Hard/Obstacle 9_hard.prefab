@@ -11,7 +11,6 @@ GameObject:
   - 33: {fileID: 3362976}
   - 65: {fileID: 6545880}
   - 23: {fileID: 2347158}
-  - 114: {fileID: 11453384}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Obstacle
@@ -30,7 +29,6 @@ GameObject:
   - 33: {fileID: 3320834}
   - 65: {fileID: 6576450}
   - 23: {fileID: 2350920}
-  - 114: {fileID: 11402326}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Obstacle
@@ -49,6 +47,7 @@ GameObject:
   - 33: {fileID: 3355042}
   - 23: {fileID: 2338904}
   - 95: {fileID: 9559216}
+  - 135: {fileID: 13512874}
   m_Layer: 0
   m_Name: RoundAsteroid (74)
   m_TagString: Obstacle
@@ -67,6 +66,7 @@ GameObject:
   - 33: {fileID: 3362798}
   - 23: {fileID: 2369120}
   - 95: {fileID: 9505734}
+  - 135: {fileID: 13577936}
   m_Layer: 0
   m_Name: RoundAsteroid (73)
   m_TagString: Obstacle
@@ -85,6 +85,7 @@ GameObject:
   - 33: {fileID: 3379712}
   - 23: {fileID: 2315392}
   - 95: {fileID: 9510370}
+  - 135: {fileID: 13548352}
   m_Layer: 0
   m_Name: RoundAsteroid (76)
   m_TagString: Obstacle
@@ -103,6 +104,7 @@ GameObject:
   - 33: {fileID: 3329546}
   - 23: {fileID: 2369760}
   - 95: {fileID: 9503878}
+  - 65: {fileID: 6595694}
   m_Layer: 0
   m_Name: meteor_square_2 (2)
   m_TagString: Obstacle
@@ -121,6 +123,7 @@ GameObject:
   - 33: {fileID: 3396510}
   - 23: {fileID: 2312408}
   - 95: {fileID: 9519824}
+  - 135: {fileID: 13561802}
   m_Layer: 0
   m_Name: RoundAsteroid (75)
   m_TagString: Obstacle
@@ -139,6 +142,7 @@ GameObject:
   - 33: {fileID: 3305520}
   - 23: {fileID: 2339730}
   - 95: {fileID: 9536728}
+  - 135: {fileID: 13529326}
   m_Layer: 0
   m_Name: RoundAsteroid (71)
   m_TagString: Obstacle
@@ -157,7 +161,6 @@ GameObject:
   - 33: {fileID: 3317410}
   - 65: {fileID: 6500816}
   - 23: {fileID: 2305972}
-  - 114: {fileID: 11417786}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Obstacle
@@ -176,6 +179,7 @@ GameObject:
   - 33: {fileID: 3345352}
   - 23: {fileID: 2394498}
   - 95: {fileID: 9578362}
+  - 65: {fileID: 6581044}
   m_Layer: 0
   m_Name: meteor_square_2 (5)
   m_TagString: Obstacle
@@ -194,6 +198,7 @@ GameObject:
   - 33: {fileID: 3377344}
   - 23: {fileID: 2393346}
   - 95: {fileID: 9523202}
+  - 65: {fileID: 6511962}
   m_Layer: 0
   m_Name: meteor_square_2 (4)
   m_TagString: Obstacle
@@ -212,6 +217,7 @@ GameObject:
   - 33: {fileID: 3353470}
   - 23: {fileID: 2365250}
   - 95: {fileID: 9558248}
+  - 65: {fileID: 6534074}
   m_Layer: 0
   m_Name: meteor_square_2 (3)
   m_TagString: Obstacle
@@ -260,6 +266,7 @@ GameObject:
   - 33: {fileID: 3325056}
   - 23: {fileID: 2327736}
   - 95: {fileID: 9597360}
+  - 65: {fileID: 6542060}
   m_Layer: 0
   m_Name: meteor_square_2 (6)
   m_TagString: Obstacle
@@ -278,7 +285,6 @@ GameObject:
   - 33: {fileID: 3367930}
   - 65: {fileID: 6554330}
   - 23: {fileID: 2392960}
-  - 114: {fileID: 11487726}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Obstacle
@@ -297,7 +303,6 @@ GameObject:
   - 33: {fileID: 3368796}
   - 65: {fileID: 6565608}
   - 23: {fileID: 2339810}
-  - 114: {fileID: 11445084}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Obstacle
@@ -1032,6 +1037,42 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6511962
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 182.02087, y: 79.41771, z: 138.74251}
+  m_Center: {x: -65.16835, y: -3.4004455, z: 15.159246}
+--- !u!65 &6534074
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139306}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 178.27559, y: 79.45497, z: 138.74251}
+  m_Center: {x: -61.800167, y: -4.1558237, z: 15.160802}
+--- !u!65 &6542060
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 187.26196, y: 78.64531, z: 138.74251}
+  m_Center: {x: -64.79182, y: -3.02365, z: 15.148563}
 --- !u!65 &6545880
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1080,6 +1121,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6581044
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 184.27934, y: 74.81033, z: 138.74251}
+  m_Center: {x: -64.0465, y: -1.8440735, z: 15.148421}
+--- !u!65 &6595694
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118344}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 176.04234, y: 74.11287, z: 138.74251}
+  m_Center: {x: -61.429607, y: -2.95516, z: 15.14821}
 --- !u!95 &9503878
 Animator:
   serializedVersion: 3
@@ -1250,61 +1315,66 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11402326
-MonoBehaviour:
+--- !u!135 &13512874
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103398}
+  m_GameObject: {fileID: 103880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11417786
-MonoBehaviour:
+  serializedVersion: 2
+  m_Radius: 0.46407637
+  m_Center: {x: -0.025080236, y: -0.021952838, z: 0.008165762}
+--- !u!135 &13529326
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 121028}
+  m_GameObject: {fileID: 119226}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11445084
-MonoBehaviour:
+  serializedVersion: 2
+  m_Radius: 0.46407643
+  m_Center: {x: -0.025080709, y: -0.021952953, z: 0.008165761}
+--- !u!135 &13548352
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 186108}
+  m_GameObject: {fileID: 112506}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11453384
-MonoBehaviour:
+  serializedVersion: 2
+  m_Radius: 0.4640765
+  m_Center: {x: -0.025080357, y: -0.021952718, z: 0.008166954}
+--- !u!135 &13561802
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101394}
+  m_GameObject: {fileID: 119028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11487726
-MonoBehaviour:
+  serializedVersion: 2
+  m_Radius: 0.46407637
+  m_Center: {x: -0.025080474, y: -0.021951528, z: 0.008166834}
+--- !u!135 &13577936
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 174990}
+  m_GameObject: {fileID: 111026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b278ac960039a9045b8d26c27bc15cfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Radius: 0.46407637
+  m_Center: {x: -0.025080236, y: -0.02195248, z: 0.0081667155}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
