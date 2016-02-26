@@ -201,13 +201,13 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     void Update()
     {
+        DeleteVisualObstacles();
+
         UpdatePlayer();
 
         UpdatePlane();
 
         UpdateVisualObstacles();
-
-        DeleteVisualObstacles();
 
         UpdateSoundObstacle();
 
@@ -224,15 +224,24 @@ public class InfinitePlaneGenerator : MonoBehaviour
         {
             if (currentPlayerLevel >= 0 && currentPlayerLevel <= 2)
             {
-                loadedVisualObstacles = loadedVisualObstaclesEasy;
+                if (loadedVisualObstacles != loadedVisualObstaclesEasy)
+                {
+                    loadedVisualObstacles = loadedVisualObstaclesEasy;
+                }
             }
             else if (currentPlayerLevel >= 3 && currentPlayerLevel <= 5)
             {
-                loadedVisualObstacles = loadedVisualObstaclesMedium;
+                if (loadedVisualObstacles != loadedVisualObstaclesMedium)
+                {
+                    loadedVisualObstacles = loadedVisualObstaclesMedium;
+                }
             }
             else if (currentPlayerLevel >= 6 && currentPlayerLevel <= 8)
             {
-                loadedVisualObstacles = loadedVisualObstaclesHard;
+                if (loadedVisualObstacles != loadedVisualObstaclesHard)
+                {
+                    loadedVisualObstacles = loadedVisualObstaclesHard;
+                }
             }
             previousPlayerLevel = currentPlayerLevel;
         }
@@ -419,12 +428,8 @@ public class InfinitePlaneGenerator : MonoBehaviour
             visualObstacle = visualObstacles[i].transform;
             if (visualObstacle.position.z + 150.0f < playerZPosition)
             {
-                visualObstacle.Rotate(Vector3.zero);
-                visualObstacle.gameObject.SetActive(false);
-                visualObstacles.Remove(visualObstacle.gameObject);
                 if (visualObstacle.gameObject.layer == 10)
                 {
-                    loadedVisualObstaclesEasy.Add(visualObstacle.gameObject);
                     if (currentPlayerLevel >= 0 && currentPlayerLevel <= 2)
                     {
                         loadedVisualObstacles.Add(visualObstacle.gameObject);
@@ -432,7 +437,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 }
                 else if (visualObstacle.gameObject.layer == 11)
                 {
-                    loadedVisualObstaclesMedium.Add(visualObstacle.gameObject);
                     if (currentPlayerLevel >= 3 && currentPlayerLevel <= 5)
                     {
                         loadedVisualObstacles.Add(visualObstacle.gameObject);
@@ -440,12 +444,14 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 }
                 else if (visualObstacle.gameObject.layer == 12)
                 {
-                    loadedVisualObstaclesHard.Add(visualObstacle.gameObject);
                     if (currentPlayerLevel >= 6 && currentPlayerLevel <= 8)
                     {
                         loadedVisualObstacles.Add(visualObstacle.gameObject);
                     }
                 }
+                visualObstacle.Rotate(Vector3.zero);
+                visualObstacle.gameObject.SetActive(false);
+                visualObstacles.Remove(visualObstacle.gameObject);
             }
         }
     }
