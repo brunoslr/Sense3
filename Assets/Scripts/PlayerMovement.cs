@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     private bool jump;
     private int collisionTempTime;
     private bool coolDownflag = false;
+    private float slowDownFactor = 0.9f;
     private Rigidbody rigidBody;
 
     private SoundEffectsManager soundEffectsManager;
@@ -244,9 +245,9 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator CoolDown()
     {
-        forwardSpeed /= 2.0f;
+        forwardSpeed *= slowDownFactor;
         yield return new WaitForSeconds(collisionTempTime);
-        forwardSpeed *= 2.0f;
+        forwardSpeed /= slowDownFactor;
         coolDownflag = false;
     }
 

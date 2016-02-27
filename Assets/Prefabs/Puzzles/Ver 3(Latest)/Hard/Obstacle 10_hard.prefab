@@ -11,7 +11,8 @@ GameObject:
   - 33: {fileID: 3308534}
   - 23: {fileID: 2361576}
   - 95: {fileID: 9524290}
-  m_Layer: 0
+  - 65: {fileID: 6556108}
+  m_Layer: 12
   m_Name: meteor_square_2 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -29,7 +30,8 @@ GameObject:
   - 33: {fileID: 3391626}
   - 23: {fileID: 2372218}
   - 95: {fileID: 9502066}
-  m_Layer: 0
+  - 65: {fileID: 6506044}
+  m_Layer: 12
   m_Name: meteor_square_2 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -44,7 +46,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466446}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Obstacle 10_hard
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -62,7 +64,8 @@ GameObject:
   - 33: {fileID: 3385516}
   - 23: {fileID: 2358528}
   - 95: {fileID: 9550654}
-  m_Layer: 0
+  - 65: {fileID: 6506862}
+  m_Layer: 12
   m_Name: meteor_square_2 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -80,7 +83,8 @@ GameObject:
   - 33: {fileID: 3352530}
   - 23: {fileID: 2330840}
   - 95: {fileID: 9565158}
-  m_Layer: 0
+  - 65: {fileID: 6539240}
+  m_Layer: 12
   m_Name: meteor_square_2
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -97,7 +101,8 @@ GameObject:
   - 4: {fileID: 431784}
   - 33: {fileID: 3353280}
   - 23: {fileID: 2319138}
-  m_Layer: 0
+  - 64: {fileID: 6402552}
+  m_Layer: 12
   m_Name: pCube5
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -115,7 +120,8 @@ GameObject:
   - 33: {fileID: 3380050}
   - 23: {fileID: 2375116}
   - 95: {fileID: 9515784}
-  m_Layer: 0
+  - 135: {fileID: 13507012}
+  m_Layer: 12
   m_Name: meteor_square (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -133,7 +139,8 @@ GameObject:
   - 33: {fileID: 3337930}
   - 23: {fileID: 2398022}
   - 95: {fileID: 9555608}
-  m_Layer: 0
+  - 135: {fileID: 13598218}
+  m_Layer: 12
   m_Name: meteor_square
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -149,7 +156,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 420326}
   - 111: {fileID: 11169598}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fan
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -166,7 +173,8 @@ GameObject:
   - 4: {fileID: 476022}
   - 33: {fileID: 3345598}
   - 23: {fileID: 2356570}
-  m_Layer: 0
+  - 64: {fileID: 6439068}
+  m_Layer: 12
   m_Name: pCube6
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -566,6 +574,78 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112648}
   m_Mesh: {fileID: 4300000, guid: 2e1d1d571ef903d4eab5f29cbf5b3b53, type: 3}
+--- !u!64 &6402552
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161788}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: 3d27086bfd6561b489233a1be434ebe2, type: 3}
+--- !u!64 &6439068
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182506}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300002, guid: 3d27086bfd6561b489233a1be434ebe2, type: 3}
+--- !u!65 &6506044
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 185.24521, y: 80.220604, z: 138.74248}
+  m_Center: {x: -62.080524, y: -9.681483, z: 15.156167}
+--- !u!65 &6506862
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 181.33772, y: 84.00246, z: 138.74248}
+  m_Center: {x: -55.008068, y: -5.031917, z: 15.156167}
+--- !u!65 &6539240
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154742}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 178.73914, y: 80.26123, z: 138.74248}
+  m_Center: {x: -58.661022, y: -4.589361, z: 15.156167}
+--- !u!65 &6556108
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102526}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 180.05396, y: 79.45634, z: 138.74248}
+  m_Center: {x: -57.165318, y: -3.4469805, z: 15.156164}
 --- !u!95 &9502066
 Animator:
   serializedVersion: 3
@@ -683,6 +763,30 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!135 &13507012
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 66.185524
+  m_Center: {x: -0.000015258789, y: 7.380377, z: -0.3009262}
+--- !u!135 &13598218
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165918}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 65.95049
+  m_Center: {x: -0.000015258789, y: 7.380377, z: -0.3009262}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -693,6 +797,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
