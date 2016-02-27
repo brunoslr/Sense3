@@ -1,83 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using MKGlowSystem;
 #pragma warning disable 618 // Disable obsolete warning for spectrum class
 
 public class Spectrum : MonoBehaviour
 {
     //private float average = 0;
-    public Camera mainCamera;
-    public GameObject prefab;
-    public int numberOfObjects;
-    public float radius = 5f;
-    public GameObject[] cubes;
-    public GameObject parent;
-    public int channel;
+    public GameObject playerMesh;
     public FFTWindow window;
-    public List<Material> cubeMat;
     public float[] spectrum;
-    Vector3 pos;
-    public GameObject spectrumObj;
+    public MKGlow glow;
+    public float sum = 0;
+    private int sumFactor;
+
+
     void Start()
     {
-        //  Instantiate(parent);
-        for (int i = 0; i < numberOfObjects; i++)
-        {
-            //float angle = i * Mathf.PI * 2 / numberOfObjects;
-            //   Vector3 pos = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
-            pos = new Vector3(i+8, 0, 0);
-            GameObject temp = Instantiate(prefab, pos, Quaternion.identity) as GameObject;
-            temp.transform.SetParent(parent.transform);
-            temp.gameObject.layer = 8;
-            cubeMat.Add(temp.gameObject.GetComponent<Renderer>().material);
-        }
-        parent.transform.position = new Vector3(0, 0, 100);
-        cubes = GameObject.FindGameObjectsWithTag("Cubes");
-        InvokeRepeating("ChangeColorPatterns", 0.1f, 1);
-
+        glow = this.gameObject.GetComponent<MKGlow>();
     }
 
     void Update()
     {
-        float sum = 0;
-       spectrum = AudioListener.GetSpectrumData(1024, 0, window);
-        for (int i = 0; i < numberOfObjects; i++)
+        sum = 0;
+        AudioListener.GetSpectrumData(spectrum, 0, window);
+        for (int i = 0; i < 1024; i++)
         {
-            Vector3 previousScale = cubes[i].transform.localScale;
-            previousScale.y = Mathf.Lerp(previousScale.y, Mathf.Clamp(spectrum[i] * (30 + i * i), 0, 10), Time.deltaTime * 15);
-            cubes[i].transform.localScale = previousScale;
-            cubes[i].transform.position = new Vector3(cubes[i].transform.position.x, previousScale.y / 2 + 1, cubes[i].transform.position.z);
             sum += spectrum[i];
         }
 
-         //mainCamera.gameObject.GetComponent<ForeGroundController>().setBloom(spectrum[3]);
-         //this.gameObject.GetComponent<BackGroundScript>().setTwirlAngle(spectrum[2]);
-         //this.gameObject.GetComponent<BackGroundScript>().setTwirlRadius(spectrum[1]);
-        
-        //sum /= numberOfObjects;
-        //setSpectrumAndAverage(sum);    
+        playerMesh.GetComponent<Renderer>().material.SetColor("_MKGlowColor", Color.red);
+        glow.GlowIntensity = Mathf.Clamp(sum, 0.1f, 0.35f);
+   
     }
 
-    //void setSpectrumAndAverage(float sum)
-    //{
-    //    spectrumObj.GetComponent<DynamicTexture>().FFT = Mathf.Sin((sum) * 100.0f);
-    //    average = (average + sum) / 2.0f;
-    //}
-
-    void ChangeColorPatterns()
-    {
-        for (int i = 0; i < cubeMat.Count; i++)
-        {
-            float rNum = Random.Range(1, 10);
-            float rNum1 = Random.Range(1, 10);
-            float rNum2 = Random.Range(1, 10);
-            float rCol = (float) (rNum / 10);
-            float rCol2 = (float)(rNum1 / 10);
-            float rCol3 = (float)(rNum2 / 10);
-
-
-            cubeMat[i].color = new Color(rCol2, rCol, rCol3, 0.5f);
-        }
-    }
 }

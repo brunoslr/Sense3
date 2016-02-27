@@ -571,12 +571,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 453514, guid: e2839317095595548973d6dc3640dbb6, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11441338, guid: e2839317095595548973d6dc3640dbb6, type: 2}
+      propertyPath: playerMesh
+      value: 
+      objectReference: {fileID: 1584980599}
     - target: {fileID: 11492732, guid: e2839317095595548973d6dc3640dbb6, type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 2096852407}
+    - target: {fileID: 11454722, guid: e2839317095595548973d6dc3640dbb6, type: 2}
+      propertyPath: m_BlurIterations
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2839317095595548973d6dc3640dbb6, type: 2}
   m_IsPrefabParent: 0
@@ -786,6 +794,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 476510, guid: 0ab0c89079e1d9f4c802a4c3f7778ff2, type: 2}
   m_PrefabInternal: {fileID: 544308041}
+--- !u!1 &1584980599 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 190316, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+  m_PrefabInternal: {fileID: 2096852406}
 --- !u!1 &1712344350 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 165700, guid: e2839317095595548973d6dc3640dbb6, type: 2}
