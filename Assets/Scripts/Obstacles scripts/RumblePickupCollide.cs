@@ -3,11 +3,11 @@ using System.Collections;
 
 public class RumblePickupCollide : MonoBehaviour {
 
-    MineObstacle mineObstacle;
+    HapticObstacle hapticObstacle;
 
 	// Use this for initialization
 	void Start () {
-        mineObstacle = transform.parent.GetComponent<MineObstacle>();
+        hapticObstacle = transform.parent.GetComponent<HapticObstacle>();
 	}
 	
 	// Update is called once per frame
@@ -20,7 +20,7 @@ public class RumblePickupCollide : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             CoreSystem.ExecuteOnObstacleCollision();
-            mineObstacle.state = 0;
+            hapticObstacle.state = 0;
         }
     }
 }
