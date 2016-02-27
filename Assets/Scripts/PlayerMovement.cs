@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public float horClamp = float.MaxValue;
     public float vertClamp = 7;         // max vertical disp.
     public float horTilt = 30;
+    public float moveFactor;
     public float vertTilt = 5;
     public float linezOffset = 200;
     public float linexScale = 200;
@@ -38,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private float forwardSpeed;     // current speed of the player at any point of time.
-    public float initialSideSpeed;
+    private float initialSideSpeed;
     private float initialVertSpeed;
     private float finalSideSpeed;        // current side speed of the player at any point of time.
     private float finalVertSpeed;          // current up down speed of the player.
@@ -48,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
     private float horAxis;
     private float vertAxis;
     private bool isGrounded;
-    private bool jump;
     private int collisionTempTime;
     private bool coolDownflag = false;
     private float slowDownFactor = 0.9f;
@@ -77,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
         cameraMovement = mainCamera.GetComponent<CameraMovement>();
         lineRenderer = this.GetComponent<LineRenderer>();
         isGrounded = true;
-        jump = false;
         collisionTempTime = CoreSystem.coolDownTimeInSeconds;
         coolDownflag = false;   
     }
@@ -98,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         MovePlayerForward();
         MovePlayerSideways();
         //MovePlayerVertical();
-  
+        //MovePlayerBackToCenter();
         CheckPlayerGrounded();
     }
 
@@ -133,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
             curSideSpeedInc = sideSpeedInc;
             if(!playerInsideMine)
                 cameraMovement.RotateCamera(0.0f);
-            transform.rotation = Quaternion.Euler(0,0,0);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, 0.0f), moveFactor);
         }
         else
         {
@@ -151,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
             
 
             horAxis = horAxis / Mathf.Abs(horAxis);
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, -horAxis * horTilt);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, -horAxis * horTilt), moveFactor);
             transform.Translate(new Vector3(1.0f, 0.0f, 0.0f) * horAxis * initialSideSpeed * Time.deltaTime, Space.World);
             cameraMovement.RotateCamera(horAxis);
 
@@ -205,15 +204,16 @@ public class PlayerMovement : MonoBehaviour
         if (transform.position.y < 0.0f)
         {
             rigidBody.useGravity = false;
-            isGrounded = true;
-            jump = false;
+
             transform.position = new Vector3(transform.position.x, 0.0f, transform.position.z);
+        
+            isGrounded = true;
         }
     }
 
     void MovePlayerBackToCenter()
     {
-        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0.0f, transform.position.z), 0.01f);
+       
     }
 
     public void IncreasePlayerSpeed()

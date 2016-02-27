@@ -134,7 +134,7 @@ public class HapticObstacle : MonoBehaviour
         {
             case State.NEW:
                 state = State.LOW;
-                cameraMovement.tilt = 0.2f;
+                cameraMovement.rumbleTilt = cameraMovement.rumbleShakeLow;
                 StartCoroutine(SetVibrationPWM(0.4f, freq));
                 currentPullforce = minPullForce;
                 cameraTwirl.radius.x = cameraTwirl.radius.y = minRadius;
@@ -145,7 +145,7 @@ public class HapticObstacle : MonoBehaviour
                 if (ratio < 0.8f)
                 {
                     state = State.MED;
-                    cameraMovement.tilt = 0.5f;
+                    cameraMovement.rumbleTilt = (cameraMovement.rumbleShakeLow + cameraMovement.rumbleShakeHigh) / 2.0f;
                     StopAllCoroutines();
                     GamePad.SetVibration(0, 0.0f, 0.0f);
                     StartCoroutine(SetVibrationPWM(0.8f, freq));
@@ -158,7 +158,7 @@ public class HapticObstacle : MonoBehaviour
                 if (ratio < 0.4f)
                 {
                     state = State.HIGH;
-                    cameraMovement.tilt = 1.0f;
+                    cameraMovement.rumbleTilt = cameraMovement.rumbleShakeHigh;
                     StopAllCoroutines();
                     GamePad.SetVibration(0, 0.0f, 0.0f);
                     StartCoroutine(SetVibrationPWM(1f, freq));
