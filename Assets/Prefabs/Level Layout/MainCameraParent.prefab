@@ -54,7 +54,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165700}
-  m_LocalRotation: {x: 0.25881907, y: 0, z: 0, w: 0.9659258}
+  m_LocalRotation: {x: 0.13052621, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -137,7 +137,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   initialOffset: {x: 0, y: 3, z: -5}
-  tilt: 1
+  rumbleShakeLow: 0.2
+  rumbleShakeHigh: 1
+  rumbleTilt: 0
+  moveTilt: 5
+  moveFactor: 0.01
   shakeFactor: 50
 --- !u!124 &12441154
 Behaviour:
