@@ -3,21 +3,29 @@ using System.Collections;
 using XInputDotNetPure;
 using UnityStandardAssets.ImageEffects;
 
-public class MineObstacle : MonoBehaviour
+public class HapticObstacle : MonoBehaviour
 {
-    public float freq;
     private float playerDist;
     private float endPos;
     private float totalDist;
     private float ratio;
-    public State state;
     private GameObject player;
-    public float pullForce;
     private GameObject camera;
     private CameraMovement cameraMovement;
     private Twirl cameraTwirl;
     private PlayerMovement playerMovement;
     private Transform rumblePickup;
+    private float currentPullforce;
+
+    public float freq;
+    public State state;
+    public float minPullForce;
+    public float maxPullForce;
+    public float minBlur;
+    public float maxBlur;
+    public float minRadius;
+    public float maxRadius;
+  
     public enum State{ NEW, LOW, MED, HIGH};
 
 	// Use this for initialization
@@ -29,8 +37,9 @@ public class MineObstacle : MonoBehaviour
         cameraMovement = camera.GetComponent<CameraMovement>();
         playerMovement = player.GetComponent<PlayerMovement>();
         cameraTwirl = camera.GetComponentInChildren<Twirl>();
-        cameraTwirl.radius.x = cameraTwirl.radius.y = 0.05f;
-        cameraTwirl.angle = 150.0f;
+        cameraTwirl.radius.x = cameraTwirl.radius.y = minRadius;
+        cameraTwirl.angle = minBlur;
+        currentPullforce = minPullForce;
         rumblePickup = transform.GetChild(0);
     }
 
@@ -127,6 +136,10 @@ public class MineObstacle : MonoBehaviour
                 state = State.LOW;
                 cameraMovement.tilt = 0.2f;
                 StartCoroutine(SetVibrationPWM(0.4f, freq));
+                currentPullforce = minPullForce;
+                cameraTwirl.radius.x = cameraTwirl.radius.y = minRadius;
+                cameraTwirl.angle = minBlur;
+                rumblePickup.gameObject.GetComponent<MeshRenderer>().enabled = false;
                 break;
             case State.LOW:
                 if (ratio < 0.8f)
@@ -136,6 +149,9 @@ public class MineObstacle : MonoBehaviour
                     StopAllCoroutines();
                     GamePad.SetVibration(0, 0.0f, 0.0f);
                     StartCoroutine(SetVibrationPWM(0.8f, freq));
+                    currentPullforce = (minPullForce + maxPullForce) / 2.0f;
+                    cameraTwirl.radius.x = cameraTwirl.radius.y = (minRadius + maxRadius) / 2.0f;
+                    cameraTwirl.angle = (minBlur + maxBlur) / 2.0f;
                 }
                 break;
             case State.MED:
@@ -146,6 +162,10 @@ public class MineObstacle : MonoBehaviour
                     StopAllCoroutines();
                     GamePad.SetVibration(0, 0.0f, 0.0f);
                     StartCoroutine(SetVibrationPWM(1f, freq));
+                    currentPullforce = maxPullForce;
+                    cameraTwirl.radius.x = cameraTwirl.radius.y = maxRadius;
+                    cameraTwirl.angle = maxBlur;
+                    rumblePickup.gameObject.GetComponent<MeshRenderer>().enabled = true;
                 }
                 break;
             case State.HIGH:
@@ -159,7 +179,7 @@ public class MineObstacle : MonoBehaviour
     void PullPlayerToCenter(Collider other)
     {
         if(other.transform.position.x != transform.position.x)
-            other.transform.position = Vector3.Lerp(other.transform.position, new Vector3(transform.position.x, other.transform.position.y, other.transform.position.z), pullForce);
+            other.transform.position = Vector3.Lerp(other.transform.position, new Vector3(transform.position.x, other.transform.position.y, other.transform.position.z), currentPullforce);
     }
 
     void OnDestroy()
