@@ -71,8 +71,13 @@ MonoBehaviour:
   tactileObstaclePrefab: {fileID: 175060, guid: 23aff0babb32e3840b1b75545dff5801,
     type: 2}
   tactileDisplacementInitial: 3000
-  tactileDisplacementRandomFactor: 2000
+  tactileDisplacementRandomFactorLow: 3000
+  tactileDisplacementRandomFactorHigh: 4500
   tactileDisplacementFromPlayer: 100
+  dynamicObstaclePrefab: {fileID: 190228, guid: 51069c85d9727274a95ea20bf39ff45b,
+    type: 2}
+  dynamicDisplacementRandomFactorLow: 1500
+  dynamicDisplacementRandomFactorHigh: 3000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
