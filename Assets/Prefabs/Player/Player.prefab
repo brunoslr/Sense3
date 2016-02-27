@@ -194,9 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layername: EDM_SCpad_
-  FolderName: EDM
-  totalTracks: 4
+  layername: EDM_SCPad_
+  FolderName: Synesthesia Tracks - 2-24-16
+  totalTracks: 7
   audioTracks: []
   FadeDuration: 0
 --- !u!114 &11428628
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ba4772f5eed2f4aa7657f47222dee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coolDownTime: 2
 --- !u!114 &11436464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b32bf5924b8ccb409ea666b156d06c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 150
+  initialSpeed: 100
   sideSpeedMul: 1
   vertSpeedMul: 0.1
   speedMultiplier: 0.25
@@ -267,8 +268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layername: EDM_Snare_
-  FolderName: EDM
-  totalTracks: 4
+  FolderName: Synesthesia Tracks - 2-24-16
+  totalTracks: 7
   audioTracks: []
   FadeDuration: 0
 --- !u!114 &11456308
@@ -283,8 +284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layername: EDM_HighHat_
-  FolderName: EDM
-  totalTracks: 4
+  FolderName: Synesthesia Tracks - 2-24-16
+  totalTracks: 8
   audioTracks: []
   FadeDuration: 0
 --- !u!114 &11460630
@@ -314,9 +315,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9667bd0e0bb726f4581516699186e282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layername: EDM_kick_
-  FolderName: EDM
-  totalTracks: 3
+  layername: EDM_Kick_
+  FolderName: Synesthesia Tracks - 2-24-16
+  totalTracks: 7
   audioTracks: []
   FadeDuration: 0
 --- !u!114 &11477432
@@ -331,8 +332,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layername: EDM_Lead_
-  FolderName: EDM
-  totalTracks: 4
+  FolderName: Synesthesia Tracks - 2-24-16
+  totalTracks: 7
   audioTracks: []
   FadeDuration: 0
 --- !u!114 &11483846
@@ -347,8 +348,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layername: EDM_Bass_
-  FolderName: EDM
-  totalTracks: 4
+  FolderName: Synesthesia Tracks - 2-24-16
+  totalTracks: 7
   audioTracks: []
   FadeDuration: 0
 --- !u!114 &11483938
@@ -363,8 +364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layername: EDM_RhythmPad_
-  FolderName: EDM
-  totalTracks: 4
+  FolderName: Synesthesia Tracks - 2-24-16
+  totalTracks: 7
   audioTracks: []
   FadeDuration: 0
 --- !u!120 &12006056
@@ -373,7 +374,7 @@ LineRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117580}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:

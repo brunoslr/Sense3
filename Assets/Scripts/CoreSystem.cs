@@ -31,7 +31,7 @@ public class CoreSystem : MonoBehaviour {
     {
         coolDownTimeInSeconds = coolDownTime;
         instance = this;
-        coolDownFlag = true; 
+        coolDownFlag = false; 
     }
 
     // Trigger Function for OnCollisionSoundEvents -- Function is triggered when you pick up the sound
