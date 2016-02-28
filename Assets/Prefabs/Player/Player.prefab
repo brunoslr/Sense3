@@ -294,11 +294,12 @@ MonoBehaviour:
   horClamp: 3.4028235e+38
   vertClamp: 50
   horTilt: 30
-  moveFactor: 0.06
+  moveFactor: 0.012
   vertTilt: 5
   linezOffset: 400
   linexScale: 200
   jumpVel: 8
+  slowDownFactor: 1
   maxSpeedCounter: 5
   trailTime: 2
   gameMode: 0

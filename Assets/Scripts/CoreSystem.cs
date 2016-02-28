@@ -47,7 +47,7 @@ public class CoreSystem : MonoBehaviour {
 
     public static void ExecuteOnObstacleCollision()
     {
-        Debug.Log("Collision detected :" + coolDownFlag);
+        //Debug.Log("Collision detected :" + coolDownFlag);
         if (!coolDownFlag)
         {
             if (onObstacleEvent != null)
