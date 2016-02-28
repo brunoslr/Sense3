@@ -346,7 +346,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 746e38b0da1142c4caa7848e265dae60, type: 2}
+  - {fileID: 2100000, guid: 5a35fcac87eaad549ad0fc96a0ad9ce6, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -398,7 +398,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 8e3e096acc4ac8143b44c0ccfef992fe, type: 2}
+  - {fileID: 2100000, guid: dc94ce5b43bf3c140b727969910686e0, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -538,7 +538,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123338}
-  m_Mesh: {fileID: 4300002, guid: 230f8126b7c100e40b3a618c47534e96, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 3a5bbe6fa4afdca45ad7276b9490434a, type: 3}
 --- !u!33 &3352530
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -552,7 +552,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155690}
-  m_Mesh: {fileID: 4300000, guid: 230f8126b7c100e40b3a618c47534e96, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 3a5bbe6fa4afdca45ad7276b9490434a, type: 3}
 --- !u!33 &3380050
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -581,11 +581,11 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155690}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: 230f8126b7c100e40b3a618c47534e96, type: 3}
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: 3a5bbe6fa4afdca45ad7276b9490434a, type: 3}
 --- !u!64 &6480766
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -597,7 +597,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
-  m_Mesh: {fileID: 4300002, guid: 230f8126b7c100e40b3a618c47534e96, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 3a5bbe6fa4afdca45ad7276b9490434a, type: 3}
 --- !u!65 &6506044
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -654,7 +654,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100462}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 230f8126b7c100e40b3a618c47534e96, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 3a5bbe6fa4afdca45ad7276b9490434a, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
