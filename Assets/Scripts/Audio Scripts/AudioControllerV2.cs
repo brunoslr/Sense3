@@ -95,6 +95,7 @@ public class AudioControllerV2 : MonoBehaviour {
     public void disableScope()
     {
         pickUpScope = false;
+        refreshLastPlayed();
     }
 
     public void incrementLayerStack()
@@ -112,9 +113,12 @@ public class AudioControllerV2 : MonoBehaviour {
 
     private void refreshLastPlayed()
     {
+        Debug.Log("lastPlayedLayerID earlier: " + lastPlayedLayerID);
         //layers[lastPlayedLayerID].StopTrack();
         if (activeLayers.Count > 0) 
             lastPlayedLayerID = activeLayers[activeLayers.Count - 1];
+
+        Debug.Log("lastPlayedLayerID changed: " + lastPlayedLayerID);
     }
 
     public void muteLast()
