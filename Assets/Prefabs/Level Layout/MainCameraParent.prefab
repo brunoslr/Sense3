@@ -1174,15 +1174,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 115264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f87e4989c5e703e428df4339d59e2c72, type: 3}
+  m_Script: {fileID: 11500000, guid: 22269f9b7b248de4db7a6a7e066b261c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NoGarbageBlurShader: {fileID: 4800000, guid: 08541fc9424999e4e9c33f3abde31695,
+  m_NoGarbageBlurShader: {fileID: 4800000, guid: b9d16b1c10e26104cb339ea74d4111ac,
     type: 3}
-  m_BlurShader: {fileID: 4800000, guid: 1855d9636fad3914bacc4a543165c974, type: 3}
-  m_CompositeShader: {fileID: 4800000, guid: e384de4389ba527479054baf0ddb1d3e, type: 3}
-  m_GlowRenderShader: {fileID: 4800000, guid: c04b7cae8accdfb4e9c2648823ff39d7, type: 3}
-  m_FSDSShader: {fileID: 4800000, guid: b14b79b8936134d3f8238f0c2d40d634, type: 3}
+  m_BlurShader: {fileID: 4800000, guid: df5b3d1631ad2cf478c89f853551a972, type: 3}
+  m_CompositeShader: {fileID: 4800000, guid: 38d1d6c75af49c748b4dc0fc7428cd3d, type: 3}
+  m_GlowRenderShader: {fileID: 4800000, guid: a237ea700b8be2e4bba2cb484f4d81f2, type: 3}
+  m_FSDSShader: {fileID: 4800000, guid: c74555fb8d3dbae4b9041744b803f985, type: 3}
   m_GlowCurve: 1
   m_GlowRenderLayer:
     serializedVersion: 2
@@ -1193,11 +1193,11 @@ MonoBehaviour:
   m_GlowType: 0
   m_GlowQuality: 1
   m_FullScreenGlowTint: {r: 1, g: 1, b: 1, a: 0}
-  m_BlurSpread: 0.43
-  m_BlurIterations: 4
+  m_BlurSpread: 0.35
+  m_BlurIterations: 7
   m_GlowIntensity: 0.3
-  m_BlurOffset: 0.67
-  m_Samples: 4
+  m_BlurOffset: 0
+  m_Samples: 2
 --- !u!114 &11492732
 MonoBehaviour:
   m_ObjectHideFlags: 1

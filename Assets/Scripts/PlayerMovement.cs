@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     public float linezOffset = 200;
     public float linexScale = 200;
     public float jumpVel;
+    public float slowDownFactor;
 
     public uint maxSpeedCounter = 5;    // max no. of times speed can boost or increase.
     public float trailTime = 2;         // time of fire trail in sec.
@@ -51,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private int collisionTempTime;
     private bool coolDownflag = false;
-    private float slowDownFactor = 0.9f;
+   
     private Rigidbody rigidBody;
 
     private SoundEffectsManager soundEffectsManager;
