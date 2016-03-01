@@ -89,6 +89,7 @@ GameObject:
   - 4: {fileID: 473018}
   - 137: {fileID: 13724266}
   - 95: {fileID: 9551496}
+  - 114: {fileID: 11416206}
   m_Layer: 0
   m_Name: PlayerMesh
   m_TagString: Untagged
@@ -289,6 +290,18 @@ MonoBehaviour:
   totalTracks: 7
   audioTracks: []
   FadeDuration: 0
+--- !u!114 &11416206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d45d3b93647537541b4b8524c45142e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blendShapeMaxValue: 100
 --- !u!114 &11428628
 MonoBehaviour:
   m_ObjectHideFlags: 1
