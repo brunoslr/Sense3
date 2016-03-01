@@ -14,6 +14,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
     public int visualDisplacementHorizontal;
     public int visualDisplacementForward;
     public int visualDisplacementForwardInitial;
+    public int visualDisplacementVertical;
 
     //Sound obstacle placement requirements
     public GameObject soundObstaclePrefab;
@@ -115,7 +116,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
             {
                 planes[i, c] = Instantiate(planePrefab);
                 planes[i, c].name = i + "," + c;
-                planePosition = new Vector3((float)sizeOfPlaneX * (i - 1), -5, (float)sizeOfPlaneZ * ((c - 1) * -1));
+                planePosition = new Vector3((float)sizeOfPlaneX * (i - 1), -25, (float)sizeOfPlaneZ * ((c - 1) * -1));
                 planes[i, c].transform.position = planePosition;
             }
         }
@@ -208,7 +209,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 rotY = rotationArray[Random.Range(0, 4)];
                 rotZ = rotationArray[Random.Range(0, 4)];
                 visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
-                visualObstacle.transform.position = new Vector3(xpos, 0, zpos);
+                visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, zpos);
                 xpos += visualDisplacementHorizontal;
 
             }
@@ -418,7 +419,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
             rotY = rotationArray[Random.Range(0, 4)];
             rotZ = rotationArray[Random.Range(0, 4)];
             visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
-            visualObstacle.transform.position = new Vector3(xpos, 0, nextVisualZDisplacement);
+            visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, nextVisualZDisplacement);
             xpos += visualDisplacementHorizontal;
         }
     }
@@ -442,7 +443,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 rotY = rotationArray[Random.Range(0, 4)];
                 rotZ = rotationArray[Random.Range(0, 4)];
                 visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
-                visualObstacle.transform.position = new Vector3(xpos, 0, nextVisualZDisplacement + (visualDisplacementHorizontal * i));
+                visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, nextVisualZDisplacement + (visualDisplacementHorizontal * i));
             }
         }
     }
