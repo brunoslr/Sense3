@@ -18,6 +18,6 @@ public class DebugCamera : MonoBehaviour {
 
     void LateUpdate()
     {
-        transform.position = new Vector3(player.transform.position.x - xOffset, yOffset, player.transform.position.z);
+        transform.position = new Vector3(player.transform.position.x + xOffset, yOffset, player.transform.position.z);
     }
 }
