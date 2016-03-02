@@ -7,9 +7,10 @@ public class PlanetCreator : MonoBehaviour {
     public float YDisp = 1000;
     public float minDisp = 10000;
 
-    public GameObject[] planets;
+    private GameObject[] planets;
     private GameObject Player;
     private Vector3 previousPos;
+    private int closestPrefabIndex;
     private int totalPrefabs;
 
 	// Use this for initialization
@@ -29,11 +30,12 @@ public class PlanetCreator : MonoBehaviour {
         Debug.Log(totalPrefabs);
         for(int i=0;i < totalPrefabs; i++)
         {
-            planets[i] = (GameObject) Instantiate(planetPrefabs[i], new Vector3(0,0,0), new Quaternion(0,0,0,1));
+            planets[i] = (GameObject)Instantiate(planetPrefabs[i], new Vector3(0, 0, - 10000), new Quaternion(0,0,0,1));
         }
-        planets[0].transform.position = /*Player.transform.position + */new Vector3(0,0,0);
-        planets[1].transform.position = /*Player.transform.position + */new Vector3(0, 0, 0);
-        planets[2].transform.position = /*Player.transform.position + */new Vector3(0, 0, 0);
+        planets[0].transform.position = Player.transform.position + new Vector3(Random.Range(1.0f, 1.0f) * 1000, YDisp * (Random.Range(-1.0f, 1.0f)), minDisp);
+        closestPrefabIndex = 0;
+        //planets[1].transform.position = /*Player.transform.position + */new Vector3(0, 0, 0);
+        //planets[2].transform.position = /*Player.transform.position + */new Vector3(0, 0, 0);
     }
 	
 	// Update is called once per frame
@@ -43,10 +45,16 @@ public class PlanetCreator : MonoBehaviour {
 
     void LateUpdate()
     {
-        if(Vector3.Distance(Player.transform.position, previousPos) >= minDisp)
+        if(Vector3.Distance(Player.transform.position, previousPos) > 2.0f * minDisp)
         {
             previousPos = Player.transform.position;
-            planets[Random.Range(0,totalPrefabs - 1)].transform.position = Player.transform.position + new Vector3(0, YDisp * (Random.Range(-1.0f,1.0f)), minDisp / 2.0f);
+            int index;
+            do
+            {
+                index = Random.Range(0, totalPrefabs);
+            } while (index == closestPrefabIndex);
+            closestPrefabIndex = index;
+            planets[index].transform.position = Player.transform.position + new Vector3(Random.Range(1.0f,1.0f) * 5000,  YDisp * (Random.Range(-1.0f,1.0f)), minDisp * 2.0f);
         }
     }
 }
