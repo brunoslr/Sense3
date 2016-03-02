@@ -95,7 +95,7 @@ public class AudioControllerV2 : MonoBehaviour {
     public void disableScope()
     {
         pickUpScope = false;
-        refreshLastPlayed();
+        //refreshLastPlayed();
     }
 
     public void incrementLayerStack()

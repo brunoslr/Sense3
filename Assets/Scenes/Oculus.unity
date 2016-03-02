@@ -369,6 +369,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 497580, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -405,7 +409,108 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 2096852407}
-    m_RemovedComponents: []
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 120288, guid: b6ceb147b72bd414da567d6b0cc62526, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 120288, guid: b6ceb147b72bd414da567d6b0cc62526, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualDisplacementHorizontal
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualDisplacementForward
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualDisplacementForwardInitial
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 164434, guid: 6331028c65938604b8112a0e3ec60c52, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 164938, guid: de1f824bae74fd9418f8ad962d4e867f, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 137252, guid: 431bd3cbf3bf5014d8b128c58bf35bb7, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 148444, guid: bf7408caabf666d4795a40d052d890e0, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 140228, guid: dcb25df278db2f94289b2d30fd6b4c03, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[9]
+      value: 
+      objectReference: {fileID: 194946, guid: 8f7360472df57fb45bc7cbdbe592ea02, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 161926, guid: de6b12e5445b4ac4d87c4ea6b89a7f9e, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[11]
+      value: 
+      objectReference: {fileID: 110302, guid: 8861dae8d92a2ea4989e71c3724bbe28, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[12]
+      value: 
+      objectReference: {fileID: 190520, guid: d3e38982154bd5640b3068fb8d31aa0c, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[13]
+      value: 
+      objectReference: {fileID: 182512, guid: 39ea3fa0afac76049805e9831c415441, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[14]
+      value: 
+      objectReference: {fileID: 102928, guid: b76c3328359c54e4a996f16f0b3bd976, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[15]
+      value: 
+      objectReference: {fileID: 144410, guid: 51e5f2d03f71370419d27ca6d347ebee, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[16]
+      value: 
+      objectReference: {fileID: 112888, guid: d835ca4742acc484bb29b9b501c45523, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[17]
+      value: 
+      objectReference: {fileID: 104280, guid: 1bc20c21690b71d4fabdb02793b50aab, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 118496, guid: dd2de9fcc0bfd7145905ad22c6d2c493, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: visualObstaclePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 130054, guid: 9352b95e07c1d464abe16c972994c457, type: 2}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: numberOfObstaclesInEachDifficultyLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: numberOfCopiesOfEachObstacle
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: tactileObstaclePrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11440070, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &943014966
@@ -790,6 +895,58 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 476510, guid: 0ab0c89079e1d9f4c802a4c3f7778ff2, type: 2}
   m_PrefabInternal: {fileID: 544308041}
+--- !u!1 &1686613451 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 138034, guid: 197105c41d5483f4fa0585eca60c13d4, type: 2}
+  m_PrefabInternal: {fileID: 740045849}
+--- !u!114 &1686613452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1686613451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a11ccde5972f5ac4893e302d34d77925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetPrefabs:
+  - {fileID: 120288, guid: b6ceb147b72bd414da567d6b0cc62526, type: 2}
+  - {fileID: 118496, guid: dd2de9fcc0bfd7145905ad22c6d2c493, type: 2}
+  - {fileID: 130054, guid: 9352b95e07c1d464abe16c972994c457, type: 2}
+  YDisp: 0
+  minDisp: 10000
+  planets: []
+--- !u!114 &1686613454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1686613451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5e01cedf448304590d1bcfd9d41be0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planePrefab: {fileID: 198202, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
+  player: {fileID: 2096852407}
+  numberOfObstaclesInEachDifficultyLevel: 0
+  numberOfCopiesOfEachObstacle: 0
+  visualObstaclePrefabs: []
+  visualDisplacementHorizontal: 0
+  visualDisplacementForward: 0
+  visualDisplacementForwardInitial: 0
+  soundObstaclePrefab: {fileID: 173268, guid: cce816729b5e1e34d82e8b3a04687079, type: 2}
+  soundDisplacementRandomFactor: 100
+  soundDisplacementFromPlayer: 1600
+  tactileObstaclePrefab: {fileID: 0}
+  tactileDisplacementInitial: 0
+  tactileDisplacementRandomFactorLow: 0
+  tactileDisplacementRandomFactorHigh: 0
+  tactileDisplacementFromPlayer: 0
+  dynamicObstaclePrefab: {fileID: 0}
+  dynamicDisplacementRandomFactorLow: 0
+  dynamicDisplacementRandomFactorHigh: 0
 --- !u!1 &1712344350 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 165700, guid: e2839317095595548973d6dc3640dbb6, type: 2}
