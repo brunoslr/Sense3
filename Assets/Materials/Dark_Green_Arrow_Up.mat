@@ -6,12 +6,13 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Playertexture
-  m_Shader: {fileID: 4800000, guid: 6465bfc60c66e6a44a4d8a70b5f07410, type: 3}
-  m_ShaderKeywords: 
+  m_Name: Dark_Green_Arrow_Up
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
-  stringTagMap: {}
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -19,7 +20,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 1bed41c855f3d5d4b8e6cb189590ae90, type: 3}
+          m_Texture: {fileID: 2800000, guid: fe912838fe2af98438c3c9c59767cb8e, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -78,20 +79,6 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Illum
-        second:
-          m_Texture: {fileID: 2800000, guid: e083016c2ccc4554eb40ac92d5fc0954, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _MKGlowTex
-        second:
-          m_Texture: {fileID: 2800000, guid: 9dacffa5f67ccee4f953fc85b072059b, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -100,7 +87,7 @@ Material:
       data:
         first:
           name: _DstBlend
-        second: 0
+        second: 10
       data:
         first:
           name: _Cutoff
@@ -112,7 +99,7 @@ Material:
       data:
         first:
           name: _ZWrite
-        second: 1
+        second: 0
       data:
         first:
           name: _Glossiness
@@ -136,26 +123,10 @@ Material:
       data:
         first:
           name: _Mode
-        second: 0
+        second: 3
       data:
         first:
           name: _Metallic
-        second: 0
-      data:
-        first:
-          name: _EmissionLM
-        second: 0
-      data:
-        first:
-          name: _MKGlowPower
-        second: 3.37
-      data:
-        first:
-          name: _MKGlowTexStrength
-        second: 1
-      data:
-        first:
-          name: _MKGlowOffSet
         second: 0
     m_Colors:
       data:
@@ -166,11 +137,3 @@ Material:
         first:
           name: _Color
         second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _MKGlowColor
-        second: {r: 0.057758622, g: 0.9852941, b: 0.16688055, a: 1}
-      data:
-        first:
-          name: _MKGlowTexColor
-        second: {r: 0, g: 0.7296147, b: 0.9705882, a: 1}
