@@ -211,7 +211,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 rotZ = rotationArray[Random.Range(0, 4)];
                 visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
                 visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, zpos);
-                xpos += visualDisplacementHorizontal; //+ Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
+                xpos += visualDisplacementHorizontal + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
 
             }
             zpos += ((5 - (i+1)) / 5.0f) * visualDisplacementForwardInitial;
@@ -421,7 +421,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
             rotZ = rotationArray[Random.Range(0, 4)];
             visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
             visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, nextVisualZDisplacement);
-            xpos += visualDisplacementHorizontal; //+ Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
+            xpos += visualDisplacementHorizontal + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
         }
     }
 
@@ -429,9 +429,10 @@ public class InfinitePlaneGenerator : MonoBehaviour
     {
         int pick;
         int rotX, rotY, rotZ;
-        float xpos = xPosVisualObstacle + (2 * visualDisplacementHorizontal * dir) + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
+        
         for (int i = -5; i < 1; i++)
         {
+            float xpos = xPosVisualObstacle + (2 * visualDisplacementHorizontal * dir) + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
             Vector3 newPosition = new Vector3(xpos, 0, nextVisualZDisplacement + (visualDisplacementForward * i));
             if ((Physics.OverlapBox(newPosition, Vector3.one).Length == 0))
             {
