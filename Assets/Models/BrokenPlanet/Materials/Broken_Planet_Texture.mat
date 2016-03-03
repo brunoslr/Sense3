@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 35266353f16de7448ab3af27518d17ab, type: 3}
+          m_Texture: {fileID: 2800000, guid: fc0d100ce33a41145ac4c633085adc6d, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 544035daf6279a847897f19326fa7419, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -82,14 +82,14 @@ Material:
         first:
           name: _Illum
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 9d9194087a8605749bb85180b2979b10, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _MKGlowTex
         second:
-          m_Texture: {fileID: 2800000, guid: f6bd7b79b14c30145ac0a5bd78664424, type: 3}
+          m_Texture: {fileID: 2800000, guid: 66c2fd7185f35844bb13eee614a888ef, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -105,10 +105,6 @@ Material:
         first:
           name: _Cutoff
         second: 0.5
-      data:
-        first:
-          name: _Shininess
-        second: 0.078125
       data:
         first:
           name: _Parallax
@@ -152,15 +148,15 @@ Material:
       data:
         first:
           name: _MKGlowPower
-        second: 3.28
+        second: 0
       data:
         first:
           name: _MKGlowTexStrength
-        second: 1
+        second: 0
       data:
         first:
           name: _MKGlowOffSet
-        second: 0.0274
+        second: 0
     m_Colors:
       data:
         first:
@@ -169,16 +165,12 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.64705884, g: 0.64705884, b: 0.64705884, a: 1}
-      data:
-        first:
-          name: _SpecColor
-        second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _MKGlowColor
-        second: {r: 0.5, g: 0.4923935, b: 0.22426471, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _MKGlowTexColor
-        second: {r: 0.875, g: 0.19944851, b: 0.19944851, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
