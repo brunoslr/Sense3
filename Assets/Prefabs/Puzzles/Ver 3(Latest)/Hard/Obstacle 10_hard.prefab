@@ -63,9 +63,10 @@ GameObject:
   - 4: {fileID: 428874}
   - 33: {fileID: 3399980}
   - 23: {fileID: 2353968}
-  m_Layer: 0
+  - 64: {fileID: 6423146}
+  m_Layer: 12
   m_Name: pCube6
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,9 +118,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 456444}
   - 111: {fileID: 11191286}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fan (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,9 +135,10 @@ GameObject:
   - 4: {fileID: 427354}
   - 33: {fileID: 3383668}
   - 23: {fileID: 2392322}
-  m_Layer: 0
+  - 64: {fileID: 6427426}
+  m_Layer: 12
   m_Name: pCube5
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -572,6 +574,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113456}
   m_Mesh: {fileID: 4300002, guid: 230f8126b7c100e40b3a618c47534e96, type: 3}
+--- !u!64 &6423146
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300002, guid: 230f8126b7c100e40b3a618c47534e96, type: 3}
+--- !u!64 &6427426
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: 230f8126b7c100e40b3a618c47534e96, type: 3}
 --- !u!65 &6510824
 BoxCollider:
   m_ObjectHideFlags: 1
