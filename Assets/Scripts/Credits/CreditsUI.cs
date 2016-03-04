@@ -35,14 +35,18 @@ public class CreditsUI : MonoBehaviour {
         if (counter % 2 == 0 && counter <= 10)
         {
             creditsLeftTitle.GetComponent<Text>().text = creditsTitle[counter];
-            creditsLeft.GetComponent<Text>().text = creditsStrings[counter];
+            string tempText = creditsStrings[counter];
+            tempText = tempText.Replace(",", "," + System.Environment.NewLine);
+            creditsLeft.GetComponent<Text>().text = tempText;
             targetAlphaLeft = 1.0f;
             targetAlphaRight = 0.0f;
         }
         else if (counter % 2 == 1 && counter <= 10)
         {
             creditsRightTitle.GetComponent<Text>().text = creditsTitle[counter];
-            creditsRight.GetComponent<Text>().text = creditsStrings[counter];
+            string tempText = creditsStrings[counter];
+            tempText = tempText.Replace(",", "," + System.Environment.NewLine);
+            creditsRight.GetComponent<Text>().text = tempText;
             targetAlphaLeft = 0.0f;
             targetAlphaRight = 1.0f;
         }
