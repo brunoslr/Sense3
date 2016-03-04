@@ -21,8 +21,6 @@ public class TutorialScript : MonoBehaviour {
     private Transform rightSP;
     private Transform rumblePickup;
 
-    private Transform arrowHead;
-
     private bool passedLeftSP;
     private bool passedRightSP;
     private bool leftPickedUp;
@@ -49,8 +47,7 @@ public class TutorialScript : MonoBehaviour {
         leftSP = leftSO.transform.GetChild(0);
         rightSP = rightSO.transform.GetChild(0);
         rumblePickup = rumbleObstacle.transform.GetChild(0);
-        arrowHead = playerGO.transform.GetChild(4);
-
+      
         passedLeftSP = false;
         passedRightSP = false;
         leftPickedUp = false;
@@ -106,11 +103,11 @@ public class TutorialScript : MonoBehaviour {
             {
                 leftSO.transform.Translate(new Vector3(0.0f, 0.0f, 1.0f) * playerMovement.initialSpeed * Time.deltaTime, Space.World);
                 screenText.text = "Follow the sound until you hear it on both ears";
-                arrowHead.rotation = Quaternion.Lerp(arrowHead.rotation, Quaternion.Euler(new Vector3(90.0f, -90.0f, 0.0f)), 0.01f);
+           
             }
             else
             {
-                arrowHead.rotation = Quaternion.Lerp(arrowHead.rotation, Quaternion.Euler(new Vector3(90.0f, 0.0f, 0.0f)), 0.01f);
+             
                 screenText.text = "Good job! Keep going straight till you get the sound";
             }
         }
@@ -128,7 +125,7 @@ public class TutorialScript : MonoBehaviour {
                 rightSO.transform.Translate(new Vector3(0.0f, 0.0f, 1.0f) * playerMovement.initialSpeed * Time.deltaTime, Space.World);
                 if (passedLeftSP)
                 {
-                    arrowHead.rotation = Quaternion.Lerp(arrowHead.rotation, Quaternion.Euler(new Vector3(90.0f, 90.0f, 0.0f)), 0.01f);
+                
                     screenText.text = "Follow the sound until you hear it on both ears";
                 }
             }
@@ -136,7 +133,7 @@ public class TutorialScript : MonoBehaviour {
             {
                 if (passedLeftSP)
                 {
-                    arrowHead.rotation = Quaternion.Lerp(arrowHead.rotation, Quaternion.Euler(new Vector3(90.0f, 0.0f, 0.0f)), 0.01f);
+                  
                     screenText.text = "Good job! Keep going straight till you get the sound";
                 }
             }
@@ -162,7 +159,7 @@ public class TutorialScript : MonoBehaviour {
         else
         {
             screenText.text = "Avoid the pull force of the blackhole by moving left or right. The increasing vibrations are an incdicator of how close you are.";
-            arrowHead.gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+          
         }
     }
 
