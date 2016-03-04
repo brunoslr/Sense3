@@ -12,6 +12,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
     //Visual obstacle requirements
     public GameObject[] visualObstaclePrefabs;
     public int visualDisplacementHorizontal;
+    public int visualDisplacementHorizontalRandomRange;
     public int visualDisplacementForward;
     public int visualDisplacementForwardInitial;
     public int visualDisplacementVertical;
@@ -116,7 +117,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
             {
                 planes[i, c] = Instantiate(planePrefab);
                 planes[i, c].name = i + "," + c;
-                planePosition = new Vector3((float)sizeOfPlaneX * (i - 1), -5, (float)sizeOfPlaneZ * ((c - 1) * -1));
+                planePosition = new Vector3((float)sizeOfPlaneX * (i - 1), -1, (float)sizeOfPlaneZ * ((c - 1) * -1));
                 planes[i, c].transform.position = planePosition;
             }
         }
@@ -194,7 +195,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
     {
         int pick;
         int rotX, rotY, rotZ;
-        float xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal);
+        float xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal) + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
         float zpos = visualDisplacementForwardInitial;
         for (int i = 0; i < 5; i++)
         {
@@ -210,11 +211,11 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 rotZ = rotationArray[Random.Range(0, 4)];
                 visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
                 visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, zpos);
-                xpos += visualDisplacementHorizontal;
+                xpos += visualDisplacementHorizontal + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
 
             }
             zpos += ((5 - (i+1)) / 5.0f) * visualDisplacementForwardInitial;
-            xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal);
+            xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal) + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
         }
         nextVisualZDisplacement = (int)zpos;
     }
@@ -407,7 +408,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
     {
         int pick;
         int rotX, rotY, rotZ;
-        float xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal);
+        float xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal) + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
         for (int i = 0; i < 5; ++i)
         {
             pick = Random.Range(0, loadedVisualObstacles.Count - 1);
@@ -420,7 +421,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
             rotZ = rotationArray[Random.Range(0, 4)];
             visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
             visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, nextVisualZDisplacement);
-            xpos += visualDisplacementHorizontal;
+            xpos += visualDisplacementHorizontal + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
         }
     }
 
@@ -428,11 +429,12 @@ public class InfinitePlaneGenerator : MonoBehaviour
     {
         int pick;
         int rotX, rotY, rotZ;
-        float xpos = xPosVisualObstacle + (2 * visualDisplacementHorizontal * dir);
+        
         for (int i = -5; i < 1; i++)
         {
+            float xpos = xPosVisualObstacle + (2 * visualDisplacementHorizontal * dir) + (Random.Range(0, visualDisplacementHorizontalRandomRange) * dir);
             Vector3 newPosition = new Vector3(xpos, 0, nextVisualZDisplacement + (visualDisplacementForward * i));
-            if ((Physics.OverlapBox(newPosition, Vector3.one).Length == 0))
+            if ((Physics.OverlapBox(newPosition, Vector3.one).Length <= 2))
             {
                 pick = Random.Range(0, loadedVisualObstacles.Count - 1);
                 GameObject visualObstacle = loadedVisualObstacles[pick];

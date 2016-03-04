@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 2be5cdd6f4f23354a94a341ea6853d27, type: 3}
+          m_Texture: {fileID: 2800000, guid: 6eb8d4574b4031a42b3701e1073dc414, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 6956d8ed5b9cb2b40a40841f3d4c005e, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -82,7 +82,7 @@ Material:
         first:
           name: _Illum
         second:
-          m_Texture: {fileID: 2800000, guid: 9582ac7b34cfa114aa32402d6b004502, type: 3}
+          m_Texture: {fileID: 2800000, guid: cbdf73628422c5648a670133adbb0804, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -152,11 +152,11 @@ Material:
       data:
         first:
           name: _MKGlowPower
-        second: 2.5
+        second: 0
       data:
         first:
           name: _MKGlowTexStrength
-        second: 0.628
+        second: 0
       data:
         first:
           name: _MKGlowOffSet
@@ -173,12 +173,12 @@ Material:
       data:
         first:
           name: _SpecColor
-        second: {r: 1, g: 0, b: 0, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _MKGlowColor
-        second: {r: 0, g: 0.71323526, b: 0.47712967, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _MKGlowTexColor
-        second: {r: 0.44759426, g: 0.53676474, b: 0.039468, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}

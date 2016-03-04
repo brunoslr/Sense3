@@ -41,6 +41,7 @@ GameObject:
   - 4: {fileID: 462330}
   - 33: {fileID: 3318926}
   - 23: {fileID: 2318616}
+  - 64: {fileID: 6466564}
   m_Layer: 12
   m_Name: polySurface1
   m_TagString: Obstacle
@@ -118,6 +119,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175474}
+  m_Mesh: {fileID: 4300000, guid: cc6be6fb0ea26924abadc067b8133262, type: 3}
+--- !u!64 &6466564
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: cc6be6fb0ea26924abadc067b8133262, type: 3}
 --- !u!95 &9502742
 Animator:
