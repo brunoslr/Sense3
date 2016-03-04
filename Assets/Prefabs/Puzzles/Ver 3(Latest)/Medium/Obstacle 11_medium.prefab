@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3362182}
   - 23: {fileID: 2367016}
   - 64: {fileID: 6445380}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube2
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 487126}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Obstacle 11_medium
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 33: {fileID: 3325552}
   - 23: {fileID: 2335982}
   - 64: {fileID: 6483740}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube5
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - 33: {fileID: 3324078}
   - 23: {fileID: 2384282}
   - 64: {fileID: 6493764}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube4
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 491776}
   - 111: {fileID: 11172352}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Space_Station
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - 33: {fileID: 3386362}
   - 23: {fileID: 2313328}
   - 64: {fileID: 6492722}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCube3
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - 33: {fileID: 3364852}
   - 23: {fileID: 2327276}
   - 64: {fileID: 6446066}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pCylinder1
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -457,7 +457,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 110302}

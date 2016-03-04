@@ -31,7 +31,19 @@ public class Spectrum : MonoBehaviour
 
         playerMesh.GetComponent<Renderer>().material.SetColor("_MKGlowColor", Color.cyan);
         glow.GlowIntensity = Mathf.Clamp(sum * 2, 0.1f, 0.375f);
-   
+    }
+
+    void PlayMyGlow()
+    {
+        sum = 0;
+        AudioListener.GetSpectrumData(spectrum, 0, window);
+        for (int i = 0; i < 1024; i++)
+        {
+            sum += spectrum[i];
+        }
+
+        playerMesh.GetComponent<Renderer>().material.SetColor("_MKGlowColor", Color.red);
+        glow.GlowIntensity = Mathf.Clamp(sum * 2, 0.1f, 0.375f);
     }
 
 }

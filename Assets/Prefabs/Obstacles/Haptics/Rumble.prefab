@@ -190,12 +190,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freq: 10
   state: 0
-  minPullForce: 0.005
-  maxPullForce: 0.01
-  minBlur: 120
-  maxBlur: 150
-  minRadius: 0.03
-  maxRadius: 0.05
+  minPullForce: 0.004
+  maxPullForce: 0.008
+  minBlur: 90
+  maxBlur: 120
+  minRadius: 0.025
+  maxRadius: 0.04
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -229,19 +229,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: minRadius
-      value: 0.03
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxRadius
-      value: 0.05
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: minPullForce
-      value: 0.005
+      value: 0.004
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxPullForce
-      value: 0.01
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minBlur
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxBlur
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -5,9 +5,13 @@ public class ColliderEndScript : MonoBehaviour {
 
     private AudioControllerV2 audioController;
 
+    void Awake()
+    {
+        audioController = GameObject.Find("PlayerAudio").GetComponentInChildren<AudioControllerV2>();
+    }
     // Use this for initialization
     void Start () {
-        audioController = GameObject.Find("PlayerAudio").GetComponentInChildren<AudioControllerV2>();
+        
     }
 
     void OnTriggerEnter(Collider other)
