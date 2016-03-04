@@ -20,7 +20,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 7d5c1bef8a608dc4caa5b707e1e0563f, type: 3}
+          m_Texture: {fileID: 2800000, guid: 80726c29bf28dda4dbe6bb0daab56177, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -55,7 +55,7 @@ Material:
         first:
           name: _EmissionMap
         second:
-          m_Texture: {fileID: 2800000, guid: bf1574b325be8ba469ce19d3833f5eaa, type: 3}
+          m_Texture: {fileID: 2800000, guid: 2ef0b5db518f6cb429f8e169987d1f19, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -77,6 +77,20 @@ Material:
           name: _MetallicGlossMap
         second:
           m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Illum
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MKGlowTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 2ef0b5db518f6cb429f8e169987d1f19, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -128,6 +142,22 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _EmissionLM
+        second: 0
+      data:
+        first:
+          name: _MKGlowPower
+        second: 2.5
+      data:
+        first:
+          name: _MKGlowTexStrength
+        second: 1
+      data:
+        first:
+          name: _MKGlowOffSet
+        second: 0
     m_Colors:
       data:
         first:
@@ -136,4 +166,12 @@ Material:
       data:
         first:
           name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _MKGlowColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _MKGlowTexColor
         second: {r: 1, g: 1, b: 1, a: 1}
