@@ -432,9 +432,9 @@ public class InfinitePlaneGenerator : MonoBehaviour
         
         for (int i = -5; i < 1; i++)
         {
-            float xpos = xPosVisualObstacle + (2 * visualDisplacementHorizontal * dir) + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
+            float xpos = xPosVisualObstacle + (2 * visualDisplacementHorizontal * dir) + (Random.Range(0, visualDisplacementHorizontalRandomRange) * dir);
             Vector3 newPosition = new Vector3(xpos, 0, nextVisualZDisplacement + (visualDisplacementForward * i));
-            if ((Physics.OverlapBox(newPosition, Vector3.one).Length == 0))
+            if ((Physics.OverlapBox(newPosition, Vector3.one).Length <= 2))
             {
                 pick = Random.Range(0, loadedVisualObstacles.Count - 1);
                 GameObject visualObstacle = loadedVisualObstacles[pick];
