@@ -19,7 +19,8 @@ public class PlanetCreator : MonoBehaviour {
         Player = GameObject.FindGameObjectWithTag("Player");
         planets = new GameObject[totalPrefabs];
         initPlanets();
-        previousPos = Player.transform.position;
+        previousPos = Player.transform.position + new Vector3(minDisp, 0, 0);
+        LateUpdate();
 	}
 
     /// <summary>
@@ -30,10 +31,10 @@ public class PlanetCreator : MonoBehaviour {
         Debug.Log(totalPrefabs);
         for(int i=0;i < totalPrefabs; i++)
         {
-            planets[i] = (GameObject)Instantiate(planetPrefabs[i], new Vector3(0, 0, - 10000), new Quaternion(0,0,0,1));
+            planets[i] = (GameObject)Instantiate(planetPrefabs[i], new Vector3(0, 0, - 1000000), new Quaternion(0,0,0,1));
         }
-        planets[0].transform.position = Player.transform.position + new Vector3(Random.Range(1.0f, 1.0f) * 1000, YDisp * (Random.Range(-1.0f, 1.0f)), minDisp);
-        closestPrefabIndex = 0;
+        //planets[10].transform.position = Player.transform.position + new Vector3(Random.Range(1.0f, 1.0f) * 1000, YDisp * (Random.Range(-1.0f, 1.0f)), minDisp);
+        closestPrefabIndex = 99;
         //planets[1].transform.position = /*Player.transform.position + */new Vector3(0, 0, 0);
         //planets[2].transform.position = /*Player.transform.position + */new Vector3(0, 0, 0);
     }
@@ -45,7 +46,7 @@ public class PlanetCreator : MonoBehaviour {
 
     void LateUpdate()
     {
-        if(Vector3.Distance(Player.transform.position, previousPos) > 2.0f * minDisp)
+        if(Vector3.Distance(Player.transform.position, previousPos) > minDisp)
         {
             previousPos = Player.transform.position;
             int index;
@@ -54,7 +55,8 @@ public class PlanetCreator : MonoBehaviour {
                 index = Random.Range(0, totalPrefabs);
             } while (index == closestPrefabIndex);
             closestPrefabIndex = index;
-            planets[index].transform.position = Player.transform.position + new Vector3(Random.Range(1.0f,1.0f) * 5000,  YDisp * (Random.Range(-1.0f,1.0f)), minDisp * 2.0f);
+            planets[index].transform.position = Player.transform.position + new Vector3(Random.Range(-1.0f,1.0f) * 5000,  YDisp * (Random.Range(-1.0f,1.0f)), minDisp);
+            planets[index].transform.rotation = new Quaternion(Random.Range(-45, 45), Random.Range(-45, 45), Random.Range(-45, 45), 1.0f);
         }
     }
 }
