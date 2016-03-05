@@ -3355,7 +3355,9 @@ MonoBehaviour:
   visObsCrashSound: {fileID: 8300000, guid: 66c795bc4c7b71f48951c007f8a162b3, type: 3}
   minObsCrashSound: {fileID: 0}
   audPickupSound: {fileID: 0}
-  movPlayerSound: {fileID: 0}
+  movPlayerLeftSound: {fileID: 0}
+  movPlayerRightSound: {fileID: 0}
+  jumpPlayerSound: {fileID: 0}
   masterVolume: 0
 --- !u!96 &1134387763
 TrailRenderer:
