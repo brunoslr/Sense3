@@ -206,10 +206,13 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 visualObstacle.SetActive(true);
                 loadedVisualObstacles.RemoveAt(pick);
                 visualObstacles.Add(visualObstacle);
-                rotX = rotationArray[Random.Range(0, 4)];
-                rotY = rotationArray[Random.Range(0, 4)];
-                rotZ = rotationArray[Random.Range(0, 4)];
-                visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
+                if (visualObstacle.name != "Obstacle 10_easy(Clone)" && visualObstacle.name != "Obstacle 10_medium(Clone)" && visualObstacle.name != "Obstacle 10_hard(Clone)")
+                {
+                    rotX = rotationArray[Random.Range(0, 4)];
+                    rotY = rotationArray[Random.Range(0, 4)];
+                    rotZ = rotationArray[Random.Range(0, 4)];
+                    visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
+                }
                 visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, zpos);
                 xpos += visualDisplacementHorizontal + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
 
@@ -416,10 +419,13 @@ public class InfinitePlaneGenerator : MonoBehaviour
             visualObstacle.SetActive(true);
             loadedVisualObstacles.RemoveAt(pick);
             visualObstacles.Add(visualObstacle);
-            rotX = rotationArray[Random.Range(0, 4)];
-            rotY = rotationArray[Random.Range(0, 4)];
-            rotZ = rotationArray[Random.Range(0, 4)];
-            visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
+            if (visualObstacle.name != "Obstacle 10_easy(Clone)" && visualObstacle.name != "Obstacle 10_medium(Clone)" && visualObstacle.name != "Obstacle 10_hard(Clone)")
+            {
+                rotX = rotationArray[Random.Range(0, 4)];
+                rotY = rotationArray[Random.Range(0, 4)];
+                rotZ = rotationArray[Random.Range(0, 4)];
+                visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
+            }
             visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, nextVisualZDisplacement);
             xpos += visualDisplacementHorizontal + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
         }
@@ -441,10 +447,13 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 visualObstacle.SetActive(true);
                 loadedVisualObstacles.RemoveAt(pick);
                 visualObstacles.Add(visualObstacle);
-                rotX = rotationArray[Random.Range(0, 4)];
-                rotY = rotationArray[Random.Range(0, 4)];
-                rotZ = rotationArray[Random.Range(0, 4)];
-                visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
+                if (visualObstacle.name != "Obstacle 10_easy(Clone)" && visualObstacle.name != "Obstacle 10_medium(Clone)" && visualObstacle.name != "Obstacle 10_hard(Clone)")
+                {
+                    rotX = rotationArray[Random.Range(0, 4)];
+                    rotY = rotationArray[Random.Range(0, 4)];
+                    rotZ = rotationArray[Random.Range(0, 4)];
+                    visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
+                }
                 visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, nextVisualZDisplacement + (visualDisplacementHorizontal * i));
             }
         }
