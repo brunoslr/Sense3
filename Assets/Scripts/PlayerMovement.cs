@@ -148,14 +148,20 @@ public class PlayerMovement : MonoBehaviour
       
             else
                 initialSideSpeed = finalSideSpeed;
-            
 
-            horAxis = horAxis / Mathf.Abs(horAxis);
+            if (horAxis < 0.0f)
+            {
+                soundEffectsManager.MovePlayerLeftSound();
+            }
+
+            if (horAxis > 0.0f)
+            {
+                soundEffectsManager.MovePlayerRightSound();
+            }
+                horAxis = horAxis / Mathf.Abs(horAxis);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0.0f, 0.0f, -horAxis * horTilt), moveFactor);
             transform.Translate(new Vector3(1.0f, 0.0f, 0.0f) * horAxis * initialSideSpeed * Time.deltaTime, Space.World);
             cameraMovement.RotateCamera(horAxis);
-
-            soundEffectsManager.MovePlayerSound();
         }
     }
 
@@ -189,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(-vertAxis * vertTilt, 0.0f, 0.0f);
             transform.Translate(new Vector3(0.0f, 1.0f, 0.0f) * vertAxis * initialVertSpeed * Time.deltaTime, Space.World);
-            soundEffectsManager.MovePlayerSound();
+            //soundEffectsManager.MovePlayerSound();
         }
     }
 
@@ -198,6 +204,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = false;
         rigidBody.AddForce(Vector3.up * jumpVel, ForceMode.VelocityChange);
         rigidBody.useGravity = true;
+        soundEffectsManager.JumpPlayerSound();
     }
 
     void CheckPlayerGrounded()
