@@ -29,7 +29,7 @@ public class Spectrum : MonoBehaviour
             sum += spectrum[i];
         }
 
-        playerMesh.GetComponent<Renderer>().material.SetColor("_MKGlowColor", Color.red);
+        //playerMesh.GetComponent<Renderer>().material.SetColor("_MKGlowColor", Color.red);
         glow.GlowIntensity = Mathf.Clamp(sum * 2, 0.1f, 0.375f);
     }
 
@@ -42,7 +42,7 @@ public class Spectrum : MonoBehaviour
             sum += spectrum[i];
         }
 
-        playerMesh.GetComponent<Renderer>().material.SetColor("_MKGlowColor", Color.red);
+        //playerMesh.GetComponent<Renderer>().material.SetColor("_MKGlowColor", Color.red);
         glow.GlowIntensity = Mathf.Clamp(sum * 2, 0.1f, 0.375f);
     }
 
