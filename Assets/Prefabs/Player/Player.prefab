@@ -124,7 +124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &181866
 GameObject:
   m_ObjectHideFlags: 1
@@ -363,7 +363,7 @@ TrailRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: b9850dfbd95aaab4ca0edefb1586b174, type: 2}
+  - {fileID: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -567,7 +567,7 @@ MonoBehaviour:
   movPlayerLeftSound: {fileID: 8300000, guid: b8b6dabd459a62343ac1d9b6022b1f58, type: 3}
   movPlayerRightSound: {fileID: 8300000, guid: 1ee119fe47b32e84f9f94c0810645881, type: 3}
   jumpPlayerSound: {fileID: 8300000, guid: 270c2eec2f4636b48bc05979b95c65d6, type: 3}
-  masterVolume: 0
+  masterVolume: 0.2
 --- !u!114 &11475730
 MonoBehaviour:
   m_ObjectHideFlags: 1
