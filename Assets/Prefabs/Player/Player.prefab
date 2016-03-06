@@ -363,7 +363,7 @@ TrailRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: b9850dfbd95aaab4ca0edefb1586b174, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -501,7 +501,7 @@ MonoBehaviour:
   initialSpeed: 100
   sideSpeedMul: 1
   vertSpeedMul: 0.1
-  speedMultiplier: 0.25
+  speedMultiplier: 0.5
   sideSpeedInc: 1
   vertSpeedInc: 0.1
   horClamp: 3.4028235e+38

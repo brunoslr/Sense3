@@ -10,7 +10,7 @@ public class HapticObstacle : MonoBehaviour
     private float totalDist;
     private float ratio;
     private GameObject player;
-    private GameObject camera;
+    private GameObject cam;
     private CameraMovement cameraMovement;
     private Twirl cameraTwirl;
     private PlayerMovement playerMovement;
@@ -33,10 +33,10 @@ public class HapticObstacle : MonoBehaviour
     {
         state = State.NEW;
         player = GameObject.Find("Player");
-        camera =  GameObject.Find("MainCameraParent");
-        cameraMovement = camera.GetComponent<CameraMovement>();
+        cam =  GameObject.Find("MainCameraParent");
+        cameraMovement = cam.GetComponent<CameraMovement>();
         playerMovement = player.GetComponent<PlayerMovement>();
-        cameraTwirl = camera.GetComponentInChildren<Twirl>();
+        cameraTwirl = cam.GetComponentInChildren<Twirl>();
         cameraTwirl.radius.x = cameraTwirl.radius.y = minRadius;
         cameraTwirl.angle = minBlur;
         currentPullforce = minPullForce;
