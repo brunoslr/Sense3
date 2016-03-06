@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerMeshScript : MonoBehaviour {
 
-    private SkinnedMeshRenderer[] playerMesh;
+    private SkinnedMeshRenderer playerMesh;
     private float blendShapeMultiplier;
     public int blendShapeMaxValue = 100;
 
@@ -13,7 +13,7 @@ public class PlayerMeshScript : MonoBehaviour {
         blendShapeMultiplier = blendShapeMaxValue/ PlayerStateScript.ReturnMaxPlayerLevel();
 
 
-        playerMesh = this.GetComponentsInChildren<SkinnedMeshRenderer>();
+        playerMesh = this.GetComponentInChildren<SkinnedMeshRenderer>();
 
         if (playerMesh != null)
         {
@@ -32,11 +32,7 @@ public class PlayerMeshScript : MonoBehaviour {
     public void UpdatePlayerShape()
     {
         int playerLevel = PlayerStateScript.getPlayerLevel();
-        for (int i = 0; i < playerMesh.Length; i++)
-        {
-            playerMesh[i].SetBlendShapeWeight(0, playerLevel * blendShapeMultiplier);
-        }
-        Debug.Log(playerLevel);
+        playerMesh.SetBlendShapeWeight(0, playerLevel * blendShapeMultiplier);
     }
 
 

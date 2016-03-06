@@ -27,7 +27,6 @@ public class SoundEffectsManager : MonoBehaviour
         movPlayerAudioSource = this.gameObject.AddComponent<AudioSource>();
         CoreSystem.onObstacleEvent += VisualObstacleCrashSound;
         CoreSystem.onSoundEvent += AudioObstaclePickupSound;
-        masterVolume = 0.03f;
     }
 
     void OnDestroy()
@@ -39,9 +38,9 @@ public class SoundEffectsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        visObsAudioSource.volume = 1.0f;
-        minObsAudioSource.volume = 1.0f; 
-        audPickupAudioSource.volume = 1.0f;
+        visObsAudioSource.volume = masterVolume;
+        minObsAudioSource.volume = masterVolume; 
+        audPickupAudioSource.volume = masterVolume;
         movPlayerAudioSource.volume = masterVolume;
     }
 

@@ -93,7 +93,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
         LoadTactileObstacle();
 
-        LoadDynamicObstacle();
+        //LoadDynamicObstacle();
 
         InitializeVisualObstacles();
     }
@@ -160,6 +160,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
         loadedVisualObstacles = loadedVisualObstaclesEasy;
         visualPlacementZTrigger = visualDisplacementForwardInitial;
         visualPlacementInitialTrigger = visualDisplacementForwardInitial - visualDisplacementForward;
+        Destroy(temp);
     }
 
     private void LoadSoundObstacle()
@@ -231,13 +232,16 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
         UpdatePlane();
 
-        UpdateVisualObstacles();
+        if (currentPlayerLevel < 7)
+        {
+            UpdateVisualObstacles();
 
-        UpdateSoundObstacle();
+            UpdateSoundObstacle();
 
-        UpdateTactileObstacle();
+            UpdateTactileObstacle();
+        }
 
-        UpdateDynamicObstacle();
+        //UpdateDynamicObstacle();
     }
 
     private void UpdatePlayer()
@@ -257,7 +261,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                     loadedVisualObstacles = loadedVisualObstaclesEasy;
                 }
             }
-            else if (currentPlayerLevel >= 3 && currentPlayerLevel <= 5)
+            else if (currentPlayerLevel >= 3 && currentPlayerLevel <= 4)
             {
                 tactileDisplacementRandomFactorLow = 1500;
                 tactileDisplacementRandomFactorHigh = 3000;
@@ -266,7 +270,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                     loadedVisualObstacles = loadedVisualObstaclesMedium;
                 }
             }
-            else if (currentPlayerLevel >= 6 && currentPlayerLevel <= 8)
+            else if (currentPlayerLevel >= 5 && currentPlayerLevel <= 7)
             {
                 tactileDisplacementRandomFactorLow = 0;
                 tactileDisplacementRandomFactorHigh = 1500;
@@ -372,38 +376,36 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     private void UpdateVisualObstacles()
     {
-        if (currentPlayerLevel < 8)
+
+        if ((int)playerXPosition < lowerClamp)
         {
-            if ((int)playerXPosition < lowerClamp)
-            {
-                xPosVisualObstacle -= (int)visualDisplacementHorizontal;
-                upperClamp = lowerClamp;
-                lowerClamp -= 2 * xClamp;
-                CreateVisualObstaclesOnSide(-1.0f);
-            }
+            xPosVisualObstacle -= (int)visualDisplacementHorizontal;
+            upperClamp = lowerClamp;
+            lowerClamp -= 2 * xClamp;
+            CreateVisualObstaclesOnSide(-1.0f);
+        }
 
-            if ((int)playerXPosition > upperClamp)
-            {
-                xPosVisualObstacle += (int)visualDisplacementHorizontal;
-                lowerClamp = upperClamp;
-                upperClamp += 2 * xClamp;
-                CreateVisualObstaclesOnSide(1.0f);
-            }
+        if ((int)playerXPosition > upperClamp)
+        {
+            xPosVisualObstacle += (int)visualDisplacementHorizontal;
+            lowerClamp = upperClamp;
+            upperClamp += 2 * xClamp;
+            CreateVisualObstaclesOnSide(1.0f);
+        }
 
-            if (playerZPosition > visualPlacementZTrigger)
+        if (playerZPosition > visualPlacementZTrigger)
+        {
+            if (visualPlacementInitialTrigger > 100)
             {
-                if (visualPlacementInitialTrigger > 100)
-                {
-                    visualPlacementZTrigger += visualPlacementInitialTrigger;
-                    visualPlacementInitialTrigger -= visualDisplacementForward;
-                }
-                else
-                {
-                    visualPlacementZTrigger += (int)visualDisplacementForward;
-                }
-                nextVisualZDisplacement += (int)visualDisplacementForward;
-                GenerateVisualObstacles();
+                visualPlacementZTrigger += visualPlacementInitialTrigger;
+                visualPlacementInitialTrigger -= visualDisplacementForward;
             }
+            else
+            {
+                visualPlacementZTrigger += (int)visualDisplacementForward;
+            }
+            nextVisualZDisplacement += (int)visualDisplacementForward;
+            GenerateVisualObstacles();
         }
     }
 
