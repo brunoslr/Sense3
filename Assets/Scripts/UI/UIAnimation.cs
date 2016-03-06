@@ -8,10 +8,10 @@ public class UIAnimation : MonoBehaviour {
     public float speed;
     public List<GameObject> menuElements;
     public Vector3[] positions;
-    public GameObject firstObject;
     public Button startButton;
     public Button quitButton;
     public Button creditsButton;
+    public Button tutorialsButton;
     public Vector3 temp;
     float time;
     public bool isRunning;
@@ -27,6 +27,10 @@ public class UIAnimation : MonoBehaviour {
 
         if (creditsButton != null)
             creditsButton.onClick.AddListener(() => { LoadScene("Credits");});
+
+        if (tutorialsButton != null)
+            tutorialsButton.onClick.AddListener(() => { LoadScene("Tutorial"); });
+
 
     }
     // Update is called once per frame
@@ -52,12 +56,13 @@ public class UIAnimation : MonoBehaviour {
     }
     public void MoveLeft()
     {
-        StartCoroutine("MoveUILeft");
+        StartCoroutine("MoveUIRight");
+
         isRunning = true;
     }
     public void MoveRight()
     {
-        StartCoroutine("MoveUIRight");
+        StartCoroutine("MoveUILeft");
         isRunning = true;
     }
     public IEnumerator MoveUILeft()
