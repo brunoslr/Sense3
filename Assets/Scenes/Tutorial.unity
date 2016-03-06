@@ -126,9 +126,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundObstacleprefab: {fileID: 173268, guid: cce816729b5e1e34d82e8b3a04687079, type: 2}
   rumbleObstaclePrefab: {fileID: 175060, guid: 23aff0babb32e3840b1b75545dff5801, type: 2}
-  playerGO: {fileID: 2043800002}
+  playerGameObject: {fileID: 2043800002}
   screenText: {fileID: 1416030831}
   obstaclePrefab: {fileID: 164434, guid: 6331028c65938604b8112a0e3ec60c52, type: 2}
+  alignedWithSound: Good job! Keep going straight till you pickup the sound.
+  notAlignedWithSound: Move in the direction of sound till you hear it on both ears
+  gotTheSound: Good job! You got the sound. Keep collecting more as these act as your
+    lives.
+  alignedWithRumble: Move away from the blackhole that is trying to pull you. The
+    levels of vibration tell you how close you are.
+  notAlignedWithRumble: Good job! You are out of the range of the blackhole. Keep
+    going straight till you completely avoid it.
+  passedRumble: Good job! You passed the blackhole.
+  passedVisual: 'Good job! You avoided the obstacle.  '
+  avoidVisual: Move away or use the jump key to avoid the obstacle.
+  soundObstacleDispX: 40
+  nextMechanicTimer: 4
 --- !u!1 &62031653
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,8 +661,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
