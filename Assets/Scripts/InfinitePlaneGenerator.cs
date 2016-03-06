@@ -93,7 +93,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
         LoadTactileObstacle();
 
-        LoadDynamicObstacle();
+        //LoadDynamicObstacle();
 
         InitializeVisualObstacles();
     }
@@ -160,6 +160,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
         loadedVisualObstacles = loadedVisualObstaclesEasy;
         visualPlacementZTrigger = visualDisplacementForwardInitial;
         visualPlacementInitialTrigger = visualDisplacementForwardInitial - visualDisplacementForward;
+        Destroy(temp);
     }
 
     private void LoadSoundObstacle()
@@ -237,7 +238,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
         UpdateTactileObstacle();
 
-        UpdateDynamicObstacle();
+        //UpdateDynamicObstacle();
     }
 
     private void UpdatePlayer()
