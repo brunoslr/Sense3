@@ -41,7 +41,7 @@ public class SoundEffectsManager : MonoBehaviour
         visObsAudioSource.volume = masterVolume;
         minObsAudioSource.volume = masterVolume; 
         audPickupAudioSource.volume = masterVolume;
-        movPlayerAudioSource.volume = 0.02f;
+        movPlayerAudioSource.volume = masterVolume;
     }
 
     public void VisualObstacleCrashSound()

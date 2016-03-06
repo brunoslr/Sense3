@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 9c1aae51b3f86c04c82a41c894e3551c
-timeCreated: 1457283941
+guid: dbf3d061052133a49a3dc92493c6c43c
+timeCreated: 1457302693
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Spritesheet2_0
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -31,41 +30,26 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
-  nPOTScale: 0
+    wrapMode: -1
+  nPOTScale: 1
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 0
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
-  alphaIsTransparency: 1
-  textureType: 8
+  alphaIsTransparency: 0
+  textureType: -1
   buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: Spritesheet2_0
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 210
-        width: 284
-        height: 577
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -142, y: 288.5}
-        - {x: -142, y: -288.5}
-        - {x: 142, y: -288.5}
-        - {x: 142, y: 288.5}
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 
