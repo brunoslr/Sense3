@@ -2,40 +2,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class UIAnimation : MonoBehaviour {
     public GameObject player;
     public float speed;
-
     public List<GameObject> menuElements;
     public Vector3[] positions;
     public GameObject firstObject;
+    public Button startButton;
+    public Button quitButton;
+    public Button creditsButton;
     public Vector3 temp;
     float time;
     public bool isRunning;
     // Use this for initialization
     void Start()
     {
+        if (startButton != null)
+            startButton.onClick.AddListener(() => { LoadScene("Infinite"); });
+
+        if (quitButton != null)
+            quitButton.onClick.AddListener(() => { QuitGame(); });
+
+        if (creditsButton != null)
+            creditsButton.onClick.AddListener(() => { LoadScene("Credits");});
 
     }
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
         time += Time.deltaTime;
-
-       if(Input.GetKeyDown(KeyCode.A))
-        {
-           
-            StartCoroutine("MoveUILeft");
-            isRunning = true;
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-
-            StartCoroutine("MoveUIRight");
-            isRunning = true;
-        }
+        player.transform.Rotate(Vector3.up * Time.deltaTime * speed, Space.Self);
     }
 
-    IEnumerator MoveUILeft()
+    public void MoveLeft()
+    {
+        StartCoroutine("MoveUILeft");
+        isRunning = true;
+    }
+    public void MoveRight()
+    {
+        StartCoroutine("MoveUIRight");
+        isRunning = true;
+    }
+    public IEnumerator MoveUILeft()
     {
         if (!isRunning)
         {
@@ -58,7 +67,7 @@ public class UIAnimation : MonoBehaviour {
             isRunning = false;
         }
     }
-    IEnumerator MoveUIRight()
+    public IEnumerator MoveUIRight()
     {
         if (!isRunning)
         {
@@ -81,4 +90,20 @@ public class UIAnimation : MonoBehaviour {
             isRunning = false;
         }
     }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+    }
+
 }
