@@ -15,11 +15,12 @@ public class UIAnimation : MonoBehaviour {
     public Vector3 temp;
     float time;
     public bool isRunning;
+    public float smooth;
     // Use this for initialization
     void Start()
     {
         if (startButton != null)
-            startButton.onClick.AddListener(() => { LoadScene("Infinite"); });
+            startButton.onClick.AddListener(() => { StartGame(); });
 
         if (quitButton != null)
             quitButton.onClick.AddListener(() => { QuitGame(); });
@@ -34,6 +35,21 @@ public class UIAnimation : MonoBehaviour {
         player.transform.Rotate(Vector3.up * Time.deltaTime * speed, Space.Self);
     }
 
+    public void StartGame()
+    {
+        StartCoroutine("StartPlayerTakeOff");
+      
+    }
+    public IEnumerator StartPlayerTakeOff()
+    {   while (player.GetComponent<SkinnedMeshRenderer>().GetBlendShapeWeight(0) < 100)
+        {
+            player.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, Mathf.Lerp(player.GetComponent<SkinnedMeshRenderer>().GetBlendShapeWeight(0), 100, time * Time.deltaTime));
+            yield return null;
+            if (player.GetComponent<SkinnedMeshRenderer>().GetBlendShapeWeight(0) > 98)
+                LoadScene("Infinite");
+
+        }
+    }
     public void MoveLeft()
     {
         StartCoroutine("MoveUILeft");
