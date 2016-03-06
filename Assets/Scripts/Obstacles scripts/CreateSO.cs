@@ -6,9 +6,11 @@ public class CreateSO : MonoBehaviour {
     public Vector3 scaleSO;         // scale of sound obstacle
 
     private Transform soundPickup; // pickup inside sound obstacle
+    
+
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         transform.localScale = scaleSO;
         soundPickup = transform.GetChild(0);
         soundPickup.localScale = new Vector3(1.0f / 5.0f, 1.0f, 1.0f / 100.0f);

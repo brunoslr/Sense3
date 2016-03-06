@@ -33,7 +33,6 @@ public class PlayerMeshScript : MonoBehaviour {
     {
         int playerLevel = PlayerStateScript.getPlayerLevel();
         playerMesh.SetBlendShapeWeight(0, playerLevel * blendShapeMultiplier);
-        Debug.Log(playerLevel);
     }
 
 

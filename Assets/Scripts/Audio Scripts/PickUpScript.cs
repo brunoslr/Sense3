@@ -15,4 +15,12 @@ public class PickUpScript : MonoBehaviour {
             pickedUp = true;
 		}
 	}
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            pickedUp = true;
+        }
+    }
+
 }

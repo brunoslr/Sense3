@@ -427,7 +427,7 @@ Transform:
   m_GameObject: {fileID: 140100}
   m_LocalRotation: {x: 0, y: 0, z: 0.16039154, w: 0.9870535}
   m_LocalPosition: {x: 0, y: -100, z: -0.35759}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 465034}
   - {fileID: 413354}
@@ -440,8 +440,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1440.0319, y: 5019.194, z: -16608.502}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 401538}
   m_Father: {fileID: 0}
@@ -858,7 +858,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4657a366233a51c4597b855c8116ad9b, type: 2}
+  - {fileID: 2100000, guid: 75fde56c1b9b74b4d9707f9721382034, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1892,6 +1892,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Name
       value: Obstacle 1_hard_oculus
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

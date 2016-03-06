@@ -1,25 +1,28 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class PlanetCreator : MonoBehaviour {
 
-    public GameObject[] planetPrefabs;
-    public float YDisp = 1000;
-    public float minDisp = 10000;
+    public GameObject[] Prefabs;
+    public float YDisp = 10000;
+    public int minDisp = 10000;
 
-    private GameObject[] planets;
+    private List<GameObject> galaxies;
     private GameObject Player;
-    private Vector3 previousPos;
-    private int closestPrefabIndex;
+    private int Counter;
     private int totalPrefabs;
+    private List<GameObject> objects_in_front;
+    private int sign;
 
 	// Use this for initialization
 	void Start () {
-        totalPrefabs = planetPrefabs.Length;
+        totalPrefabs = Prefabs.Length;
         Player = GameObject.FindGameObjectWithTag("Player");
-        planets = new GameObject[totalPrefabs];
+        Counter = (int) Player.transform.position.z - minDisp/2;
+        galaxies = new List<GameObject>();
+        objects_in_front = new List<GameObject>();
         initPlanets();
-        previousPos = Player.transform.position;
+        sign = 1;
 	}
 
     /// <summary>
@@ -27,34 +30,57 @@ public class PlanetCreator : MonoBehaviour {
     /// </summary>
     void initPlanets()
     {
-        Debug.Log(totalPrefabs);
-        for(int i=0;i < totalPrefabs; i++)
-        {
-            planets[i] = (GameObject)Instantiate(planetPrefabs[i], new Vector3(0, 0, - 10000), new Quaternion(0,0,0,1));
-        }
-        planets[0].transform.position = Player.transform.position + new Vector3(Random.Range(1.0f, 1.0f) * 1000, YDisp * (Random.Range(-1.0f, 1.0f)), minDisp);
-        closestPrefabIndex = 0;
-        //planets[1].transform.position = /*Player.transform.position + */new Vector3(0, 0, 0);
-        //planets[2].transform.position = /*Player.transform.position + */new Vector3(0, 0, 0);
+        GameObject temp;
+       for (int i = 0; i < totalPrefabs; i++)
+       {
+            temp = (GameObject)Instantiate(Prefabs[i]);
+            temp.SetActive(false);
+            galaxies.Add(temp);
+       }
     }
 	
 	// Update is called once per frame
 	void Update () {
-	    
+
 	}
 
     void LateUpdate()
     {
-        if(Vector3.Distance(Player.transform.position, previousPos) > 2.0f * minDisp)
+        if(Counter + (minDisp/2.0f) <= Player.transform.position.z)
         {
-            previousPos = Player.transform.position;
-            int index;
+            float x, y, z;
+            int tempSign = Random.Range(-1, 1);
+            tempSign = tempSign / Mathf.Abs(tempSign);
+
+            x = Random.Range(1, 10) * sign;
+            y = Random.Range(1, 10) * tempSign;
+            z = 1.0f;
+
+            Vector3 dir = new Vector3(x, y, z);
+            dir = Vector3.Normalize(dir);
+            //dir *= minDisp/2.0f;
+            Debug.Log(dir);
+            int index = Random.Range(0, galaxies.Count - 1);
+            galaxies[index].transform.position = Player.transform.position + dir;
+            galaxies[index].transform.forward = Vector3.Normalize(Player.transform.position - galaxies[index].transform.position);
+            galaxies[index].SetActive(true);
+
+            Vector3 dir2 = new Vector3(-x, y * tempSign, z);
+            dir2 = Vector3.Normalize(dir2);
+            Debug.Log(dir2);
+            int index2;
             do
             {
-                index = Random.Range(0, totalPrefabs);
-            } while (index == closestPrefabIndex);
-            closestPrefabIndex = index;
-            planets[index].transform.position = Player.transform.position + new Vector3(Random.Range(1.0f,1.0f) * 5000,  YDisp * (Random.Range(-1.0f,1.0f)), minDisp * 2.0f);
+                index2 = Random.Range(0, galaxies.Count - 1);
+            } while (index2 == index);
+
+            galaxies[index2].transform.position = Player.transform.position + dir2;
+            galaxies[index2].transform.forward = Vector3.Normalize(Player.transform.position - galaxies[index2].transform.position);
+            galaxies[index2].transform.Rotate(new Vector3(0, 0, 1), 180.0f);
+            galaxies[index2].SetActive(true);
+
+            sign *= (-1);
+            Counter += minDisp;
         }
     }
 }
