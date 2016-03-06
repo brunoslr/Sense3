@@ -7,7 +7,9 @@ public class SoundEffectsManager : MonoBehaviour
     public AudioClip visObsCrashSound;
     public AudioClip minObsCrashSound;
     public AudioClip audPickupSound;
-    public AudioClip movPlayerSound;
+    public AudioClip movPlayerLeftSound;
+    public AudioClip movPlayerRightSound;
+    public AudioClip jumpPlayerSound;
 
     private AudioSource visObsAudioSource;
     private AudioSource minObsAudioSource;
@@ -25,7 +27,7 @@ public class SoundEffectsManager : MonoBehaviour
         movPlayerAudioSource = this.gameObject.AddComponent<AudioSource>();
         CoreSystem.onObstacleEvent += VisualObstacleCrashSound;
         CoreSystem.onSoundEvent += AudioObstaclePickupSound;
-        masterVolume = 0.01f;
+        masterVolume = 0.03f;
     }
 
     void OnDestroy()
@@ -37,9 +39,9 @@ public class SoundEffectsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        visObsAudioSource.volume = masterVolume;
-        minObsAudioSource.volume = masterVolume; 
-        audPickupAudioSource.volume = masterVolume;
+        visObsAudioSource.volume = 1.0f;
+        minObsAudioSource.volume = 1.0f; 
+        audPickupAudioSource.volume = 1.0f;
         movPlayerAudioSource.volume = masterVolume;
     }
 
@@ -59,8 +61,18 @@ public class SoundEffectsManager : MonoBehaviour
     }
 
     // This sound should propogate from left ear to right ear if player moves right and vice versa
-    public void MovePlayerSound()
+    public void MovePlayerLeftSound()
     {
-        movPlayerAudioSource.PlayOneShot(movPlayerSound);
+        movPlayerAudioSource.PlayOneShot(movPlayerLeftSound);
+    }
+
+    public void MovePlayerRightSound()
+    {
+        movPlayerAudioSource.PlayOneShot(movPlayerRightSound);
+    }
+
+    public void JumpPlayerSound()
+    {
+        movPlayerAudioSource.PlayOneShot(jumpPlayerSound);
     }
 }
