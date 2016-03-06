@@ -124,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd934cf85021994caae785e2978bf98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialTextFont: {fileID: 12800000, guid: 89c5d2deb103a8c4b811aa08aabed7e9, type: 3}
   soundObstacleprefab: {fileID: 173268, guid: cce816729b5e1e34d82e8b3a04687079, type: 2}
   rumbleObstaclePrefab: {fileID: 175060, guid: 23aff0babb32e3840b1b75545dff5801, type: 2}
   playerGameObject: {fileID: 2043800002}
@@ -479,10 +478,6 @@ Prefab:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1652836907}
-    - target: {fileID: 11439268, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
-      propertyPath: gameMode
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
   m_IsPrefabParent: 0

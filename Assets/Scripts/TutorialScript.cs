@@ -46,7 +46,7 @@ public class TutorialScript : MonoBehaviour {
 
     private float checkPan;
 
-    private enum UpdateState { LEFTSOUND, RIGHTSOUND, HAPTIC, VISUAL };
+    private enum UpdateState { LEFTSOUND, RIGHTSOUND, VISUAL, HAPTIC };
     private UpdateState updateState;
 
     private enum SoundState { BEFORE, INSIDE, AFTER };
@@ -98,12 +98,12 @@ public class TutorialScript : MonoBehaviour {
                 RightSoundUpdate();
                 break;
 
-            case UpdateState.HAPTIC:
-                RumbleUpdate();
-                break;
-
             case UpdateState.VISUAL:
                 VisualUpdate();
+                break;
+
+            case UpdateState.HAPTIC:
+                RumbleUpdate();
                 break;
         }
 	}
@@ -171,37 +171,7 @@ public class TutorialScript : MonoBehaviour {
         if (rightSoundState == SoundState.AFTER)
         {
             screenText.text = gotTheSound;
-            Invoke("SwitchToRumble", nextMechanicTimer);
-        }
-    }
-
-    void SwitchToRumble()
-    {
-        updateState = UpdateState.HAPTIC;
-        rumbleObstacle.transform.position = new Vector3(playerGameObject.transform.position.x + 40.0f, playerGameObject.transform.position.y, playerGameObject.transform.position.z + 1000.0f);
-        rumbleObstacle.SetActive(true);
-    }
-
-    void RumbleUpdate()
-    {
-        if (playerGameObject.transform.position.z > rumblePickup.position.z)
-        {
-            screenText.text = passedRumble;
             Invoke("SwitchToVisual", nextMechanicTimer);
-        }
-
-        else
-        {
-
-            if (Mathf.Abs(rumbleObstacle.transform.position.x - playerGameObject.transform.position.x) >= rumbleObstacle.transform.localScale.x / 2.0f)
-            {
-                screenText.text = notAlignedWithRumble;
-            }
-
-            else
-            {
-                screenText.text = alignedWithRumble;
-            }
         }
     }
 
@@ -223,6 +193,36 @@ public class TutorialScript : MonoBehaviour {
         else
         {
             screenText.text = avoidVisual;
+        }
+    }
+
+    void SwitchToRumble()
+    {
+        updateState = UpdateState.HAPTIC;
+        rumbleObstacle.transform.position = new Vector3(playerGameObject.transform.position.x + 40.0f, playerGameObject.transform.position.y, playerGameObject.transform.position.z + 1000.0f);
+        rumbleObstacle.SetActive(true);
+    }
+
+    void RumbleUpdate()
+    {
+        if (playerGameObject.transform.position.z > rumblePickup.position.z)
+        {
+            screenText.text = passedRumble;
+            Invoke("SwitchToRumble", nextMechanicTimer);
+        }
+
+        else
+        {
+
+            if (Mathf.Abs(rumbleObstacle.transform.position.x - playerGameObject.transform.position.x) >= rumbleObstacle.transform.localScale.x / 2.0f)
+            {
+                screenText.text = notAlignedWithRumble;
+            }
+
+            else
+            {
+                screenText.text = alignedWithRumble;
+            }
         }
     }
 }
