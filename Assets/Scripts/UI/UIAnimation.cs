@@ -35,6 +35,16 @@ public class UIAnimation : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0.0f)
+        {
+            MoveLeft();
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0.0f)
+        {
+            MoveRight();
+        }
+
         time += Time.deltaTime;
         player.transform.Rotate(Vector3.up * Time.deltaTime * speed, Space.Self);
     }

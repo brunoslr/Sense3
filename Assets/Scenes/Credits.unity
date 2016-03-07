@@ -363,10 +363,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ab0c89079e1d9f4c802a4c3f7778ff2, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &764043990 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 190316, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
-  m_PrefabInternal: {fileID: 2096852406}
 --- !u!1001 &773530874
 Prefab:
   m_ObjectHideFlags: 0
@@ -413,7 +409,7 @@ Prefab:
     - target: {fileID: 11441338, guid: e2839317095595548973d6dc3640dbb6, type: 2}
       propertyPath: playerMesh
       value: 
-      objectReference: {fileID: 764043990}
+      objectReference: {fileID: 0}
     - target: {fileID: 11454722, guid: e2839317095595548973d6dc3640dbb6, type: 2}
       propertyPath: m_Enabled
       value: 1
@@ -765,28 +761,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 477290, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11439268, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 1712344350}
     - target: {fileID: 9634828, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b9850dfbd95aaab4ca0edefb1586b174, type: 2}
-    - target: {fileID: 11460630, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
-      propertyPath: movPlayerSound
+    - target: {fileID: 11439268, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: mainCamera
       value: 
-      objectReference: {fileID: 8300000, guid: b8b6dabd459a62343ac1d9b6022b1f58, type: 3}
-    - target: {fileID: 9634828, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 10841966, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
-      propertyPath: m_Intensity
-      value: 2.2
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1712344350}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
   m_IsPrefabParent: 0
@@ -794,80 +778,6 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 117580, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
   m_PrefabInternal: {fileID: 2096852406}
---- !u!82 &2096852416
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2096852407}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c9dc4f8ed5711804a8be23a60bca1876, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!4 &2120346827 stripped
 Transform:
   m_PrefabParentObject: {fileID: 498248, guid: 8d1426dba7f98d7429f413bca38e9381, type: 2}

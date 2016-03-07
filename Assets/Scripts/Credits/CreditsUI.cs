@@ -21,14 +21,21 @@ public class CreditsUI : MonoBehaviour {
     private SkinnedMeshRenderer shipMesh;
     private float blendShapeIncrementFactor = 11.11f;
     private int counter = 0;
+
+    private LevelLoader levelLoader;
     // Use this for initialization
     void Start () {
         shipMesh = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<SkinnedMeshRenderer>();
+        levelLoader = gameObject.AddComponent<LevelLoader>();
         InvokeRepeating("ChangeCredits", 0, 5.0f);
 	}
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            levelLoader.LoadScene("MainMenu");
+        }
         leftPanel.alpha = Mathf.Lerp(leftPanel.alpha, targetAlphaLeft, 0.015f);
         rightPanel.alpha = Mathf.Lerp(rightPanel.alpha, targetAlphaRight, 0.015f);
     }
