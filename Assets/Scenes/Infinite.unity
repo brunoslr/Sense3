@@ -491,6 +491,14 @@ Prefab:
       propertyPath: masterVolume
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 19864120, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19864120, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
   m_IsPrefabParent: 0

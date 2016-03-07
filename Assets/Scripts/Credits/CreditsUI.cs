@@ -18,10 +18,13 @@ public class CreditsUI : MonoBehaviour {
     private float targetAlphaLeft = 0.0f;
     private float targetAlphaRight = 0.0f;
 
+    private SkinnedMeshRenderer shipMesh;
+    private float blendShapeIncrementFactor = 11.11f;
     private int counter = 0;
     // Use this for initialization
     void Start () {
-        InvokeRepeating("ChangeCredits", 0, 15);
+        shipMesh = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<SkinnedMeshRenderer>();
+        InvokeRepeating("ChangeCredits", 0, 5.0f);
 	}
 
     void Update()
@@ -32,7 +35,7 @@ public class CreditsUI : MonoBehaviour {
 
     private void ChangeCredits()
     {
-        if (counter % 2 == 0 && counter <= 10)
+        if (counter % 2 == 0 && counter < 9)
         {
             creditsLeftTitle.GetComponent<Text>().text = creditsTitle[counter];
             string tempText = creditsStrings[counter];
@@ -41,7 +44,7 @@ public class CreditsUI : MonoBehaviour {
             targetAlphaLeft = 1.0f;
             targetAlphaRight = 0.0f;
         }
-        else if (counter % 2 == 1 && counter <= 10)
+        else if (counter % 2 == 1 && counter < 9)
         {
             creditsRightTitle.GetComponent<Text>().text = creditsTitle[counter];
             string tempText = creditsStrings[counter];
@@ -50,6 +53,7 @@ public class CreditsUI : MonoBehaviour {
             targetAlphaLeft = 0.0f;
             targetAlphaRight = 1.0f;
         }
+        shipMesh.SetBlendShapeWeight(0, counter * blendShapeIncrementFactor);
         counter++;
     }
 }
