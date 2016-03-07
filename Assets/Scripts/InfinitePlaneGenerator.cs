@@ -170,7 +170,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
         soundZScale = (int)soundObstacle.transform.localScale.z;
         nextSoundZDisplacement = soundDisplacementFromPlayer + (soundZScale / 4);
         soundObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, nextSoundZDisplacement);
-        soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + 100;
+        soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + 500;
         soundObstacle.SetActive(true);
     }
 
@@ -493,7 +493,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 }
                 else if (visualObstacle.gameObject.layer == 12)
                 {
-                    if (currentPlayerLevel >= 6 && currentPlayerLevel <= 8)
+                    if (currentPlayerLevel >= 6 && currentPlayerLevel <= 7)
                     {
                         loadedVisualObstacles.Add(visualObstacle.gameObject);
                     }
@@ -514,7 +514,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
         if (playerZPosition > soundPlacementZTrigger)
         {
             nextSoundZDisplacement = playerZPosition + soundDisplacementFromPlayer + (soundZScale / 2) + Random.Range(-soundDisplacementRandomFactor, soundDisplacementRandomFactor);
-            soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + 100;
+            soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + 500;
             GenerateSoundObstacle(nextSoundZDisplacement);
         }
     }

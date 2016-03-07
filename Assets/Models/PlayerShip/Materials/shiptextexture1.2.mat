@@ -148,7 +148,7 @@ Material:
       data:
         first:
           name: _MKGlowPower
-        second: 0.03
+        second: 2.5
       data:
         first:
           name: _MKGlowTexStrength
@@ -169,7 +169,7 @@ Material:
       data:
         first:
           name: _MKGlowColor
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0, g: 0.90588236, b: 0.22745098, a: 1}
       data:
         first:
           name: _MKGlowTexColor
