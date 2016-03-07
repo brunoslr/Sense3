@@ -11,7 +11,7 @@ public class FadeScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        StartFade();
+       // StartFade();
     }
 
     void StartFade()

@@ -12,6 +12,7 @@ public class UIAnimation : MonoBehaviour {
     public Button quitButton;
     public Button creditsButton;
     public Button tutorialsButton;
+    public Button flowButton;
     public Vector3 temp;
     float time;
     public bool isRunning;
@@ -31,7 +32,8 @@ public class UIAnimation : MonoBehaviour {
         if (tutorialsButton != null)
             tutorialsButton.onClick.AddListener(() => { LoadScene("Tutorial"); });
 
-
+        if (flowButton != null)
+            flowButton.onClick.AddListener(() => { LoadScene("Oculus"); });
     }
     // Update is called once per frame
     void Update () {
@@ -75,12 +77,13 @@ public class UIAnimation : MonoBehaviour {
             positions[1] = menuElements[1].transform.position;
             positions[2] = menuElements[2].transform.position;
             positions[3] = menuElements[3].transform.position;
+            positions[4] = menuElements[4].transform.position;
 
             while (Vector3.Distance(menuElements[0].transform.position, positions[1]) > 0.1)
             {
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 5; i++)
                 {
-                    menuElements[i % 4].transform.position = Vector3.Lerp(menuElements[i % 4].transform.position, positions[(i + 1) % 4], 10*time * Time.deltaTime);
+                    menuElements[i % 5].transform.position = Vector3.Lerp(menuElements[i % 5].transform.position, positions[(i + 1) % 5], 10*time * Time.deltaTime);
                 }
 
                 yield return null;  
@@ -98,12 +101,12 @@ public class UIAnimation : MonoBehaviour {
             positions[1] = menuElements[1].transform.position;
             positions[2] = menuElements[2].transform.position;
             positions[3] = menuElements[3].transform.position;
-
+            positions[4] = menuElements[4].transform.position;
             while (Vector3.Distance(menuElements[1].transform.position, positions[0]) > 0.1)
             {
-                for (int i = 4; i >0; i--)
+                for (int i = 5; i >0; i--)
                 {
-                    menuElements[i % 4].transform.position = Vector3.Lerp(menuElements[i % 4].transform.position, positions[(i - 1) % 4], 10 * time * Time.deltaTime);
+                    menuElements[i % 5].transform.position = Vector3.Lerp(menuElements[i % 5].transform.position, positions[(i - 1) % 5], 10 * time * Time.deltaTime);
                 }
 
                 yield return null;
