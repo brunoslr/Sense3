@@ -54,6 +54,7 @@ public class InfinitePlaneGenerator_Oculus : MonoBehaviour
 
     private int nextSoundZDisplacement;
     private int soundPlacementZTrigger;
+    private int soundBuffer;
 
     void Start()
     {
@@ -150,10 +151,11 @@ public class InfinitePlaneGenerator_Oculus : MonoBehaviour
     {
         soundObstacle = Instantiate(soundObstaclePrefab);
         soundObstacle.SetActive(false);
-        soundZScale = (int)soundObstacle.transform.localScale.z;
+        soundZScale = (int)soundObstacle.transform.localScale.z * (int)soundObstacle.GetComponent<BoxCollider>().size.z;
         nextSoundZDisplacement = soundDisplacementFromPlayer + (soundZScale / 4);
         soundObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, nextSoundZDisplacement);
-        soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + 100;
+        soundBuffer = (int) (player.GetComponent<PlayerMovement>().initialSpeed * 2.0f);
+        soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + soundBuffer;
         soundObstacle.SetActive(true);
     }
 
@@ -390,9 +392,9 @@ public class InfinitePlaneGenerator_Oculus : MonoBehaviour
     private void UpdateSoundObstacle()
     {
         if (playerZPosition > soundPlacementZTrigger)
-        {
+        { 
             nextSoundZDisplacement = playerZPosition + soundDisplacementFromPlayer + (soundZScale / 2) + Random.Range(-soundDisplacementRandomFactor, soundDisplacementRandomFactor);
-            soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + 100;
+            soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + soundBuffer;
             GenerateSoundObstacle(nextSoundZDisplacement);
         }
     }
@@ -401,7 +403,7 @@ public class InfinitePlaneGenerator_Oculus : MonoBehaviour
     {
         soundObstacle.SetActive(true);
         soundObstacle.GetComponentInChildren<PickUpScript>().pickedUp = false;
-        soundObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, zPosition);
+        soundObstacle.transform.position = new Vector3(Random.Range(-soundDisplacementRandomFactor, soundDisplacementRandomFactor), 0, zPosition);
     }
 
 }

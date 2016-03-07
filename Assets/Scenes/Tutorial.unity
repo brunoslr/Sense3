@@ -112,7 +112,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!114 &38895058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd934cf85021994caae785e2978bf98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialTextFont: {fileID: 12800000, guid: 89c5d2deb103a8c4b811aa08aabed7e9, type: 3}
   soundObstacleprefab: {fileID: 173268, guid: cce816729b5e1e34d82e8b3a04687079, type: 2}
   rumbleObstaclePrefab: {fileID: 175060, guid: 23aff0babb32e3840b1b75545dff5801, type: 2}
   playerGameObject: {fileID: 2043800002}
@@ -138,11 +137,16 @@ MonoBehaviour:
     levels of vibration tell you how close you are.
   notAlignedWithRumble: Good job! You are out of the range of the blackhole. Keep
     going straight till you completely avoid it.
+  collidedRumble: You collided into the blackhole. You lose a track. If you want to
+    survive, don't run out of tracks.
   passedRumble: Good job! You passed the blackhole.
   passedVisual: 'Good job! You avoided the obstacle.  '
+  collidedVisual: You collided into the obstacle. You lose a track. If you want to
+    survive, don't run out of tracks.
   avoidVisual: Move away or use the jump key to avoid the obstacle.
   soundObstacleDispX: 40
   nextMechanicTimer: 4
+  planePrefab: {fileID: 198202, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
 --- !u!1 &62031653
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +191,7 @@ Transform:
   - {fileID: 1173330214}
   - {fileID: 1653109366}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1001 &318684775
 Prefab:
   m_ObjectHideFlags: 0
@@ -319,7 +323,7 @@ RectTransform:
   m_Children:
   - {fileID: 1416030830}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -385,7 +389,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1001 &461916756
 Prefab:
   m_ObjectHideFlags: 0
@@ -479,10 +483,6 @@ Prefab:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1652836907}
-    - target: {fileID: 11439268, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
-      propertyPath: gameMode
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
   m_IsPrefabParent: 0
@@ -699,56 +699,6 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 440134, guid: 45e9592fc10dc9c4880b0b7b2b9685dd, type: 2}
   m_PrefabInternal: {fileID: 461916756}
---- !u!1001 &1661703705
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400332, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400332, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400332, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400332, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400332, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400332, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400332, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400332, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2397728, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6475550, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1828126276
 Prefab:
   m_ObjectHideFlags: 0
