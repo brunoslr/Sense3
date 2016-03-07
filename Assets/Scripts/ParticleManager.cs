@@ -28,6 +28,7 @@ public class ParticleManager : MonoBehaviour
     {
         particleSystem.startColor = Color.green;
         particleSystem.Play();
+        particleSystem.startSpeed = -5.0f;
         var emission = particleSystem.emission; 
         emission.enabled = true;
     }
@@ -36,6 +37,7 @@ public class ParticleManager : MonoBehaviour
     {
         particleSystem.startColor = Color.red;
         particleSystem.Play();
+        particleSystem.startSpeed = 5.0f;
         var emission = particleSystem.emission;
         emission.enabled = true;
     }

@@ -48,7 +48,6 @@ GameObject:
   - 120: {fileID: 12006056}
   - 96: {fileID: 9634828}
   - 64: {fileID: 6467894}
-  - 82: {fileID: 8289458}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -246,80 +245,6 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 2210d5f01cadc4a49b94d40d2075e244, type: 3}
---- !u!82 &8289458
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 117580}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c9dc4f8ed5711804a8be23a60bca1876, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!95 &9557716
 Animator:
   serializedVersion: 3
@@ -491,7 +416,7 @@ MonoBehaviour:
   horClamp: 3.4028235e+38
   vertClamp: 50
   horTilt: 30
-  moveFactor: 0.12
+  moveFactor: 0.25
   vertTilt: 5
   linezOffset: 400
   linexScale: 200
@@ -551,7 +476,7 @@ MonoBehaviour:
   movPlayerLeftSound: {fileID: 8300000, guid: b8b6dabd459a62343ac1d9b6022b1f58, type: 3}
   movPlayerRightSound: {fileID: 8300000, guid: b8b6dabd459a62343ac1d9b6022b1f58, type: 3}
   jumpPlayerSound: {fileID: 8300000, guid: 270c2eec2f4636b48bc05979b95c65d6, type: 3}
-  masterVolume: 0.02
+  masterVolume: 0.01
 --- !u!114 &11475730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -805,7 +730,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 5
+      scalar: 5.13
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -969,7 +894,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startRotationX:
-      scalar: 0
+      scalar: -0.08953539
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1039,7 +964,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startRotation:
-      scalar: 0
+      scalar: -1.3618804
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1048,30 +973,25 @@ ParticleSystem:
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
-        - time: 0
-          value: 0
+        - time: 0.00949367
+          value: 0.00000011920929
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: 1
-          value: 0
+        - time: 0.9810127
+          value: 0.00000011920929
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minMaxState: 0
     randomizeRotationDirection: 0
     gravityModifier: 0
@@ -1081,8 +1001,8 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 0
-    radius: 2.9
-    angle: 25
+    radius: 2.9015653
+    angle: 55.540813
     length: 5
     boxX: 1
     boxY: 1
@@ -1163,8 +1083,8 @@ ParticleSystem:
           tangentMode: 0
         - time: 1
           value: 0
-          inSlope: -2
-          outSlope: -2
+          inSlope: -3.5585575
+          outSlope: -3.5585575
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -1189,7 +1109,7 @@ ParticleSystem:
   RotationModule:
     enabled: 0
     x:
-      scalar: 0
+      scalar: 5.893977
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1259,7 +1179,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     curve:
-      scalar: 0.7853982
+      scalar: 1.6807522
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1293,20 +1213,20 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    separateAxes: 0
+    separateAxes: 1
   ColorModule:
     enabled: 1
     gradient:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4294967295
+          rgba: 4283432949
         key1:
           serializedVersion: 2
-          rgba: 4294967295
+          rgba: 4278190283
         key2:
           serializedVersion: 2
-          rgba: 0
+          rgba: 12287
         key3:
           serializedVersion: 2
           rgba: 0
@@ -1323,8 +1243,8 @@ ParticleSystem:
           serializedVersion: 2
           rgba: 0
         ctime0: 0
-        ctime1: 65535
-        ctime2: 0
+        ctime1: 45296
+        ctime2: 10794
         ctime3: 0
         ctime4: 0
         ctime5: 0
@@ -2252,7 +2172,7 @@ ParticleSystemRenderer:
   m_NormalDirection: 1
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}

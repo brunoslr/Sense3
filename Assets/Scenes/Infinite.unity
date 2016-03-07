@@ -479,26 +479,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 11439268, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 1712344350}
     - target: {fileID: 9634828, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b9850dfbd95aaab4ca0edefb1586b174, type: 2}
-    - target: {fileID: 11460630, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
-      propertyPath: masterVolume
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 19864120, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19864120, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 11439268, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1712344350}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
   m_IsPrefabParent: 0
