@@ -16,7 +16,7 @@ public class PlayerStateScript : MonoBehaviour {
 
 
     // UI EVENTS
-    public delegate void HUDeventHandler(string message);
+    public delegate void HUDeventHandler();
     // All the functions that needs to be called when a sound is picked will be subscribed to this event
     public static event HUDeventHandler updateSoundPickup;
 
@@ -42,9 +42,6 @@ public class PlayerStateScript : MonoBehaviour {
         playerLevel = 0;
       
         player = GameObject.FindWithTag("Player");
-        if (player == null)
-            Debug.Log("Cannot find object with tag player");
-
         finalState = false;
         levelLoader = gameObject.AddComponent<LevelLoader>();
        
@@ -66,7 +63,6 @@ public class PlayerStateScript : MonoBehaviour {
         }
         else if(playerLevel < 0)
         {
-            Debug.Log("Loading :" + LossScenario_sceneName);
             levelLoader.LoadScene(LossScenario_sceneName);
         }
         else
@@ -92,17 +88,15 @@ public class PlayerStateScript : MonoBehaviour {
 
         if(finalState)
         {
-            Debug.Log("Loading :" + WinScenario_sceneName);
             levelLoader.LoadScene(WinScenario_sceneName);
         }
     }
 
     private void updatePlayerLevel()
     {
-        //Debug.Log(playerLevel);
         checkState();
         if(updateSoundPickup != null)
-            updateSoundPickup(playerLevel.ToString());
+            updateSoundPickup();
 
     }
 

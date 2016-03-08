@@ -46,8 +46,6 @@ public class Layer : MonoBehaviour {
             string trackName = layername + index;
 
             audioTracks[i-1] = Resources.Load(path + FolderName + "/" + trackName, typeof(AudioClip)) as AudioClip;
-            if (audioTracks[i - 1] == null)
-                Debug.Log("Error Loading audio File : " + path + FolderName + "/" + trackName + ".wav");
             
         }
     }
@@ -78,7 +76,6 @@ public class Layer : MonoBehaviour {
 
     public void playNewTrack(int timeSample)
     {
-        //Debug.Log("Now Playing: " + layername);
        
         audioSource.Stop();
         int newIndex;
@@ -102,7 +99,6 @@ public class Layer : MonoBehaviour {
 
     public void StopTrack()
     {
-        //Debug.Log("Stopping Playing: " + layername);
         audioSource.Stop();  
     }
 

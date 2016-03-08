@@ -247,7 +247,10 @@ public class PlayerMovement : MonoBehaviour
                 finalVertSpeed = forwardSpeed * vertSpeedMul;
             }
             coolDownflag = true;
-            StartCoroutine(CoolDown());
+            if (PlayerStateScript.getPlayerLevel() >= 0)
+            {
+                StartCoroutine(CoolDown());
+            }
         }
     }
 

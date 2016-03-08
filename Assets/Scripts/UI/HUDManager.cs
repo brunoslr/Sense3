@@ -16,8 +16,11 @@ public class HUDManager : MonoBehaviour {
 	void Update () {
 	}
    
-    public void DisplaySoundCount(string score) {
-        soundPickupImage.GetComponent<Image>().sprite = spritesheet[PlayerStateScript.getPlayerLevel()];
+    public void DisplaySoundCount() {
+        if (PlayerStateScript.getPlayerLevel() >= 0 && PlayerStateScript.getPlayerLevel() <= 7)
+        {
+            soundPickupImage.GetComponent<Image>().sprite = spritesheet[PlayerStateScript.getPlayerLevel()];
+        }
     }
     void OnDestroy()
     {

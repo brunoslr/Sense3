@@ -64,11 +64,6 @@ public class AudioToolApp : MonoBehaviour {
             
             //Load the Audio
             wtf = new WWW("file:///"+filePath + fileName + index + ".wav");
-            while (!wtf.isDone)
-            {
-                //Wait till the audio is completly loaded
-                Debug.Log("Loading");
-            }
 
             clip = wtf.GetAudioClip(false);
             clip.name = fileName + i.ToString();
