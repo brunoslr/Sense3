@@ -157,7 +157,6 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             xPosVisualObstacle -= (int)xOffsetVisual;
             upperClamp = lowerClamp;
             lowerClamp -= 2 * xClamp;
-            //Debug.Log("Left");
             CreateNewPuzzleOnSide(-1.0f);
         }
 
@@ -166,7 +165,6 @@ public class InfiniteTerrainGenerator : MonoBehaviour
             xPosVisualObstacle += (int)xOffsetVisual;
             lowerClamp = upperClamp;
             upperClamp += 2 * xClamp;
-            //Debug.Log("Right");
             CreateNewPuzzleOnSide(1.0f);
         }
 

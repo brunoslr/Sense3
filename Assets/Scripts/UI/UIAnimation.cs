@@ -17,6 +17,8 @@ public class UIAnimation : MonoBehaviour {
     float time;
     public bool isRunning;
     public float smooth;
+
+    private GameObject currentItem;
     // Use this for initialization
     void Start()
     {
@@ -45,6 +47,20 @@ public class UIAnimation : MonoBehaviour {
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0.0f)
         {
             MoveRight();
+        }
+
+        if (Input.GetButton("Submit"))
+        {
+            foreach (GameObject menuItem in menuElements)
+            {
+                if (Mathf.Abs(menuItem.transform.position.z - 300.0f) <= 1.0f)
+                {
+                    currentItem = menuItem;
+                    break;
+                }
+            }
+
+            currentItem.GetComponentInChildren<Button>().onClick.Invoke();
         }
 
         time += Time.deltaTime;
@@ -89,7 +105,7 @@ public class UIAnimation : MonoBehaviour {
             positions[3] = menuElements[3].transform.position;
             positions[4] = menuElements[4].transform.position;
 
-            while (Vector3.Distance(menuElements[0].transform.position, positions[1]) > 0.1)
+            while (Vector3.Distance(menuElements[0].transform.position, positions[1]) > 0.001)
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -112,7 +128,7 @@ public class UIAnimation : MonoBehaviour {
             positions[2] = menuElements[2].transform.position;
             positions[3] = menuElements[3].transform.position;
             positions[4] = menuElements[4].transform.position;
-            while (Vector3.Distance(menuElements[1].transform.position, positions[0]) > 0.1)
+            while (Vector3.Distance(menuElements[1].transform.position, positions[0]) > 0.001)
             {
                 for (int i = 5; i >0; i--)
                 {

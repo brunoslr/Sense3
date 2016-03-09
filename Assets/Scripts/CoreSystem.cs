@@ -39,21 +39,14 @@ public class CoreSystem : MonoBehaviour {
     {
         if(onSoundEvent != null)
             onSoundEvent();
-        else
-            Debug.Log("OnSoundEvent is null: cannot call anything");
-        
-        
     }
 
     public static void ExecuteOnObstacleCollision()
     {
-        //Debug.Log("Collision detected :" + coolDownFlag);
         if (!coolDownFlag)
         {
             if (onObstacleEvent != null)
                 onObstacleEvent();
-            else
-                Debug.Log("OnObstacleEvent is null: cannot call anything");
 
             coolDownFlag = true;
 
@@ -73,9 +66,6 @@ public class CoreSystem : MonoBehaviour {
     public void LogSoundPickupSubscribedFunctions()
     {
         System.Delegate[] list = onSoundEvent.GetInvocationList();
-
-        for (int i = 0; i < list.Length; i++)
-            Debug.Log("On sound piuckeup event method :" + list[i].Method + " instance : " + list[i].Target);
 
     }
 

@@ -59,7 +59,6 @@ public class PlanetCreator : MonoBehaviour {
             Vector3 dir = new Vector3(x, y, z);
             dir = Vector3.Normalize(dir);
             //dir *= minDisp/2.0f;
-            Debug.Log(dir);
             int index = Random.Range(0, galaxies.Count - 1);
             galaxies[index].transform.position = Player.transform.position + dir;
             galaxies[index].transform.forward = Vector3.Normalize(Player.transform.position - galaxies[index].transform.position);
@@ -67,7 +66,6 @@ public class PlanetCreator : MonoBehaviour {
 
             Vector3 dir2 = new Vector3(-x, y * tempSign, z);
             dir2 = Vector3.Normalize(dir2);
-            Debug.Log(dir2);
             int index2;
             do
             {

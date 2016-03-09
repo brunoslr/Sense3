@@ -22,9 +22,6 @@ public class Effects : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindWithTag("Player");
-        if (player == null)
-            Debug.Log("Cannot find object with tag player");
-
         CoreSystem.onSoundEvent += startTrail;
     }
 

@@ -56,7 +56,6 @@ public class AudioControllerV2 : MonoBehaviour {
     {
         if (!pickUpScope)
         {
-            //Debug.Log("pick up scope: "+ pickUpScope);
             int layerID, range;
 
             if (availableLayers.Count > 0)
@@ -103,7 +102,6 @@ public class AudioControllerV2 : MonoBehaviour {
 
     public void incrementLayerStack()
     {
-        //Debug.Log("incrementLayerStack");
         pickUpScope = false;
         layers[lastPlayedLayerID].setPanAndVol(0, 1.0f);
         activeLayers.Add(lastPlayedLayerID);
@@ -116,12 +114,8 @@ public class AudioControllerV2 : MonoBehaviour {
 
     private void refreshLastPlayed()
     {
-        Debug.Log("lastPlayedLayerID earlier: " + lastPlayedLayerID);
-        //layers[lastPlayedLayerID].StopTrack();
         if (activeLayers.Count > 0) 
             lastPlayedLayerID = activeLayers[activeLayers.Count - 1];
-
-        Debug.Log("lastPlayedLayerID changed: " + lastPlayedLayerID);
     }
 
     public void muteLast()
@@ -148,7 +142,6 @@ public class AudioControllerV2 : MonoBehaviour {
 
     public void stopOneTrack()
     {
-        //Debug.Log("stopOnetrack");
         if (activeLayers.Count > 0)
         {
             int temp = Random.Range(0, activeLayers.Count - 1);
@@ -214,16 +207,12 @@ public class AudioControllerV2 : MonoBehaviour {
     {
         if (fadeInLayers != null)
             fadeInLayers();
-        else
-            Debug.Log("Fade in failed to call");
 
     }
 
     #if UNITY_EDITOR
     // Update is called once per frame
     void Update () {
-
-       // Debug.Log(NumOfCollectedLayers);
 	}
     #endif
 }
