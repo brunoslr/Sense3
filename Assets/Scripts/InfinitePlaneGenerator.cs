@@ -260,7 +260,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                     loadedVisualObstacles = loadedVisualObstaclesEasy;
                 }
             }
-            else if (currentPlayerLevel >= 3 && currentPlayerLevel <= 4)
+            else if (currentPlayerLevel >= 3 && currentPlayerLevel <= 5)
             {
                 tactileDisplacementRandomFactorLow = 1500;
                 tactileDisplacementRandomFactorHigh = 3000;
@@ -269,7 +269,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                     loadedVisualObstacles = loadedVisualObstaclesMedium;
                 }
             }
-            else if (currentPlayerLevel >= 5 && currentPlayerLevel <= 7)
+            else if (currentPlayerLevel >= 6 && currentPlayerLevel <= 7)
             {
                 tactileDisplacementRandomFactorLow = 0;
                 tactileDisplacementRandomFactorHigh = 1500;
