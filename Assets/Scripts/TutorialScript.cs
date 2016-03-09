@@ -64,6 +64,8 @@ public class TutorialScript : MonoBehaviour {
     private float sizeOfPlaneZ;
     private GameObject[,] planes = new GameObject[3, 3];
 
+    private LevelLoader levelLoader;
+
     void Awake()
     {
         leftSoundObstacle = Instantiate(soundObstacleprefab, new Vector3(playerGameObject.transform.position.x - soundObstacleDispX, playerGameObject.transform.position.y, playerGameObject.transform.position.z + 100.0f), Quaternion.identity) as GameObject;
@@ -74,6 +76,8 @@ public class TutorialScript : MonoBehaviour {
         rightSoundObstacle.SetActive(false);
         rumbleObstacle.SetActive(false);
         visualObstacle.SetActive(false);
+
+        levelLoader = gameObject.AddComponent<LevelLoader>();
     }
 
 	// Use this for initialization
@@ -105,6 +109,10 @@ public class TutorialScript : MonoBehaviour {
 	void Update () 
     {
         UpdatePlane();
+        if (Input.GetButton("Cancel"))
+        {
+            levelLoader.LoadScene("MainMenu");
+        }
         switch(updateState)
         {
             case UpdateState.LEFTSOUND:

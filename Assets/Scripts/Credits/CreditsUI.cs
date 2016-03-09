@@ -42,7 +42,7 @@ public class CreditsUI : MonoBehaviour {
 
     private void ChangeCredits()
     {
-        if (counter % 2 == 0 && counter < 9)
+        if (counter % 2 == 0 && counter < creditsTitle.Length)
         {
             creditsLeftTitle.GetComponent<Text>().text = creditsTitle[counter];
             string tempText = creditsStrings[counter];
@@ -51,7 +51,7 @@ public class CreditsUI : MonoBehaviour {
             targetAlphaLeft = 1.0f;
             targetAlphaRight = 0.0f;
         }
-        else if (counter % 2 == 1 && counter < 9)
+        else if (counter % 2 == 1 && counter < creditsTitle.Length)
         {
             creditsRightTitle.GetComponent<Text>().text = creditsTitle[counter];
             string tempText = creditsStrings[counter];
