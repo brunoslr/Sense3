@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     public uint maxSpeedCounter = 5;    // max no. of times speed can boost or increase.
     public float trailTime = 2;         // time of fire trail in sec.
-    private uint speedCounter;      // current boost counter.
+    [HideInInspector] public uint speedCounter;      // current boost counter.
 
     public GameMode gameMode = GameMode.BOOST;
     public GameObject mainCamera;
@@ -272,7 +272,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Obstacle")
         {
             // other.gameObject.GetComponent<CoreSystem>().ExecuteOnHit();
-            CoreSystem.ExecuteOnObstacleCollision();
+            //CoreSystem.ExecuteOnObstacleCollision();
         }
     }
 }

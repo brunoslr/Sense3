@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public class InfinitePlaneGenerator : MonoBehaviour
 {
-
     public GameObject planePrefab; 
     public GameObject player;
     public int numberOfObstaclesInEachDifficultyLevel;
@@ -54,6 +53,8 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     private GameObject soundObstacle;
     private int soundZScale;
+    private float initialSoundZScale;
+    private uint soundCounter;
 
     private GameObject tactileObstacle;
     private int tactileZScale;
@@ -96,6 +97,17 @@ public class InfinitePlaneGenerator : MonoBehaviour
         //LoadDynamicObstacle();
 
         InitializeVisualObstacles();
+
+        CoreSystem.onSoundEvent += IncreaseSoundScale;
+        CoreSystem.onObstacleEvent += DecreaseSoundScale;
+
+        soundCounter = 0;
+    }
+
+    void OnDisable()
+    {
+        CoreSystem.onSoundEvent -= IncreaseSoundScale;
+        CoreSystem.onObstacleEvent -= DecreaseSoundScale;
     }
 
     private void InitializePlayerVariables()
@@ -138,6 +150,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
         loadedVisualObstaclesHard = new List<GameObject>();
 
         GameObject temp = new GameObject();
+        
         for (int i = 0; i < 3 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle; i++)
         {
             if (i < numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle)
@@ -160,13 +173,13 @@ public class InfinitePlaneGenerator : MonoBehaviour
         loadedVisualObstacles = loadedVisualObstaclesEasy;
         visualPlacementZTrigger = visualDisplacementForwardInitial;
         visualPlacementInitialTrigger = visualDisplacementForwardInitial - visualDisplacementForward;
-        Destroy(temp);
     }
 
     private void LoadSoundObstacle()
     {
         soundObstacle = Instantiate(soundObstaclePrefab);
         soundObstacle.SetActive(false);
+        initialSoundZScale = soundObstacle.transform.localScale.z;
         soundZScale = (int)soundObstacle.transform.localScale.z;
         nextSoundZDisplacement = soundDisplacementFromPlayer + (soundZScale / 4);
         soundObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, nextSoundZDisplacement);
@@ -226,9 +239,9 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     void Update()
     {
-        DeleteVisualObstacles();
-
         UpdatePlayer();
+
+        DeleteVisualObstacles();
 
         UpdatePlane();
 
@@ -261,7 +274,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                     loadedVisualObstacles = loadedVisualObstaclesEasy;
                 }
             }
-            else if (currentPlayerLevel >= 3 && currentPlayerLevel <= 4)
+            else if (currentPlayerLevel >= 3 && currentPlayerLevel <= 5)
             {
                 tactileDisplacementRandomFactorLow = 1500;
                 tactileDisplacementRandomFactorHigh = 3000;
@@ -270,7 +283,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                     loadedVisualObstacles = loadedVisualObstaclesMedium;
                 }
             }
-            else if (currentPlayerLevel >= 5 && currentPlayerLevel <= 7)
+            else if (currentPlayerLevel >= 6 && currentPlayerLevel <= 7)
             {
                 tactileDisplacementRandomFactorLow = 0;
                 tactileDisplacementRandomFactorHigh = 1500;
@@ -344,6 +357,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
             Vector3 addPos = new Vector3(sizeOfPlaneX * 3, 0, 0);
             planes[0, i].transform.position += addPos;
         }
+
         for (int i = 0; i < 3; i++)
         {
             int c = i + 1;
@@ -352,6 +366,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
             newPlanes[i, 1] = planes[c, 1];
             newPlanes[i, 2] = planes[c, 2];
         }
+
         planes = newPlanes;
     }
 
@@ -416,8 +431,15 @@ public class InfinitePlaneGenerator : MonoBehaviour
         float xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal) + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
         for (int i = 0; i < 5; ++i)
         {
+            do { 
             pick = Random.Range(0, loadedVisualObstacles.Count - 1);
             visualObstacle = loadedVisualObstacles[pick];
+                if(visualObstacle == null)
+                {
+                    Debug.Log(pick);
+                    Debug.Log(loadedVisualObstacles[pick]);
+                }
+        } while (visualObstacle == null) ;
             visualObstacle.SetActive(true);
             loadedVisualObstacles.RemoveAt(pick);
             visualObstacles.Add(visualObstacle);
@@ -430,6 +452,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
             }
             visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, nextVisualZDisplacement);
             xpos += visualDisplacementHorizontal + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
+            visualObstacle = null;
         }
     }
 
@@ -444,8 +467,12 @@ public class InfinitePlaneGenerator : MonoBehaviour
             Vector3 newPosition = new Vector3(xpos, 0, nextVisualZDisplacement + (visualDisplacementForward * i));
             if ((Physics.OverlapBox(newPosition, Vector3.one).Length <= 2))
             {
-                pick = Random.Range(0, loadedVisualObstacles.Count - 1);
-                GameObject visualObstacle = loadedVisualObstacles[pick];
+                do
+                {
+                    pick = Random.Range(0, loadedVisualObstacles.Count - 1);
+                    visualObstacle = loadedVisualObstacles[pick];
+
+                } while (visualObstacle == null);
                 visualObstacle.SetActive(true);
                 loadedVisualObstacles.RemoveAt(pick);
                 visualObstacles.Add(visualObstacle);
@@ -457,6 +484,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                     visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
                 }
                 visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, nextVisualZDisplacement + (visualDisplacementHorizontal * i));
+                visualObstacle = null;
             }
         }
     }
@@ -550,5 +578,20 @@ public class InfinitePlaneGenerator : MonoBehaviour
             dynamicPlacementZTrigger += Random.Range(dynamicDisplacementRandomFactorLow, dynamicDisplacementRandomFactorHigh);
             dynamicObstacle.SetActive(true);
         }
+    }
+
+    public void IncreaseSoundScale()
+    {
+        soundCounter++;
+        float newzscale = (1.0f + (player.GetComponent<PlayerMovement>().speedMultiplier * soundCounter)) * initialSoundZScale;
+        soundObstacle.transform.localScale = new Vector3(soundObstacle.transform.localScale.x, soundObstacle.transform.localScale.y, newzscale);
+        soundObstacle.SetActive(false);
+    }
+
+    public void DecreaseSoundScale()
+    {
+        soundCounter--;
+        float newzscale = (1.0f + (player.GetComponent<PlayerMovement>().speedMultiplier * soundCounter)) * initialSoundZScale;
+        soundObstacle.transform.localScale = new Vector3(soundObstacle.transform.localScale.x, soundObstacle.transform.localScale.y, newzscale);
     }
 }

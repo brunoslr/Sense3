@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6674ec52448bf114580134bbbae0eb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleSO: {x: 240, y: 120, z: 1200}
+  scaleSO: {x: 240, y: 120, z: 800}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -303,6 +303,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: SoundObstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: scaleSO.z
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
