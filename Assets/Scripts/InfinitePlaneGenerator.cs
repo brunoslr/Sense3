@@ -160,7 +160,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
         loadedVisualObstacles = loadedVisualObstaclesEasy;
         visualPlacementZTrigger = visualDisplacementForwardInitial;
         visualPlacementInitialTrigger = visualDisplacementForwardInitial - visualDisplacementForward;
-        Destroy(temp);
     }
 
     private void LoadSoundObstacle()
