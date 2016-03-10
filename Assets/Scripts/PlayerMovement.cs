@@ -271,8 +271,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Obstacle")
         {
-            // other.gameObject.GetComponent<CoreSystem>().ExecuteOnHit();
-            //CoreSystem.ExecuteOnObstacleCollision();
+            //other.gameObject.GetComponent<CoreSystem>().ExecuteOnHit();
+            CoreSystem.ExecuteOnObstacleCollision();
         }
     }
 }
