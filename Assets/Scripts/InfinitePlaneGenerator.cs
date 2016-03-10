@@ -53,8 +53,8 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     private GameObject soundObstacle;
     private int soundZScale;
-    private float initialSoundZScale;
-    private uint soundCounter;
+    //private float initialSoundZScale;
+    //private uint soundCounter;
 
     private GameObject tactileObstacle;
     private int tactileZScale;
@@ -98,17 +98,17 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
         InitializeVisualObstacles();
 
-        CoreSystem.onSoundEvent += IncreaseSoundScale;
-        CoreSystem.onObstacleEvent += DecreaseSoundScale;
+        //CoreSystem.onSoundEvent += IncreaseSoundScale;
+        //CoreSystem.onObstacleEvent += DecreaseSoundScale;
 
-        soundCounter = 0;
+        //soundCounter = 0;
     }
 
-    void OnDisable()
-    {
-        CoreSystem.onSoundEvent -= IncreaseSoundScale;
-        CoreSystem.onObstacleEvent -= DecreaseSoundScale;
-    }
+    //void OnDisable()
+    //{
+    //    CoreSystem.onSoundEvent -= IncreaseSoundScale;
+    //    CoreSystem.onObstacleEvent -= DecreaseSoundScale;
+    //}
 
     private void InitializePlayerVariables()
     {
@@ -179,7 +179,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
     {
         soundObstacle = Instantiate(soundObstaclePrefab);
         soundObstacle.SetActive(false);
-        initialSoundZScale = soundObstacle.transform.localScale.z;
+        //initialSoundZScale = soundObstacle.transform.localScale.z;
         soundZScale = (int)soundObstacle.transform.localScale.z;
         nextSoundZDisplacement = soundDisplacementFromPlayer + (soundZScale / 4);
         soundObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, nextSoundZDisplacement);
@@ -580,18 +580,18 @@ public class InfinitePlaneGenerator : MonoBehaviour
         }
     }
 
-    public void IncreaseSoundScale()
-    {
-        soundCounter++;
-        float newzscale = (1.0f + (player.GetComponent<PlayerMovement>().speedMultiplier * soundCounter)) * initialSoundZScale;
-        soundObstacle.transform.localScale = new Vector3(soundObstacle.transform.localScale.x, soundObstacle.transform.localScale.y, newzscale);
-        soundObstacle.SetActive(false);
-    }
+    //public void IncreaseSoundScale()
+    //{
+    //    soundCounter++;
+    //    float newzscale = (1.0f + (player.GetComponent<PlayerMovement>().speedMultiplier * soundCounter)) * initialSoundZScale;
+    //    soundObstacle.transform.localScale = new Vector3(soundObstacle.transform.localScale.x, soundObstacle.transform.localScale.y, newzscale);
+    //    soundObstacle.SetActive(false);
+    //}
 
-    public void DecreaseSoundScale()
-    {
-        soundCounter--;
-        float newzscale = (1.0f + (player.GetComponent<PlayerMovement>().speedMultiplier * soundCounter)) * initialSoundZScale;
-        soundObstacle.transform.localScale = new Vector3(soundObstacle.transform.localScale.x, soundObstacle.transform.localScale.y, newzscale);
-    }
+    //public void DecreaseSoundScale()
+    //{
+    //    soundCounter--;
+    //    float newzscale = (1.0f + (player.GetComponent<PlayerMovement>().speedMultiplier * soundCounter)) * initialSoundZScale;
+    //    soundObstacle.transform.localScale = new Vector3(soundObstacle.transform.localScale.x, soundObstacle.transform.localScale.y, newzscale);
+    //}
 }
