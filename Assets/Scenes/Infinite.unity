@@ -440,6 +440,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ab0c89079e1d9f4c802a4c3f7778ff2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &617163813 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 136032, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+  m_PrefabInternal: {fileID: 714799529}
 --- !u!1001 &714799529
 Prefab:
   m_ObjectHideFlags: 0
@@ -487,6 +491,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b9850dfbd95aaab4ca0edefb1586b174, type: 2}
+    - target: {fileID: 11460630, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: audMissedSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 71a4c0886c62f234883fe73fafc67a77, type: 3}
+    - target: {fileID: 11460630, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: masterVolume
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
   m_IsPrefabParent: 0
@@ -579,6 +591,10 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 2096852407}
+    - target: {fileID: 11441338, guid: e2839317095595548973d6dc3640dbb6, type: 2}
+      propertyPath: playerMesh
+      value: 
+      objectReference: {fileID: 617163813}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2839317095595548973d6dc3640dbb6, type: 2}
   m_IsPrefabParent: 0
