@@ -23,8 +23,10 @@ public class CoreSystem : MonoBehaviour {
 
     // On Collision Events
     public delegate void OnCollisionEvent();
+    public delegate void OnSoundMissEvent();
     public static event OnCollisionEvent onSoundEvent;
     public static event OnCollisionEvent onObstacleEvent;
+    public static event OnSoundMissEvent trackMissedEvent;
 
 
     void Awake()
@@ -53,6 +55,12 @@ public class CoreSystem : MonoBehaviour {
             instance.StartCoroutine(instance.CoolDown());
         }
         //LogSoundPickupSubscribedFunctions()
+    }
+
+    public static void ExecuteTrackMissEvent()
+    {
+        if (trackMissedEvent != null)
+            trackMissedEvent();
     }
 
 
