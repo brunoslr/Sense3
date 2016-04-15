@@ -45,10 +45,10 @@ public class SoundEffectsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        visObsAudioSource.volume = masterVolume;
-        minObsAudioSource.volume = masterVolume; 
-        audPickupAudioSource.volume = masterVolume;
-        movPlayerAudioSource.volume = masterVolume;
+       // visObsAudioSource.volume = masterVolume;
+        //minObsAudioSource.volume = masterVolume; 
+        //audPickupAudioSource.volume = masterVolume;
+        //movPlayerAudioSource.volume = masterVolume;
     }
 
     public void VisualObstacleCrashSound()

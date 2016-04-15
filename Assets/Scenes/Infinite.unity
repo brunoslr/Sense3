@@ -492,12 +492,36 @@ Prefab:
       value: 
       objectReference: {fileID: 2100000, guid: b9850dfbd95aaab4ca0edefb1586b174, type: 2}
     - target: {fileID: 11460630, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: visObsCrashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b8d8f15a668744caf80e164b3d75bfee, type: 3}
+    - target: {fileID: 11460630, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: audPickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7fff4581da1dc4df18c436113b548e8e, type: 3}
+    - target: {fileID: 11460630, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
       propertyPath: audMissedSound
       value: 
-      objectReference: {fileID: 8300000, guid: 71a4c0886c62f234883fe73fafc67a77, type: 3}
+      objectReference: {fileID: 8300000, guid: 3f1786b137f95400f95b290e0efb9fb6, type: 3}
     - target: {fileID: 11460630, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
       propertyPath: masterVolume
-      value: 0.2
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460630, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: movPlayerLeftSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460630, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: movPlayerRightSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460630, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: jumpPlayerSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460630, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: minObsCrashSound
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
