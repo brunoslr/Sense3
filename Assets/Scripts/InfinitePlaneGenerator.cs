@@ -254,6 +254,11 @@ public class InfinitePlaneGenerator : MonoBehaviour
             UpdateTactileObstacle();
         }
 
+        else
+        {
+            DisableObstacles();
+        }
+
         //UpdateDynamicObstacle();
     }
 
@@ -578,6 +583,12 @@ public class InfinitePlaneGenerator : MonoBehaviour
             dynamicPlacementZTrigger += Random.Range(dynamicDisplacementRandomFactorLow, dynamicDisplacementRandomFactorHigh);
             dynamicObstacle.SetActive(true);
         }
+    }
+
+    private void DisableObstacles()
+    {
+        soundObstacle.SetActive(false);
+        tactileObstacle.SetActive(false);
     }
 
     //public void IncreaseSoundScale()
