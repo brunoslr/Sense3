@@ -24,14 +24,14 @@ public class CameraMovement : MonoBehaviour
     {
         transform.position = player.transform.position + initialOffset;
         initialRotationX = transform.rotation.eulerAngles.x;
-        CoreSystem.onSoundEvent += RumbleCameraPickup;
-        CoreSystem.onObstacleEvent += RumbleCameraPickup;
+       // CoreSystem.onSoundEvent += RumbleCameraPickup;
+       // CoreSystem.onObstacleEvent += RumbleCameraPickup;
     }
 
     void OnDestroy()
     {
-        CoreSystem.onSoundEvent -= RumbleCameraPickup;
-        CoreSystem.onObstacleEvent -= RumbleCameraPickup;
+       // CoreSystem.onSoundEvent -= RumbleCameraPickup;
+       // CoreSystem.onObstacleEvent -= RumbleCameraPickup;
     }
 
     void Awake()
@@ -60,8 +60,6 @@ public class CameraMovement : MonoBehaviour
 
     public void RumbleCameraPickup()
     {
-        //float currentTime = Time.time;
-        //while(Time.time - currentTime <= 1.0f)
-            transform.rotation = Quaternion.Euler(initialRotationX, 0.0f, Mathf.Sin(Time.time * shakeFactor) * pickupTilt);
+        transform.rotation = Quaternion.Euler(initialRotationX, 0.0f, Mathf.Sin(Time.time * shakeFactor) * pickupTilt);
     }
 }
