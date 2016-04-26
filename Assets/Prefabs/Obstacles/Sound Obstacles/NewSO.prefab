@@ -295,6 +295,7 @@ MonoBehaviour:
   length: 100
   accuracy: 20
   fftPrecision: 5
+  checkTime: 2
   NewSP_handle: {fileID: 450452}
 --- !u!1001 &100100000
 Prefab:
@@ -334,6 +335,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: accuracy
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: checkTime
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

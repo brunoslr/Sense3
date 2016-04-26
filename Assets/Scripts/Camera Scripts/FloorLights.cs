@@ -12,8 +12,9 @@ public class FloorLights : MonoBehaviour {
     public GameObject plane;
     public GameObject[] visualizer;
     public uint length = 256;
-    public uint accuracy = 20;
+    public uint accuracy = 40;
     public uint fftPrecision = 5;
+    public uint checkTime = 2;
     public Transform NewSP_handle;
 
     private Transform Player;
@@ -22,6 +23,8 @@ public class FloorLights : MonoBehaviour {
     private float[] spectrum;
     private float[] spectrumVal;
     private float zscale;
+    private bool collinear = false;
+    private bool enableLights = false;
 
     // Use this for initialization
     void Start () {
@@ -57,8 +60,9 @@ public class FloorLights : MonoBehaviour {
         }
     }
 	
-    void condense()
+    void displayLights()
     {
+        AudioListener.GetSpectrumData(spectrum, 0, window);
         uint diff = fullLength / length;
         int j = 0;
         for (int i = 0; i < length; i++)
@@ -69,29 +73,48 @@ public class FloorLights : MonoBehaviour {
             {
                 spectrumVal[i] += spectrum[i * diff + (j++)];
             }
-
+            visualizer[i].transform.localScale = new Vector3(spectrumVal[i % fftPrecision] * 5.0f, 0.05f, 0.1f);
         }
-
     }
 
 	// Update is called once per frame
 	void Update () {
 
-        float multiplier = 1.0f;
         //This is temporary : change when convenient
         if (Math.Abs(Player.transform.position.x - NewSP_handle.position.x) < accuracy)
         {
-            multiplier = 1.0f;
-            AudioListener.GetSpectrumData(spectrum, 0, window);
-            condense();
+            collinear = true;
+            StartCoroutine(checkPos());
         }
         else
-            multiplier = 0.0f;
+            collinear = false;
 
-        for(int i=0;i< length; i++)
+        if (enableLights)
+            displayLights();
+        else
         {
-            visualizer[i].transform.localScale = new Vector3(spectrumVal[i% fftPrecision] * 5.0f, 0.05f, 0.1f)*multiplier;
+            for (int i = 0; i < length; i++)
+            {
+                visualizer[i].transform.localScale = new Vector3(0, 0, 0);
+            }
+        }
+    }
+
+    private IEnumerator checkPos()
+    {
+        int i = 0;
+        while (i < checkTime)
+        {
+            yield return new WaitForSeconds(1.0f);
+            i++;
         }
 
+        if (collinear)
+        {
+            enableLights = true;
+            Debug.Log("lights are true");
+        }
+        else
+            enableLights = false;
     }
 }
