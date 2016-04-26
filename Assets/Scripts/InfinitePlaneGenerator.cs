@@ -82,6 +82,8 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     private int[] rotationArray = { 0, 90, 180, 270 };
 
+    private int start = 0, mid = 0, end = 0, limit = 0;
+
     void Start()
     {
         InitializePlayerVariables();
@@ -98,17 +100,17 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
         InitializeVisualObstacles();
 
-        //CoreSystem.onSoundEvent += IncreaseSoundScale;
-        //CoreSystem.onObstacleEvent += DecreaseSoundScale;
+        CoreSystem.onSoundEvent += IncrementLevel;
+        CoreSystem.onObstacleEvent += DecrementLevel;
 
         //soundCounter = 0;
     }
 
-    //void OnDisable()
-    //{
-    //    CoreSystem.onSoundEvent -= IncreaseSoundScale;
-    //    CoreSystem.onObstacleEvent -= DecreaseSoundScale;
-    //}
+    void OnDisable()
+    {
+        CoreSystem.onSoundEvent -= IncrementLevel;
+        CoreSystem.onObstacleEvent -= DecrementLevel;
+    }
 
     private void InitializePlayerVariables()
     {
@@ -145,9 +147,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
         visualObstacles = new List<GameObject>();
         loadedVisualObstacles = new List<GameObject>();
-        loadedVisualObstaclesEasy = new List<GameObject>();
-        loadedVisualObstaclesMedium = new List<GameObject>();
-        loadedVisualObstaclesHard = new List<GameObject>();
 
         GameObject temp = new GameObject();
         
@@ -156,21 +155,25 @@ public class InfinitePlaneGenerator : MonoBehaviour
             if (i < numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle)
             {
                 temp = Instantiate(visualObstaclePrefabs[i % numberOfObstaclesInEachDifficultyLevel]);
-                loadedVisualObstaclesEasy.Add(temp);
+                loadedVisualObstacles.Add(temp);
             }
             else if (i >= numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle && i < 2 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle)
             {
                 temp = Instantiate(visualObstaclePrefabs[numberOfObstaclesInEachDifficultyLevel + (i % numberOfObstaclesInEachDifficultyLevel)]);
-                loadedVisualObstaclesMedium.Add(temp);
+                loadedVisualObstacles.Add(temp);
             }
             else if (i >= 2 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle && i < 3 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle)
             {
                 temp = Instantiate(visualObstaclePrefabs[2 * numberOfObstaclesInEachDifficultyLevel + (i % numberOfObstaclesInEachDifficultyLevel)]);
-                loadedVisualObstaclesHard.Add(temp);
+                loadedVisualObstacles.Add(temp);
             }
             temp.SetActive(false);
         }
-        loadedVisualObstacles = loadedVisualObstaclesEasy;
+        //loadedVisualObstacles = loadedVisualObstaclesEasy;
+        start = 0;
+        mid = start + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
+        end = mid + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3); ;
+        limit = end + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
         visualPlacementZTrigger = visualDisplacementForwardInitial;
         visualPlacementInitialTrigger = visualDisplacementForwardInitial - visualDisplacementForward;
     }
@@ -215,7 +218,8 @@ public class InfinitePlaneGenerator : MonoBehaviour
         {
             for (int j = 0; j < 5; j++)
             {
-                pick = Random.Range(0, loadedVisualObstacles.Count - 1);
+                pick = Random.Range(start, limit);
+                limit--;
                 visualObstacle = loadedVisualObstacles[pick];
                 visualObstacle.SetActive(true);
                 loadedVisualObstacles.RemoveAt(pick);
@@ -274,28 +278,28 @@ public class InfinitePlaneGenerator : MonoBehaviour
             {
                 tactileDisplacementRandomFactorLow = 3000;
                 tactileDisplacementRandomFactorHigh = 4500;
-                if (loadedVisualObstacles != loadedVisualObstaclesEasy)
-                {
-                    loadedVisualObstacles = loadedVisualObstaclesEasy;
-                }
+                //if (loadedVisualObstacles != loadedVisualObstaclesEasy)
+                //{
+                //    loadedVisualObstacles = loadedVisualObstaclesEasy;
+                //}
             }
             else if (currentPlayerLevel >= 3 && currentPlayerLevel <= 5)
             {
                 tactileDisplacementRandomFactorLow = 1500;
                 tactileDisplacementRandomFactorHigh = 3000;
-                if (loadedVisualObstacles != loadedVisualObstaclesMedium)
-                {
-                    loadedVisualObstacles = loadedVisualObstaclesMedium;
-                }
+                //if (loadedVisualObstacles != loadedVisualObstaclesMedium)
+                //{
+                //    loadedVisualObstacles = loadedVisualObstaclesMedium;
+                //}
             }
             else if (currentPlayerLevel >= 6 && currentPlayerLevel <= 7)
             {
                 tactileDisplacementRandomFactorLow = 0;
                 tactileDisplacementRandomFactorHigh = 1500;
-                if (loadedVisualObstacles != loadedVisualObstaclesHard)
-                {
-                    loadedVisualObstacles = loadedVisualObstaclesHard;
-                }
+                //if (loadedVisualObstacles != loadedVisualObstaclesHard)
+                //{
+                //    loadedVisualObstacles = loadedVisualObstaclesHard;
+                //}
             }
             previousPlayerLevel = currentPlayerLevel;
         }
@@ -437,7 +441,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
         for (int i = 0; i < 5; ++i)
         {
             do { 
-            pick = Random.Range(0, loadedVisualObstacles.Count - 1);
+            pick = Random.Range(start, limit);
             visualObstacle = loadedVisualObstacles[pick];
                 if(visualObstacle == null)
                 {
@@ -446,6 +450,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 }
         } while (visualObstacle == null) ;
             visualObstacle.SetActive(true);
+            limit--;
             loadedVisualObstacles.RemoveAt(pick);
             visualObstacles.Add(visualObstacle);
             if (visualObstacle.name != "Obstacle 10_easy(Clone)" && visualObstacle.name != "Obstacle 10_medium(Clone)" && visualObstacle.name != "Obstacle 10_hard(Clone)")
@@ -474,11 +479,12 @@ public class InfinitePlaneGenerator : MonoBehaviour
             {
                 do
                 {
-                    pick = Random.Range(0, loadedVisualObstacles.Count - 1);
+                    pick = Random.Range(start, limit);
                     visualObstacle = loadedVisualObstacles[pick];
 
                 } while (visualObstacle == null);
                 visualObstacle.SetActive(true);
+                limit--;
                 loadedVisualObstacles.RemoveAt(pick);
                 visualObstacles.Add(visualObstacle);
                 if (visualObstacle.name != "Obstacle 10_easy(Clone)" && visualObstacle.name != "Obstacle 10_medium(Clone)" && visualObstacle.name != "Obstacle 10_hard(Clone)")
@@ -504,40 +510,20 @@ public class InfinitePlaneGenerator : MonoBehaviour
             {
                 if (visualObstacle.gameObject.layer == 10)
                 {
-                    if (currentPlayerLevel >= 0 && currentPlayerLevel <= 2)
-                    {
-                        loadedVisualObstacles.Add(visualObstacle.gameObject);
-                    }
-                    else
-                    {
-                        loadedVisualObstaclesEasy.Add(visualObstacle.gameObject);
-                    }
+                    loadedVisualObstacles.Insert(0, visualObstacle.gameObject);
                 }
                 else if (visualObstacle.gameObject.layer == 11)
                 {
-                    if (currentPlayerLevel >= 3 && currentPlayerLevel <= 5)
-                    {
-                        loadedVisualObstacles.Add(visualObstacle.gameObject);
-                    }
-                    else
-                    {
-                        loadedVisualObstaclesMedium.Add(visualObstacle.gameObject);
-                    }
+                    loadedVisualObstacles.Insert(numberOfCopiesOfEachObstacle * numberOfObstaclesInEachDifficultyLevel, visualObstacle.gameObject);
                 }
                 else if (visualObstacle.gameObject.layer == 12)
                 {
-                    if (currentPlayerLevel >= 6 && currentPlayerLevel <= 7)
-                    {
-                        loadedVisualObstacles.Add(visualObstacle.gameObject);
-                    }
-                    else
-                    {
-                        loadedVisualObstaclesHard.Add(visualObstacle.gameObject);
-                    }
+                    loadedVisualObstacles.Insert(2 * numberOfCopiesOfEachObstacle * numberOfObstaclesInEachDifficultyLevel, visualObstacle.gameObject);
                 }
                 visualObstacle.Rotate(Vector3.zero);
                 visualObstacle.gameObject.SetActive(false);
                 visualObstacles.Remove(visualObstacle.gameObject);
+                limit++;
             }
         }
     }
@@ -591,18 +577,19 @@ public class InfinitePlaneGenerator : MonoBehaviour
         tactileObstacle.SetActive(false);
     }
 
-    //public void IncreaseSoundScale()
-    //{
-    //    soundCounter++;
-    //    float newzscale = (1.0f + (player.GetComponent<PlayerMovement>().speedMultiplier * soundCounter)) * initialSoundZScale;
-    //    soundObstacle.transform.localScale = new Vector3(soundObstacle.transform.localScale.x, soundObstacle.transform.localScale.y, newzscale);
-    //    soundObstacle.SetActive(false);
-    //}
+    private void IncrementLevel()
+    {
+        start = mid;
+        mid = end;
+        end += (numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3;
+        limit = end + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
+    }
 
-    //public void DecreaseSoundScale()
-    //{
-    //    soundCounter--;
-    //    float newzscale = (1.0f + (player.GetComponent<PlayerMovement>().speedMultiplier * soundCounter)) * initialSoundZScale;
-    //    soundObstacle.transform.localScale = new Vector3(soundObstacle.transform.localScale.x, soundObstacle.transform.localScale.y, newzscale);
-    //}
+    private void DecrementLevel()
+    {
+        end = mid;
+        mid = start;
+        start -= (numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3;
+        limit = end + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
+    }
 }
