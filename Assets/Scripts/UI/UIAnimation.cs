@@ -13,15 +13,28 @@ public class UIAnimation : MonoBehaviour {
     public Button creditsButton;
     public Button tutorialsButton;
     public Button flowButton;
+    public GameObject[] buttons;
+    public GameObject center;
     public Vector3 temp;
     float time;
     public bool isRunning;
     public float smooth;
-
+    public float radius;
     private GameObject currentItem;
+
+
     // Use this for initialization
     void Start()
     {
+
+        // USE THIS FUNCTION TO FIND PERFECT CIRCULAR POSITIONS
+        //for(int i =4;i >= 0; i--)
+        //{
+        //    // float radius = Vector3.Distance(buttons[i].transform.position, center.transform.position);
+
+        //   // buttons[i].transform.position = new Vector3(center.transform.position.x + radius * Mathf.Cos(360/5 * i *Mathf.Deg2Rad), 0, center.transform.position.z + radius * Mathf.Sin(360 / 5 * i * Mathf.Deg2Rad));
+        //    Debug.Log(buttons[i].transform.position);
+        //}
         if (startButton != null)
             startButton.onClick.AddListener(() => { StartGame(); });
 
@@ -84,63 +97,13 @@ public class UIAnimation : MonoBehaviour {
     }
     public void MoveLeft()
     {
-        StartCoroutine("MoveUIRight");
 
-        isRunning = true;
     }
     public void MoveRight()
     {
-        StartCoroutine("MoveUILeft");
-        isRunning = true;
+       
     }
-    public IEnumerator MoveUILeft()
-    {
-        if (!isRunning)
-        {
-          
-            time = 0;
-            positions[0] = menuElements[0].transform.position;
-            positions[1] = menuElements[1].transform.position;
-            positions[2] = menuElements[2].transform.position;
-            positions[3] = menuElements[3].transform.position;
-            positions[4] = menuElements[4].transform.position;
-
-            while (Vector3.Distance(menuElements[0].transform.position, positions[1]) > 0.001)
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    menuElements[i % 5].transform.position = Vector3.Lerp(menuElements[i % 5].transform.position, positions[(i + 1) % 5], 10*time * Time.deltaTime);
-                }
-
-                yield return null;  
-            }
-            isRunning = false;
-        }
-    }
-    public IEnumerator MoveUIRight()
-    {
-        if (!isRunning)
-        {
-
-            time = 0;
-            positions[0] = menuElements[0].transform.position;
-            positions[1] = menuElements[1].transform.position;
-            positions[2] = menuElements[2].transform.position;
-            positions[3] = menuElements[3].transform.position;
-            positions[4] = menuElements[4].transform.position;
-            while (Vector3.Distance(menuElements[1].transform.position, positions[0]) > 0.001)
-            {
-                for (int i = 5; i >0; i--)
-                {
-                    menuElements[i % 5].transform.position = Vector3.Lerp(menuElements[i % 5].transform.position, positions[(i - 1) % 5], 10 * time * Time.deltaTime);
-                }
-
-                yield return null;
-            }
-            isRunning = false;
-        }
-    }
-
+ 
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
