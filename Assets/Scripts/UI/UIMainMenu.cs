@@ -12,12 +12,12 @@ public class UIMainMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetAxis("Horizontal") >0)
         {
             transform.RotateAround(center.transform.position, Vector3.up, 1);
             transform.forward = new Vector3(0, 0, 1);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetAxis("Horizontal") < 0)
         {
             transform.RotateAround(center.transform.position, Vector3.up, -1);
             transform.forward = new Vector3(0, 0, 1);

@@ -20,7 +20,7 @@ public class UIAnimation : MonoBehaviour {
     public bool isRunning;
     public float smooth;
     public float radius;
-    private GameObject currentItem;
+    public GameObject currentItem;
 
 
     // Use this for initialization
@@ -62,17 +62,17 @@ public class UIAnimation : MonoBehaviour {
             MoveRight();
         }
 
+        
+        foreach (GameObject menuItem in menuElements)
+        {
+            if (Mathf.Abs(menuItem.transform.position.z - 300.0f) <= 1.0f)
+            {
+                currentItem = menuItem;
+                break;
+            }
+        }
         if (Input.GetButton("Submit"))
         {
-            foreach (GameObject menuItem in menuElements)
-            {
-                if (Mathf.Abs(menuItem.transform.position.z - 300.0f) <= 1.0f)
-                {
-                    currentItem = menuItem;
-                    break;
-                }
-            }
-
             currentItem.GetComponentInChildren<Button>().onClick.Invoke();
         }
 
