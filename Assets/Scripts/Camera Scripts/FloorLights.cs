@@ -112,7 +112,7 @@ public class FloorLights : MonoBehaviour {
         if (collinear)
         {
             enableLights = true;
-            Debug.Log("lights are true");
+            //Debug.Log("lights are true");
         }
         else
             enableLights = false;

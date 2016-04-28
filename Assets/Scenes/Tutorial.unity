@@ -131,6 +131,7 @@ MonoBehaviour:
   obstaclePrefab: {fileID: 164434, guid: 6331028c65938604b8112a0e3ec60c52, type: 2}
   alignedWithSound: Good job! Keep going straight till you pickup the sound.
   notAlignedWithSound: Move in the direction of sound till you hear it on both ears
+  outofSound: You have moved out of the sound zone.
   gotTheSound: Good job! You got the sound. Keep collecting more as these act as your
     lives.
   alignedWithRumble: Move away from the blackhole that is trying to pull you. The
@@ -471,6 +472,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -718,6 +720,10 @@ Prefab:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1652836907}
+    - target: {fileID: 136032, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50a709b8ff9aac4eb1574d94b1d4bf3, type: 2}
   m_IsPrefabParent: 0

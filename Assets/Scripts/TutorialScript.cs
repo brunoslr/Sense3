@@ -5,15 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class TutorialScript : MonoBehaviour {
 
-    private bool passedLeftSP;
-    private bool passedRightSP;
-    private bool leftPickedUp;
-    private bool ctr;
-  
-    private int whichUpdate;
-
-    //---------------
-
     public GameObject soundObstacleprefab;
     public GameObject rumbleObstaclePrefab;
     public GameObject playerGameObject;
@@ -22,6 +13,7 @@ public class TutorialScript : MonoBehaviour {
 
     public string alignedWithSound;
     public string notAlignedWithSound;
+    public string outofSound;
     public string gotTheSound;
 
     public string alignedWithRumble;
@@ -143,16 +135,27 @@ public class TutorialScript : MonoBehaviour {
                  leftSoundState = SoundState.AFTER;
              }
 
-            if (Mathf.Abs(leftSoundPickup.position.x - playerGameObject.transform.position.x) >= checkPan)
-            {
-                leftSoundObstacle.transform.Translate(new Vector3(0.0f, 0.0f, 1.0f) * playerMovement.initialSpeed * Time.deltaTime, Space.World);
-                screenText.text = notAlignedWithSound;
-            }
+             if (Mathf.Abs(leftSoundPickup.position.x - playerGameObject.transform.position.x) >= leftSoundObstacle.transform.localScale.x / 2.0f)
+             {
+                 leftSoundObstacle.transform.Translate(new Vector3(0.0f, 0.0f, 1.0f) * playerMovement.initialSpeed * Time.deltaTime, Space.World);
 
-            else
-            {
-                screenText.text = alignedWithSound;
-            }
+                 if (leftSoundPickup.position.x - playerGameObject.transform.position.x > 0.0f)
+                    screenText.text = outofSound + " Move right to get back in.";
+
+                 else 
+                     screenText.text = outofSound + " Move left to get back in.";
+             }
+
+             else if (Mathf.Abs(leftSoundPickup.position.x - playerGameObject.transform.position.x) >= checkPan)
+             {
+                 leftSoundObstacle.transform.Translate(new Vector3(0.0f, 0.0f, 1.0f) * playerMovement.initialSpeed * Time.deltaTime, Space.World);
+                 screenText.text = notAlignedWithSound;
+             }
+
+             else
+             {
+                 screenText.text = alignedWithSound;
+             }
         }
 
         if(leftSoundState == SoundState.AFTER)
@@ -180,7 +183,18 @@ public class TutorialScript : MonoBehaviour {
                 rightSoundState = SoundState.AFTER;
             }
 
-            if (Mathf.Abs(rightSoundPickup.position.x - playerGameObject.transform.position.x) >= checkPan)
+            if (Mathf.Abs(rightSoundPickup.position.x - playerGameObject.transform.position.x) >= rightSoundObstacle.transform.localScale.x / 2.0f)
+            {
+                rightSoundObstacle.transform.Translate(new Vector3(0.0f, 0.0f, 1.0f) * playerMovement.initialSpeed * Time.deltaTime, Space.World);
+
+                if (rightSoundPickup.position.x - playerGameObject.transform.position.x > 0.0f)
+                    screenText.text = outofSound + " Move right to get back in.";
+
+                else
+                    screenText.text = outofSound + " Move left to get back in.";
+            }
+
+            else if (Mathf.Abs(rightSoundPickup.position.x - playerGameObject.transform.position.x) >= checkPan)
             {
                 rightSoundObstacle.transform.Translate(new Vector3(0.0f, 0.0f, 1.0f) * playerMovement.initialSpeed * Time.deltaTime, Space.World);
                 screenText.text = notAlignedWithSound;
