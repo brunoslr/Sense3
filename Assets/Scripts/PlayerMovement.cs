@@ -97,8 +97,6 @@ public class PlayerMovement : MonoBehaviour
     {
         MovePlayerForward();
         MovePlayerSideways();
-        //MovePlayerVertical();
-        //MovePlayerBackToCenter();
         CheckPlayerGrounded();
     }
 
@@ -170,7 +168,6 @@ public class PlayerMovement : MonoBehaviour
         vertAxis = Input.GetAxis("Vertical");
         if (vertAxis == 0.0f)
         {
-            //MovePlayerBackToCenter();
             initialVertSpeed = 0.0f;
             curVertSpeedInc = vertSpeedInc;
         }
@@ -195,7 +192,6 @@ public class PlayerMovement : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(-vertAxis * vertTilt, 0.0f, 0.0f);
             transform.Translate(new Vector3(0.0f, 1.0f, 0.0f) * vertAxis * initialVertSpeed * Time.deltaTime, Space.World);
-            //soundEffectsManager.MovePlayerSound();
         }
     }
 
@@ -217,11 +213,6 @@ public class PlayerMovement : MonoBehaviour
         
             isGrounded = true;
         }
-    }
-
-    void MovePlayerBackToCenter()
-    {
-       
     }
 
     public void IncreasePlayerSpeed()
@@ -271,7 +262,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Obstacle")
         {
-            //other.gameObject.GetComponent<CoreSystem>().ExecuteOnHit();
             CoreSystem.ExecuteOnObstacleCollision();
         }
     }

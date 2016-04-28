@@ -13,6 +13,7 @@ public class CameraMovement : MonoBehaviour
     public float rumbleShakeLow;
     public float rumbleShakeHigh;
     [HideInInspector] public float rumbleTilt;
+    public float pickupTilt;
     public float moveTilt;
     public float moveFactor;
     public float shakeFactor;
@@ -23,8 +24,14 @@ public class CameraMovement : MonoBehaviour
     {
         transform.position = player.transform.position + initialOffset;
         initialRotationX = transform.rotation.eulerAngles.x;
+       // CoreSystem.onSoundEvent += RumbleCameraPickup;
+       // CoreSystem.onObstacleEvent += RumbleCameraPickup;
+    }
 
-        // playerMovement = player.GetComponent<PlayerMovement>(); // Removed - Unused
+    void OnDestroy()
+    {
+       // CoreSystem.onSoundEvent -= RumbleCameraPickup;
+       // CoreSystem.onObstacleEvent -= RumbleCameraPickup;
     }
 
     void Awake()
@@ -49,5 +56,10 @@ public class CameraMovement : MonoBehaviour
     public void RumbleCamera()
     {
         transform.rotation = Quaternion.Euler(initialRotationX, 0.0f, Mathf.Sin(Time.time * shakeFactor) * rumbleTilt);
+    }
+
+    public void RumbleCameraPickup()
+    {
+        transform.rotation = Quaternion.Euler(initialRotationX, 0.0f, Mathf.Sin(Time.time * shakeFactor) * pickupTilt);
     }
 }

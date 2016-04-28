@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &163310
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,13 +471,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78201363abbc7341b32873247690a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visObsCrashSound: {fileID: 8300000, guid: 3dd0cb2ae1040794fb896c4c27da03a0, type: 3}
-  minObsCrashSound: {fileID: 8300000, guid: 71a4c0886c62f234883fe73fafc67a77, type: 3}
-  audPickupSound: {fileID: 8300000, guid: ff4260482e767ca48b1c37ad6bab43a3, type: 3}
-  movPlayerLeftSound: {fileID: 8300000, guid: b8b6dabd459a62343ac1d9b6022b1f58, type: 3}
-  movPlayerRightSound: {fileID: 8300000, guid: b8b6dabd459a62343ac1d9b6022b1f58, type: 3}
-  jumpPlayerSound: {fileID: 8300000, guid: 270c2eec2f4636b48bc05979b95c65d6, type: 3}
-  masterVolume: 0.01
+  visObsCrashSound: {fileID: 8300000, guid: b8d8f15a668744caf80e164b3d75bfee, type: 3}
+  minObsCrashSound: {fileID: 0}
+  audPickupSound: {fileID: 8300000, guid: 7fff4581da1dc4df18c436113b548e8e, type: 3}
+  audMissedSound: {fileID: 8300000, guid: 3f1786b137f95400f95b290e0efb9fb6, type: 3}
+  movPlayerLeftSound: {fileID: 0}
+  movPlayerRightSound: {fileID: 0}
+  jumpPlayerSound: {fileID: 0}
+  masterVolume: 0.75
 --- !u!114 &11475730
 MonoBehaviour:
   m_ObjectHideFlags: 1
