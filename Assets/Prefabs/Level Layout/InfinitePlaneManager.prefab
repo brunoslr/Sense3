@@ -41,21 +41,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planePrefab: {fileID: 198202, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
   player: {fileID: 0}
-  numberOfObstaclesInEachDifficultyLevel: 4
-  numberOfCopiesOfEachObstacle: 30
+  numberOfObstaclesInEachDifficultyLevel: 6
+  numberOfCopiesOfEachObstacle: 20
   visualObstaclePrefabs:
   - {fileID: 141856, guid: 59f939e3fa98c684aae23c7f9e502cfd, type: 2}
   - {fileID: 121476, guid: fd2a59288c90fbe4cb51b0f7bab20fbc, type: 2}
   - {fileID: 164434, guid: 6331028c65938604b8112a0e3ec60c52, type: 2}
   - {fileID: 164938, guid: de1f824bae74fd9418f8ad962d4e867f, type: 2}
+  - {fileID: 106804, guid: 1b9683ceb46de554c855cab68ea94fce, type: 2}
+  - {fileID: 187104, guid: 613a13b5aef847f48b0415707858159c, type: 2}
   - {fileID: 137252, guid: 431bd3cbf3bf5014d8b128c58bf35bb7, type: 2}
   - {fileID: 140228, guid: dcb25df278db2f94289b2d30fd6b4c03, type: 2}
   - {fileID: 161926, guid: de6b12e5445b4ac4d87c4ea6b89a7f9e, type: 2}
   - {fileID: 110302, guid: 8861dae8d92a2ea4989e71c3724bbe28, type: 2}
+  - {fileID: 115096, guid: 06022264de86f3e4fa006a407802551c, type: 2}
+  - {fileID: 187042, guid: 344aa4a1e52a02b40b8ab3f80e0d04e4, type: 2}
   - {fileID: 190520, guid: d3e38982154bd5640b3068fb8d31aa0c, type: 2}
   - {fileID: 102928, guid: b76c3328359c54e4a996f16f0b3bd976, type: 2}
   - {fileID: 112888, guid: d835ca4742acc484bb29b9b501c45523, type: 2}
   - {fileID: 104280, guid: 1bc20c21690b71d4fabdb02793b50aab, type: 2}
+  - {fileID: 106984, guid: cb6174162dd18014ba85170c2735931b, type: 2}
+  - {fileID: 121776, guid: b6eb6738cddf26240864f9a7b05e2471, type: 2}
   visualDisplacementHorizontal: 100
   visualDisplacementHorizontalRandomRange: 20
   visualDisplacementForward: 100
