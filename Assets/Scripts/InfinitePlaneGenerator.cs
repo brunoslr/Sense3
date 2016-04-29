@@ -518,7 +518,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 }
                 else if (visualObstacle.gameObject.layer == 12)
                 {
-                    loadedVisualObstacles.Insert(2 * numberOfCopiesOfEachObstacle * numberOfObstaclesInEachDifficultyLevel, visualObstacle.gameObject);
+                    loadedVisualObstacles.Add(visualObstacle.gameObject);
                 }
                 visualObstacle.Rotate(Vector3.zero);
                 visualObstacle.gameObject.SetActive(false);

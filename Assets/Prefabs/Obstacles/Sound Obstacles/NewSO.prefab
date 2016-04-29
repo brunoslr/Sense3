@@ -293,9 +293,9 @@ MonoBehaviour:
   plane: {fileID: 162994, guid: 3f438663c45ed56458ec3582e410e229, type: 2}
   visualizer: []
   length: 100
-  accuracy: 20
+  accuracy: 15
   fftPrecision: 5
-  checkTime: 2
+  checkTime: 1.5
   NewSP_handle: {fileID: 450452}
 --- !u!1001 &100100000
 Prefab:
