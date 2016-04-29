@@ -52,25 +52,9 @@ public class UIAnimation : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0.0f)
-        {
-            MoveLeft();
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0.0f)
-        {
-            MoveRight();
-        }
 
         
-        foreach (GameObject menuItem in menuElements)
-        {
-            if (Mathf.Abs(menuItem.transform.position.z - 300.0f) <= 1.0f)
-            {
-                currentItem = menuItem;
-                break;
-            }
-        }
+       
         if (Input.GetButton("Submit"))
         {
             currentItem.GetComponentInChildren<Button>().onClick.Invoke();
@@ -95,15 +79,6 @@ public class UIAnimation : MonoBehaviour {
 
         }
     }
-    public void MoveLeft()
-    {
-
-    }
-    public void MoveRight()
-    {
-       
-    }
- 
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

@@ -50,7 +50,7 @@ public class PlanetCreator : MonoBehaviour {
         {
             float x, y, z;
             int tempSign = Random.Range(-1, 1);
-            tempSign = tempSign / Mathf.Abs(tempSign);
+            tempSign = tempSign / Mathf.Abs(tempSign == 0 ? 1 : tempSign);
 
             x = Random.Range(1, 10) * sign;
             y = Random.Range(1, 10) * tempSign;
