@@ -14,7 +14,7 @@ public class FloorLights : MonoBehaviour {
     public uint length = 256;
     public uint accuracy = 40;
     public uint fftPrecision = 5;
-    public uint checkTime = 2;
+    public float checkTime = 1.5f;
     public Transform NewSP_handle;
 
     private Transform Player;
@@ -81,7 +81,7 @@ public class FloorLights : MonoBehaviour {
 	void Update () {
 
         //This is temporary : change when convenient
-        if (Math.Abs(Player.transform.position.x - NewSP_handle.position.x) < accuracy)
+        if (Math.Abs(Player.transform.position.x - NewSP_handle.position.x) < accuracy && Math.Abs(Player.transform.position.z - NewSP_handle.position.z) <= 1600)
         {
             collinear = true;
             StartCoroutine(checkPos());
@@ -103,9 +103,10 @@ public class FloorLights : MonoBehaviour {
     private IEnumerator checkPos()
     {
         int i = 0;
+        int temp = (int) checkTime * 10;
         while (i < checkTime)
         {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.1f);
             i++;
         }
 
