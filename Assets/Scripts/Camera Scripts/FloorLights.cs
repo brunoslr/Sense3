@@ -81,7 +81,7 @@ public class FloorLights : MonoBehaviour {
 	void Update () {
 
         //This is temporary : change when convenient
-        if (Math.Abs(Player.transform.position.x - NewSP_handle.position.x) < accuracy && Math.Abs(Player.transform.position.z - NewSP_handle.position.z) <= 1600)
+        if (Math.Abs(Player.transform.position.x - NewSP_handle.position.x) < accuracy)
         {
             collinear = true;
             StartCoroutine(checkPos());
