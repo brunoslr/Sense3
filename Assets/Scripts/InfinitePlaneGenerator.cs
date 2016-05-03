@@ -44,9 +44,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     private List<GameObject> visualObstacles;
     private List<GameObject> loadedVisualObstacles;
-    private List<GameObject> loadedVisualObstaclesEasy;
-    private List<GameObject> loadedVisualObstaclesMedium;
-    private List<GameObject> loadedVisualObstaclesHard;
     private GameObject visualObstacle;
 
     private int xPosVisualObstacle;
@@ -573,22 +570,14 @@ public class InfinitePlaneGenerator : MonoBehaviour
         start = mid;
         mid = end;
         end += (numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3;
-        limit = end + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
-        if (limit >= 360)
-        {
-            limit = loadedVisualObstacles.Count - 1;
-        }
+        limit = (end + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3)) >= 360 ? loadedVisualObstacles.Count - 1 : (end + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3));
     }
 
     private void DecrementLevel()
     {
         end = mid;
         mid = start;
-        start -= (numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3;
+        start = (start - (numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3) < 0 ? 0 : (start - (numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
         limit = end + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
-        if (limit >= 360)
-        {
-            limit = loadedVisualObstacles.Count - 1;
-        }
     }
 }
