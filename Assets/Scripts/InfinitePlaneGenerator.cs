@@ -93,8 +93,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
         LoadTactileObstacle();
 
-        //LoadDynamicObstacle();
-
         InitializeVisualObstacles();
 
         CoreSystem.onSoundEvent += IncrementLevel;
@@ -166,7 +164,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
             }
             temp.SetActive(false);
         }
-        //loadedVisualObstacles = loadedVisualObstaclesEasy;
         start = 0;
         mid = start + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
         end = mid + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3); ;
@@ -179,7 +176,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
     {
         soundObstacle = Instantiate(soundObstaclePrefab);
         soundObstacle.SetActive(false);
-        //initialSoundZScale = soundObstacle.transform.localScale.z;
         soundZScale = (int)soundObstacle.transform.localScale.z;
         nextSoundZDisplacement = soundDisplacementFromPlayer + (soundZScale / 4);
         soundObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, nextSoundZDisplacement);
@@ -196,13 +192,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
         tactileObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, nextTactileZDisplacement);
         tactilePlacementZTrigger = nextTactileZDisplacement + (tactileZScale / 2) + Random.Range(tactileDisplacementRandomFactorLow, tactileDisplacementRandomFactorHigh);
         tactileObstacle.SetActive(true);
-    }
-
-    private void LoadDynamicObstacle()
-    {
-        dynamicObstacle = Instantiate(dynamicObstaclePrefab);
-        dynamicObstacle.SetActive(false);
-        dynamicPlacementZTrigger = Random.Range(dynamicDisplacementRandomFactorLow, dynamicDisplacementRandomFactorHigh); 
     }
 
     private void InitializeVisualObstacles()
@@ -260,8 +249,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
         {
             DisableObstacles();
         }
-
-        //UpdateDynamicObstacle();
     }
 
     private void UpdatePlayer()
@@ -547,16 +534,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
     {
         tactileObstacle.SetActive(true);
         tactileObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, zPosition);
-    }
-
-    private void UpdateDynamicObstacle()
-    {
-          if (playerZPosition > dynamicPlacementZTrigger)
-        {
-            dynamicObstacle.SetActive(false);
-            dynamicPlacementZTrigger += Random.Range(dynamicDisplacementRandomFactorLow, dynamicDisplacementRandomFactorHigh);
-            dynamicObstacle.SetActive(true);
-        }
     }
 
     private void DisableObstacles()
