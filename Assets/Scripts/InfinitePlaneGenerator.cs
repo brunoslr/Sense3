@@ -418,9 +418,9 @@ public class InfinitePlaneGenerator : MonoBehaviour
             visualObstacle = loadedVisualObstacles[pick];
             if (currentPlayerLevel == 6)
                 {
-                    Debug.Log("Start: " + start + "Mid: " + mid + "End: " + end + "Limit: " + limit);
-                    Debug.Log("Pick: " + pick);
-                    Debug.Log("List Size: " + loadedVisualObstacles.Count);
+                   // Debug.Log("Start: " + start + "Mid: " + mid + "End: " + end + "Limit: " + limit);
+                    //Debug.Log("Pick: " + pick);
+                   // Debug.Log("List Size: " + loadedVisualObstacles.Count);
                 }
         } while (visualObstacle == null) ;
             visualObstacle.SetActive(true);
