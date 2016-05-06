@@ -547,14 +547,22 @@ public class InfinitePlaneGenerator : MonoBehaviour
         start = mid;
         mid = end;
         end += (numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3;
-        limit = (end + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3)) >= 360 ? loadedVisualObstacles.Count - 1 : (end + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3));
+		limit = end + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
+		if (limit >= 360)
+		{
+			limit = loadedVisualObstacles.Count - 1;
+		}
     }
 
     private void DecrementLevel()
     {
         end = mid;
         mid = start;
-        start = (start - (numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3) < 0 ? 0 : (start - (numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
+		start -= (numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3;
         limit = end + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
+		if (limit >= 360)
+		{
+			limit = loadedVisualObstacles.Count - 1;
+		}
     }
 }
