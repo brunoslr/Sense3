@@ -45,7 +45,10 @@ public class CameraMovement : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z + initialOffset.z);
+        if (player != null)
+            transform.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z + initialOffset.z);
+        else
+            transform.position = transform.position;
     }
 
     public void RotateCamera(float dir)

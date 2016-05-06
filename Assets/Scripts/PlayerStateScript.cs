@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerStateScript : MonoBehaviour {
@@ -7,7 +8,10 @@ public class PlayerStateScript : MonoBehaviour {
     public string WinScenario_sceneName;
     public int finalRunTime = 15;
     public GameObject playerAudio;
+    public GameObject mainCamera;
+    public Text endText;
 
+    private bool loadNextOverride = true;
     private static int maxLevel;
     private static int playerLevel; // Changed it to static, might affect player sound levels.
     private bool finalState;
@@ -40,7 +44,7 @@ public class PlayerStateScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         playerLevel = 0;
-      
+        
         player = GameObject.FindWithTag("Player");
         finalState = false;
         levelLoader = gameObject.AddComponent<LevelLoader>();
@@ -63,7 +67,12 @@ public class PlayerStateScript : MonoBehaviour {
         }
         else if(playerLevel < 0)
         {
-            levelLoader.LoadScene(LossScenario_sceneName);
+            //Player lost
+            endText.text = "GAME ENDED!! \n";
+            loadNextOverride = false;
+            StartCoroutine(LossCountDown());
+            mainCamera.transform.parent = null;
+            //levelLoader.LoadScene(LossScenario_sceneName);
         }
         else
         {
@@ -92,6 +101,19 @@ public class PlayerStateScript : MonoBehaviour {
         }
     }
 
+    private IEnumerator LossCountDown()
+    {
+        int i = 0;
+        while (i < 10 && loadNextOverride == false)
+        {
+            i++;
+            endText.text = "GAME ENDED!! \n Press any key to continue ... (" + (10 - i).ToString() + ")" ;
+            yield return new WaitForSeconds(1.0f);
+        }
+
+        levelLoader.LoadScene(LossScenario_sceneName);
+    }
+
     private void updatePlayerLevel()
     {
         checkState();
@@ -116,6 +138,12 @@ public class PlayerStateScript : MonoBehaviour {
     public static int getPlayerLevel()
     {
         return playerLevel;
+    }
+
+    void Update()
+    {
+        if (Input.anyKeyDown == true && loadNextOverride == false)
+            loadNextOverride = true;
     }
 
 }
