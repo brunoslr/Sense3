@@ -118,8 +118,4 @@ public class PlayerStateScript : MonoBehaviour {
         return playerLevel;
     }
 
-   	// Update is called once per frame
-	void Update () {
-	
-	}
 }
