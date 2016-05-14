@@ -58,6 +58,9 @@ public class FloorLights : MonoBehaviour {
             visualizer[i].transform.localPosition = /*this.transform.position + */new Vector3(0, -0.051f, -1.0f * i);
             visualizer[i].transform.localScale = new Vector3(0, 0, 0);
         }
+
+        CoreSystem.onSoundEvent += incrementfftPrecision;
+        CoreSystem.onObstacleEvent += decrementfftPrecision;
     }
 	
     void displayLights()
@@ -65,6 +68,8 @@ public class FloorLights : MonoBehaviour {
         AudioListener.GetSpectrumData(spectrum, 0, window);
         uint diff = fullLength / length;
         int j = 0;
+        const float max = 0.25f;
+        float carry = 0;
         for (int i = 0; i < length; i++)
         {
             j = 0;
@@ -72,6 +77,16 @@ public class FloorLights : MonoBehaviour {
             while (j < diff)
             {
                 spectrumVal[i] += spectrum[i * diff + (j++)];
+            }
+            if(spectrumVal[i] > 2 * max)
+            {
+                carry = spectrumVal[i] - (2 * max);
+                spectrumVal[i] = max + UnityEngine.Random.Range(0.0f, max);
+            }
+            else if(spectrum[i] < max)
+            {
+                spectrum[i] += carry % max;
+                carry -= (max + 1);
             }
             visualizer[i].transform.localScale = new Vector3(spectrumVal[i % fftPrecision] * 5.0f, 0.05f, 0.1f);
         }
@@ -81,7 +96,8 @@ public class FloorLights : MonoBehaviour {
 	void Update () {
 
         //This is temporary : change when convenient
-        if (Math.Abs(Player.transform.position.x - NewSP_handle.position.x) < accuracy)
+        if (Math.Abs(Player.transform.position.x - NewSP_handle.position.x) < accuracy &&
+            Math.Abs(Player.transform.position.z - NewSP_handle.position.z) < 800)
         {
             collinear = true;
             StartCoroutine(checkPos());
@@ -117,5 +133,15 @@ public class FloorLights : MonoBehaviour {
         }
         else
             enableLights = false;
+    }
+
+    public void incrementfftPrecision()
+    {
+        fftPrecision += 5;
+    }
+
+    public void decrementfftPrecision()
+    {
+        fftPrecision -= 5;
     }
 }
