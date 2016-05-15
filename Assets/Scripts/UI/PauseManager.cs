@@ -34,6 +34,10 @@ public class PauseManager : MonoBehaviour {
         UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
+        resumeButton.onClick.RemoveListener(() => { OnResumeButtonClick(); });
+        restartButton.onClick.RemoveListener(() => { OnRestartButtonClick(); });
+        quitButton.onClick.RemoveListener(() => { OnQuitButtonClick(); });
+        mainMenuButton.onClick.RemoveListener(() => { OnMainMenuButtonClick(); });
 #endif
     }
 

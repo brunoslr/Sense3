@@ -8,7 +8,6 @@ public class PlayerStateScript : MonoBehaviour {
     public string WinScenario_sceneName;
     public int finalRunTime = 15;
     public GameObject playerAudio;
-    public GameObject mainCamera;
     public Text endText;
 
     private bool loadNextOverride = true;
@@ -17,6 +16,7 @@ public class PlayerStateScript : MonoBehaviour {
     private bool finalState;
     private LevelLoader levelLoader;
     private GameObject player;
+    private GameObject mainCamera;
 
 
     // UI EVENTS
@@ -31,6 +31,8 @@ public class PlayerStateScript : MonoBehaviour {
             maxLevel = playerAudio.GetComponents<Layer>().Length;
         else
             maxLevel = 7;
+
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         //#--------------------------------------------------------------
         // Order of subscription is the order of execution of events. 

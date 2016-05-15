@@ -396,6 +396,8 @@ MonoBehaviour:
   WinScenario_sceneName: Credits
   finalRunTime: 15
   playerAudio: {fileID: 125482}
+  mainCamera: {fileID: 0}
+  endText: {fileID: 0}
 --- !u!114 &11439268
 MonoBehaviour:
   m_ObjectHideFlags: 1
