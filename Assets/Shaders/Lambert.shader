@@ -1,4 +1,6 @@
-﻿Shader "Custom Shader/ 2 - Lambert" {
+﻿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
+Shader "Custom Shader/ 2 - Lambert" {
 
 
 			Properties {
@@ -58,7 +60,7 @@
 						half4 newPos = v.vertex;
 						newPos.xyz = newPos.xyz + sin(time * _AnimSpeed + (animOffset.x + animOffset.y + animOffset.z) * _AnimFreq) * animPower.xyz;
 
-						float3 normalDirection = normalize( mul( float4( v.normal,0.0 ), _World2Object ).xyz );
+						float3 normalDirection = normalize( mul( float4( v.normal,0.0 ), unity_WorldToObject ).xyz );
 
 						o.pos = mul(UNITY_MATRIX_MVP, newPos);
 

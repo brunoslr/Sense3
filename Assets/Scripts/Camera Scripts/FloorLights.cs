@@ -5,7 +5,8 @@ using System;
 
 #pragma warning disable 618 // Disable obsolete warning for spectrum class
 
-public class FloorLights : MonoBehaviour {
+public class FloorLights : MonoBehaviour
+{
 
     //private float average = 0;
     public FFTWindow window;
