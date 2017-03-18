@@ -5,7 +5,8 @@ using NUnit.Framework;
 public class CoreSystemTests{
     
 	[Test]
-	public void CoreSystemStartTest() {
+    [Category("CoreSystemTests")]
+    public void CoreSystemStartTest() {
 		//Arrange
 		CoreSystem sut = new CoreSystem();
         		

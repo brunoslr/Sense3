@@ -10,6 +10,7 @@ namespace UnityTest
     [Category("Sample Tests")]
     internal class SampleTests
     {
+        /*
         [Test]
         [Category("Failing Tests")]
         public void ExceptionTest()
@@ -23,7 +24,7 @@ namespace UnityTest
         {
             throw new Exception("Ignored this test");
         }
-
+        
         [Test]
         [MaxTime(100)]
         [Category("Failing Tests")]
@@ -44,7 +45,7 @@ namespace UnityTest
         public void InconclusiveTest()
         {
             Assert.Inconclusive();
-        }
+        }*/
 
         [Test]
         public void PassingTest()
