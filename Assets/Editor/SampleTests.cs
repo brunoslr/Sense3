@@ -45,14 +45,14 @@ namespace UnityTest
         public void InconclusiveTest()
         {
             Assert.Inconclusive();
-        }*/
-
+        }
+        */
         [Test]
         public void PassingTest()
         {
             Assert.Pass();
         }
-
+        /*
         [Test]
         public void ParameterizedTest([Values(1, 2, 3)] int a)
         {
@@ -70,6 +70,7 @@ namespace UnityTest
         public void CultureSpecificTest()
         {
         }
+        
 
         [Test]
         [ExpectedException(typeof(ArgumentException), ExpectedMessage = "expected message")]
@@ -98,6 +99,6 @@ namespace UnityTest
 
             Assert.That(sqrt >= 0.0);
             Assert.That(sqrt * sqrt, Is.EqualTo(num).Within(0.000001));
-        }
+        }*/
     }
 }

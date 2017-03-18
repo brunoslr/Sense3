@@ -26,15 +26,7 @@ public class UIAnimation : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
-        // USE THIS FUNCTION TO FIND PERFECT CIRCULAR POSITIONS
-        //for(int i =4;i >= 0; i--)
-        //{
-        //    // float radius = Vector3.Distance(buttons[i].transform.position, center.transform.position);
-
-        //   // buttons[i].transform.position = new Vector3(center.transform.position.x + radius * Mathf.Cos(360/5 * i *Mathf.Deg2Rad), 0, center.transform.position.z + radius * Mathf.Sin(360 / 5 * i * Mathf.Deg2Rad));
-        //    Debug.Log(buttons[i].transform.position);
-        //}
+        
         if (startButton != null)
             startButton.onClick.AddListener(() => { StartGame(); });
 
@@ -47,13 +39,9 @@ public class UIAnimation : MonoBehaviour {
         if (tutorialsButton != null)
             tutorialsButton.onClick.AddListener(() => { LoadScene("Tutorial"); });
 
-        if (flowButton != null)
-            flowButton.onClick.AddListener(() => { LoadScene("Oculus"); });
     }
     // Update is called once per frame
     void Update () {
-
-        
        
         if (Input.GetButton("Submit"))
         {

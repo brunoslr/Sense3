@@ -71,11 +71,11 @@ public class CoreSystem : MonoBehaviour {
     }
 
     //finding subscribed functions 
-    public void LogSoundPickupSubscribedFunctions()
-    {
-        System.Delegate[] list = onSoundEvent.GetInvocationList();
+    //public void LogSoundPickupSubscribedFunctions()
+    //{
+    //    System.Delegate[] list = onSoundEvent.GetInvocationList();
 
-    }
+    //}
 
     //   void Start () {
     //      // playerLM = this.gameObject.GetComponent<PlayerMovement>();

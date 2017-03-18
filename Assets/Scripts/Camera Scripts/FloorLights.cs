@@ -20,10 +20,10 @@ public class FloorLights : MonoBehaviour
 
     private Transform Player;
     private const uint fullLength = 1024; 
-    private float planeLength;
+   // private float planeLength;
     private float[] spectrum;
     private float[] spectrumVal;
-    private float zscale;
+    //private float zscale;
     private bool collinear = false;
     private bool enableLights = false;
 
@@ -45,17 +45,17 @@ public class FloorLights : MonoBehaviour
         spectrum = new float[fullLength];
         spectrumVal = new float[length];
         visualizer = new GameObject[length];
-        planeLength = plane.transform.localScale.z;
+       // planeLength = plane.transform.localScale.z;
         //NewSP_handle = gameObject.transform.GetChild(0);
         //Renderer renderer;
-        Vector3 displacement = new Vector3(0, 0, 0);
+        //Vector3 displacement = new Vector3(0, 0, 0);
         for(int i=0;i < length; i++)
         {
             visualizer[i] = Instantiate(plane);
             //renderer = visualizer[i].GetComponent<Renderer>();
             //renderer.material.color = (i%2 == 0 ) ? Color.blue : Color.green;
             visualizer[i].transform.parent = NewSP_handle;
-            zscale = visualizer[i].transform.localScale.z;
+            //zscale = visualizer[i].transform.localScale.z;
             visualizer[i].transform.localPosition = /*this.transform.position + */new Vector3(0, -0.051f, -1.0f * i);
             visualizer[i].transform.localScale = new Vector3(0, 0, 0);
         }
@@ -120,7 +120,7 @@ public class FloorLights : MonoBehaviour
     private IEnumerator checkPos()
     {
         int i = 0;
-        int temp = (int) checkTime * 10;
+        //int temp = (int) checkTime * 10;
         while (i < checkTime)
         {
             yield return new WaitForSeconds(0.1f);

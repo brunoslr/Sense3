@@ -84,6 +84,6 @@ public class SoundEffectsManager : MonoBehaviour
 
     public void JumpPlayerSound()
     {
-        movPlayerAudioSource.PlayOneShot(jumpPlayerSound);
+        jumpPlayerAudioSource.PlayOneShot(jumpPlayerSound);
     }
 }

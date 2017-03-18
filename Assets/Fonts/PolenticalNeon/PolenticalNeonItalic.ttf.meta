@@ -3,20 +3,22 @@ guid: 89c5d2deb103a8c4b811aa08aabed7e9
 timeCreated: 1457118825
 licenseType: Pro
 TrueTypeFontImporter:
-  serializedVersion: 2
+  serializedVersion: 4
   fontSize: 100
-  forceTextureCase: -1
-  characterSpacing: 1
-  characterPadding: 0
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  use2xBehaviour: 0
-  fontNames: []
+  fontName: Polentical Neon
+  fontNames:
+  - Polentical Neon
   fallbackFontReferences:
   - {fileID: 12800000, guid: 2aa281b04aa07c149a2709ef074fd4fc, type: 3}
   - {fileID: 12800000, guid: 425081224cd32da4f993d7edddf70254, type: 3}
   - {fileID: 12800000, guid: e4157a957ea9e7b4b9f866b1d95ec54a, type: 3}
   customCharacters: 
-  fontRenderingMode: 1
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

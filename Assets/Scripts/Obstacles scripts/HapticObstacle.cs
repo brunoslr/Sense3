@@ -117,16 +117,6 @@ public class HapticObstacle : MonoBehaviour
     void CheckVibrationLevel(Collider other)
     {
 
-        //var p = other.gameObject.transform.position;
-        //p.z = endPos;
-
-        //Color c = state == State.LOW ? Color.green
-        //    : state == State.MED ? Color.yellow
-        //    : state == State.HIGH ? Color.red
-        //    : Color.magenta;
-
-        //Debug.DrawLine(p, other.gameObject.transform.position, c);
-
         playerDist = Mathf.Abs(endPos - other.gameObject.transform.position.z);
         ratio = playerDist / totalDist;
 
@@ -168,9 +158,7 @@ public class HapticObstacle : MonoBehaviour
                     rumblePickup.gameObject.GetComponent<MeshRenderer>().enabled = true;
                 }
                 break;
-            case State.HIGH:
 
-                break;
             default:
                 break;
         }

@@ -11,7 +11,7 @@ public class PlanetCreator : MonoBehaviour {
     private GameObject Player;
     private int Counter;
     private int totalPrefabs;
-    private List<GameObject> objects_in_front;
+    //private List<GameObject> objects_in_front;
     private int sign;
 
 	// Use this for initialization
@@ -20,7 +20,7 @@ public class PlanetCreator : MonoBehaviour {
         Player = GameObject.FindGameObjectWithTag("Player");
         Counter = (int) Player.transform.position.z - minDisp/2;
         galaxies = new List<GameObject>();
-        objects_in_front = new List<GameObject>();
+   //     objects_in_front = new List<GameObject>();
         initPlanets();
         sign = 1;
 	}

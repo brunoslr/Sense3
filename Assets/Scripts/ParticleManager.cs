@@ -3,11 +3,11 @@ using System.Collections;
 
 public class ParticleManager : MonoBehaviour
 {
-    private ParticleSystem particleSystem;
+    private ParticleSystem ps ;
     // Use this for initialization
     void Start()
     {
-        particleSystem = this.gameObject.GetComponent<ParticleSystem>();
+        ps = this.gameObject.GetComponent<ParticleSystem>();
         CoreSystem.onSoundEvent += EmitSoundPickupParticles;
         CoreSystem.onObstacleEvent += EmitObstacleHitParticles;
     }
@@ -26,19 +26,21 @@ public class ParticleManager : MonoBehaviour
 
     public void EmitSoundPickupParticles()
     {
-        particleSystem.startColor = Color.green;
-        particleSystem.Play();
-        particleSystem.startSpeed = -5.0f;
-        var emission = particleSystem.emission; 
+        var main = ps.main;
+        main.startColor = Color.green;
+        main.startSpeed = -5.0f;
+        ps.Play();
+        var emission = ps.emission; 
         emission.enabled = true;
     }
 
     public void EmitObstacleHitParticles()
     {
-        particleSystem.startColor = Color.red;
-        particleSystem.Play();
-        particleSystem.startSpeed = 5.0f;
-        var emission = particleSystem.emission;
+        var main = ps.main;
+        main.startColor = Color.red;
+        main.startSpeed = 5.0f;
+        ps.Play();
+        var emission = ps.emission;
         emission.enabled = true;
     }
 }
