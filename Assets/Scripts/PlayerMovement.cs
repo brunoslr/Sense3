@@ -238,7 +238,7 @@ public class PlayerMovement : MonoBehaviour
                 finalVertSpeed = forwardSpeed * vertSpeedMul;
             }
             coolDownflag = true;
-            if (PlayerStateScript.getPlayerLevel() >= 0)
+            if (PlayerStateScript.GetPlayerLevel() >= 0)
             {
                 StartCoroutine(CoolDown());
             }

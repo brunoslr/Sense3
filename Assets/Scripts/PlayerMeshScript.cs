@@ -10,7 +10,7 @@ public class PlayerMeshScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        blendShapeMultiplier = blendShapeMaxValue/ PlayerStateScript.ReturnMaxPlayerLevel();
+        blendShapeMultiplier = blendShapeMaxValue/ PlayerStateScript.GetMaxPlayerLevel();
 
 
         playerMesh = this.GetComponentInChildren<SkinnedMeshRenderer>();
@@ -31,7 +31,7 @@ public class PlayerMeshScript : MonoBehaviour {
     //updates blend shape related to the player
     public void UpdatePlayerShape()
     {
-        int playerLevel = PlayerStateScript.getPlayerLevel();
+        int playerLevel = PlayerStateScript.GetPlayerLevel();
         playerMesh.SetBlendShapeWeight(0, playerLevel * blendShapeMultiplier);
     }
 

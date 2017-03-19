@@ -83,10 +83,15 @@ public class PlayerStateScript : MonoBehaviour {
 
     }
 
-    public static int ReturnMaxPlayerLevel()
+    public static int GetMaxPlayerLevel()
     {
         return maxLevel;
-}
+    }
+
+    public static int GetPlayerLevel()
+    {
+        return playerLevel;
+    }
 
     private IEnumerator checkWin()
     {
@@ -137,10 +142,6 @@ public class PlayerStateScript : MonoBehaviour {
         updatePlayerLevel();
     }
 
-    public static int getPlayerLevel()
-    {
-        return playerLevel;
-    }
 
     void Update()
     {

@@ -19,7 +19,7 @@ public class CoreSystem : MonoBehaviour {
     public int coolDownTime = 2;
     public static int coolDownTimeInSeconds = 2;
     public static bool coolDownFlag = false;
-    public static CoreSystem instance;                  // needed to call coroutines from STATIC functions
+    public static CoreSystem instance;                 
 
     // On Collision Events
     public delegate void OnCollisionEvent();
