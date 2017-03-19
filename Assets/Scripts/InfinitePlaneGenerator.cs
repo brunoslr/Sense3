@@ -6,7 +6,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
     public GameObject planePrefab; 
     public GameObject player;
     public int numberOfObstaclesInEachDifficultyLevel;
-    public int numberOfCopiesOfEachObstacle;
 
     //Visual obstacle requirements
     public int visualDisplacementHorizontal;
@@ -31,8 +30,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
     public GameObject dynamicObstaclePrefab;
     public int dynamicDisplacementRandomFactorLow;
     public int dynamicDisplacementRandomFactorHigh;
-
-   
+    
     private Transform obstacleCollector;
     
     //private GameObject visualObstacle;
@@ -81,7 +79,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
     private int[] rotationArray = { 0, 90, 180, 270 };
     
     private int initialVOPrefabByDificultyLevel = 0, lastVOPrefabByDificultyLevel; // Prefab options by dificulty level
-    private int totalNumberOfVOPrefabs;
+    private int totalNumberOfVOPrefabs, RandomGenerationProbabilityVO;
     
     //Pooling Variables
     public bool poolAfterComplete = true;
@@ -101,8 +99,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
         InitializeVisualObstacles();
 
         CoreSystem.onSoundEvent += manageLevelGenerationVariables;
-
-        //soundCounter = 0;
     }
 
     void OnDisable()
@@ -110,7 +106,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
         CoreSystem.onSoundEvent -= manageLevelGenerationVariables;
     }
 
-    #region Level Generation Setup
+    #region On Start Setup
 
     private void InitializePlayerVariables()
     {
@@ -178,35 +174,14 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     private void InitializeVisualObstacles()
     {
-        int pick;
-        int rotX, rotY, rotZ;
-        GameObject visualObstacle;
         float xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal) + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
         float zpos = visualDisplacementForwardInitial;
         for (int i = 0; i < 5; i++)
         {
             for (int j = 0; j < 5; j++)
             {
-
-                pick = Random.Range(0, 3);
-                
-                visualObstacle = GetObjectFromPoolByPrefabIndex(pick, true);
-
-
-                visualObstacle.SetActive(true);
-//                availableVisualObstaclesPool.RemoveAt(pick);
-//                visualObstacles.Add(visualObstacle);
-                if (visualObstacle.name != "Obstacle 3_easy(Clone)" && visualObstacle.name != "Obstacle 3_medium(Clone)" && visualObstacle.name != "Obstacle 3_hard(Clone)" &&
-                    visualObstacle.name != "Obstacle 5_easy(Clone)" && visualObstacle.name != "Obstacle 5_medium(Clone)" && visualObstacle.name != "Obstacle 5_hard(Clone)")
-                {
-                    rotX = rotationArray[Random.Range(0, 4)];
-                    rotY = rotationArray[Random.Range(0, 4)];
-                    rotZ = rotationArray[Random.Range(0, 4)];
-                    visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
-                }
-                visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, zpos);
+                GenerateVisualObstacleAtPosition(xpos, visualDisplacementVertical, zpos);
                 xpos += visualDisplacementHorizontal + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
-
             }
             zpos += ((5 - (i+1)) / 5.0f) * visualDisplacementForwardInitial;
             xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal) + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
@@ -216,13 +191,14 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     #endregion
 
+    #region FixedUpdate
     void FixedUpdate()
     {
         UpdatePlayer();
 
-        DeleteVisualObstacles();
-
         UpdatePlane();
+
+        RemoveVisualObstaclesBehindTheCamera();
 
         if (currentPlayerLevel < maxPlayerLevel)
         {
@@ -265,100 +241,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
             previousPlayerLevel = currentPlayerLevel;
         }
     }
-
-    private void UpdatePlane()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            for (int c = 0; c < 3; c++)
-            {
-                float planeXMin = planes[i, c].transform.position.x - (sizeOfPlaneX / 2);
-                float planeXMax = planeXMin + sizeOfPlaneX;
-                float planeZMin = planes[i, c].transform.position.z - (sizeOfPlaneZ / 2);
-                float planeZMax = planeZMin + sizeOfPlaneZ;
-                if (playerXPosition > planeXMin && playerXPosition < planeXMax && playerZPosition > planeZMin && playerZPosition < planeZMax)
-                {
-                    UpdatePlaneGrid(i, c);
-                }
-            }
-        }
-    }
-
-    private void UpdatePlaneGrid(int x, int z)
-    {
-        if (x == 0)
-        {
-            MoveLeft();
-        }
-        else if (x == 2)
-        {
-            MoveRight();
-        }
-        if (z == 0)
-        {
-            MoveAhead();
-        }
-    }
-
-    private void MoveLeft()
-    {
-        GameObject[,] newPlanes = new GameObject[3, 3];
-        for (int i = 0; i < 3; i++)
-        {
-            Vector3 addPos = new Vector3(-sizeOfPlaneX * 3, 0, 0);
-            planes[2, i].transform.position += addPos;
-        }
-        for (int i = 0; i < 3; i++)
-        {
-            int c = i - 1;
-            c = (c == -1) ? 2 : c;
-            newPlanes[i, 0] = planes[c, 0];
-            newPlanes[i, 1] = planes[c, 1];
-            newPlanes[i, 2] = planes[c, 2];
-        }
-        planes = newPlanes;
-    }
-
-    private void MoveRight()
-    {
-        GameObject[,] newPlanes = new GameObject[3, 3];
-        for (int i = 0; i < 3; i++)
-        {
-            Vector3 addPos = new Vector3(sizeOfPlaneX * 3, 0, 0);
-            planes[0, i].transform.position += addPos;
-        }
-
-        for (int i = 0; i < 3; i++)
-        {
-            int c = i + 1;
-            c = (c == 3) ? 0 : c;
-            newPlanes[i, 0] = planes[c, 0];
-            newPlanes[i, 1] = planes[c, 1];
-            newPlanes[i, 2] = planes[c, 2];
-        }
-
-        planes = newPlanes;
-    }
-
-    private void MoveAhead()
-    {
-        GameObject[,] newPlanes = new GameObject[3, 3];
-        for (int i = 0; i < 3; i++)
-        {
-            Vector3 addPos = new Vector3(0, 0, sizeOfPlaneZ * 3);
-            planes[i, 2].transform.position += addPos;
-        }
-        for (int i = 0; i < 3; i++)
-        {
-            int c = i - 1;
-            c = (c == -1) ? 2 : c;
-            newPlanes[0, i] = planes[0, c];
-            newPlanes[1, i] = planes[1, c];
-            newPlanes[2, i] = planes[2, c];
-        }
-        planes = newPlanes;
-    }
-
+    
     private void UpdateVisualObstacles()
     {
 
@@ -394,111 +277,27 @@ public class InfinitePlaneGenerator : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Plane Generator Rules by player level
-    /// </summary>
-    private void manageLevelGenerationVariables()
+    private void UpdateSoundObstacle()
     {
-        switch (currentPlayerLevel)
+        if (playerZPosition > soundPlacementZTrigger)
         {
-            case 1:
-                initialVOPrefabByDificultyLevel = 0;
-                lastVOPrefabByDificultyLevel = numberOfObstaclesInEachDifficultyLevel;
-                break;
-
-            case 2:
-                initialVOPrefabByDificultyLevel = 0;
-                lastVOPrefabByDificultyLevel = (numberOfObstaclesInEachDifficultyLevel) * 3 / 2;
-                break;
-
-            case 3:
-                initialVOPrefabByDificultyLevel = numberOfObstaclesInEachDifficultyLevel / 2;
-                lastVOPrefabByDificultyLevel = (numberOfObstaclesInEachDifficultyLevel) * 2;
-                break;
-
-            case 4:
-                initialVOPrefabByDificultyLevel = numberOfObstaclesInEachDifficultyLevel;
-                lastVOPrefabByDificultyLevel = (numberOfObstaclesInEachDifficultyLevel) * 5 / 2;
-                break;
-
-            case 5:
-                initialVOPrefabByDificultyLevel = numberOfObstaclesInEachDifficultyLevel * 3 / 2;
-                lastVOPrefabByDificultyLevel = totalNumberOfVOPrefabs;
-                break;
-
-            case 6:
-                initialVOPrefabByDificultyLevel = 2 * numberOfObstaclesInEachDifficultyLevel;
-                lastVOPrefabByDificultyLevel = totalNumberOfVOPrefabs;
-                break;
-
-            default:
-                initialVOPrefabByDificultyLevel = 0;
-                lastVOPrefabByDificultyLevel = numberOfObstaclesInEachDifficultyLevel;
-                break;
-
+            nextSoundZDisplacement = playerZPosition + soundDisplacementFromPlayer + (soundZScale / 2) + Random.Range(-soundDisplacementRandomFactor, soundDisplacementRandomFactor);
+            soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + 500;
+            GenerateSoundObstacle(nextSoundZDisplacement);
         }
     }
 
-    private void GenerateVisualObstacles()
+    private void UpdateTactileObstacle()
     {
-        int pick;
-        int rotX, rotY, rotZ;
-        float xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal) + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
-        GameObject visualObstacle;
-        for (int i = 0; i < 5; ++i)
+        if (playerZPosition > tactilePlacementZTrigger)
         {
-            do
-            { 
-                pick = Random.Range(initialVOPrefabByDificultyLevel, lastVOPrefabByDificultyLevel);
-                visualObstacle = GetObjectFromPoolByPrefabIndex(pick, true);
-
-            } while (visualObstacle == null);
-            visualObstacle.SetActive(true);
-            if (visualObstacle.name != "Obstacle 3_easy(Clone)" && visualObstacle.name != "Obstacle 3_medium(Clone)" && visualObstacle.name != "Obstacle 3_hard(Clone)" &&
-                visualObstacle.name != "Obstacle 5_easy(Clone)" && visualObstacle.name != "Obstacle 5_medium(Clone)" && visualObstacle.name != "Obstacle 5_hard(Clone)")
-            {
-                rotX = rotationArray[Random.Range(0, 4)];
-                rotY = rotationArray[Random.Range(0, 4)];
-                rotZ = rotationArray[Random.Range(0, 4)];
-                visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
-            }
-            visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, nextVisualZDisplacement);
-            xpos += visualDisplacementHorizontal + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
-            visualObstacle = null;
+            nextTactileZDisplacement = playerZPosition + tactileDisplacementFromPlayer + (tactileZScale / 2);
+            tactilePlacementZTrigger = nextTactileZDisplacement + (tactileZScale / 2) + Random.Range(tactileDisplacementRandomFactorLow, tactileDisplacementRandomFactorHigh);
+            GenerateTactileObstacle(nextTactileZDisplacement);
         }
     }
 
-    private void CreateVisualObstaclesOnSide(float dir)
-    {
-        int pick;
-        int rotX, rotY, rotZ;
-        GameObject visualObstacle;
-        for (int i = -5; i < 1; i++)
-        {
-            float xpos = xPosVisualObstacle + (2 * visualDisplacementHorizontal * dir) + (Random.Range(0, visualDisplacementHorizontalRandomRange) * dir);
-            Vector3 newPosition = new Vector3(xpos, 0, nextVisualZDisplacement + (visualDisplacementForward * i));
-            if ((Physics.OverlapBox(newPosition, Vector3.one).Length <= 2))
-            {
-                do
-                {
-                    pick = Random.Range(initialVOPrefabByDificultyLevel, lastVOPrefabByDificultyLevel);
-                    visualObstacle = GetObjectFromPoolByPrefabIndex(pick, true);
-                } while (visualObstacle == null);
-                if (visualObstacle.name != "Obstacle 3_easy(Clone)" && visualObstacle.name != "Obstacle 3_medium(Clone)" && visualObstacle.name != "Obstacle 3_hard(Clone)" &&
-                    visualObstacle.name != "Obstacle 5_easy(Clone)" && visualObstacle.name != "Obstacle 5_medium(Clone)" && visualObstacle.name != "Obstacle 5_hard(Clone)")
-                {
-                    rotX = rotationArray[Random.Range(0, 4)];
-                    rotY = rotationArray[Random.Range(0, 4)];
-                    rotZ = rotationArray[Random.Range(0, 4)];
-                    visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
-                }
-                visualObstacle.transform.position = new Vector3(xpos, visualDisplacementVertical, nextVisualZDisplacement + (visualDisplacementHorizontal * i));
-                visualObstacle = null;
-            }
-        }
-    }
-
-    private void DeleteVisualObstacles()
+    private void RemoveVisualObstaclesBehindTheCamera()
     {
         Transform visualObstacleTransform;
         for (int i = 0; i < obstacleCollector.childCount; i++)
@@ -512,31 +311,220 @@ public class InfinitePlaneGenerator : MonoBehaviour
         }
     }
 
-    private void UpdateSoundObstacle()
+
+    #region PlaneMovement
+
+    private void UpdatePlane()
     {
-        if (playerZPosition > soundPlacementZTrigger)
+        for (int i = 0; i < 3; i++)
         {
-            nextSoundZDisplacement = playerZPosition + soundDisplacementFromPlayer + (soundZScale / 2) + Random.Range(-soundDisplacementRandomFactor, soundDisplacementRandomFactor);
-            soundPlacementZTrigger = nextSoundZDisplacement + (soundZScale / 2) + 500;
-            GenerateSoundObstacle(nextSoundZDisplacement);
+            for (int c = 0; c < 3; c++)
+            {
+                float planeXMin = planes[i, c].transform.position.x - (sizeOfPlaneX / 2);
+                float planeXMax = planeXMin + sizeOfPlaneX;
+                float planeZMin = planes[i, c].transform.position.z - (sizeOfPlaneZ / 2);
+                float planeZMax = planeZMin + sizeOfPlaneZ;
+                if (playerXPosition > planeXMin && playerXPosition < planeXMax && playerZPosition > planeZMin && playerZPosition < planeZMax)
+                {
+                    UpdatePlaneGrid(i, c);
+                }
+            }
         }
     }
 
+
+    private void UpdatePlaneGrid(int x, int z)
+    {
+        if (x == 0)
+        {
+            MovePlaneLeft();
+        }
+        else if (x == 2)
+        {
+            MovePlaneRight();
+        }
+        if (z == 0)
+        {
+            MovePlaneAhead();
+        }
+    }
+
+    private void MovePlaneLeft()
+    {
+        GameObject[,] newPlanes = new GameObject[3, 3];
+        for (int i = 0; i < 3; i++)
+        {
+            Vector3 addPos = new Vector3(-sizeOfPlaneX * 3, 0, 0);
+            planes[2, i].transform.position += addPos;
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            int c = i - 1;
+            c = (c == -1) ? 2 : c;
+            newPlanes[i, 0] = planes[c, 0];
+            newPlanes[i, 1] = planes[c, 1];
+            newPlanes[i, 2] = planes[c, 2];
+        }
+        planes = newPlanes;
+    }
+
+    private void MovePlaneRight()
+    {
+        GameObject[,] newPlanes = new GameObject[3, 3];
+        for (int i = 0; i < 3; i++)
+        {
+            Vector3 addPos = new Vector3(sizeOfPlaneX * 3, 0, 0);
+            planes[0, i].transform.position += addPos;
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            int c = i + 1;
+            c = (c == 3) ? 0 : c;
+            newPlanes[i, 0] = planes[c, 0];
+            newPlanes[i, 1] = planes[c, 1];
+            newPlanes[i, 2] = planes[c, 2];
+        }
+
+        planes = newPlanes;
+    }
+
+    private void MovePlaneAhead()
+    {
+        GameObject[,] newPlanes = new GameObject[3, 3];
+        for (int i = 0; i < 3; i++)
+        {
+            Vector3 addPos = new Vector3(0, 0, sizeOfPlaneZ * 3);
+            planes[i, 2].transform.position += addPos;
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            int c = i - 1;
+            c = (c == -1) ? 2 : c;
+            newPlanes[0, i] = planes[0, c];
+            newPlanes[1, i] = planes[1, c];
+            newPlanes[2, i] = planes[2, c];
+        }
+        planes = newPlanes;
+    }
+
+    #endregion
+
+    #endregion
+
+    /// <summary>
+    /// Plane Generator Rules by player level
+    /// </summary>
+    private void manageLevelGenerationVariables()
+    {
+        switch (currentPlayerLevel)
+        {
+            case 1:
+                initialVOPrefabByDificultyLevel = 0;
+                lastVOPrefabByDificultyLevel = numberOfObstaclesInEachDifficultyLevel;
+                RandomGenerationProbabilityVO = 50;
+                break;
+
+            case 2:
+                initialVOPrefabByDificultyLevel = 0;
+                lastVOPrefabByDificultyLevel = (numberOfObstaclesInEachDifficultyLevel) * 3 / 2;
+                RandomGenerationProbabilityVO = 50;
+                break;
+
+            case 3:
+                initialVOPrefabByDificultyLevel = numberOfObstaclesInEachDifficultyLevel / 2;
+                lastVOPrefabByDificultyLevel = (numberOfObstaclesInEachDifficultyLevel) * 2;
+                RandomGenerationProbabilityVO = 60;
+                break;
+
+            case 4:
+                initialVOPrefabByDificultyLevel = numberOfObstaclesInEachDifficultyLevel;
+                lastVOPrefabByDificultyLevel = (numberOfObstaclesInEachDifficultyLevel) * 5 / 2;
+                RandomGenerationProbabilityVO = 75;
+                break;
+
+            case 5:
+                initialVOPrefabByDificultyLevel = numberOfObstaclesInEachDifficultyLevel * 3 / 2;
+                lastVOPrefabByDificultyLevel = totalNumberOfVOPrefabs;
+                RandomGenerationProbabilityVO = 90;
+                break;
+
+            case 6:
+                initialVOPrefabByDificultyLevel = 2 * numberOfObstaclesInEachDifficultyLevel;
+                lastVOPrefabByDificultyLevel = totalNumberOfVOPrefabs;
+                RandomGenerationProbabilityVO = 100;
+                break;
+
+            default:
+                initialVOPrefabByDificultyLevel = 0;
+                lastVOPrefabByDificultyLevel = numberOfObstaclesInEachDifficultyLevel;
+                RandomGenerationProbabilityVO = 40;
+                break;
+
+        }
+    }
+
+    private void GenerateVisualObstacles()
+    {
+        float xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal) + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
+        for (int i = 0; i < 5; ++i)
+        {
+            GenerateVisualObstacleAtPosition(xpos, visualDisplacementVertical, nextVisualZDisplacement);
+            xpos += visualDisplacementHorizontal + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
+        }
+    }
+
+    private void CreateVisualObstaclesOnSide(float dir)
+    {
+
+        for (int i = -5; i < 1; i++)
+        {
+            float xpos = xPosVisualObstacle + (2 * visualDisplacementHorizontal * dir) + (Random.Range(0, visualDisplacementHorizontalRandomRange) * dir);
+            Vector3 newPosition = new Vector3(xpos, 0, nextVisualZDisplacement + (visualDisplacementForward * i));
+            if ((Physics.OverlapBox(newPosition, Vector3.one).Length <= 2))
+            {
+                GenerateVisualObstacleAtPosition(xpos, visualDisplacementVertical, nextVisualZDisplacement + (visualDisplacementHorizontal * i));
+            }
+        }
+    }
+
+    private void GenerateVisualObstacleAtPosition(float xPos, float yPos ,float zPos)
+    {
+        int pick;
+        GameObject visualObstacle;
+        if (Random.Range(0, 100) < RandomGenerationProbabilityVO)
+        {
+            pick = Random.Range(0, 3);
+            visualObstacle = GetObjectFromPoolByPrefabIndex(pick, true);
+            SetupVisualObstacleRotation(visualObstacle);
+            visualObstacle.transform.position = new Vector3(xPos, yPos, zPos);
+            visualObstacle = null;
+        }
+    }
+
+    /// <summary>
+    /// We are using the layer tem as the Static Layer to define that an Visual Obstacle should not rotate
+    /// </summary>
+    /// <param name="visualObstacle"></param>
+    private void SetupVisualObstacleRotation(GameObject visualObstacle)
+    {
+
+        int rotX, rotY, rotZ;
+
+        if (visualObstacle.layer != 10) 
+        {
+            rotX = rotationArray[Random.Range(0, 4)];
+            rotY = rotationArray[Random.Range(0, 4)];
+            rotZ = rotationArray[Random.Range(0, 4)];
+            visualObstacle.transform.Rotate(new Vector3(rotX, rotY, rotZ));
+        }
+    }
+    
     private void GenerateSoundObstacle(float zPosition)
     {
         soundObstacle.SetActive(true);
         soundObstacle.GetComponentInChildren<PickUpScript>().pickedUp = false;
         soundObstacle.transform.position = new Vector3(Random.Range(lowerClamp, upperClamp), 0, zPosition);
-    }
-
-    private void UpdateTactileObstacle()
-    {
-        if (playerZPosition > tactilePlacementZTrigger)
-        {
-            nextTactileZDisplacement = playerZPosition + tactileDisplacementFromPlayer + (tactileZScale / 2);
-            tactilePlacementZTrigger = nextTactileZDisplacement + (tactileZScale / 2) + Random.Range(tactileDisplacementRandomFactorLow, tactileDisplacementRandomFactorHigh);
-            GenerateTactileObstacle(nextTactileZDisplacement);
-        }
     }
 
     private void GenerateTactileObstacle(float zPosition)

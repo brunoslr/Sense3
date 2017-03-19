@@ -5,14 +5,14 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 489778}
-  - 33: {fileID: 3322188}
-  - 23: {fileID: 2351426}
-  - 95: {fileID: 9593416}
-  - 135: {fileID: 13591038}
-  m_Layer: 10
+  - component: {fileID: 489778}
+  - component: {fileID: 3322188}
+  - component: {fileID: 2351426}
+  - component: {fileID: 9593416}
+  - component: {fileID: 13591038}
+  m_Layer: 9
   m_Name: TechAsteroid2 (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -24,14 +24,14 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 441186}
-  - 33: {fileID: 3344368}
-  - 23: {fileID: 2386172}
-  - 95: {fileID: 9504634}
-  - 135: {fileID: 13508684}
-  m_Layer: 10
+  - component: {fileID: 441186}
+  - component: {fileID: 3344368}
+  - component: {fileID: 2386172}
+  - component: {fileID: 9504634}
+  - component: {fileID: 13508684}
+  m_Layer: 9
   m_Name: TechAsteroid2
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -43,11 +43,11 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 425148}
-  - 114: {fileID: 11457830}
-  m_Layer: 10
+  - component: {fileID: 425148}
+  - component: {fileID: 11457830}
+  m_Layer: 9
   m_Name: Asteroids
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -59,14 +59,14 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 476786}
-  - 33: {fileID: 3315184}
-  - 23: {fileID: 2341028}
-  - 95: {fileID: 9549518}
-  - 135: {fileID: 13572870}
-  m_Layer: 10
+  - component: {fileID: 476786}
+  - component: {fileID: 3315184}
+  - component: {fileID: 2341028}
+  - component: {fileID: 9549518}
+  - component: {fileID: 13572870}
+  m_Layer: 9
   m_Name: TechAsteroid2 (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -78,10 +78,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 425092}
-  m_Layer: 10
+  - component: {fileID: 425092}
+  m_Layer: 9
   m_Name: Obstacle 1_easy
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -93,14 +93,14 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 431990}
-  - 33: {fileID: 3353370}
-  - 23: {fileID: 2311552}
-  - 95: {fileID: 9577614}
-  - 135: {fileID: 13545418}
-  m_Layer: 10
+  - component: {fileID: 431990}
+  - component: {fileID: 3353370}
+  - component: {fileID: 2311552}
+  - component: {fileID: 9577614}
+  - component: {fileID: 13545418}
+  m_Layer: 9
   m_Name: TechAsteroid2 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -112,14 +112,14 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 495680}
-  - 33: {fileID: 3389356}
-  - 23: {fileID: 2375054}
-  - 95: {fileID: 9523536}
-  - 135: {fileID: 13531964}
-  m_Layer: 10
+  - component: {fileID: 495680}
+  - component: {fileID: 3389356}
+  - component: {fileID: 2375054}
+  - component: {fileID: 9523536}
+  - component: {fileID: 13531964}
+  m_Layer: 9
   m_Name: TechAsteroid2 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -131,14 +131,14 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 462770}
-  - 33: {fileID: 3384716}
-  - 23: {fileID: 2372752}
-  - 95: {fileID: 9516568}
-  - 135: {fileID: 13573876}
-  m_Layer: 10
+  - component: {fileID: 462770}
+  - component: {fileID: 3384716}
+  - component: {fileID: 2372752}
+  - component: {fileID: 9516568}
+  - component: {fileID: 13573876}
+  m_Layer: 9
   m_Name: MainPlanet
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -158,6 +158,7 @@ Transform:
   - {fileID: 462770}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &425148
 Transform:
   m_ObjectHideFlags: 1
@@ -175,6 +176,7 @@ Transform:
   - {fileID: 476786}
   m_Father: {fileID: 462770}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &431990
 Transform:
   m_ObjectHideFlags: 1
@@ -187,6 +189,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 425148}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &441186
 Transform:
   m_ObjectHideFlags: 1
@@ -199,6 +202,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 425148}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &462770
 Transform:
   m_ObjectHideFlags: 1
@@ -212,6 +216,7 @@ Transform:
   - {fileID: 425148}
   m_Father: {fileID: 425092}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &476786
 Transform:
   m_ObjectHideFlags: 1
@@ -224,6 +229,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 425148}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &489778
 Transform:
   m_ObjectHideFlags: 1
@@ -236,6 +242,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 425148}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &495680
 Transform:
   m_ObjectHideFlags: 1
@@ -248,6 +255,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 425148}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2311552
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -257,17 +265,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 725480f43093272438efda6174f57fc0, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -283,17 +296,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 725480f43093272438efda6174f57fc0, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -309,17 +327,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 725480f43093272438efda6174f57fc0, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -335,17 +358,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 57c1d7e24f8b9e147a81f83147c5369f, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -361,17 +389,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 725480f43093272438efda6174f57fc0, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -387,17 +420,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 725480f43093272438efda6174f57fc0, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
