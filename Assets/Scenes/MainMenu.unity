@@ -362,7 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1442361656}
   m_Layer: 0
-  m_Name: ScreenCenter
+  m_Name: RotationPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -496,6 +496,26 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 275
       objectReference: {fileID: 0}
+    - target: {fileID: 11482386, guid: 86363d338f35b894a8d4dec4f698af9c, type: 2}
+      propertyPath: rotationPoint
+      value: 
+      objectReference: {fileID: 1442361655}
+    - target: {fileID: 11455458, guid: 86363d338f35b894a8d4dec4f698af9c, type: 2}
+      propertyPath: rotationPoint
+      value: 
+      objectReference: {fileID: 1442361655}
+    - target: {fileID: 11432842, guid: 86363d338f35b894a8d4dec4f698af9c, type: 2}
+      propertyPath: rotationPoint
+      value: 
+      objectReference: {fileID: 1442361655}
+    - target: {fileID: 11447238, guid: 86363d338f35b894a8d4dec4f698af9c, type: 2}
+      propertyPath: rotationPoint
+      value: 
+      objectReference: {fileID: 1442361655}
+    - target: {fileID: 11442690, guid: 86363d338f35b894a8d4dec4f698af9c, type: 2}
+      propertyPath: rotationPoint
+      value: 
+      objectReference: {fileID: 1442361655}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86363d338f35b894a8d4dec4f698af9c, type: 2}
   m_IsPrefabParent: 0

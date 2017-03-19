@@ -89,6 +89,7 @@ public class FloorLights : MonoBehaviour
                 spectrum[i] += carry % max;
                 carry -= (max + 1);
             }
+            if (fftPrecision == 0) fftPrecision = 1;
             visualizer[i].transform.localScale = new Vector3(spectrumVal[i % fftPrecision] * 5.0f, 0.05f, 0.1f);
         }
     }

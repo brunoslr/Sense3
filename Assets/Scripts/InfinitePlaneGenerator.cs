@@ -33,6 +33,13 @@ public class InfinitePlaneGenerator : MonoBehaviour
     public int dynamicDisplacementRandomFactorLow;
     public int dynamicDisplacementRandomFactorHigh;
 
+    [SerializeField]
+    Transform obstacleCollector;
+
+    private List<GameObject> visualObstacles;
+    private List<GameObject> loadedVisualObstacles;
+    private GameObject visualObstacle;
+
     //Plane update requirements
     private float sizeOfPlaneX;
     private float sizeOfPlaneZ;
@@ -41,10 +48,6 @@ public class InfinitePlaneGenerator : MonoBehaviour
     private int playerXPosition;
     //private float playerYPosition; removed -- Unused
     private int playerZPosition;
-
-    private List<GameObject> visualObstacles;
-    private List<GameObject> loadedVisualObstacles;
-    private GameObject visualObstacle;
 
     private int xPosVisualObstacle;
 
@@ -149,27 +152,36 @@ public class InfinitePlaneGenerator : MonoBehaviour
         {
             if (i < numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle)
             {
-                temp = Instantiate(visualObstaclePrefabs[i % numberOfObstaclesInEachDifficultyLevel]);
-                loadedVisualObstacles.Add(temp);
+                InstantiateVisualObstacle(visualObstaclePrefabs[i % numberOfObstaclesInEachDifficultyLevel], false);
             }
             else if (i >= numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle && i < 2 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle)
             {
-                temp = Instantiate(visualObstaclePrefabs[numberOfObstaclesInEachDifficultyLevel + (i % numberOfObstaclesInEachDifficultyLevel)]);
-                loadedVisualObstacles.Add(temp);
+                InstantiateVisualObstacle(visualObstaclePrefabs[numberOfObstaclesInEachDifficultyLevel + (i % numberOfObstaclesInEachDifficultyLevel)], false);
             }
             else if (i >= 2 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle && i < 3 * numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle)
             {
-                temp = Instantiate(visualObstaclePrefabs[2 * numberOfObstaclesInEachDifficultyLevel + (i % numberOfObstaclesInEachDifficultyLevel)]);
-                loadedVisualObstacles.Add(temp);
-            }
-            temp.SetActive(false);
+                InstantiateVisualObstacle(visualObstaclePrefabs[2 * numberOfObstaclesInEachDifficultyLevel + (i % numberOfObstaclesInEachDifficultyLevel)], false);
+            }          
         }
         start = 0;
         mid = start + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
-        end = mid + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3); ;
+        end = mid + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
         limit = end + ((numberOfObstaclesInEachDifficultyLevel * numberOfCopiesOfEachObstacle) / 3);
         visualPlacementZTrigger = visualDisplacementForwardInitial;
         visualPlacementInitialTrigger = visualDisplacementForwardInitial - visualDisplacementForward;
+    }
+
+
+    /// <summary>
+    /// Instantiate clone game object based on the Original
+    /// </summary>
+    /// <param name="original"></param>
+    public void InstantiateVisualObstacle(GameObject original, bool setActive)
+    {
+        GameObject obstacle = Instantiate(original);
+        obstacle.transform.SetParent(obstacleCollector);
+        loadedVisualObstacles.Add(obstacle);
+        obstacle.SetActive(setActive);
     }
 
     private void LoadSoundObstacle()
@@ -415,11 +427,14 @@ public class InfinitePlaneGenerator : MonoBehaviour
         {
             do { 
             pick = Random.Range(start, limit);
-            visualObstacle = loadedVisualObstacles[pick];
+                Debug.Log("Start: " + start + "Mid: " + mid + "End: " + end + "Limit: " + limit);
+                Debug.Log("Pick: " + pick);
+                Debug.Log("List Size: " + loadedVisualObstacles.Count);
+                visualObstacle = loadedVisualObstacles[pick];
             if (currentPlayerLevel == 6)
                 {
                    // Debug.Log("Start: " + start + "Mid: " + mid + "End: " + end + "Limit: " + limit);
-                    //Debug.Log("Pick: " + pick);
+                   // Debug.Log("Pick: " + pick);
                    // Debug.Log("List Size: " + loadedVisualObstacles.Count);
                 }
         } while (visualObstacle == null) ;
@@ -454,7 +469,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
             {
                 do
                 {
-                    pick = Random.Range(start, limit);
+                    pick = Random.Range(start, limit-1);
                     visualObstacle = loadedVisualObstacles[pick];
                 } while (visualObstacle == null);
                 visualObstacle.SetActive(true);
@@ -498,6 +513,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
                 visualObstacle.Rotate(Vector3.zero);
                 visualObstacle.gameObject.SetActive(false);
                 visualObstacles.Remove(visualObstacle.gameObject);
+                //Destroy(visualObstacle.gameObject);
                 limit++;
             }
         }
