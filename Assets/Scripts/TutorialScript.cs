@@ -97,8 +97,13 @@ public class TutorialScript : MonoBehaviour {
         SetupPlaneGrid();
     }
 	
-	// Update is called once per frame
-	void Update () 
+    void OnDisable()
+    {
+        CoreSystem.onObstacleEvent -= CheckVisualCollision;
+    }
+
+    // Update is called once per frame
+    void Update () 
     {
         UpdatePlane();
         if (Input.GetButton("Cancel"))

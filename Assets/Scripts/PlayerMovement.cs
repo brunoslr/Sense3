@@ -81,6 +81,16 @@ public class PlayerMovement : MonoBehaviour
         collisionTempTime = CoreSystem.coolDownTimeInSeconds;
         coolDownflag = false;   
     }
+
+    void OnDisable()
+    {
+        if (gameMode == GameMode.BOOST)
+        {
+            CoreSystem.onSoundEvent -= IncreasePlayerSpeed;
+            CoreSystem.onObstacleEvent -= ReducePlayerSpeed;
+        }
+
+    }
    public void ResetSpeed()
     {
         speedCounter = 0;

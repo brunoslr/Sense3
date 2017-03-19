@@ -22,11 +22,12 @@ public class PlayerMeshScript : MonoBehaviour {
         }
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    void OnDisable()
+    {
+        CoreSystem.onSoundEvent -= UpdatePlayerShape;
+        CoreSystem.onObstacleEvent -= UpdatePlayerShape;
+    }
 
     //updates blend shape related to the player
     public void UpdatePlayerShape()
@@ -35,11 +36,5 @@ public class PlayerMeshScript : MonoBehaviour {
         playerMesh.SetBlendShapeWeight(0, playerLevel * blendShapeMultiplier);
     }
 
-
-    void OnDisable()
-    {
-        CoreSystem.onSoundEvent -= UpdatePlayerShape;
-        CoreSystem.onObstacleEvent -= UpdatePlayerShape;
-    }
 
 }

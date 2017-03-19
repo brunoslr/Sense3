@@ -494,7 +494,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
         GameObject visualObstacle;
         if (Random.Range(0, 100) < RandomGenerationProbabilityVO)
         {
-            pick = Random.Range(0, 3);
+            pick = Random.Range(initialVOPrefabByDificultyLevel, lastVOPrefabByDificultyLevel);
             visualObstacle = GetObjectFromPoolByPrefabIndex(pick, true);
             SetupVisualObstacleRotation(visualObstacle);
             visualObstacle.transform.position = new Vector3(xPos, yPos, zPos);

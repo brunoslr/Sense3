@@ -63,7 +63,7 @@ public class ObjectPool : MonoBehaviour
 
             for (int n = 0; n < bufferAmount; n++)
             {
-                GameObject newObj = Instantiate(objectPrefab) as GameObject;
+                GameObject newObj = Instantiate(objectPrefab);
                 newObj.name = objectPrefab.name;
                 PoolObject(newObj);
             }
@@ -105,7 +105,7 @@ public class ObjectPool : MonoBehaviour
                 }
                 else if (allowGrow)
                 {
-                    GameObject newObj = Instantiate(prefab) as GameObject;
+                    GameObject newObj = Instantiate(prefab);
                     newObj.name = prefab.name;
                     newObj.transform.parent = activeObjectsContainer.transform;
 
