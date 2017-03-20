@@ -18,7 +18,7 @@ public class UIMainMenu : MonoBehaviour
         }
         if (Input.GetAxis("Horizontal") < 0)
         {
-            transform.RotateAround(rotationPoint.transform.position, Vector3.up, angularVelocity);
+            transform.RotateAround(rotationPoint.transform.position, Vector3.up, -angularVelocity);
             transform.forward = new Vector3(0, 0, 1);
         }
     }

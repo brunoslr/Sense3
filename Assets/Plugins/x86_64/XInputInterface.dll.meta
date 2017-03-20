@@ -8,7 +8,7 @@ PluginImporter:
   isOverridable: 0
   platformData:
     Any:
-      enabled: 1
+      enabled: 0
       settings:
         Exclude Editor: 0
         Exclude Linux: 0
@@ -38,7 +38,7 @@ PluginImporter:
     LinuxUniversal:
       enabled: 1
       settings:
-        CPU: x86_64
+        CPU: AnyCPU
     OSXIntel:
       enabled: 1
       settings:
@@ -50,14 +50,14 @@ PluginImporter:
     OSXUniversal:
       enabled: 1
       settings:
-        CPU: x86_64
+        CPU: AnyCPU
     WebGL:
       enabled: 1
       settings: {}
     Win:
       enabled: 1
       settings:
-        CPU: None
+        CPU: AnyCPU
     Win64:
       enabled: 1
       settings:
@@ -65,7 +65,7 @@ PluginImporter:
     WindowsStoreApps:
       enabled: 1
       settings:
-        CPU: X86
+        CPU: X64
         DontProcess: False
         PlaceholderPath: 
         SDK: AnySDK

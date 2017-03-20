@@ -8,27 +8,27 @@ PluginImporter:
   isOverridable: 0
   platformData:
     Any:
-      enabled: 1
+      enabled: 0
       settings:
-        Exclude Editor: 0
-        Exclude Linux: 0
+        Exclude Editor: 1
+        Exclude Linux: 1
         Exclude Linux64: 1
-        Exclude LinuxUniversal: 0
-        Exclude OSXIntel: 0
+        Exclude LinuxUniversal: 1
+        Exclude OSXIntel: 1
         Exclude OSXIntel64: 1
-        Exclude OSXUniversal: 0
-        Exclude WebGL: 0
-        Exclude Win: 0
+        Exclude OSXUniversal: 1
+        Exclude WebGL: 1
+        Exclude Win: 1
         Exclude Win64: 1
-        Exclude WindowsStoreApps: 0
+        Exclude WindowsStoreApps: 1
     Editor:
-      enabled: 1
+      enabled: 0
       settings:
         CPU: x86
         DefaultValueInitialized: true
         OS: AnyOS
     Linux:
-      enabled: 1
+      enabled: 0
       settings:
         CPU: x86
     Linux64:
@@ -36,11 +36,11 @@ PluginImporter:
       settings:
         CPU: None
     LinuxUniversal:
-      enabled: 1
+      enabled: 0
       settings:
-        CPU: x86
+        CPU: None
     OSXIntel:
-      enabled: 1
+      enabled: 0
       settings:
         CPU: AnyCPU
     OSXIntel64:
@@ -48,14 +48,14 @@ PluginImporter:
       settings:
         CPU: None
     OSXUniversal:
-      enabled: 1
+      enabled: 0
       settings:
-        CPU: x86
+        CPU: None
     WebGL:
-      enabled: 1
+      enabled: 0
       settings: {}
     Win:
-      enabled: 1
+      enabled: 0
       settings:
         CPU: AnyCPU
     Win64:
@@ -63,7 +63,7 @@ PluginImporter:
       settings:
         CPU: None
     WindowsStoreApps:
-      enabled: 1
+      enabled: 0
       settings:
         CPU: AnyCPU
         DontProcess: False
