@@ -5,7 +5,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
 {
     public GameObject planePrefab; 
     public GameObject player;
-    public int numberOfObstaclesInEachDifficultyLevel;
+    public int numberOfDificultySettings = 3;
 
     //Visual obstacle requirements
     public int visualDisplacementHorizontal;
@@ -79,8 +79,8 @@ public class InfinitePlaneGenerator : MonoBehaviour
     private int[] rotationArray = { 0, 90, 180, 270 };
     
     private int initialVOPrefabByDificultyLevel = 0, lastVOPrefabByDificultyLevel; // Prefab options by dificulty level
-    private int totalNumberOfVOPrefabs, RandomGenerationProbabilityVO;
-    
+    private int totalNumberOfVOPrefabs, RandomGenerationProbabilityVO, numberOfObstaclesInEachDifficultyLevel;
+
     //Pooling Variables
     public bool poolAfterComplete = true;
 
@@ -143,6 +143,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
         xPosVisualObstacle = (int)player.transform.position.x;
 
         totalNumberOfVOPrefabs = GetNumberOfPrefabsAvailable();
+        numberOfObstaclesInEachDifficultyLevel = totalNumberOfVOPrefabs/numberOfDificultySettings;
         obstacleCollector = GetActiveObstacleCollector();
         manageLevelGenerationVariables();
 
@@ -417,6 +418,8 @@ public class InfinitePlaneGenerator : MonoBehaviour
     /// </summary>
     private void manageLevelGenerationVariables()
     {
+
+
         switch (currentPlayerLevel)
         {
             case 1:
