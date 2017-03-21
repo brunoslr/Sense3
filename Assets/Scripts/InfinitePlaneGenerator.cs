@@ -31,7 +31,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
     public int dynamicDisplacementRandomFactorLow;
     public int dynamicDisplacementRandomFactorHigh;
     
-    private Transform obstacleCollector;
+    private GameObject obstacleCollector;
     
     //private GameObject visualObstacle;
 
@@ -144,7 +144,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
         totalNumberOfVOPrefabs = GetNumberOfPrefabsAvailable();
         numberOfObstaclesInEachDifficultyLevel = totalNumberOfVOPrefabs/numberOfDificultySettings;
-        obstacleCollector = GetActiveObstacleCollector();
+        obstacleCollector = new GameObject("ObstacleCollector");
         manageLevelGenerationVariables();
 
         visualPlacementZTrigger = visualDisplacementForwardInitial;
@@ -175,6 +175,7 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
     private void InitializeVisualObstacles()
     {
+
         float xpos = xPosVisualObstacle - (2 * visualDisplacementHorizontal) + Random.Range(-visualDisplacementHorizontalRandomRange, visualDisplacementHorizontalRandomRange);
         float zpos = visualDisplacementForwardInitial;
         for (int i = 0; i < 5; i++)
@@ -301,9 +302,9 @@ public class InfinitePlaneGenerator : MonoBehaviour
     private void RemoveVisualObstaclesBehindTheCamera()
     {
         Transform visualObstacleTransform;
-        for (int i = 0; i < obstacleCollector.childCount; i++)
+        for (int i = 0; i < obstacleCollector.transform.childCount; i++)
         {
-            visualObstacleTransform = obstacleCollector.GetChild(i).transform;
+            visualObstacleTransform = obstacleCollector.transform.GetChild(i).transform;
 
             if (visualObstacleTransform.position.z + 150.0f < playerZPosition)
             {
@@ -546,22 +547,21 @@ public class InfinitePlaneGenerator : MonoBehaviour
     #region ObjectPool Calls
     private GameObject GetObjectFromPoolByName(string prefabName, bool allowGrowth)
     {
-        return ObjectPool.instance.GetObjectForType(name, allowGrowth);
+        GameObject newObj = ObjectPool.instance.GetObjectForType(name, allowGrowth);
+        newObj.transform.parent = obstacleCollector.transform;
+        return newObj;
     }
 
     private GameObject GetObjectFromPoolByPrefabIndex(int prefabIndex, bool allowGrowth)
     {
-        return ObjectPool.instance.GetObjectAtIndexPrefab(prefabIndex, allowGrowth);
+        GameObject newObj = ObjectPool.instance.GetObjectAtIndexPrefab(prefabIndex, allowGrowth);
+        newObj.transform.parent = obstacleCollector.transform;
+        return newObj;
     }
     
     private void SendObjectToPool(GameObject objectToPool)
     {
         ObjectPool.instance.PoolObject(objectToPool.gameObject);
-    }
-
-    private Transform GetActiveObstacleCollector()
-    {
-        return ObjectPool.instance.GetActiveObjectsContainer().transform;
     }
 
     private int GetNumberOfPrefabsAvailable()

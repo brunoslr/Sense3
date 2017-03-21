@@ -29,10 +29,7 @@ public class ObjectPool : MonoBehaviour
     /// </summary>
     protected GameObject poolContainer;
 
-    /// <summary>
-    /// The container object that we will keep active objects so we dont clog up the editor with objects.
-    /// </summary>
-    protected GameObject activeObjectsContainer;
+
 
     void Awake()
     {
@@ -43,7 +40,6 @@ public class ObjectPool : MonoBehaviour
     void Start()
     {
         poolContainer = new GameObject("ObjectPool");
-        activeObjectsContainer = new GameObject("ActiveObjectsContainer");
 
         //Loop through the object prefabs and make a new list for each one.
         //We do this because the pool can only support prefabs set to it in the editor,
@@ -97,7 +93,6 @@ public class ObjectPool : MonoBehaviour
                 {
                     GameObject pooledObject = pooledObjects[i][0];
                     pooledObjects[i].RemoveAt(0);
-                    pooledObject.transform.parent = activeObjectsContainer.transform;
                     pooledObject.SetActive(true);
 
                     return pooledObject;
@@ -107,7 +102,6 @@ public class ObjectPool : MonoBehaviour
                 {
                     GameObject newObj = Instantiate(prefab);
                     newObj.name = prefab.name;
-                    newObj.transform.parent = activeObjectsContainer.transform;
 
                     return newObj;
                 }
@@ -147,7 +141,6 @@ public class ObjectPool : MonoBehaviour
         {
             GameObject pooledObject = pooledObjects[prefabIndex][0];
             pooledObjects[prefabIndex].RemoveAt(0);
-            pooledObject.transform.parent = activeObjectsContainer.transform;
             pooledObject.SetActive(true);
 
             return pooledObject;
@@ -157,7 +150,6 @@ public class ObjectPool : MonoBehaviour
         {
             GameObject newObj = Instantiate(prefab) as GameObject;
             newObj.name = prefab.name;
-            newObj.transform.parent = activeObjectsContainer.transform;
 
             return newObj;
         }
@@ -194,10 +186,6 @@ public class ObjectPool : MonoBehaviour
     {
         return objectPrefabs.Length;
     }
-
-    internal GameObject GetActiveObjectsContainer()
-    {
-        return activeObjectsContainer;
-    }
+    
 }
 
