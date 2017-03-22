@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using XInputDotNetPure;
+//using XInputDotNetPure;
 
 /// <summary>
 /// This script goes on the player game object.
@@ -268,6 +268,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(trailTime);
         this.gameObject.GetComponent<TrailRenderer>().enabled = false;
     }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Obstacle")

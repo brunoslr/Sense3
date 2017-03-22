@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using XInputDotNetPure;
+//using XInputDotNetPure;
 using UnityStandardAssets.ImageEffects;
 
 public class HapticObstacle : MonoBehaviour
@@ -78,7 +78,7 @@ public class HapticObstacle : MonoBehaviour
         }
 
         StopAllCoroutines();
-        GamePad.SetVibration(0, 0.0f, 0.0f);
+        TurnHapticOn();
         cameraTwirl.enabled = false;
     }
 
@@ -100,16 +100,16 @@ public class HapticObstacle : MonoBehaviour
 
         if (activePortion >= 1)
         {
-            GamePad.SetVibration(0, 1.0f, 1.0f);
+            TurnHapticOn();
             yield break;
         }
 
         while (true)
         {
-            GamePad.SetVibration(0, 1.0f, 1.0f);
+            TurnHapticOn();
             yield return new WaitForSeconds(timeActive);
-
-            GamePad.SetVibration(0, 0.0f, 0.0f);
+            
+            TurnHapticOff();
             yield return new WaitForSeconds(timeInactive);
         }
     }
@@ -137,7 +137,7 @@ public class HapticObstacle : MonoBehaviour
                     state = State.MED;
                     cameraMovement.rumbleTilt = (cameraMovement.rumbleShakeLow + cameraMovement.rumbleShakeHigh) / 2.0f;
                     StopAllCoroutines();
-                    GamePad.SetVibration(0, 0.0f, 0.0f);
+                    TurnHapticOff();
                     StartCoroutine(SetVibrationPWM(0.8f, freq));
                     currentPullforce = (minPullForce + maxPullForce) / 2.0f;
                     cameraTwirl.radius.x = cameraTwirl.radius.y = (minRadius + maxRadius) / 2.0f;
@@ -150,7 +150,7 @@ public class HapticObstacle : MonoBehaviour
                     state = State.HIGH;
                     cameraMovement.rumbleTilt = cameraMovement.rumbleShakeHigh;
                     StopAllCoroutines();
-                    GamePad.SetVibration(0, 0.0f, 0.0f);
+                    TurnHapticOff();
                     StartCoroutine(SetVibrationPWM(1f, freq));
                     currentPullforce = maxPullForce;
                     cameraTwirl.radius.x = cameraTwirl.radius.y = maxRadius;
@@ -173,6 +173,17 @@ public class HapticObstacle : MonoBehaviour
     void OnDestroy()
     {
         StopAllCoroutines();
-        GamePad.SetVibration(0, 0.0f, 0.0f);
+        TurnHapticOff();
     }
+
+    private void TurnHapticOn()
+    {
+        //GamePad.SetVibration(0, 1.0f, 1.0f);
+    }
+
+    private void TurnHapticOff()
+    {
+        //GamePad.SetVibration(0, 0.0f, 0.0f);
+    }
+
 }
