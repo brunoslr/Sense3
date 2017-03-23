@@ -19,7 +19,7 @@ public class RumblePickupCollide : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            CoreSystem.ExecuteOnObstacleCollision();
+            EventBusManager.ExecuteOnObstacleCollision();
             hapticObstacle.state = 0;
         }
     }

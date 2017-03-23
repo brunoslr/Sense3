@@ -17,16 +17,16 @@ public class PlayerMeshScript : MonoBehaviour {
 
         if (playerMesh != null)
         {
-            CoreSystem.onSoundEvent += UpdatePlayerShape;
-            CoreSystem.onObstacleEvent += UpdatePlayerShape;
+            EventBusManager.onSoundEvent += UpdatePlayerShape;
+            EventBusManager.onObstacleEvent += UpdatePlayerShape;
         }
 
 	}
 
     void OnDisable()
     {
-        CoreSystem.onSoundEvent -= UpdatePlayerShape;
-        CoreSystem.onObstacleEvent -= UpdatePlayerShape;
+        EventBusManager.onSoundEvent -= UpdatePlayerShape;
+        EventBusManager.onObstacleEvent -= UpdatePlayerShape;
     }
 
     //updates blend shape related to the player

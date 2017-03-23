@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class TutorialScript : MonoBehaviour {
+public class TutorialManager : MonoBehaviour {
 
     public GameObject soundObstacleprefab;
     public GameObject rumbleObstaclePrefab;
@@ -92,14 +92,14 @@ public class TutorialScript : MonoBehaviour {
 
         visualCollided = false;
 
-        CoreSystem.onObstacleEvent += CheckVisualCollision;
+        EventBusManager.onObstacleEvent += CheckVisualCollision;
 
         SetupPlaneGrid();
     }
 	
     void OnDisable()
     {
-        CoreSystem.onObstacleEvent -= CheckVisualCollision;
+        EventBusManager.onObstacleEvent -= CheckVisualCollision;
     }
 
     // Update is called once per frame

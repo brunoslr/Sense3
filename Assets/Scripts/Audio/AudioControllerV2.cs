@@ -39,15 +39,15 @@ public class AudioControllerV2 : MonoBehaviour {
         activeLayers.Clear();
         for (int i = 0; i < totalLayers; i++)
             availableLayers.Add(i);
-        CoreSystem.onSoundEvent += incrementLayerStack;
-        CoreSystem.onObstacleEvent += stopOneTrack;
+        EventBusManager.onSoundEvent += incrementLayerStack;
+        EventBusManager.onObstacleEvent += stopOneTrack;
     }
 
 
     void OnDisable()
     {
-        CoreSystem.onSoundEvent -= incrementLayerStack;
-        CoreSystem.onObstacleEvent -= stopOneTrack;
+        EventBusManager.onSoundEvent -= incrementLayerStack;
+        EventBusManager.onObstacleEvent -= stopOneTrack;
     }
 
     //Randomly chooses one player from the list of layers that are not playing, and plays a track from that layer

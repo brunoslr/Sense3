@@ -108,10 +108,10 @@ public class soundObstacle : MonoBehaviour
             if (soundPicked == false)
             {
                 audioController.muteLast();
-                CoreSystem.ExecuteTrackMissEvent();
+                EventBusManager.ExecuteTrackMissEvent();
             }
             else
-                CoreSystem.ExecuteOnSoundCollision();
+                EventBusManager.ExecuteOnSoundCollision();
 
             audioController.FadeInLayers();
         }

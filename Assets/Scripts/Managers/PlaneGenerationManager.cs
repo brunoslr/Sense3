@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class InfinitePlaneGenerator : MonoBehaviour
+public class PlaneGenerationManager : MonoBehaviour
 {
     public GameObject planePrefab; 
     public GameObject player;
@@ -98,12 +98,12 @@ public class InfinitePlaneGenerator : MonoBehaviour
 
         InitializeVisualObstacles();
 
-        CoreSystem.onSoundEvent += manageLevelGenerationVariables;
+        EventBusManager.onSoundEvent += manageLevelGenerationVariables;
     }
 
     void OnDisable()
     {
-        CoreSystem.onSoundEvent -= manageLevelGenerationVariables;
+        EventBusManager.onSoundEvent -= manageLevelGenerationVariables;
     }
 
     #region On Start Setup

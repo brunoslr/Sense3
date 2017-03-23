@@ -22,7 +22,7 @@ public class Effects : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindWithTag("Player");
-        CoreSystem.onSoundEvent += startTrail;
+        EventBusManager.onSoundEvent += startTrail;
     }
 
     #region Trail Renderer

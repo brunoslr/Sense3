@@ -8,8 +8,8 @@ public class ParticleManager : MonoBehaviour
     void Start()
     {
         ps = this.gameObject.GetComponent<ParticleSystem>();
-        CoreSystem.onSoundEvent += EmitSoundPickupParticles;
-        CoreSystem.onObstacleEvent += EmitObstacleHitParticles;
+        EventBusManager.onSoundEvent += EmitSoundPickupParticles;
+        EventBusManager.onObstacleEvent += EmitObstacleHitParticles;
     }
 
     // Update is called once per frame
@@ -20,8 +20,8 @@ public class ParticleManager : MonoBehaviour
 
     void OnDestroy()
     {
-        CoreSystem.onSoundEvent -= EmitSoundPickupParticles;
-        CoreSystem.onObstacleEvent -= EmitObstacleHitParticles;
+        EventBusManager.onSoundEvent -= EmitSoundPickupParticles;
+        EventBusManager.onObstacleEvent -= EmitObstacleHitParticles;
     }
 
     public void EmitSoundPickupParticles()

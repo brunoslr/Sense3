@@ -39,8 +39,8 @@ public class PlayerStateScript : MonoBehaviour {
         // Putting it in Awake make sure these functions are given higher priority over other functions that are subscribed to this event in other classes
         //#--------------------------------------------------------------
 
-        CoreSystem.onSoundEvent += incrementPlayerLevel;
-        CoreSystem.onObstacleEvent += decrementPlayerLevel;
+        EventBusManager.onSoundEvent += incrementPlayerLevel;
+        EventBusManager.onObstacleEvent += decrementPlayerLevel;
     }
 
     // Use this for initialization
@@ -56,8 +56,8 @@ public class PlayerStateScript : MonoBehaviour {
 
     void OnDisable()
     {
-        CoreSystem.onSoundEvent -= incrementPlayerLevel;
-        CoreSystem.onObstacleEvent -= decrementPlayerLevel;
+        EventBusManager.onSoundEvent -= incrementPlayerLevel;
+        EventBusManager.onObstacleEvent -= decrementPlayerLevel;
     }
 
     private void checkState()
@@ -143,7 +143,7 @@ public class PlayerStateScript : MonoBehaviour {
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.anyKeyDown == true && loadNextOverride == false)
             loadNextOverride = true;

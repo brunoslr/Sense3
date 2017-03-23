@@ -30,16 +30,16 @@ public class SoundEffectsManager : MonoBehaviour
         audMissedAudioSource = this.gameObject.AddComponent<AudioSource>();
         movPlayerAudioSource = this.gameObject.AddComponent<AudioSource>();
         jumpPlayerAudioSource = this.gameObject.AddComponent<AudioSource>();
-        CoreSystem.onObstacleEvent += VisualObstacleCrashSound;
-        CoreSystem.onSoundEvent += AudioObstaclePickupSound;
-        CoreSystem.trackMissedEvent += AudioObstacleMissSound;
+        EventBusManager.onObstacleEvent += VisualObstacleCrashSound;
+        EventBusManager.onSoundEvent += AudioObstaclePickupSound;
+        EventBusManager.trackMissedEvent += AudioObstacleMissSound;
     }
 
     void OnDestroy()
     {
-        CoreSystem.onObstacleEvent -= VisualObstacleCrashSound;
-        CoreSystem.onSoundEvent -= AudioObstaclePickupSound;
-        CoreSystem.trackMissedEvent -= AudioObstacleMissSound;
+        EventBusManager.onObstacleEvent -= VisualObstacleCrashSound;
+        EventBusManager.onSoundEvent -= AudioObstaclePickupSound;
+        EventBusManager.trackMissedEvent -= AudioObstacleMissSound;
     }
 
     // Update is called once per frame

@@ -9,12 +9,12 @@ public class CoreSystemTests{
     public void CoreSystemStartTests() {
 		//Arrange
 		GameObject sut =  new GameObject();
-        sut.AddComponent<CoreSystem>();
+        sut.AddComponent<EventBusManager>();
 
-        GameObject.FindObjectOfType<CoreSystem>(); ; 
+        GameObject.FindObjectOfType<EventBusManager>(); ; 
       
         //Assert
         //The object has a new name
-        Assert.AreEqual(2, sut.GetComponent<CoreSystem>().coolDownTime);
+        Assert.AreEqual(2, sut.GetComponent<EventBusManager>().coolDownTime);
 	}
 }

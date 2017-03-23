@@ -60,8 +60,8 @@ public class FloorLights : MonoBehaviour
             visualizer[i].transform.localScale = new Vector3(0, 0, 0);
         }
 
-        CoreSystem.onSoundEvent += incrementfftPrecision;
-        CoreSystem.onObstacleEvent += decrementfftPrecision;
+        EventBusManager.onSoundEvent += incrementfftPrecision;
+        EventBusManager.onObstacleEvent += decrementfftPrecision;
     }
 	
     void displayLights()

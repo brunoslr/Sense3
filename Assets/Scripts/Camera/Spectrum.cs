@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using MKGlowSystem;
-#pragma warning disable 618 // Disable obsolete warning for spectrum class
+//#pragma warning disable 618 // Disable obsolete warning for spectrum class
 
 public class Spectrum : MonoBehaviour
 {
@@ -20,7 +20,7 @@ public class Spectrum : MonoBehaviour
         glow = this.gameObject.GetComponent<MKGlow>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         sum = 0;
         AudioListener.GetSpectrumData(spectrum, 0, window);

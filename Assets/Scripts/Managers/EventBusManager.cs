@@ -9,7 +9,7 @@ using System.Collections.Generic;
 /// 
 /// This Script is applied directly on the player(the parent) object.
 /// </summary>
-public class CoreSystem : MonoBehaviour {
+public class EventBusManager : MonoBehaviour {
 
     // If you feel a particular call is going to be repeated lots of times,
     // create a reference to it here. Querying again and again would be expensive.
@@ -19,7 +19,7 @@ public class CoreSystem : MonoBehaviour {
     public int coolDownTime = 2;
     public static int coolDownTimeInSeconds = 2;
     public static bool coolDownFlag = false;
-    public static CoreSystem instance;                 
+    public static EventBusManager instance;                 
 
     // On Collision Events
     public delegate void OnCollisionEvent();

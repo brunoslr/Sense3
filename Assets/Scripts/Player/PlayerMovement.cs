@@ -68,8 +68,8 @@ public class PlayerMovement : MonoBehaviour
         ResetSpeed();
         if (gameMode == GameMode.BOOST)
         {
-            CoreSystem.onSoundEvent += IncreasePlayerSpeed;
-            CoreSystem.onObstacleEvent += ReducePlayerSpeed;
+            EventBusManager.onSoundEvent += IncreasePlayerSpeed;
+            EventBusManager.onObstacleEvent += ReducePlayerSpeed;
         }
 
         startxPos = transform.position.x;
@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         cameraMovement = mainCamera.GetComponent<CameraMovement>();
         lineRenderer = this.GetComponent<LineRenderer>();
         isGrounded = true;
-        collisionTempTime = CoreSystem.coolDownTimeInSeconds;
+        collisionTempTime = EventBusManager.coolDownTimeInSeconds;
         coolDownflag = false;   
     }
 
@@ -86,8 +86,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gameMode == GameMode.BOOST)
         {
-            CoreSystem.onSoundEvent -= IncreasePlayerSpeed;
-            CoreSystem.onObstacleEvent -= ReducePlayerSpeed;
+            EventBusManager.onSoundEvent -= IncreasePlayerSpeed;
+            EventBusManager.onObstacleEvent -= ReducePlayerSpeed;
         }
 
     }
@@ -103,15 +103,12 @@ public class PlayerMovement : MonoBehaviour
         curVertSpeedInc = vertSpeedInc;
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         MovePlayerForward();
         MovePlayerSideways();
         CheckPlayerGrounded();
-    }
-
-    void FixedUpdate()
-    {
+   
         if (gameMode == GameMode.CONSTINC)
             IncreasePlayerSpeed();
 
@@ -119,10 +116,7 @@ public class PlayerMovement : MonoBehaviour
         {
             JumpPlayer();
         }
-    }
 
-    void LateUpdate()
-    {
         lineRenderer.SetPosition(0, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 0.5f));
         lineRenderer.SetPosition(1, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + linezOffset));
     }
@@ -273,7 +267,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Obstacle")
         {
-            CoreSystem.ExecuteOnObstacleCollision();
+            EventBusManager.ExecuteOnObstacleCollision();
         }
     }
 }
