@@ -2,11 +2,12 @@
 using UnityEditor;
 using NUnit.Framework;
 
-public class CoreSystemTests{
+public class EventBusManagerTests
+{
     
 	[Test]
-    [Category("CoreSystemTests")]
-    public void CoreSystemStartTests() {
+    [Category("EventBusManagerTests")]
+    public void EventBusManagerFindTests() {
 		//Arrange
 		GameObject sut =  new GameObject();
         sut.AddComponent<EventBusManager>();
