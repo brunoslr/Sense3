@@ -91,11 +91,4 @@ public class ObjectPoolController
             }
         }
     }
-
-    public int GetObjectsPrefabLength()
-    {
-        return objectPrefabs.Length;
-    }
-
-    
 }

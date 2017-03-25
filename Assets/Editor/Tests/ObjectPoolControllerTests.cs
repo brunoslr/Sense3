@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using NUnit.Framework;
 using NSubstitute;
 
-public class ObjectPoolingTests {
+public class ObjectPoolControllerTests {
 
 
     GameObject[] goArray;
