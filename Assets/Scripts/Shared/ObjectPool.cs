@@ -33,7 +33,20 @@ public class ObjectPool : MonoBehaviour, IObjectPoolController
 
     void Awake()
     {
+
+        // First we check if there are any other instances conflicting
+        if (instance != null && instance != this)
+        {
+            // If that is the case, we destroy other instances
+            Destroy(gameObject);
+        }
+
+        // Here we save our singleton instance
         instance = this;
+
+        // Furthermore we make sure that we don't destroy between scenes (this is optional)
+       // DontDestroyOnLoad(gameObject);
+
     }
 
     void Start()

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SoundEffectsManager : MonoBehaviour
 {
+    public static SoundEffectsManager instance = null;
 
     public AudioClip visObsCrashSound;
     public AudioClip minObsCrashSound;
@@ -20,6 +21,11 @@ public class SoundEffectsManager : MonoBehaviour
     private AudioSource jumpPlayerAudioSource;
 
     public float masterVolume;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     // Use this for initialization
     void Start()

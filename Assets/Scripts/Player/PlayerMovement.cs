@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
    
     private Rigidbody rigidBody;
 
+    //Gets the reference of the soundEffectsManager singleton
     private SoundEffectsManager soundEffectsManager;
 
     private CameraMovement cameraMovement;
@@ -73,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         startxPos = transform.position.x;
-        soundEffectsManager = GetComponent<SoundEffectsManager>();
+        soundEffectsManager = SoundEffectsManager.instance;
         rigidBody = this.GetComponent<Rigidbody>();
         cameraMovement = mainCamera.GetComponent<CameraMovement>();
         lineRenderer = this.GetComponent<LineRenderer>();
