@@ -40,7 +40,9 @@ namespace PlaneGeneration {
         //Plane update requirements
         private float sizeOfPlaneX;
         private float sizeOfPlaneZ;
-        private GameObject[,] planes = new GameObject[3, 3];
+
+        private GameObject[,] planes;
+        private GameObject planesContainer;
 
         private int playerXPosition;
         //private float playerYPosition; removed -- Unused
@@ -100,12 +102,12 @@ namespace PlaneGeneration {
 
             InitializeVisualObstacles();
 
-            EventBusManager.onSoundEvent += ManageLevelGenerationVariables;
+            EventBusManager.onSoundEvent += ManageLevelGenerationState;
         }
 
         void OnDisable()
         {
-            EventBusManager.onSoundEvent -= ManageLevelGenerationVariables;
+            EventBusManager.onSoundEvent -= ManageLevelGenerationState;
         }
 
         #region On Start Setup
@@ -121,17 +123,26 @@ namespace PlaneGeneration {
 
         private void SetupPlaneGrid()
         {
+            int columns = 3;
+            int rows = 3;
+
+            planes = new GameObject[columns, rows];
+            planesContainer = new GameObject("Planes");
+            //(GameObject)Instantiate(TestMeteor, new Vector3(i, j, 0), Quaternion.identity);
+
             sizeOfPlaneX = planePrefab.GetComponent<Renderer>().bounds.size.x;
             sizeOfPlaneZ = planePrefab.GetComponent<Renderer>().bounds.size.z;
-            Vector3 planePosition;
+           // Vector3 planePosition;
             for (int i = 0; i < 3; i++)
             {
                 for (int c = 0; c < 3; c++)
                 {
-                    planes[i, c] = Instantiate(planePrefab);
+                    planes[i, c] = (GameObject)Instantiate(planePrefab, 
+                            new Vector3((float)sizeOfPlaneX * (i - 1), -1, (float)sizeOfPlaneZ * ((c - 1) * -1)),
+                            Quaternion.identity);
                     planes[i, c].name = i + "," + c;
-                    planePosition = new Vector3((float)sizeOfPlaneX * (i - 1), -1, (float)sizeOfPlaneZ * ((c - 1) * -1));
-                    planes[i, c].transform.position = planePosition;
+                    planes[i, c].transform.parent = planesContainer.transform;
+                   
                 }
             }
         }
@@ -147,7 +158,8 @@ namespace PlaneGeneration {
             totalNumberOfVOPrefabs = GetNumberOfPrefabsAvailable();
             numberOfObstaclesInEachDifficultyLevel = totalNumberOfVOPrefabs / numberOfDificultySettings;
             obstacleCollector = new GameObject("ObstacleCollector");
-            ManageLevelGenerationVariables();
+
+            ManageLevelGenerationState();
 
             visualPlacementZTrigger = visualDisplacementForwardInitial;
             visualPlacementInitialTrigger = visualDisplacementForwardInitial - visualDisplacementForward;
@@ -355,61 +367,65 @@ namespace PlaneGeneration {
 
         private void MovePlaneLeft()
         {
-            GameObject[,] newPlanes = new GameObject[3, 3];
+
+            for (int i = 2; i > 0; i--)
+            {
+                int j = (i - 1) % 3;
+                planes[i, 0].transform.position = planes[j, 0].transform.position;
+                planes[i, 1].transform.position = planes[j, 1].transform.position;
+                planes[i, 2].transform.position = planes[j, 2].transform.position;
+
+            }
+
             for (int i = 0; i < 3; i++)
             {
-                Vector3 addPos = new Vector3(-sizeOfPlaneX * 3, 0, 0);
-                planes[2, i].transform.position += addPos;
+                Vector3 addPos = new Vector3(-sizeOfPlaneX, 0, 0);
+                planes[0, i].transform.position += addPos;
+
             }
-            for (int i = 0; i < 3; i++)
-            {
-                int c = i - 1;
-                c = (c == -1) ? 2 : c;
-                newPlanes[i, 0] = planes[c, 0];
-                newPlanes[i, 1] = planes[c, 1];
-                newPlanes[i, 2] = planes[c, 2];
-            }
-            planes = newPlanes;
         }
 
         private void MovePlaneRight()
         {
-            GameObject[,] newPlanes = new GameObject[3, 3];
-            for (int i = 0; i < 3; i++)
+
+            for (int i = 0; i < 2; i++)
             {
-                Vector3 addPos = new Vector3(sizeOfPlaneX * 3, 0, 0);
-                planes[0, i].transform.position += addPos;
+                int j = (i + 1) % 3;
+                planes[i, 0].transform.position = planes[j, 0].transform.position;
+                planes[i, 1].transform.position = planes[j, 1].transform.position;
+                planes[i, 2].transform.position = planes[j, 2].transform.position;
+
             }
 
             for (int i = 0; i < 3; i++)
             {
-                int c = i + 1;
-                c = (c == 3) ? 0 : c;
-                newPlanes[i, 0] = planes[c, 0];
-                newPlanes[i, 1] = planes[c, 1];
-                newPlanes[i, 2] = planes[c, 2];
+                Vector3 addPos = new Vector3(sizeOfPlaneX, 0, 0);
+                planes[2, i].transform.position += addPos;
+
             }
 
-            planes = newPlanes;
         }
 
         private void MovePlaneAhead()
         {
-            GameObject[,] newPlanes = new GameObject[3, 3];
+             
+          
+            for (int i = 2; i> 0; i--)
+            {
+                int j = (i - 1) % 3;
+                planes[0, i].transform.position = planes[0, j].transform.position;
+                planes[1, i].transform.position = planes[1, j].transform.position;
+                planes[2, i].transform.position = planes[2, j].transform.position;
+
+            }
+
             for (int i = 0; i < 3; i++)
             {
-                Vector3 addPos = new Vector3(0, 0, sizeOfPlaneZ * 3);
-                planes[i, 2].transform.position += addPos;
+                Vector3 addPos = new Vector3(0, 0, sizeOfPlaneZ);
+                planes[i, 0].transform.position += addPos;
+
             }
-            for (int i = 0; i < 3; i++)
-            {
-                int c = i - 1;
-                c = (c == -1) ? 2 : c;
-                newPlanes[0, i] = planes[0, c];
-                newPlanes[1, i] = planes[1, c];
-                newPlanes[2, i] = planes[2, c];
-            }
-            planes = newPlanes;
+
         }
 
         #endregion
@@ -419,10 +435,9 @@ namespace PlaneGeneration {
         /// <summary>
         /// Plane Generator Rules by player level
         /// </summary>
-        private void ManageLevelGenerationVariables()
+        private void ManageLevelGenerationState()
         {
-
-
+            
             switch (currentPlayerLevel)
             {
                 case 1:

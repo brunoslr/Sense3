@@ -102,10 +102,14 @@ public class TutorialManager : MonoBehaviour {
         EventBusManager.onObstacleEvent -= CheckVisualCollision;
     }
 
+    void FixedUpdate()
+    {
+        UpdatePlane();
+    }
+
     // Update is called once per frame
     void Update () 
     {
-        UpdatePlane();
         if (Input.GetButton("Cancel"))
         {
             levelLoader.LoadScene("MainMenu");
