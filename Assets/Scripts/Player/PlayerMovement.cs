@@ -59,9 +59,7 @@ public class PlayerMovement : MonoBehaviour
     private SoundEffectsManager soundEffectsManager;
 
     private CameraMovement cameraMovement;
-
-    private LineRenderer lineRenderer;
-
+    
     [HideInInspector]public bool playerInsideMine;
 
     void Start()
@@ -77,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
         soundEffectsManager = SoundEffectsManager.instance;
         rigidBody = this.GetComponent<Rigidbody>();
         cameraMovement = mainCamera.GetComponent<CameraMovement>();
-        lineRenderer = this.GetComponent<LineRenderer>();
         isGrounded = true;
         collisionTempTime = EventBusManager.coolDownTimeInSeconds;
         coolDownflag = false;   
@@ -117,9 +114,7 @@ public class PlayerMovement : MonoBehaviour
         {
             JumpPlayer();
         }
-
-        lineRenderer.SetPosition(0, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 0.5f));
-        lineRenderer.SetPosition(1, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + linezOffset));
+        
     }
 
     void MovePlayerForward()

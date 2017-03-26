@@ -91,82 +91,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &38895056
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 38895057}
-  - component: {fileID: 38895058}
-  - component: {fileID: 38895059}
-  m_Layer: 0
-  m_Name: TutorialGO
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &38895057
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 38895056}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &38895058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 38895056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cd934cf85021994caae785e2978bf98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundObstacleprefab: {fileID: 173268, guid: cce816729b5e1e34d82e8b3a04687079, type: 2}
-  rumbleObstaclePrefab: {fileID: 175060, guid: 23aff0babb32e3840b1b75545dff5801, type: 2}
-  playerGameObject: {fileID: 2043800002}
-  screenText: {fileID: 1416030831}
-  obstaclePrefab: {fileID: 164434, guid: 6331028c65938604b8112a0e3ec60c52, type: 2}
-  alignedWithSound: Good job! Keep going straight till you pickup the sound.
-  notAlignedWithSound: Move in the direction of sound till you hear it on both ears
-  outofSound: You have moved out of the sound zone.
-  gotTheSound: Good job! You got the sound. Keep collecting more as these act as your
-    lives.
-  alignedWithRumble: Move away from the blackhole that is trying to pull you. The
-    levels of vibration tell you how close you are.
-  notAlignedWithRumble: Good job! You are out of the range of the blackhole. Keep
-    going straight till you completely avoid it.
-  collidedRumble: You collided into the blackhole. You lose a track. If you want to
-    survive, don't run out of tracks.
-  passedRumble: Good job! You passed the blackhole.
-  passedVisual: 'Good job! You avoided the obstacle.  '
-  collidedVisual: You collided into the obstacle. You lose a track. If you want to
-    survive, don't run out of tracks.
-  avoidVisual: Move away or use the jump key to avoid the obstacle.
-  soundObstacleDispX: 40
-  nextMechanicTimer: 4
---- !u!114 &38895059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 38895056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 587ae634e2a093248bb09e859979816a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planePrefab: {fileID: 198202, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
 --- !u!1 &62031653
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,6 +622,58 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 476510, guid: 0ab0c89079e1d9f4c802a4c3f7778ff2, type: 2}
   m_PrefabInternal: {fileID: 1043070488}
+--- !u!1001 &609230329
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4249168772871408, guid: 15c875d0c6ea9ce4e97fa4c8ce9744dd, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249168772871408, guid: 15c875d0c6ea9ce4e97fa4c8ce9744dd, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249168772871408, guid: 15c875d0c6ea9ce4e97fa4c8ce9744dd, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249168772871408, guid: 15c875d0c6ea9ce4e97fa4c8ce9744dd, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249168772871408, guid: 15c875d0c6ea9ce4e97fa4c8ce9744dd, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249168772871408, guid: 15c875d0c6ea9ce4e97fa4c8ce9744dd, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249168772871408, guid: 15c875d0c6ea9ce4e97fa4c8ce9744dd, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249168772871408, guid: 15c875d0c6ea9ce4e97fa4c8ce9744dd, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114196658069859362, guid: 15c875d0c6ea9ce4e97fa4c8ce9744dd,
+        type: 2}
+      propertyPath: playerGameObject
+      value: 
+      objectReference: {fileID: 2043800002}
+    - target: {fileID: 114196658069859362, guid: 15c875d0c6ea9ce4e97fa4c8ce9744dd,
+        type: 2}
+      propertyPath: screenText
+      value: 
+      objectReference: {fileID: 1416030831}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 15c875d0c6ea9ce4e97fa4c8ce9744dd, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &899230388 stripped
 Transform:
   m_PrefabParentObject: {fileID: 498248, guid: 8d1426dba7f98d7429f413bca38e9381, type: 2}

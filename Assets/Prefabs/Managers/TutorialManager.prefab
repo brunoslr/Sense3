@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1139692301269450}
+  m_IsPrefabParent: 1
+--- !u!1 &1139692301269450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4249168772871408}
+  - component: {fileID: 114196658069859362}
+  - component: {fileID: 114107012438652584}
+  - component: {fileID: 114803554782121986}
+  m_Layer: 0
+  m_Name: TutorialManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4249168772871408
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139692301269450}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114107012438652584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139692301269450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587ae634e2a093248bb09e859979816a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planePrefab: {fileID: 198202, guid: 53c8d1e4422112a4ab13a93ce8246699, type: 2}
+--- !u!114 &114196658069859362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139692301269450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd934cf85021994caae785e2978bf98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundObstacleprefab: {fileID: 173268, guid: cce816729b5e1e34d82e8b3a04687079, type: 2}
+  rumbleObstaclePrefab: {fileID: 175060, guid: 23aff0babb32e3840b1b75545dff5801, type: 2}
+  playerGameObject: {fileID: 0}
+  screenText: {fileID: 0}
+  obstaclePrefab: {fileID: 164434, guid: 6331028c65938604b8112a0e3ec60c52, type: 2}
+  alignedWithSound: Good job! Keep going straight till you pickup the sound.
+  notAlignedWithSound: Move in the direction of sound till you hear it on both ears
+  outofSound: You have moved out of the sound zone.
+  gotTheSound: Good job! You got the sound. Keep collecting more as these act as your
+    lives.
+  alignedWithRumble: Move away from the blackhole that is trying to pull you. The
+    levels of vibration tell you how close you are.
+  notAlignedWithRumble: Good job! You are out of the range of the blackhole. Keep
+    going straight till you completely avoid it.
+  collidedRumble: You collided into the blackhole. You lose a track. If you want to
+    survive, don't run out of tracks.
+  passedRumble: Good job! You passed the blackhole.
+  passedVisual: 'Good job! You avoided the obstacle.  '
+  collidedVisual: You collided into the obstacle. You lose a track. If you want to
+    survive, don't run out of tracks.
+  avoidVisual: Move away or use the jump key to avoid the obstacle.
+  soundObstacleDispX: 40
+  nextMechanicTimer: 4
+--- !u!114 &114803554782121986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139692301269450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78201363abbc7341b32873247690a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visObsCrashSound: {fileID: 8300000, guid: b8d8f15a668744caf80e164b3d75bfee, type: 3}
+  minObsCrashSound: {fileID: 0}
+  audPickupSound: {fileID: 8300000, guid: 7fff4581da1dc4df18c436113b548e8e, type: 3}
+  audMissedSound: {fileID: 8300000, guid: 3f1786b137f95400f95b290e0efb9fb6, type: 3}
+  movPlayerLeftSound: {fileID: 0}
+  movPlayerRightSound: {fileID: 0}
+  jumpPlayerSound: {fileID: 0}
+  masterVolume: 0.75
