@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-#pragma warning disable 618 // Disable obsolete warning for spectrum class
-
 public class FloorLights : MonoBehaviour
 {
 
@@ -66,7 +64,14 @@ public class FloorLights : MonoBehaviour
 	
     void displayLights()
     {
+#if UNITY_WEBGL
+
+        for (int i = 0; i < length; i++)
+            spectrum[1] = UnityEngine.Random.Range(0.0f, 0.025f);
+#else
         AudioListener.GetSpectrumData(spectrum, 0, window);
+#endif
+
         uint diff = fullLength / length;
         int j = 0;
         const float max = 0.25f;
@@ -95,7 +100,7 @@ public class FloorLights : MonoBehaviour
     }
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
         //This is temporary : change when convenient
         if (Math.Abs(Player.transform.position.x - NewSP_handle.position.x) < accuracy &&

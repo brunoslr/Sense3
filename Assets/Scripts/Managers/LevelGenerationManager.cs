@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 
 
-public class PlaneGenerationManager : MonoBehaviour
+public class LevelGenerationManager : MonoBehaviour
 {
-    public static PlaneGenerationManager instance;
+    public static LevelGenerationManager instance;
 
     public GameObject player;
     public int numberOfDificultySettings = 3;

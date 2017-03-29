@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CreateSO : MonoBehaviour {
+public class CreateSoundObstacle : MonoBehaviour {
 
     public Vector3 scaleSO;         // scale of sound obstacle
 

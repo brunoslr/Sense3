@@ -26,7 +26,7 @@ public class EventBusManager : MonoBehaviour {
     public delegate void OnSoundMissEvent();
     public static event OnCollisionEvent onSoundEvent;
     public static event OnCollisionEvent onObstacleEvent;
-    public static event OnSoundMissEvent trackMissedEvent;
+    public static event OnSoundMissEvent onTrackMissedEvent;
 
 
     void Awake()
@@ -59,8 +59,8 @@ public class EventBusManager : MonoBehaviour {
 
     public static void ExecuteTrackMissEvent()
     {
-        if (trackMissedEvent != null)
-            trackMissedEvent();
+        if (onTrackMissedEvent != null)
+            onTrackMissedEvent();
     }
 
 

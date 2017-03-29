@@ -15,7 +15,6 @@ public class PlayerStateScript : MonoBehaviour {
     private static int playerLevel; // Changed it to static, might affect player sound levels.
     private bool finalState;
     private LevelLoader levelLoader;
-    //private GameObject player;
     private GameObject mainCamera;
 
 
@@ -46,8 +45,6 @@ public class PlayerStateScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         playerLevel = 0;
-        
-        //player = GameObject.FindWithTag("Player");
         finalState = false;
         levelLoader = gameObject.AddComponent<LevelLoader>();
        

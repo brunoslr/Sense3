@@ -20,7 +20,7 @@ public class SoundEffectsManager : MonoBehaviour
     private AudioSource movPlayerAudioSource;
     private AudioSource jumpPlayerAudioSource;
 
-    public float masterVolume;
+   // public float masterVolume;
 
     void Awake()
     {
@@ -38,14 +38,14 @@ public class SoundEffectsManager : MonoBehaviour
         jumpPlayerAudioSource = this.gameObject.AddComponent<AudioSource>();
         EventBusManager.onObstacleEvent += VisualObstacleCrashSound;
         EventBusManager.onSoundEvent += AudioObstaclePickupSound;
-        EventBusManager.trackMissedEvent += AudioObstacleMissSound;
+        EventBusManager.onTrackMissedEvent += AudioObstacleMissSound;
     }
 
     void OnDestroy()
     {
         EventBusManager.onObstacleEvent -= VisualObstacleCrashSound;
         EventBusManager.onSoundEvent -= AudioObstaclePickupSound;
-        EventBusManager.trackMissedEvent -= AudioObstacleMissSound;
+        EventBusManager.onTrackMissedEvent -= AudioObstacleMissSound;
     }
 
     // Update is called once per frame

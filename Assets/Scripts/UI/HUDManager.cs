@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour {
@@ -7,16 +6,19 @@ public class HUDManager : MonoBehaviour {
     public Sprite[] spritesheet;
     public Text scoreText;
     // Use this for initialization
+
+    void Awake()
+    {
+        PlayerStateScript.updateSoundPickup += this.DisplaySoundCount;
+    }
+
     void Start () {
         // Subscribe the function to eventmanager event
-        PlayerStateScript.updateSoundPickup += this.DisplaySoundCount;
+       
         soundPickupImage.GetComponent<Image>().sprite = spritesheet[0];
         scoreText = soundPickupImage.GetComponentInChildren<Text>();
     }
 	
-	// Update is called once per frame
-	void Update () {
-	}
    
     public void DisplaySoundCount() {
         if (PlayerStateScript.GetPlayerLevel() >= 0 && PlayerStateScript.GetPlayerLevel() <= 7)
